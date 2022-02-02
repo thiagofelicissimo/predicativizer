@@ -1,0 +1,92 @@
+#REQUIRE eq_rect_r_univ.
+#REQUIRE eq_rect_r_sol.
+def eq_rect_r :
+  cts.Term
+    eq_rect_r_univ.?42
+    (cts.prod
+       eq_rect_r_univ.?43
+       eq_rect_r_univ.?44
+       eq_rect_r_univ.?45
+       cts.I
+       (cts.univ eq_rect_r_univ.?46 eq_rect_r_univ.?47 cts.I)
+       (x =>
+        cts.prod
+          eq_rect_r_univ.?48
+          eq_rect_r_univ.?49
+          eq_rect_r_univ.?50
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             eq_rect_r_univ.?51
+             eq_rect_r_univ.?52
+             eq_rect_r_univ.?53
+             cts.I
+             x
+             (x1 =>
+              cts.prod
+                eq_rect_r_univ.?54
+                eq_rect_r_univ.?55
+                eq_rect_r_univ.?56
+                cts.I
+                (eq.eq eq_rect_r_univ.?57 eq_rect_r_univ.?58 x x1 x0)
+                (x2 =>
+                 cts.prod
+                   eq_rect_r_univ.?59
+                   eq_rect_r_univ.?60
+                   eq_rect_r_univ.?61
+                   cts.I
+                   (cts.prod
+                      eq_rect_r_univ.?62
+                      eq_rect_r_univ.?63
+                      eq_rect_r_univ.?64
+                      cts.I
+                      x
+                      (x3 => cts.univ eq_rect_r_univ.?65 eq_rect_r_univ.?66 cts.I))
+                   (x3 =>
+                    cts.prod
+                      eq_rect_r_univ.?67
+                      eq_rect_r_univ.?68
+                      eq_rect_r_univ.?69
+                      cts.I
+                      (x3 x0)
+                      (x4 => x3 x1)))))))
+  :=
+  A:(cts.Term eq_rect_r_univ.?97 (cts.univ eq_rect_r_univ.?98 eq_rect_r_univ.?99 cts.I)) =>
+  a:(cts.Term eq_rect_r_univ.?96 A) =>
+  x:(cts.Term eq_rect_r_univ.?95 A) =>
+  p:(cts.Term eq_rect_r_univ.?92 (eq.eq eq_rect_r_univ.?93 eq_rect_r_univ.?94 A x a)) =>
+  eq_ind.eq_ind
+    eq_rect_r_univ.?70
+    eq_rect_r_univ.?71
+    eq_rect_r_univ.?72
+    A
+    x
+    (__:(cts.Term eq_rect_r_univ.?84 A) =>
+     cts.prod
+       eq_rect_r_univ.?73
+       eq_rect_r_univ.?74
+       eq_rect_r_univ.?75
+       cts.I
+       (cts.prod
+          eq_rect_r_univ.?76
+          eq_rect_r_univ.?77
+          eq_rect_r_univ.?78
+          cts.I
+          A
+          (x0 => cts.univ eq_rect_r_univ.?79 eq_rect_r_univ.?80 cts.I))
+       (x0 =>
+        cts.prod eq_rect_r_univ.?81 eq_rect_r_univ.?82 eq_rect_r_univ.?83 cts.I (x0 __) (x1 => x0 x)))
+    (P:(cts.Term
+          eq_rect_r_univ.?86
+          (cts.prod
+             eq_rect_r_univ.?87
+             eq_rect_r_univ.?88
+             eq_rect_r_univ.?89
+             cts.I
+             A
+             (x0 => cts.univ eq_rect_r_univ.?90 eq_rect_r_univ.?91 cts.I))) =>
+     auto:(cts.Term eq_rect_r_univ.?85 (P x)) => auto)
+    a
+    p.
+

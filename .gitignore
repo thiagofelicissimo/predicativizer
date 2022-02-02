@@ -1,0 +1,6 @@
+*~
+*.dk*
+#*#
+*program
+*.cm*
+!example/*.dk

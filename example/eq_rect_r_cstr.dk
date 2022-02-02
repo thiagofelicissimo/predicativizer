@@ -1,0 +1,168 @@
+#REQUIRE eq_rect_r_univ.
+
+(; eq_rect_r ;)
+
+[] cts.Rule eq_rect_r_univ.?43 eq_rect_r_univ.?44 eq_rect_r_univ.?45 --> cts.true.
+
+
+[] cts.Axiom eq_rect_r_univ.?46 eq_rect_r_univ.?47 --> cts.true.
+
+
+[] eq_rect_r_univ.?47 --> eq_rect_r_univ.?43.
+
+
+[] cts.Rule eq_rect_r_univ.?48 eq_rect_r_univ.?49 eq_rect_r_univ.?50 --> cts.true.
+
+
+[] eq_rect_r_univ.?48 --> eq_rect_r_univ.?46.
+
+
+[] cts.Rule eq_rect_r_univ.?51 eq_rect_r_univ.?52 eq_rect_r_univ.?53 --> cts.true.
+
+
+[] eq_rect_r_univ.?51 --> eq_rect_r_univ.?46.
+
+
+[] cts.Rule eq_rect_r_univ.?54 eq_rect_r_univ.?55 eq_rect_r_univ.?56 --> cts.true.
+
+
+[] eq_rect_r_univ.?58 --> eq_rect_r_univ.?46.
+
+
+[] eq_rect_r_univ.?57 --> eq_rect_r_univ.?54.
+
+
+[] cts.Rule eq_rect_r_univ.?59 eq_rect_r_univ.?60 eq_rect_r_univ.?61 --> cts.true.
+
+
+[] cts.Rule eq_rect_r_univ.?62 eq_rect_r_univ.?63 eq_rect_r_univ.?64 --> cts.true.
+
+
+[] eq_rect_r_univ.?62 --> eq_rect_r_univ.?46.
+
+
+[] cts.Axiom eq_rect_r_univ.?65 eq_rect_r_univ.?66 --> cts.true.
+
+
+[] eq_rect_r_univ.?66 --> eq_rect_r_univ.?63.
+
+
+[] eq_rect_r_univ.?64 --> eq_rect_r_univ.?59.
+
+
+[] cts.Rule eq_rect_r_univ.?67 eq_rect_r_univ.?68 eq_rect_r_univ.?69 --> cts.true.
+
+
+[] eq_rect_r_univ.?67 --> eq_rect_r_univ.?65.
+
+
+[] eq_rect_r_univ.?68 --> eq_rect_r_univ.?65.
+
+
+[] eq_rect_r_univ.?69 --> eq_rect_r_univ.?60.
+
+
+[] eq_rect_r_univ.?61 --> eq_rect_r_univ.?55.
+
+
+[] eq_rect_r_univ.?56 --> eq_rect_r_univ.?52.
+
+
+[] eq_rect_r_univ.?53 --> eq_rect_r_univ.?49.
+
+
+[] eq_rect_r_univ.?50 --> eq_rect_r_univ.?44.
+
+
+[] eq_rect_r_univ.?45 --> eq_rect_r_univ.?42.
+
+
+[] cts.Axiom eq_rect_r_univ.?98 eq_rect_r_univ.?99 --> cts.true.
+
+
+[] eq_rect_r_univ.?99 --> eq_rect_r_univ.?97.
+
+
+[] eq_rect_r_univ.?98 --> eq_rect_r_univ.?46.
+
+
+[] eq_rect_r_univ.?96 --> eq_rect_r_univ.?46.
+
+
+[] eq_rect_r_univ.?95 --> eq_rect_r_univ.?46.
+
+
+[] eq_rect_r_univ.?94 --> eq_rect_r_univ.?46.
+
+
+[] eq_rect_r_univ.?93 --> eq_rect_r_univ.?92.
+
+
+[] eq_rect_r_univ.?92 --> eq_rect_r_univ.?54.
+
+
+[] eq_rect_r_univ.?70 --> eq_rect_r_univ.?46.
+
+
+[] eq_rect_r_univ.?84 --> eq_rect_r_univ.?46.
+
+
+[] cts.Rule eq_rect_r_univ.?73 eq_rect_r_univ.?74 eq_rect_r_univ.?75 --> cts.true.
+
+
+[] cts.Rule eq_rect_r_univ.?76 eq_rect_r_univ.?77 eq_rect_r_univ.?78 --> cts.true.
+
+
+[] eq_rect_r_univ.?76 --> eq_rect_r_univ.?46.
+
+
+[] cts.Axiom eq_rect_r_univ.?79 eq_rect_r_univ.?80 --> cts.true.
+
+
+[] eq_rect_r_univ.?80 --> eq_rect_r_univ.?77.
+
+
+[] eq_rect_r_univ.?78 --> eq_rect_r_univ.?73.
+
+
+[] cts.Rule eq_rect_r_univ.?81 eq_rect_r_univ.?82 eq_rect_r_univ.?83 --> cts.true.
+
+
+[] eq_rect_r_univ.?81 --> eq_rect_r_univ.?79.
+
+
+[] eq_rect_r_univ.?82 --> eq_rect_r_univ.?79.
+
+
+[] eq_rect_r_univ.?83 --> eq_rect_r_univ.?74.
+
+
+[] eq_rect_r_univ.?75 --> eq_rect_r_univ.?72.
+
+
+[] cts.Rule eq_rect_r_univ.?87 eq_rect_r_univ.?88 eq_rect_r_univ.?89 --> cts.true.
+
+
+[] eq_rect_r_univ.?87 --> eq_rect_r_univ.?46.
+
+
+[] cts.Axiom eq_rect_r_univ.?90 eq_rect_r_univ.?91 --> cts.true.
+
+
+[] eq_rect_r_univ.?91 --> eq_rect_r_univ.?88.
+
+
+[] eq_rect_r_univ.?89 --> eq_rect_r_univ.?86.
+
+
+[] eq_rect_r_univ.?90 --> eq_rect_r_univ.?79.
+
+
+[] eq_rect_r_univ.?85 --> eq_rect_r_univ.?79.
+
+
+[] eq_rect_r_univ.?71 --> eq_rect_r_univ.?54.
+
+
+[] eq_rect_r_univ.?79 --> eq_rect_r_univ.?65.
+

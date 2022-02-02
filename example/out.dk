@@ -1,0 +1,92 @@
+#REQUIRE eq_rect_r_univ.
+#REQUIRE eq_rect_r_sol.
+def eq_rect_r :
+  cts.Term
+    (cts.max (cts.succ l46) (cts.max l46 (cts.max l46 (cts.max l54 (cts.max (cts.max l46 (cts.succ l65)) (cts.max l65 l65))))))
+    (cts.prod
+       (cts.succ l46)
+       (cts.max l46 (cts.max l46 (cts.max l54 (cts.max (cts.max l46 (cts.succ l65)) (cts.max l65 l65)))))
+       (cts.max (cts.succ l46) (cts.max l46 (cts.max l46 (cts.max l54 (cts.max (cts.max l46 (cts.succ l65)) (cts.max l65 l65))))))
+       cts.I
+       (cts.univ l46 (cts.succ l46) cts.I)
+       (x =>
+        cts.prod
+          l46
+          (cts.max l46 (cts.max l54 (cts.max (cts.max l46 (cts.succ l65)) (cts.max l65 l65))))
+          (cts.max l46 (cts.max l46 (cts.max l54 (cts.max (cts.max l46 (cts.succ l65)) (cts.max l65 l65)))))
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             l46
+             (cts.max l54 (cts.max (cts.max l46 (cts.succ l65)) (cts.max l65 l65)))
+             (cts.max l46 (cts.max l54 (cts.max (cts.max l46 (cts.succ l65)) (cts.max l65 l65))))
+             cts.I
+             x
+             (x1 =>
+              cts.prod
+                l54
+                (cts.max (cts.max l46 (cts.succ l65)) (cts.max l65 l65))
+                (cts.max l54 (cts.max (cts.max l46 (cts.succ l65)) (cts.max l65 l65)))
+                cts.I
+                (eq.eq l54 l46 x x1 x0)
+                (x2 =>
+                 cts.prod
+                   (cts.max l46 (cts.succ l65))
+                   (cts.max l65 l65)
+                   (cts.max (cts.max l46 (cts.succ l65)) (cts.max l65 l65))
+                   cts.I
+                   (cts.prod
+                      l46
+                      (cts.succ l65)
+                      (cts.max l46 (cts.succ l65))
+                      cts.I
+                      x
+                      (x3 => cts.univ l65 (cts.succ l65) cts.I))
+                   (x3 =>
+                    cts.prod
+                      l65
+                      l65
+                      (cts.max l65 l65)
+                      cts.I
+                      (x3 x0)
+                      (x4 => x3 x1)))))))
+  :=
+  A:(cts.Term (cts.succ l46) (cts.univ l46 (cts.succ l46) cts.I)) =>
+  a:(cts.Term l46 A) =>
+  x:(cts.Term l46 A) =>
+  p:(cts.Term l54 (eq.eq l54 l46 A x a)) =>
+  eq_ind.eq_ind
+    l46
+    l54
+    (cts.max (cts.max l46 (cts.succ l65)) (cts.max l65 l65))
+    A
+    x
+    (__:(cts.Term l46 A) =>
+     cts.prod
+       (cts.max l46 (cts.succ l65))
+       (cts.max l65 l65)
+       (cts.max (cts.max l46 (cts.succ l65)) (cts.max l65 l65))
+       cts.I
+       (cts.prod
+          l46
+          (cts.succ l65)
+          (cts.max l46 (cts.succ l65))
+          cts.I
+          A
+          (x0 => cts.univ l65 (cts.succ l65) cts.I))
+       (x0 =>
+        cts.prod l65 l65 (cts.max l65 l65) cts.I (x0 __) (x1 => x0 x)))
+    (P:(cts.Term
+          (cts.max l46 (cts.succ l65))
+          (cts.prod
+             l46
+             (cts.succ l65)
+             (cts.max l46 (cts.succ l65))
+             cts.I
+             A
+             (x0 => cts.univ l65 (cts.succ l65) cts.I))) =>
+     auto:(cts.Term l65 (P x)) => auto)
+    a
+    p.
+
