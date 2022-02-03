@@ -161,11 +161,18 @@ let rec substitute_in_file subst fin fout =
   with
     _ -> ()
 
+let to_dependencies n name =
+  let rec n_star n =
+    if n = 0 then ""
+    else " cts.star" ^ n_star (n-1)
+  in Printf.printf "%s.%s %s" name name (n_star n) 
+       
 exception NoSolution
         
 let () =
-  let input_file_name = Sys.argv.(1) in
-  let constraints_file_name = Sys.argv.(2) in
+  let name = Sys.argv.(1) in
+  let input_file_name = name ^ ".dk" in
+  let constraints_file_name = name ^ "_cstr.dk" in
   let input_file = open_in input_file_name in
   let constraints_file = open_in constraints_file_name in
   let temp_file = open_out "temp.dk" in
@@ -181,5 +188,6 @@ let () =
   let output_file = open_out "out.dk" in  
   let var_list = get_var_list (List.map (fun (x,y) -> y) subst) in
   add_up temp_file output_file var_list;
+  to_dependencies (List.length var_list) name;
   close_in input_file;
   close_in constraints_file

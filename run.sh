@@ -1,6 +1,6 @@
-$name=eq
-$file=$(printf "%s.dk" $name)
-$constraints=$(printf "%s_cstr.dk" $name)
+name=$1
+file=$(printf "%s.dk" $name)
+constraints=$(printf "%s_cstr.dk" $name)
 
 rm program
 ocamlc -o program str.cma unif.ml
@@ -16,9 +16,9 @@ dune exec universo -- --check-only -o temp_univ \
      $(printf "ctslib/%s " $file)
 
 cd temp_univ
-../program $file $constraints
+to_dependencies=$(../program $name)
 cp out.dk ../final/$file
 cd ../final
 dkcheck -e -I ../theory $file
-
-
+cd ../ctslib
+sed -i "s/$name.$name/$to_dependencies/" *.dk
