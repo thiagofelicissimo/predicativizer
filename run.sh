@@ -21,4 +21,4 @@ cp out.dk ../final/$file
 cd ../final
 dkcheck -e -I ../theory $file
 cd ../ctslib
-sed -i "s/$name.$name/$to_dependencies/" *.dk
+sed -i "s/$name.$name/$to_dependencies/g" *.dk

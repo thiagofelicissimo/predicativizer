@@ -111,7 +111,8 @@ let rec add_up fin fout list_var =
     | [] -> ""
     | x :: l' -> " " ^ x ^ " =>" ^ generate_up_abs l' in         
   let require = Str.regexp "#REQUIRE" in
-  let def = Str.regexp ":=" in  
+  let def = Str.regexp ":=" in
+  let decl = Str.regexp ":" in
   let s = ref (input_line fin) in        
   try (* removes #REQUIRE *)
     while true do
@@ -121,7 +122,8 @@ let rec add_up fin fout list_var =
   with
     _ ->
     (* prints (x1 : cts.Sort) -> ... *)
-    Printf.fprintf fout "%s%s\n" !s (generate_up_prod list_var);
+    let with_quantification = replace_first decl (": " ^ (generate_up_prod list_var)) !s in
+    Printf.fprintf fout "%s\n" with_quantification;
     (* prints x1 => x2 => ... *)    
     try
       while true do
@@ -135,7 +137,7 @@ let rec add_up fin fout list_var =
     with _ -> ()
 
             
-let rec substitute_in_string (subst : (string * lvl) list) (s : string) =
+let rec substitute_in_string (subst : (string * lvl) list) (s : string) var_list =
   let reg = Str.regexp "\\([A-Za-z0-9_\\?]+\\).\\?\\([A-Za-z0-9_\\?]+\\)" in
   let reg_of file lvl = Str.regexp (file ^ ".\\?" ^ lvl) in  
   let s = ref s in
@@ -146,26 +148,27 @@ let rec substitute_in_string (subst : (string * lvl) list) (s : string) =
         let exp =
           match find_y subst ("l" ^ lvl_id) with
           | Some y -> print_lvl y
-          | None -> "l" ^ lvl_id in
+          | None -> var_list := ("l" ^ lvl_id) :: !var_list; "l" ^ lvl_id in
         s := global_replace (reg_of file_id lvl_id) exp !s
       done; !s
   with _ -> !s
 
 let rec substitute_in_file subst fin fout =
+  let var_list = ref [] in
   try
     while true do
       let s = input_line fin in
-      let s' = substitute_in_string subst s in
-      Printf.fprintf fout "%s\n" s'
-    done
+      let s' = substitute_in_string subst s var_list in
+      Printf.fprintf fout "%s\n" s' 
+    done; raise E
   with
-    _ -> ()
+    _ -> !var_list
 
 let to_dependencies n name =
   let rec n_star n =
     if n = 0 then ""
     else " cts.star" ^ n_star (n-1)
-  in Printf.printf "%s.%s %s" name name (n_star n) 
+  in Printf.printf "(%s.%s %s)" name name (n_star n) 
        
 exception NoSolution
         
@@ -182,11 +185,11 @@ let () =
     match unify [] consts with
     | Some x -> x
     | _ -> raise NoSolution in
-  substitute_in_file subst input_file temp_file;
+  let var_list = substitute_in_file subst input_file temp_file in
   close_out temp_file;
   let temp_file = open_in "temp.dk" in
   let output_file = open_out "out.dk" in  
-  let var_list = get_var_list (List.map (fun (x,y) -> y) subst) in
+  (*  let var_list = get_var_list (List.map (fun (x,y) -> y) subst) in*)
   add_up temp_file output_file var_list;
   to_dependencies (List.length var_list) name;
   close_in input_file;

@@ -1,0 +1,469 @@
+sym_eq_plus.dko : sym_eq_plus.dk ../theory/cts.dko eq_plus.dko filter_nat_type.dko leibniz.dko nat.dko plus.dko plus_body.dko sym_leibniz.dko
+axiom_times_body_S.dko : axiom_times_body_S.dk S.dko ../theory/cts.dko equal.dko nat.dko plus.dko times.dko times_body.dko
+transitive_sub.dko : transitive_sub.dk And.dko bool.dko conj.dko ../theory/cts.dko eq.dko lt.dko match_And_prop.dko nat.dko refl.dko rewrite_r.dko sub_hk.dko true.dko
+injective_invert_permut.dko : injective_invert_permut.dk And.dko ../theory/cts.dko eq.dko eq_ind.dko eq_ind_r.dko injn.dko invert_permut.dko invert_permut_f.dko le.dko let_clause_1068.dko match_And_prop.dko match_ex_prop.dko nat.dko permut.dko permut_to_bijn.dko refl.dko rewrite_l.dko rewrite_r.dko
+not_le_Sn_n.dko : not_le_Sn_n.dk Not.dko O.dko S.dko ../theory/cts.dko le.dko nat.dko nat_ind.dko not_le_Sn_O.dko not_le_to_not_le_S_S.dko
+match_bool_prop.dko : match_bool_prop.dk bool.dko ../theory/cts.dko false.dko true.dko
+eq_plus_body_S.dko : eq_plus_body_S.dk S.dko axiom_plus_body_S.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko nat.dko plus.dko plus_body.dko
+sym_eq_div_aux.dko : sym_eq_div_aux.dk ../theory/cts.dko div_aux.dko div_aux_body.dko eq_div_aux.dko filter_nat_type.dko leibniz.dko nat.dko sym_leibniz.dko
+axiom_div_aux_body_S.dko : axiom_div_aux_body_S.dk O.dko S.dko ../theory/cts.dko div_aux.dko div_aux_body.dko equal.dko leb.dko match_bool_type.dko minus.dko nat.dko
+eq_minus_body_O.dko : eq_minus_body_O.dk O.dko axiom_minus_body_O.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko minus_body.dko nat.dko
+eq_exp_body_O.dko : eq_exp_body_O.dk O.dko S.dko axiom_exp_body_O.dko ../theory/cts.dko equal_leibniz.dko exp_body.dko leibniz.dko nat.dko
+true_or_false.dko : true_or_false.dk Or.dko RC_reflexive.dko bool.dko ../theory/cts.dko eq.dko false.dko match_bool_prop.dko or_introl.dko refl.dko true.dko
+plus_to_minus.dko : plus_to_minus.dk commutative_plus.dko ../theory/cts.dko eq.dko eq_coerc.dko minus.dko minus_plus_m_m.dko nat.dko plus.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq.dko
+le.dko : le.dk ../theory/cts.dko nat.dko
+divides_mod_to_divides.dko : divides_mod_to_divides.dk O.dko associative_times.dko commutative_plus.dko commutative_times.dko ../theory/cts.dko distributive_times_plus.dko div.dko div_mod.dko divides.dko eq.dko eq_ind.dko eq_ind_r.dko lt.dko match_divides_prop.dko mod.dko nat.dko plus.dko quotient.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko
+axiom_leb.dko : axiom_leb.dk bool.dko ../theory/cts.dko equal.dko filter_nat_type.dko leb.dko leb_body.dko nat.dko
+le_plus_to_le_r.dko : le_plus_to_le_r.dk commutative_plus.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_plus_to_le.dko nat.dko plus.dko refl.dko rewrite_r.dko
+eq_invert_permut.dko : eq_invert_permut.dk axiom_invert_permut.dko ../theory/cts.dko equal_leibniz.dko filter_nat_type.dko invert_permut.dko invert_permut_body.dko leibniz.dko nat.dko
+sym_eq_minus.dko : sym_eq_minus.dk ../theory/cts.dko eq_minus.dko filter_nat_type.dko leibniz.dko minus.dko minus_body.dko nat.dko sym_leibniz.dko
+quotient.dko : quotient.dk ../theory/cts.dko divides.dko eq.dko nat.dko times.dko
+lt_to_le_to_lt_times.dko : lt_to_le_to_lt_times.dk O.dko ../theory/cts.dko le.dko le_to_lt_to_lt.dko lt.dko monotonic_le_times_r.dko monotonic_lt_times_l.dko nat.dko times.dko
+eq_eqb_body_O.dko : eq_eqb_body_O.dk O.dko axiom_eqb_body_O.dko bool.dko ../theory/cts.dko eqb_body.dko equal_leibniz.dko false.dko leibniz.dko match_nat_type.dko nat.dko true.dko
+distributive_times_plus.dko : distributive_times_plus.dk O.dko S.dko assoc_plus1.dko associative_plus.dko ../theory/cts.dko distributive.dko eq.dko filter_nat_type.dko nat.dko nat_ind.dko plus.dko plus_body.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_plus.dko sym_eq_plus_body_O.dko sym_eq_times.dko sym_eq_times_body_O.dko sym_eq_times_body_S.dko times.dko times_body.dko
+mk_Aop.dko : mk_Aop.dk Aop.dko ../theory/cts.dko eq.dko
+distributive_times_minus.dko : distributive_times_minus.dk Not.dko O.dko commutative_plus.dko ../theory/cts.dko decidable_lt.dko distributive.dko distributive_times_plus.dko eq.dko eq_coerc.dko eq_f.dko eq_ind.dko eq_ind_r.dko eq_minus_O.dko lt.dko lt_to_le.dko match_Or_prop.dko minus.dko monotonic_le_times_r.dko nat.dko not_lt_to_le.dko plus.dko plus_minus_m_m.dko plus_to_minus.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq.dko times.dko times_n_O.dko
+assoc.dko : assoc.dk associative_times.dko ../theory/cts.dko eq.dko nat.dko sym_eq.dko times.dko
+minus_minus_comm.dko : minus_minus_comm.dk commutative_plus.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_plus_minus_m_m.dko le_to_le_to_eq.dko minus.dko minus_plus.dko minus_plus_m_m.dko monotonic_le_minus_l.dko nat.dko plus.dko refl.dko rewrite_l.dko rewrite_r.dko
+sym_eq_match_bool_type_true.dko : sym_eq_match_bool_type_true.dk ../theory/cts.dko eq_match_bool_type_true.dko leibniz.dko match_bool_type.dko sym_leibniz.dko true.dko
+sym_eq_invert_permut.dko : sym_eq_invert_permut.dk ../theory/cts.dko eq_invert_permut.dko filter_nat_type.dko invert_permut.dko invert_permut_body.dko leibniz.dko nat.dko sym_leibniz.dko
+plus_n_Sm.dko : plus_n_Sm.dk O.dko S.dko ../theory/cts.dko eq.dko filter_nat_type.dko nat.dko nat_ind.dko plus.dko plus_body.dko refl.dko rewrite_r.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_plus.dko sym_eq_plus_body_O.dko sym_eq_plus_body_S.dko
+monotonic_lt_plus_l.dko : monotonic_lt_plus_l.dk S.dko commutative_plus.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko lt.dko monotonic.dko monotonic_le_plus_r.dko nat.dko plus.dko plus_n_Sm.dko refl.dko rewrite_r.dko
+le_n_O_to_eq.dko : le_n_O_to_eq.dk O.dko S.dko absurd.dko ../theory/cts.dko eq.dko falsity.dko le.dko match_nat_prop.dko nat.dko not_le_Sn_O.dko refl.dko
+eq_f.dko : eq_f.dk ../theory/cts.dko eq.dko eq_ind_r.dko refl.dko rewrite_l.dko
+divides_to_congruent.dko : divides_to_congruent.dk O.dko commutative_plus.dko commutative_times.dko congruent.dko ../theory/cts.dko divides.dko eq.dko eq_ind_r.dko eq_times_plus_to_congruent.dko le.dko lt.dko match_divides_prop.dko minus.dko minus_to_plus.dko nat.dko plus.dko refl.dko rewrite_r.dko times.dko
+associative_plus.dko : associative_plus.dk O.dko S.dko associative.dko ../theory/cts.dko eq.dko filter_nat_type.dko nat.dko nat_ind.dko plus.dko plus_body.dko refl.dko rewrite_r.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_plus.dko sym_eq_plus_body_O.dko sym_eq_plus_body_S.dko
+sym_eq_mod_aux.dko : sym_eq_mod_aux.dk ../theory/cts.dko eq_mod_aux.dko filter_nat_type.dko leibniz.dko mod_aux.dko mod_aux_body.dko nat.dko sym_leibniz.dko
+invert_permut_f.dko : invert_permut_f.dk O.dko S.dko absurd.dko bool.dko ../theory/cts.dko eq.dko eq_ind_r.dko eq_match_bool_type_true.dko eqb.dko eqb_n_n.dko false.dko injn.dko injn_Sn_n.dko invert_permut.dko invert_permut_body.dko le.dko le_S.dko le_S_S.dko le_ind.dko le_n.dko lt_to_not_eq.dko match_bool_type.dko match_nat_prop.dko nat.dko nmk.dko not_eq_to_eqb_false.dko refl.dko rewrite_l.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_invert_permut.dko sym_eq_invert_permut_body_O.dko sym_eq_invert_permut_body_S.dko sym_eq_match_bool_type_false.dko true.dko
+divides_gcd_nm.dko : divides_gcd_nm.dk And.dko Not.dko O.dko S.dko bool.dko commutative_gcd.dko conj.dko ../theory/cts.dko divides.dko divides_gcd_aux_mn.dko divides_n_O.dko divides_n_n.dko eq.dko eq_coerc.dko eq_filter_nat_type_O.dko eq_gcd_aux.dko eq_gcd_aux_body_O.dko eq_ind.dko eq_leb.dko eq_leb_body_O.dko eq_match_bool_type_true.dko false.dko gcd.dko gcd_O_l.dko gcd_aux.dko gcd_aux_body.dko le.dko le_O_n.dko le_n.dko le_n_Sn.dko le_to_or_lt_eq.dko leb.dko leb_body.dko leb_elim.dko lt.dko match_And_prop.dko match_Or_prop.dko match_bool_type.dko nat.dko not_le_to_lt.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko transitive_le.dko true.dko
+congruent_n_n.dko : congruent_n_n.dk congruent.dko ../theory/cts.dko mod.dko nat.dko refl.dko
+not_eq_to_eqb_false.dko : not_eq_to_eqb_false.dk Not.dko absurd.dko bool.dko ../theory/cts.dko eq.dko eqb.dko eqb_elim.dko false.dko falsity.dko nat.dko refl.dko rewrite_l.dko true.dko
+bijn_transpose.dko : bijn_transpose.dk And.dko bijn.dko bool.dko conj.dko ../theory/cts.dko eq.dko eq_ind_r.dko eq_match_bool_type_false.dko eqb.dko eqb_true_to_eq.dko ex.dko ex_intro.dko false.dko le.dko match_Or_prop.dko match_bool_type.dko nat.dko refl.dko sym_eq.dko transpose.dko transpose_i_j_i.dko transpose_i_j_j.dko true.dko true_or_false.dko
+axiom_bigop_body_O.dko : axiom_bigop_body_O.dk O.dko bigop_body.dko bool.dko ../theory/cts.dko equal.dko nat.dko
+sym_eq_gcd_aux_body_S.dko : sym_eq_gcd_aux_body_S.dk S.dko ../theory/cts.dko dividesb.dko eq_gcd_aux_body_S.dko gcd_aux.dko gcd_aux_body.dko leibniz.dko match_bool_type.dko mod.dko nat.dko sym_leibniz.dko
+not_divides_to_dividesb_false.dko : not_divides_to_dividesb_false.dk Not.dko O.dko absurd.dko bool.dko ../theory/cts.dko divides.dko dividesb.dko dividesb_true_to_divides.dko eq.dko false.dko falsity.dko lt.dko match_Or_prop.dko nat.dko refl.dko rewrite_r.dko true.dko true_or_false.dko
+le_ind.dko : le_ind.dk S.dko ../theory/cts.dko le.dko nat.dko
+sym_eq_fact_body_O.dko : sym_eq_fact_body_O.dk O.dko S.dko ../theory/cts.dko eq_fact_body_O.dko fact_body.dko leibniz.dko nat.dko sym_leibniz.dko
+plus_n_O.dko : plus_n_O.dk O.dko S.dko ../theory/cts.dko eq.dko nat.dko nat_ind.dko plus.dko plus_body.dko refl.dko rewrite_l.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_plus.dko sym_eq_plus_body_O.dko sym_eq_plus_body_S.dko
+match_nat_type.dko : match_nat_type.dk ../theory/cts.dko nat.dko
+dividesb_false_to_not_divides.dko : dividesb_false_to_not_divides.dk False.dko Not.dko O.dko S.dko absurd.dko bool.dko commutative_times.dko ../theory/cts.dko divides.dko divides_to_mod_O.dko dividesb.dko eq.dko eq_ind.dko eqb.dko eqb_body.dko eqb_false_to_not_eq.dko false.dko le_O_n.dko le_to_or_lt_eq.dko lt.dko match_Or_prop.dko match_divides_prop.dko mod.dko mod_aux.dko nat.dko nat_case.dko nmk.dko not_eq_O_S.dko not_eq_true_false.dko not_to_not.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_eqb.dko sym_eq_eqb_body_O.dko sym_eq_filter_nat_type_O.dko sym_eq_match_nat_type_O.dko times.dko times_n_O.dko true.dko
+f_invert_permut.dko : f_invert_permut.dk ../theory/cts.dko eq.dko injective_invert_permut.dko injn.dko invert_permut.dko invert_permut_f.dko le.dko match_And_prop.dko nat.dko permut.dko permut_invert_permut.dko
+div_mod_spec_to_eq2.dko : div_mod_spec_to_eq2.dk commutative_plus.dko commutative_times.dko ../theory/cts.dko div_mod_spec.dko div_mod_spec_to_eq.dko eq.dko injective_plus_r.dko lt.dko match_div_mod_spec_prop.dko nat.dko plus.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko
+eq_times_plus_to_congruent.dko : eq_times_plus_to_congruent.dk O.dko associative_plus.dko commutative_plus.dko commutative_times.dko congruent.dko ../theory/cts.dko distributive_times_plus.dko div.dko div_mod.dko div_mod_spec_div_mod.dko div_mod_spec_intro.dko div_mod_spec_to_eq2.dko eq.dko eq_ind_r.dko lt.dko lt_mod_m_m.dko mod.dko nat.dko plus.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko
+bigop_Sfalse.dko : bigop_Sfalse.dk S.dko bigop.dko bool.dko ../theory/cts.dko eq.dko eq_ind_r.dko eq_match_bool_type_false.dko false.dko match_bool_type.dko nat.dko refl.dko sym_eq_bigop_S.dko sym_eq_bigop_body_S.dko
+bigop_Strue.dko : bigop_Strue.dk S.dko bigop.dko bool.dko ../theory/cts.dko eq.dko eq_ind_r.dko eq_match_bool_type_true.dko match_bool_type.dko nat.dko refl.dko sym_eq_bigop_S.dko sym_eq_bigop_body_S.dko true.dko
+axiom_plus_body_S.dko : axiom_plus_body_S.dk S.dko ../theory/cts.dko equal.dko nat.dko plus.dko plus_body.dko
+le_O_n.dko : le_O_n.dk O.dko ../theory/cts.dko le.dko le_S.dko le_n.dko nat.dko nat_ind.dko
+eq_div_O.dko : eq_div_O.dk O.dko commutative_plus.dko commutative_times.dko ../theory/cts.dko div.dko div_mod_spec_div_mod.dko div_mod_spec_intro.dko div_mod_spec_to_eq.dko eq.dko lt.dko ltn_to_ltO.dko mod.dko nat.dko plus.dko plus_n_O.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko times_n_O.dko
+congruent_exp_pred_SO.dko : congruent_exp_pred_SO.dk And.dko False.dko Not.dko Not_ind.dko O.dko S.dko S_pred.dko absurd.dko andb.dko andb_true_l.dko bigop.dko bigop_I_gen.dko bigop_iso.dko bool.dko bool_discr.dko commutative_times.dko congruent.dko congruent_n_n.dko congruent_pi.dko congruent_to_divides.dko conj.dko ../theory/cts.dko distributive_times_minus.dko divides.dko divides_times_to_divides.dko divides_to_congruent.dko divides_to_le.dko eq.dko eq_f.dko eq_fact_pi_p.dko eq_ind.dko eq_ind_r.dko eq_match_bool_type_false.dko eq_match_bool_type_true.dko ex.dko ex_intro.dko exp.dko exp_pi_bc.dko f_invert_permut.dko fact.dko false.dko falsity.dko injn.dko invert_permut.dko invert_permut_f.dko le.dko le_O_n.dko le_S_S.dko le_S_S_to_le.dko le_n.dko le_to_leb_true.dko le_to_not_lt.dko le_to_or_lt_eq.dko leb.dko leb_body.dko leb_true_to_le.dko lt.dko lt_O_S.dko lt_O_exp.dko lt_mod_m_m.dko match_And_prop.dko match_Or_prop.dko match_bool_type.dko match_nat_prop.dko minus.dko minus_S_S.dko minus_n_O.dko mod.dko mod_O_n.dko mod_O_to_divides.dko nat.dko not_to_not.dko permut_invert_permut.dko permut_mod.dko plus.dko pred.dko prime.dko prime_to_lt_O.dko prime_to_not_divides_fact.dko quotient.dko refl.dko rewrite_l.dko rewrite_r.dko sub_hk.dko sym_eq.dko sym_eq_filter_nat_type_S.dko sym_eq_leb.dko sym_eq_leb_body_S.dko sym_eq_match_bool_type_false.dko sym_eq_match_nat_type_O.dko times.dko times_n_1.dko times_n_O.dko transitive_congruent.dko true.dko
+eq_minus_S_pred.dko : eq_minus_S_pred.dk O.dko S.dko ../theory/cts.dko eq.dko filter_nat_type.dko match_nat_type.dko minus.dko minus_body.dko minus_n_O.dko nat.dko nat_elim2.dko pred.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_match_nat_type_O.dko sym_eq_match_nat_type_S.dko sym_eq_minus.dko sym_eq_minus_body_O.dko sym_eq_minus_body_S.dko
+iso.dko : iso.dk And.dko bool.dko ../theory/cts.dko eq.dko ex.dko lt.dko nat.dko sub_hk.dko true.dko
+axiom_gcd_aux_body_O.dko : axiom_gcd_aux_body_O.dk O.dko ../theory/cts.dko equal.dko gcd_aux_body.dko nat.dko
+sym_eq_bigop_S.dko : sym_eq_bigop_S.dk S.dko bigop.dko bigop_body.dko bool.dko ../theory/cts.dko eq_bigop_S.dko leibniz.dko nat.dko sym_leibniz.dko
+leb_elim.dko : leb_elim.dk Not.dko O.dko S.dko bool.dko ../theory/cts.dko false.dko le.dko le_O_n.dko le_S_S.dko leb.dko leb_body.dko nat.dko nat_elim2.dko not_le_Sn_O.dko not_le_to_not_le_S_S.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_leb.dko sym_eq_leb_body_O.dko sym_eq_leb_body_S.dko sym_eq_match_nat_type_O.dko sym_eq_match_nat_type_S.dko true.dko
+transpose_transpose.dko : transpose_transpose.dk bool.dko ../theory/cts.dko eq.dko eq_ind_r.dko eq_match_bool_type_false.dko eqb.dko eqb_n_n.dko eqb_true_to_eq.dko false.dko match_Or_prop.dko match_bool_type.dko nat.dko refl.dko sym_eq.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko transpose.dko true.dko true_or_false.dko
+lt_O_n_elim.dko : lt_O_n_elim.dk O.dko S.dko absurd.dko ../theory/cts.dko falsity.dko le.dko lt.dko nat.dko nat_ind.dko not_le_Sn_O.dko
+eq_mod_aux.dko : eq_mod_aux.dk axiom_mod_aux.dko ../theory/cts.dko equal_leibniz.dko filter_nat_type.dko leibniz.dko mod_aux.dko mod_aux_body.dko nat.dko
+sym_eq_times.dko : sym_eq_times.dk ../theory/cts.dko eq_times.dko filter_nat_type.dko leibniz.dko nat.dko sym_leibniz.dko times.dko times_body.dko
+sym_eq_div_aux_body_O.dko : sym_eq_div_aux_body_O.dk O.dko ../theory/cts.dko div_aux_body.dko eq_div_aux_body_O.dko leibniz.dko nat.dko sym_leibniz.dko
+sym_eq_div_aux_body_S.dko : sym_eq_div_aux_body_S.dk O.dko S.dko ../theory/cts.dko div_aux.dko div_aux_body.dko eq_div_aux_body_S.dko leb.dko leibniz.dko match_bool_type.dko minus.dko nat.dko sym_leibniz.dko
+minus_O_n.dko : minus_O_n.dk O.dko S.dko ../theory/cts.dko eq.dko match_nat_prop.dko minus.dko minus_body.dko nat.dko refl.dko sym_eq_filter_nat_type_O.dko sym_eq_minus.dko sym_eq_minus_body_O.dko
+congruent_times.dko : congruent_times.dk O.dko congruent.dko ../theory/cts.dko eq.dko eq_ind_r.dko lt.dko mod.dko mod_times.dko nat.dko sym_eq.dko times.dko
+transitive_lt.dko : transitive_lt.dk S.dko ../theory/cts.dko le.dko le_S.dko le_ind.dko lt.dko nat.dko transitive.dko
+S.dko : S.dk ../theory/cts.dko nat.dko
+not_eq_to_le_to_lt.dko : not_eq_to_le_to_lt.dk Not.dko ../theory/cts.dko eq.dko le.dko le_to_or_lt_eq.dko lt.dko match_Or_prop.dko nat.dko not_le_to_lt.dko not_to_not.dko refl.dko rewrite_l.dko
+le_plus_to_le.dko : le_plus_to_le.dk O.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko filter_nat_type.dko le.dko monotonic_pred.dko nat.dko nat_ind.dko plus.dko plus_body.dko plus_n_Sm.dko pred.dko pred_Sn.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_plus.dko sym_eq_plus_body_O.dko sym_eq_plus_body_S.dko
+gcd_O_to_eq_O.dko : gcd_O_to_eq_O.dk And.dko O.dko commutative_times.dko conj.dko ../theory/cts.dko divides.dko divides_gcd_nm.dko eq.dko eq_ind.dko gcd.dko let_clause_1545.dko match_And_prop.dko match_divides_prop.dko nat.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko times_O_n.dko times_n_O.dko
+And.dko : And.dk ../theory/cts.dko
+not_le_S_S_to_not_le.dko : not_le_S_S_to_not_le.dk Not.dko S.dko ../theory/cts.dko le.dko le_S_S.dko nat.dko not_to_not.dko
+not_lt_to_le.dko : not_lt_to_le.dk Not.dko S.dko ../theory/cts.dko le.dko le_S_S_to_le.dko lt.dko nat.dko not_le_to_lt.dko not_to_not.dko
+le_S_S.dko : le_S_S.dk S.dko ../theory/cts.dko le.dko le_S.dko le_ind.dko le_n.dko nat.dko
+axiom_div_aux_body_O.dko : axiom_div_aux_body_O.dk O.dko ../theory/cts.dko div_aux_body.dko equal.dko nat.dko
+axiom_bigop_S.dko : axiom_bigop_S.dk S.dko bigop.dko bigop_body.dko bool.dko ../theory/cts.dko equal.dko nat.dko
+prime_to_lt_O.dko : prime_to_lt_O.dk O.dko S.dko ../theory/cts.dko divides.dko eq.dko lt.dko lt_S_to_lt.dko match_And_prop.dko nat.dko prime.dko
+nat_case.dko : nat_case.dk O.dko S.dko ../theory/cts.dko eq.dko nat.dko nat_ind.dko refl.dko
+minus_S_S.dko : minus_S_S.dk S.dko ../theory/cts.dko eq.dko eq_filter_nat_type_S.dko eq_match_nat_type_S.dko eq_minus.dko eq_minus_body_S.dko minus.dko minus_body.dko nat.dko refl.dko
+minus.dko : minus.dk ../theory/cts.dko nat.dko
+eq_to_eqb_true.dko : eq_to_eqb_true.dk bool.dko ../theory/cts.dko eq.dko eqb.dko eqb_n_n.dko nat.dko refl.dko rewrite_l.dko rewrite_r.dko true.dko
+trans_eq.dko : trans_eq.dk ../theory/cts.dko eq.dko eq_ind_r.dko refl.dko rewrite_l.dko rewrite_r.dko
+match_Or_prop.dko : match_Or_prop.dk Or.dko ../theory/cts.dko
+div_mod_spec_intro.dko : div_mod_spec_intro.dk ../theory/cts.dko div_mod_spec.dko eq.dko lt.dko nat.dko plus.dko times.dko
+bijn_n_Sn.dko : bijn_n_Sn.dk And.dko S.dko bijn.dko conj.dko ../theory/cts.dko eq.dko eq_coerc.dko ex.dko ex_intro.dko le.dko le_S.dko le_S_S_to_le.dko le_n.dko le_to_or_lt_eq.dko lt.dko match_And_prop.dko match_Or_prop.dko match_ex_prop.dko nat.dko refl.dko rewrite_l.dko rewrite_r.dko
+axiom_minus_body_O.dko : axiom_minus_body_O.dk O.dko ../theory/cts.dko equal.dko minus_body.dko nat.dko
+sym_eq_mod_aux_body_S.dko : sym_eq_mod_aux_body_S.dk S.dko ../theory/cts.dko eq_mod_aux_body_S.dko leb.dko leibniz.dko match_bool_type.dko minus.dko mod_aux.dko mod_aux_body.dko nat.dko sym_leibniz.dko
+eq_ind.dko : eq_ind.dk ../theory/cts.dko eq.dko
+sym_eq_minus_body_O.dko : sym_eq_minus_body_O.dk O.dko ../theory/cts.dko eq_minus_body_O.dko leibniz.dko minus_body.dko nat.dko sym_leibniz.dko
+decidable_divides.dko : decidable_divides.dk Not.dko bool.dko ../theory/cts.dko decidable.dko divides.dko dividesb.dko dividesb_false_to_not_divides.dko dividesb_true_to_divides.dko eq.dko false.dko match_Or_prop.dko nat.dko or_introl.dko or_intror.dko refl.dko rewrite_r.dko true.dko true_or_false.dko
+bigop_false.dko : bigop_false.dk O.dko S.dko bigop.dko bigop_Sfalse.dko bool.dko ../theory/cts.dko eq.dko eq_bigop_O.dko eq_bigop_body_O.dko eq_ind_r.dko false.dko nat.dko nat_ind.dko refl.dko rewrite_r.dko
+let_clause_1551.dko : let_clause_1551.dk O.dko ../theory/cts.dko eq.dko nat.dko rewrite_l.dko times.dko times_n_O.dko
+prime.dko : prime.dk And.dko O.dko S.dko ../theory/cts.dko divides.dko eq.dko lt.dko nat.dko
+gcd.dko : gcd.dk ../theory/cts.dko gcd_aux.dko leb.dko match_bool_type.dko nat.dko
+eq_times_body_S.dko : eq_times_body_S.dk S.dko axiom_times_body_S.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko nat.dko plus.dko times.dko times_body.dko
+sym_eq_exp.dko : sym_eq_exp.dk ../theory/cts.dko eq_exp.dko exp.dko exp_body.dko filter_nat_type.dko leibniz.dko nat.dko sym_leibniz.dko
+gcd_aux.dko : gcd_aux.dk ../theory/cts.dko nat.dko
+lt_to_not_le.dko : lt_to_not_le.dk Not.dko S.dko ../theory/cts.dko le.dko le_ind.dko lt.dko lt_to_le.dko nat.dko not_le_Sn_n.dko not_to_not.dko
+lt_mod_m_m.dko : lt_mod_m_m.dk O.dko S.dko absurd.dko ../theory/cts.dko falsity.dko le.dko le_S_S.dko le_mod_aux_m_m.dko le_n.dko lt.dko match_nat_prop.dko mod.dko mod_aux.dko nat.dko not_le_Sn_O.dko sym_eq_match_nat_type_S.dko
+congruent_n_mod_n.dko : congruent_n_mod_n.dk O.dko congruent.dko ../theory/cts.dko lt.dko mod.dko mod_mod.dko nat.dko
+transpose_i_j_j.dko : transpose_i_j_j.dk bool.dko ../theory/cts.dko eq.dko eq_ind_r.dko eq_match_bool_type_false.dko eq_match_bool_type_true.dko eqb.dko eqb_n_n.dko eqb_true_to_eq.dko false.dko match_Or_prop.dko match_bool_type.dko nat.dko refl.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko transpose.dko true.dko true_or_false.dko
+monotonic_lt_times_r.dko : monotonic_lt_times_r.dk O.dko S.dko commutative_plus.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_ind.dko le_plus_n_r.dko lt.dko monotonic.dko monotonic_lt_plus_l.dko nat.dko plus.dko plus_O_n.dko plus_n_Sm.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko times_n_Sm.dko transitive_le.dko
+sub0_to_false.dko : sub0_to_false.dk And.dko O.dko S.dko absurd.dko bool.dko ../theory/cts.dko eq.dko eq_coerc.dko false.dko falsity.dko le.dko lt.dko match_And_prop.dko match_Or_prop.dko nat.dko not_le_Sn_O.dko refl.dko rewrite_r.dko sub_hk.dko true.dko true_or_false.dko
+let_clause_73.dko : let_clause_73.dk O.dko assoc_plus1.dko associative_plus.dko ../theory/cts.dko eq.dko lt.dko nat.dko plus.dko rewrite_l.dko
+axiom_minus.dko : axiom_minus.dk ../theory/cts.dko equal.dko filter_nat_type.dko minus.dko minus_body.dko nat.dko
+lt_to_not_zero.dko : lt_to_not_zero.dk False.dko I.dko S.dko True.dko ../theory/cts.dko le.dko le_ind.dko lt.dko nat.dko not_zero.dko sym_eq_match_nat_type_S.dko
+divides_to_gcd_aux.dko : divides_to_gcd_aux.dk O.dko S.dko bool.dko ../theory/cts.dko divides.dko divides_to_dividesb_true.dko dividesb.dko eq.dko eq_ind_r.dko gcd_aux.dko gcd_aux_body.dko lt.dko lt_O_n_elim.dko match_bool_type.dko match_nat_type.dko mod.dko mod_aux.dko nat.dko refl.dko sym_eq_filter_nat_type_S.dko sym_eq_gcd_aux.dko sym_eq_gcd_aux_body_S.dko sym_eq_match_bool_type_true.dko true.dko
+not_eq_true_false.dko : not_eq_true_false.dk False.dko Not.dko bool.dko bool_discr.dko ../theory/cts.dko eq.dko eq_match_bool_type_false.dko eq_match_bool_type_true.dko false.dko match_bool_type.dko nmk.dko true.dko
+eq_invert_permut_body_O.dko : eq_invert_permut_body_O.dk O.dko axiom_invert_permut_body_O.dko ../theory/cts.dko eqb.dko equal_leibniz.dko invert_permut_body.dko leibniz.dko match_bool_type.dko nat.dko
+div_mod.dko : div_mod.dk O.dko S.dko commutative_plus.dko ../theory/cts.dko div.dko div_aux.dko div_aux_mod_aux.dko eq.dko filter_nat_type.dko match_nat_prop.dko match_nat_type.dko mod.dko mod_aux.dko nat.dko plus.dko plus_body.dko plus_n_O.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_match_nat_type_O.dko sym_eq_match_nat_type_S.dko sym_eq_plus.dko sym_eq_plus_body_O.dko sym_eq_times.dko sym_eq_times_body_S.dko times.dko times_body.dko times_n_O.dko
+decidable_le.dko : decidable_le.dk Not.dko O.dko S.dko ../theory/cts.dko decidable.dko le.dko le_O_n.dko le_S_S.dko match_Or_prop.dko nat.dko nat_elim2.dko not_le_Sn_O.dko not_le_to_not_le_S_S.dko or_introl.dko or_intror.dko
+eq_exp_body_S.dko : eq_exp_body_S.dk S.dko axiom_exp_body_S.dko ../theory/cts.dko equal_leibniz.dko exp.dko exp_body.dko leibniz.dko nat.dko times.dko
+eqb_elim.dko : eqb_elim.dk Not.dko O.dko S.dko bool.dko ../theory/cts.dko eq.dko eqb.dko eqb_body.dko false.dko match_nat_prop.dko nat.dko nat_elim2.dko not_eq_O_S.dko not_eq_S.dko refl.dko rewrite_l.dko sym_eq_eqb.dko sym_eq_eqb_body_O.dko sym_eq_eqb_body_S.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_match_nat_type_O.dko sym_eq_match_nat_type_S.dko sym_not_eq.dko true.dko
+axiom_fact_body_O.dko : axiom_fact_body_O.dk O.dko S.dko ../theory/cts.dko equal.dko fact_body.dko nat.dko
+sym_eq_times_body_O.dko : sym_eq_times_body_O.dk O.dko ../theory/cts.dko eq_times_body_O.dko leibniz.dko nat.dko sym_leibniz.dko times_body.dko
+match_bool_type.dko : match_bool_type.dk bool.dko ../theory/cts.dko
+lt_to_le_to_lt.dko : lt_to_le_to_lt.dk O.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_ind.dko le_plus_n.dko lt.dko nat.dko plus.dko plus_O_n.dko refl.dko rewrite_l.dko transitive_lt.dko
+eq_rect_r.dko : eq_rect_r.dk ../theory/cts.dko eq.dko eq_ind.dko
+monotonic_lt_plus_r.dko : monotonic_lt_plus_r.dk S.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko lt.dko monotonic.dko monotonic_le_plus_r.dko nat.dko plus.dko plus_n_Sm.dko refl.dko rewrite_r.dko
+minus_plus_plus_l.dko : minus_plus_plus_l.dk ../theory/cts.dko eq.dko minus.dko minus_minus_comm.dko minus_plus.dko minus_plus_m_m.dko nat.dko plus.dko refl.dko rewrite_l.dko rewrite_r.dko
+minus_body.dko : minus_body.dk ../theory/cts.dko nat.dko
+exp_pi_l.dko : exp_pi_l.dk O.dko S.dko associative_times.dko bigop.dko bigop_Strue.dko bool.dko commutative_times.dko ../theory/cts.dko eq.dko eq_bigop_O.dko eq_bigop_body_O.dko eq_exp.dko eq_exp_body_O.dko eq_f2.dko eq_filter_nat_type_O.dko eq_filter_nat_type_S.dko eq_ind.dko eq_ind_r.dko eq_match_nat_type_O.dko eq_plus.dko eq_plus_body_O.dko eq_plus_body_S.dko eq_times.dko eq_times_body_O.dko eq_times_body_S.dko exp.dko exp_body.dko match_bool_type.dko match_nat_type.dko nat.dko nat_ind.dko plus_body.dko refl.dko rewrite_r.dko sym_eq_bigop_O.dko sym_eq_bigop_body_O.dko sym_eq_exp.dko sym_eq_exp_body_S.dko sym_eq_filter_nat_type_S.dko sym_eq_match_nat_type_O.dko times.dko times_body.dko times_times.dko true.dko
+eq_plus_body_O.dko : eq_plus_body_O.dk O.dko axiom_plus_body_O.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko nat.dko plus_body.dko
+mod_aux.dko : mod_aux.dk ../theory/cts.dko nat.dko
+match_divides_prop.dko : match_divides_prop.dk ../theory/cts.dko divides.dko eq.dko nat.dko times.dko
+le_pred_n.dko : le_pred_n.dk O.dko S.dko ../theory/cts.dko eq_match_nat_type_O.dko eq_match_nat_type_S.dko le.dko le_n.dko le_n_Sn.dko match_nat_type.dko nat.dko nat_ind.dko pred.dko
+eq_fact_pi_p.dko : eq_fact_pi_p.dk O.dko S.dko bigop.dko bigop_Strue.dko bool.dko commutative_times.dko ../theory/cts.dko eq.dko eq_f.dko eq_fact.dko eq_fact_body_O.dko eq_filter_nat_type_O.dko eq_ind.dko eq_ind_r.dko fact.dko fact_body.dko minus.dko minus_body.dko minus_n_O.dko nat.dko nat_ind.dko plus.dko plus_n_O.dko plus_n_Sm.dko refl.dko rewrite_l.dko sym_eq_bigop_O.dko sym_eq_bigop_body_O.dko sym_eq_fact.dko sym_eq_fact_body_S.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_match_nat_type_O.dko sym_eq_match_nat_type_S.dko sym_eq_minus.dko sym_eq_minus_body_O.dko sym_eq_minus_body_S.dko times.dko true.dko
+axiom_div_aux.dko : axiom_div_aux.dk ../theory/cts.dko div_aux.dko div_aux_body.dko equal.dko filter_nat_type.dko nat.dko
+minus_plus_m_m.dko : minus_plus_m_m.dk O.dko commutative_plus.dko ../theory/cts.dko eq.dko eq_coerc.dko le_n.dko minus.dko minus_n_n.dko nat.dko plus.dko plus_O_n.dko plus_minus.dko refl.dko rewrite_l.dko rewrite_r.dko
+False.dko : False.dk ../theory/cts.dko
+eq_mod_to_divides.dko : eq_mod_to_divides.dk Not.dko O.dko bool.dko commutative_plus.dko commutative_times.dko ../theory/cts.dko distributive_times_minus.dko div.dko div_mod.dko divides.dko divides_n_O.dko eq.dko eq_coerc.dko eq_ind.dko eq_ind_r.dko eq_times_div_minus_mod.dko le.dko leb_elim.dko lt.dko minus.dko minus_O_n.dko minus_le_minus_minus_comm.dko minus_plus.dko mod.dko nat.dko plus.dko plus_O_n.dko quotient.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq.dko times.dko
+eq.dko : eq.dk ../theory/cts.dko
+mod.dko : mod.dk ../theory/cts.dko match_nat_type.dko mod_aux.dko nat.dko
+eq_eqb_body_S.dko : eq_eqb_body_S.dk S.dko axiom_eqb_body_S.dko bool.dko ../theory/cts.dko eqb.dko eqb_body.dko equal_leibniz.dko false.dko leibniz.dko match_nat_type.dko nat.dko
+axiom_invert_permut_body_S.dko : axiom_invert_permut_body_S.dk S.dko ../theory/cts.dko eqb.dko equal.dko invert_permut.dko invert_permut_body.dko match_bool_type.dko nat.dko
+bigop_body.dko : bigop_body.dk bool.dko ../theory/cts.dko nat.dko
+axiom_leb_body_S.dko : axiom_leb_body_S.dk S.dko bool.dko ../theory/cts.dko equal.dko false.dko leb.dko leb_body.dko match_nat_type.dko nat.dko
+axiom_exp.dko : axiom_exp.dk ../theory/cts.dko equal.dko exp.dko exp_body.dko filter_nat_type.dko nat.dko
+mk_ACop.dko : mk_ACop.dk ACop.dko ../theory/cts.dko eq.dko
+lt_O_gcd.dko : lt_O_gcd.dk O.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko gcd.dko gcd_O_to_eq_O.dko let_clause_1571.dko let_clause_1572.dko lt.dko lt_O_S.dko match_And_prop.dko nat.dko nat_case.dko refl.dko rewrite_l.dko
+axiom_invert_permut.dko : axiom_invert_permut.dk ../theory/cts.dko equal.dko filter_nat_type.dko invert_permut.dko invert_permut_body.dko nat.dko
+div_times.dko : div_times.dk O.dko commutative_plus.dko ../theory/cts.dko div.dko div_mod_spec_div_mod.dko div_mod_spec_intro.dko div_mod_spec_to_eq.dko eq.dko lt.dko mod.dko nat.dko plus.dko plus_O_n.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko
+eq_match_nat_type_S.dko : eq_match_nat_type_S.dk S.dko axiom_match_nat_type_S.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko match_nat_type.dko nat.dko
+bool.dko : bool.dk ../theory/cts.dko
+bigop_diff.dko : bigop_diff.dk O.dko S.dko absurd.dko andb.dko assoc.dko bigop.dko bigop_Sfalse.dko bigop_Strue.dko bool.dko commutative_times.dko ../theory/cts.dko eq.dko eq_coerc.dko eq_f.dko eq_ind.dko eq_ind_r.dko eq_match_bool_type_false.dko eq_match_bool_type_true.dko eq_to_eqb_true.dko eqb.dko false.dko falsity.dko le.dko le_S_S_to_le.dko le_to_or_lt_eq.dko lt.dko lt_to_not_eq.dko match_Or_prop.dko match_bool_type.dko nat.dko nat_ind.dko not_eq_to_eqb_false.dko not_le_Sn_O.dko not_le_Sn_n.dko not_to_not.dko notb.dko refl.dko rewrite_l.dko rewrite_r.dko same_bigop.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko times.dko true.dko true_or_false.dko
+associative_times.dko : associative_times.dk O.dko S.dko associative.dko ../theory/cts.dko distributive_times_plus_r.dko eq.dko filter_nat_type.dko nat.dko nat_ind.dko plus.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_times.dko sym_eq_times_body_O.dko sym_eq_times_body_S.dko times.dko times_body.dko
+proj1.dko : proj1.dk And.dko ../theory/cts.dko match_And_prop.dko
+minus_le.dko : minus_le.dk ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_plus_n_r.dko minus.dko minus_plus_m_m.dko monotonic_le_minus_l.dko nat.dko plus.dko refl.dko rewrite_l.dko
+false.dko : false.dk bool.dko ../theory/cts.dko
+same_bigop.dko : same_bigop.dk O.dko S.dko bigop.dko bigop_body.dko bool.dko ../theory/cts.dko eq.dko eq_bigop_O.dko eq_bigop_body_O.dko eq_coerc.dko eq_ind.dko eq_ind_r.dko false.dko le.dko le_n.dko le_pred_n.dko match_Or_prop.dko match_bool_type.dko nat.dko nat_ind.dko pred.dko pred_Sn.dko refl.dko rewrite_l.dko sameF_p.dko sameF_p_le.dko sameF_upto.dko sameF_upto_le.dko sym_eq_bigop_O.dko sym_eq_bigop_S.dko sym_eq_bigop_body_O.dko sym_eq_bigop_body_S.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko true.dko true_or_false.dko
+refl_leibniz.dko : refl_leibniz.dk ../theory/cts.dko leibniz.dko
+assoc_plus1.dko : assoc_plus1.dk associative_plus.dko commutative_plus.dko ../theory/cts.dko eq.dko nat.dko plus.dko refl.dko rewrite_l.dko rewrite_r.dko
+eq_filter_nat_type_S.dko : eq_filter_nat_type_S.dk S.dko axiom_filter_nat_type_S.dko ../theory/cts.dko equal_leibniz.dko filter_nat_type.dko leibniz.dko nat.dko
+eqb_body.dko : eqb_body.dk bool.dko ../theory/cts.dko nat.dko
+div.dko : div.dk S.dko ../theory/cts.dko div_aux.dko match_nat_type.dko nat.dko
+injective_transpose.dko : injective_transpose.dk ../theory/cts.dko eq.dko injective_.dko nat.dko refl.dko rewrite_l.dko rewrite_r.dko transpose.dko transpose_transpose.dko
+sym_eq_invert_permut_body_O.dko : sym_eq_invert_permut_body_O.dk O.dko ../theory/cts.dko eq_invert_permut_body_O.dko eqb.dko invert_permut_body.dko leibniz.dko match_bool_type.dko nat.dko sym_leibniz.dko
+plus_minus.dko : plus_minus.dk O.dko S.dko absurd.dko ../theory/cts.dko eq.dko eq_coerc.dko eq_filter_nat_type_S.dko eq_plus.dko eq_plus_body_S.dko falsity.dko filter_nat_type.dko le.dko minus.dko minus_body.dko minus_n_O.dko monotonic_pred.dko nat.dko nat_elim2.dko not_le_Sn_O.dko plus.dko plus_body.dko pred.dko pred_Sn.dko refl.dko rewrite_l.dko sym_eq_filter_nat_type_S.dko sym_eq_match_nat_type_S.dko sym_eq_minus.dko sym_eq_minus_body_S.dko sym_eq_plus.dko sym_eq_plus_body_S.dko
+le_to_lt_to_lt.dko : le_to_lt_to_lt.dk O.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_ind.dko le_plus_n.dko lt.dko nat.dko plus.dko plus_O_n.dko refl.dko rewrite_l.dko transitive_lt.dko
+let_clause_15311.dko : let_clause_15311.dk O.dko S.dko ../theory/cts.dko divides.dko eq.dko lt.dko nat.dko plus.dko rewrite_r.dko times.dko times_n_Sm.dko
+divides_to_le.dko : divides_to_le.dk O.dko S.dko absurd.dko ../theory/cts.dko divides.dko eq.dko eq_coerc.dko eq_ind_r.dko falsity.dko le.dko le_plus_n_r.dko let_clause_1531.dko let_clause_15311.dko lt.dko match_divides_prop.dko match_nat_prop.dko nat.dko not_le_Sn_O.dko plus.dko refl.dko rewrite_l.dko times.dko times_n_Sm.dko
+not_divides_to_gcd_aux.dko : not_divides_to_gcd_aux.dk Not.dko O.dko S.dko bool.dko ../theory/cts.dko divides.dko dividesb.dko eq.dko eq_ind_r.dko false.dko gcd_aux.dko gcd_aux_body.dko lt.dko match_bool_type.dko match_nat_type.dko mod.dko mod_aux.dko nat.dko not_divides_to_dividesb_false.dko refl.dko sym_eq_filter_nat_type_S.dko sym_eq_gcd_aux.dko sym_eq_gcd_aux_body_S.dko sym_eq_match_bool_type_false.dko
+le_n.dko : le_n.dk ../theory/cts.dko le.dko nat.dko
+eq_leb_body_O.dko : eq_leb_body_O.dk O.dko axiom_leb_body_O.dko bool.dko ../theory/cts.dko equal_leibniz.dko leb_body.dko leibniz.dko nat.dko true.dko
+eq_filter_nat_type_O.dko : eq_filter_nat_type_O.dk O.dko axiom_filter_nat_type_O.dko ../theory/cts.dko equal_leibniz.dko filter_nat_type.dko leibniz.dko nat.dko
+sub_lt.dko : sub_lt.dk And.dko bool.dko conj.dko ../theory/cts.dko eq.dko le.dko lt.dko lt_to_le_to_lt.dko nat.dko refl.dko rewrite_r.dko sub_hk.dko true.dko
+eq_bigop_body_O.dko : eq_bigop_body_O.dk O.dko axiom_bigop_body_O.dko bigop_body.dko bool.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko nat.dko
+leb.dko : leb.dk bool.dko ../theory/cts.dko nat.dko
+eq_leb_body_S.dko : eq_leb_body_S.dk S.dko axiom_leb_body_S.dko bool.dko ../theory/cts.dko equal_leibniz.dko false.dko leb.dko leb_body.dko leibniz.dko match_nat_type.dko nat.dko
+axiom_match_bool_type_false.dko : axiom_match_bool_type_false.dk ../theory/cts.dko equal.dko false.dko match_bool_type.dko
+minus_n_O.dko : minus_n_O.dk O.dko S.dko ../theory/cts.dko eq.dko match_nat_prop.dko minus.dko minus_O_n.dko minus_body.dko nat.dko refl.dko rewrite_l.dko sym_eq_filter_nat_type_S.dko sym_eq_match_nat_type_O.dko sym_eq_minus.dko sym_eq_minus_body_S.dko
+divides_gcd_r.dko : divides_gcd_r.dk ../theory/cts.dko divides.dko divides_gcd_nm.dko gcd.dko nat.dko proj1.dko
+Not.dko : Not.dk ../theory/cts.dko
+eq_bigop_body_S.dko : eq_bigop_body_S.dk S.dko axiom_bigop_body_S.dko bigop.dko bigop_body.dko bool.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko match_bool_type.dko nat.dko
+monotonic.dko : monotonic.dk ../theory/cts.dko
+times_Sn_m.dko : times_Sn_m.dk S.dko ../theory/cts.dko eq.dko nat.dko plus.dko refl.dko sym_eq_filter_nat_type_S.dko sym_eq_times.dko sym_eq_times_body_S.dko times.dko times_body.dko
+div_mod_spec.dko : div_mod_spec.dk ../theory/cts.dko nat.dko
+distributive.dko : distributive.dk ../theory/cts.dko eq.dko
+andb.dko : andb.dk bool.dko ../theory/cts.dko false.dko match_bool_type.dko
+sym_eq_bigop_O.dko : sym_eq_bigop_O.dk O.dko bigop.dko bigop_body.dko bool.dko ../theory/cts.dko eq_bigop_O.dko leibniz.dko nat.dko sym_leibniz.dko
+axiom_exp_body_S.dko : axiom_exp_body_S.dk S.dko ../theory/cts.dko equal.dko exp.dko exp_body.dko nat.dko times.dko
+Aop.dko : Aop.dk ../theory/cts.dko
+bigop_iso.dko : bigop_iso.dk And.dko False.dko Not.dko O.dko S.dko absurd.dko andb.dko andb_true_r.dko bigop.dko bigop_Sfalse.dko bigop_Strue.dko bigop_diff.dko bool.dko commutative_plus.dko conj.dko ../theory/cts.dko div.dko eq.dko eq_bigop_O.dko eq_bigop_body_O.dko eq_coerc.dko eq_f.dko eq_ind_r.dko eqb.dko eqb_elim.dko ex.dko false.dko falsity.dko iso.dko le.dko le_O_n.dko le_S.dko le_S_S_to_le.dko le_gen.dko le_n.dko le_n_Sn.dko le_to_or_lt_eq.dko let_clause_10471.dko lt.dko lt_plus_Sn_r.dko lt_to_le.dko lt_to_not_eq.dko match_And_prop.dko match_Or_prop.dko match_bool_type.dko match_ex_prop.dko mod.dko nat.dko nat_ind.dko not_eq_to_eqb_false.dko not_eq_true_false.dko not_to_not.dko notb.dko plus.dko plus_O_n.dko plus_n_O.dko plus_n_Sm.dko refl.dko rewrite_l.dko rewrite_r.dko sub0_to_false.dko sub_hk.dko sub_hkO.dko sub_lt.dko sym_eq_bigop_O.dko sym_eq_bigop_body_O.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko times.dko times_O_n.dko transitive_sub.dko true.dko true_or_false.dko
+axiom_match_nat_type_S.dko : axiom_match_nat_type_S.dk S.dko ../theory/cts.dko equal.dko match_nat_type.dko nat.dko
+eq_fact_body_S.dko : eq_fact_body_S.dk S.dko axiom_fact_body_S.dko ../theory/cts.dko equal_leibniz.dko fact.dko fact_body.dko leibniz.dko nat.dko times.dko
+divides_gcd_aux_mn.dko : divides_gcd_aux_mn.dk And.dko Not.dko O.dko S.dko absurd.dko conj.dko ../theory/cts.dko decidable_divides.dko divides.dko divides_mod_to_divides.dko divides_n_n.dko divides_to_gcd_aux.dko eq.dko eq_ind_r.dko falsity.dko gcd_aux.dko le.dko le_O_n.dko le_S_S_to_le.dko le_to_not_lt.dko le_to_or_lt_eq.dko lt.dko lt_O_S.dko lt_mod_m_m.dko lt_to_le.dko match_And_prop.dko match_Or_prop.dko mod.dko mod_O_to_divides.dko nat.dko nat_ind.dko not_divides_to_gcd_aux.dko refl.dko rewrite_l.dko transitive_le.dko
+commutative.dko : commutative.dk ../theory/cts.dko eq.dko
+plus_O_n.dko : plus_O_n.dk O.dko ../theory/cts.dko eq.dko nat.dko plus.dko plus_body.dko refl.dko sym_eq_filter_nat_type_O.dko sym_eq_plus.dko sym_eq_plus_body_O.dko
+monotonic_le_plus_r.dko : monotonic_le_plus_r.dk O.dko S.dko ../theory/cts.dko filter_nat_type.dko le.dko le_S_S.dko monotonic.dko nat.dko nat_ind.dko plus.dko plus_body.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_plus.dko sym_eq_plus_body_O.dko sym_eq_plus_body_S.dko
+monotonic_le_plus_l.dko : monotonic_le_plus_l.dk commutative_plus.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko monotonic.dko monotonic_le_plus_r.dko nat.dko plus.dko refl.dko rewrite_r.dko
+let_clause_1078.dko : let_clause_1078.dk commutative_plus.dko commutative_times.dko ../theory/cts.dko div_mod_spec.dko eq.dko le.dko lt.dko nat.dko plus.dko rewrite_l.dko times.dko
+mod_aux_body.dko : mod_aux_body.dk ../theory/cts.dko nat.dko
+True.dko : True.dk ../theory/cts.dko
+sym_eq_match_bool_type_false.dko : sym_eq_match_bool_type_false.dk ../theory/cts.dko eq_match_bool_type_false.dko false.dko leibniz.dko match_bool_type.dko sym_leibniz.dko
+proj2.dko : proj2.dk And.dko ../theory/cts.dko match_And_prop.dko
+mod_times.dko : mod_times.dk O.dko associative_plus.dko associative_times.dko commutative_plus.dko commutative_times.dko ../theory/cts.dko distributive_times_plus.dko distributive_times_plus_r.dko div.dko eq.dko eq_f2.dko eq_ind.dko eq_ind_r.dko eq_times_plus_to_congruent.dko let_clause_1034.dko let_clause_73.dko lt.dko mod.dko nat.dko plus.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko times_times.dko trans_eq.dko
+lt_plus_Sn_r.dko : lt_plus_Sn_r.dk S.dko assoc_plus1.dko associative_plus.dko commutative_plus.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_S_S.dko le_plus_n_r.dko lt.dko nat.dko plus.dko plus_n_Sm.dko refl.dko rewrite_l.dko rewrite_r.dko
+notb.dko : notb.dk bool.dko ../theory/cts.dko false.dko match_bool_type.dko true.dko
+match_div_mod_spec_prop.dko : match_div_mod_spec_prop.dk ../theory/cts.dko div_mod_spec.dko eq.dko lt.dko nat.dko plus.dko times.dko
+axiom_eqb_body_O.dko : axiom_eqb_body_O.dk O.dko bool.dko ../theory/cts.dko eqb_body.dko equal.dko false.dko match_nat_type.dko nat.dko true.dko
+monotonic_le_minus_r.dko : monotonic_le_minus_r.dk ../theory/cts.dko le.dko le_plus_minus_m_m.dko le_plus_to_minus.dko minus.dko monotonic_le_plus_r.dko nat.dko plus.dko transitive_le.dko
+let_clause_1062.dko : let_clause_1062.dk Not.dko commutative_plus.dko commutative_times.dko ../theory/cts.dko div_mod_spec.dko eq.dko le.dko lt.dko nat.dko plus.dko rewrite_l.dko times.dko
+eq_leb.dko : eq_leb.dk axiom_leb.dko bool.dko ../theory/cts.dko equal_leibniz.dko filter_nat_type.dko leb.dko leb_body.dko leibniz.dko nat.dko
+andb_true_r.dko : andb_true_r.dk andb.dko bool.dko ../theory/cts.dko eq.dko false.dko match_bool_prop.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko true.dko
+times_body.dko : times_body.dk ../theory/cts.dko nat.dko
+divides_n_n.dko : divides_n_n.dk ../theory/cts.dko divides.dko nat.dko reflexive_divides.dko
+axiom_plus_body_O.dko : axiom_plus_body_O.dk O.dko ../theory/cts.dko equal.dko nat.dko plus_body.dko
+le_n_Sn.dko : le_n_Sn.dk S.dko ../theory/cts.dko le.dko le_S.dko le_n.dko nat.dko
+sym_eq_exp_body_O.dko : sym_eq_exp_body_O.dk O.dko S.dko ../theory/cts.dko eq_exp_body_O.dko exp_body.dko leibniz.dko nat.dko sym_leibniz.dko
+O.dko : O.dk ../theory/cts.dko nat.dko
+sym_eq_gcd_aux_body_O.dko : sym_eq_gcd_aux_body_O.dk O.dko ../theory/cts.dko eq_gcd_aux_body_O.dko gcd_aux_body.dko leibniz.dko nat.dko sym_leibniz.dko
+let_clause_1572.dko : let_clause_1572.dk O.dko ../theory/cts.dko eq.dko gcd.dko let_clause_1571.dko lt.dko nat.dko rewrite_r.dko
+true.dko : true.dk bool.dko ../theory/cts.dko
+leibniz.dko : leibniz.dk ../theory/cts.dko
+exp_body.dko : exp_body.dk ../theory/cts.dko nat.dko
+axiom_eqb_body_S.dko : axiom_eqb_body_S.dk S.dko bool.dko ../theory/cts.dko eqb.dko eqb_body.dko equal.dko false.dko match_nat_type.dko nat.dko
+pred.dko : pred.dk O.dko ../theory/cts.dko match_nat_type.dko nat.dko
+permut_S_to_permut_transpose.dko : permut_S_to_permut_transpose.dk S.dko absurd.dko bool.dko conj.dko ../theory/cts.dko eq.dko eq_coerc.dko eq_ind_r.dko eq_to_eqb_true.dko eqb.dko false.dko falsity.dko injective_transpose.dko injn.dko le.dko le_S.dko le_S_S.dko le_S_S_to_le.dko le_n.dko le_to_or_lt_eq.dko lt.dko lt_to_not_eq.dko lt_to_not_le.dko match_And_prop.dko match_Or_prop.dko match_bool_type.dko nat.dko nmk.dko not_eq_to_eqb_false.dko not_to_not.dko permut.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko transpose.dko true.dko
+not_le_to_leb_false.dko : not_le_to_leb_false.dk Not.dko absurd.dko bool.dko ../theory/cts.dko eq.dko false.dko falsity.dko le.dko leb.dko leb_elim.dko nat.dko refl.dko true.dko
+andb_true_l.dko : andb_true_l.dk andb.dko bool.dko ../theory/cts.dko eq.dko false.dko match_bool_prop.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko true.dko
+transpose_i_j_i.dko : transpose_i_j_i.dk bool.dko ../theory/cts.dko eq.dko eq_ind_r.dko eq_match_bool_type_true.dko eqb.dko eqb_n_n.dko match_bool_type.dko nat.dko refl.dko transpose.dko true.dko
+transpose.dko : transpose.dk ../theory/cts.dko eqb.dko match_bool_type.dko nat.dko
+sym_eq_invert_permut_body_S.dko : sym_eq_invert_permut_body_S.dk S.dko ../theory/cts.dko eq_invert_permut_body_S.dko eqb.dko invert_permut.dko invert_permut_body.dko leibniz.dko match_bool_type.dko nat.dko sym_leibniz.dko
+div_mod_spec_to_eq.dko : div_mod_spec_to_eq.dk Not.dko S.dko absurd.dko bool.dko commutative_plus.dko commutative_times.dko ../theory/cts.dko div_mod_spec.dko eq.dko eq_coerc.dko eq_ind_r.dko falsity.dko le.dko le_plus_n_r.dko le_to_or_lt_eq.dko leb_elim.dko let_clause_1062.dko let_clause_1078.dko lt.dko lt_to_le_to_lt.dko match_Or_prop.dko match_div_mod_spec_prop.dko monotonic_le_times_r.dko monotonic_lt_plus_r.dko nat.dko not_le_Sn_n.dko not_le_to_lt.dko plus.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko times_n_Sm.dko transitive_le.dko
+permut_to_bijn.dko : permut_to_bijn.dk And.dko O.dko S.dko bijn.dko bijn_fg.dko bijn_n_Sn.dko bijn_transpose.dko bool.dko conj.dko ../theory/cts.dko eq.dko eq_ind_r.dko eq_match_bool_type_true.dko eq_to_bijn.dko eqb.dko eqb_n_n.dko ex.dko ex_intro.dko injn.dko le.dko le_O_n.dko le_n.dko le_n_O_elim.dko le_n_O_to_eq.dko match_And_prop.dko match_bool_type.dko nat.dko nat_ind.dko permut.dko permut_S_to_permut_transpose.dko refl.dko sym_eq.dko transpose.dko transpose_transpose.dko true.dko
+injective_plus_r.dko : injective_plus_r.dk O.dko S.dko ../theory/cts.dko eq.dko injective_.dko injective_S.dko nat.dko nat_ind.dko plus.dko plus_body.dko plus_n_Sm.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_plus.dko sym_eq_plus_body_O.dko sym_eq_plus_body_S.dko
+refl_equal.dko : refl_equal.dk ../theory/cts.dko equal.dko
+le_plus.dko : le_plus.dk ../theory/cts.dko le.dko monotonic_le_plus_l.dko monotonic_le_plus_r.dko nat.dko plus.dko transitive_le.dko
+transpose_i_j_j_i.dko : transpose_i_j_j_i.dk bool.dko ../theory/cts.dko eq.dko eq_ind.dko eq_ind_r.dko eqb.dko eqb_true_to_eq.dko false.dko match_Or_prop.dko match_bool_type.dko nat.dko refl.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko transpose.dko true.dko true_or_false.dko
+sym_eq_minus_body_S.dko : sym_eq_minus_body_S.dk S.dko ../theory/cts.dko eq_minus_body_S.dko leibniz.dko match_nat_type.dko minus.dko minus_body.dko nat.dko sym_leibniz.dko
+let_clause_1549.dko : let_clause_1549.dk O.dko ../theory/cts.dko eq.dko lt.dko minus.dko minus_n_O.dko nat.dko rewrite_l.dko
+ex.dko : ex.dk ../theory/cts.dko
+minus_le_minus_minus_comm.dko : minus_le_minus_minus_comm.dk commutative_plus.dko ../theory/cts.dko eq.dko eq_ind_r.dko le.dko minus.dko minus_plus.dko minus_plus_m_m.dko nat.dko plus.dko plus_minus_m_m.dko refl.dko rewrite_l.dko rewrite_r.dko
+lt_to_not_eq.dko : lt_to_not_eq.dk False.dko Not.dko S.dko absurd.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko lt.dko nat.dko nmk.dko not_le_Sn_n.dko not_to_not.dko refl.dko rewrite_l.dko
+let_clause_1531.dko : let_clause_1531.dk O.dko ../theory/cts.dko divides.dko eq.dko lt.dko nat.dko rewrite_r.dko times.dko times_n_O.dko
+eqb.dko : eqb.dk bool.dko ../theory/cts.dko nat.dko
+timesAC.dko : timesAC.dk ACop.dko O.dko S.dko associative_times.dko commutative_times.dko ../theory/cts.dko eq.dko mk_ACop.dko nat.dko plus.dko plus_n_O.dko sym_eq.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_times.dko sym_eq_times_body_O.dko sym_eq_times_body_S.dko times.dko times_body.dko times_n_1.dko
+le_to_or_lt_eq.dko : le_to_or_lt_eq.dk O.dko Or.dko RC_reflexive.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_ind.dko le_plus_n.dko le_to_lt_to_lt.dko lt.dko nat.dko or_introl.dko plus.dko plus_O_n.dko refl.dko rewrite_l.dko
+let_clause_1544.dko : let_clause_1544.dk Not.dko O.dko Or.dko S.dko commutative_times.dko ../theory/cts.dko divides.dko eq.dko ex.dko gcd_aux.dko le.dko lt.dko minus.dko mod.dko nat.dko rewrite_l.dko times.dko
+eq_bigop_O.dko : eq_bigop_O.dk O.dko axiom_bigop_O.dko bigop.dko bigop_body.dko bool.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko nat.dko
+let_clause_1063.dko : let_clause_1063.dk And.dko ../theory/cts.dko eq.dko injn.dko le.dko nat.dko permut.dko rewrite_r.dko
+sym_eq_eqb_body_S.dko : sym_eq_eqb_body_S.dk S.dko bool.dko ../theory/cts.dko eq_eqb_body_S.dko eqb.dko eqb_body.dko false.dko leibniz.dko match_nat_type.dko nat.dko sym_leibniz.dko
+eqb_n_n.dko : eqb_n_n.dk O.dko S.dko bool.dko ../theory/cts.dko eq.dko eqb.dko eqb_body.dko false.dko nat.dko nat_ind.dko refl.dko rewrite_r.dko sym_eq_eqb.dko sym_eq_eqb_body_O.dko sym_eq_eqb_body_S.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_match_nat_type_O.dko sym_eq_match_nat_type_S.dko true.dko
+plus_body.dko : plus_body.dk ../theory/cts.dko nat.dko
+le_n_O_elim.dko : le_n_O_elim.dk O.dko S.dko absurd.dko ../theory/cts.dko falsity.dko le.dko match_nat_prop.dko nat.dko not_le_Sn_O.dko
+eq_match_nat_type_O.dko : eq_match_nat_type_O.dk O.dko axiom_match_nat_type_O.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko match_nat_type.dko nat.dko
+eq_div_aux_body_O.dko : eq_div_aux_body_O.dk O.dko axiom_div_aux_body_O.dko ../theory/cts.dko div_aux_body.dko equal_leibniz.dko leibniz.dko nat.dko
+pred_Sn.dko : pred_Sn.dk O.dko S.dko ../theory/cts.dko eq.dko nat.dko pred.dko refl.dko sym_eq_match_nat_type_S.dko
+divides_to_dividesb_true.dko : divides_to_dividesb_true.dk O.dko absurd.dko bool.dko ../theory/cts.dko divides.dko dividesb.dko dividesb_false_to_not_divides.dko eq.dko false.dko falsity.dko lt.dko match_Or_prop.dko nat.dko refl.dko rewrite_r.dko true.dko true_or_false.dko
+rewrite_r.dko : rewrite_r.dk ../theory/cts.dko eq.dko eq_ind.dko sym_eq.dko
+eq_exp.dko : eq_exp.dk axiom_exp.dko ../theory/cts.dko equal_leibniz.dko exp.dko exp_body.dko filter_nat_type.dko leibniz.dko nat.dko
+injn.dko : injn.dk ../theory/cts.dko eq.dko le.dko nat.dko
+I.dko : I.dk True.dko ../theory/cts.dko
+eq_minus_gcd.dko : eq_minus_gcd.dk Not.dko O.dko Or.dko S.dko bool.dko commutative_gcd.dko commutative_plus.dko commutative_times.dko ../theory/cts.dko eq.dko eq_coerc.dko eq_ind_r.dko eq_minus_gcd_aux.dko ex.dko ex_intro.dko false.dko gcd.dko gcd_O_l.dko gcd_aux.dko le.dko le_O_n.dko le_n.dko le_n_Sn.dko le_to_or_lt_eq.dko leb_elim.dko let_clause_1549.dko let_clause_15491.dko let_clause_1551.dko lt.dko match_Or_prop.dko match_bool_type.dko match_ex_prop.dko minus.dko minus_n_O.dko nat.dko not_le_to_lt.dko or_introl.dko or_intror.dko plus.dko plus_O_n.dko plus_n_O.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko times.dko times_O_n.dko times_n_O.dko times_n_Sm.dko transitive_le.dko true.dko
+times_n_O.dko : times_n_O.dk O.dko S.dko ../theory/cts.dko eq.dko nat.dko nat_ind.dko plus.dko plus_O_n.dko refl.dko rewrite_l.dko times.dko times_O_n.dko times_Sn_m.dko
+sym_eq_exp_body_S.dko : sym_eq_exp_body_S.dk S.dko ../theory/cts.dko eq_exp_body_S.dko exp.dko exp_body.dko leibniz.dko nat.dko sym_leibniz.dko times.dko
+axiom_mod_aux_body_S.dko : axiom_mod_aux_body_S.dk S.dko ../theory/cts.dko equal.dko leb.dko match_bool_type.dko minus.dko mod_aux.dko mod_aux_body.dko nat.dko
+associative.dko : associative.dk ../theory/cts.dko eq.dko
+axiom_gcd_aux.dko : axiom_gcd_aux.dk ../theory/cts.dko equal.dko filter_nat_type.dko gcd_aux.dko gcd_aux_body.dko nat.dko
+sym_eq_filter_nat_type_S.dko : sym_eq_filter_nat_type_S.dk S.dko ../theory/cts.dko eq_filter_nat_type_S.dko filter_nat_type.dko leibniz.dko nat.dko sym_leibniz.dko
+reflexive.dko : reflexive.dk ../theory/cts.dko
+nat.dko : nat.dk ../theory/cts.dko
+RC_reflexive.dko : RC_reflexive.dk RC.dko ../theory/cts.dko eq.dko or_intror.dko refl.dko reflexive.dko
+not_le_Sn_O.dko : not_le_Sn_O.dk False.dko Not.dko O.dko S.dko True.dko ../theory/cts.dko eq_match_nat_type_O.dko le.dko lt_to_not_zero.dko nat.dko nmk.dko
+S_pred.dko : S_pred.dk O.dko S.dko ../theory/cts.dko eq.dko lt.dko match_le_prop.dko nat.dko pred.dko pred_Sn.dko refl.dko rewrite_l.dko
+gcd_O_l.dko : gcd_O_l.dk O.dko bool.dko ../theory/cts.dko eq.dko eq_filter_nat_type_O.dko eq_gcd_aux.dko eq_gcd_aux_body_O.dko eq_leb.dko eq_leb_body_O.dko eq_match_bool_type_true.dko gcd.dko gcd_aux.dko gcd_aux_body.dko leb.dko leb_body.dko match_bool_type.dko nat.dko refl.dko
+absurd.dko : absurd.dk False.dko Not.dko Not_ind.dko ../theory/cts.dko
+sameF_upto_le.dko : sameF_upto_le.dk ../theory/cts.dko le.dko lt.dko lt_to_le_to_lt.dko nat.dko sameF_upto.dko
+divides_gcd_l.dko : divides_gcd_l.dk ../theory/cts.dko divides.dko divides_gcd_nm.dko gcd.dko nat.dko proj2.dko
+congruent_to_divides.dko : congruent_to_divides.dk O.dko commutative_plus.dko commutative_times.dko congruent.dko ../theory/cts.dko distributive_times_minus.dko div.dko div_mod.dko divides.dko eq.dko eq_ind_r.dko eq_times_div_minus_mod.dko lt.dko minus.dko minus_plus.dko mod.dko nat.dko plus.dko quotient.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko
+minus_plus.dko : minus_plus.dk Not.dko O.dko S.dko associative_plus.dko commutative_plus.dko ../theory/cts.dko decidable_le.dko eq.dko eq_coerc.dko eq_ind.dko eq_ind_r.dko eq_minus_O.dko le.dko le_n_Sn.dko match_Or_prop.dko minus.dko minus_plus_m_m.dko minus_to_plus.dko monotonic_le_minus_l.dko nat.dko not_le_to_lt.dko plus.dko plus_to_minus.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq.dko transitive_le.dko
+lt_plus_to_minus_r.dko : lt_plus_to_minus_r.dk S.dko ../theory/cts.dko le.dko le_plus_to_minus_r.dko lt.dko minus.dko nat.dko plus.dko plus_body.dko sym_eq_filter_nat_type_S.dko sym_eq_plus.dko sym_eq_plus_body_S.dko
+eq_gcd_aux_body_S.dko : eq_gcd_aux_body_S.dk S.dko axiom_gcd_aux_body_S.dko ../theory/cts.dko dividesb.dko equal_leibniz.dko gcd_aux.dko gcd_aux_body.dko leibniz.dko match_bool_type.dko mod.dko nat.dko
+sym_eq_match_nat_type_O.dko : sym_eq_match_nat_type_O.dk O.dko ../theory/cts.dko eq_match_nat_type_O.dko leibniz.dko match_nat_type.dko nat.dko sym_leibniz.dko
+sym_eq_gcd_aux.dko : sym_eq_gcd_aux.dk ../theory/cts.dko eq_gcd_aux.dko filter_nat_type.dko gcd_aux.dko gcd_aux_body.dko leibniz.dko nat.dko sym_leibniz.dko
+axiom_plus.dko : axiom_plus.dk ../theory/cts.dko equal.dko filter_nat_type.dko nat.dko plus.dko plus_body.dko
+sym_eq_eqb.dko : sym_eq_eqb.dk bool.dko ../theory/cts.dko eq_eqb.dko eqb.dko eqb_body.dko filter_nat_type.dko leibniz.dko nat.dko sym_leibniz.dko
+eq_bigop_S.dko : eq_bigop_S.dk S.dko axiom_bigop_S.dko bigop.dko bigop_body.dko bool.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko nat.dko
+divides_to_div_mod_spec.dko : divides_to_div_mod_spec.dk O.dko commutative_times.dko ../theory/cts.dko div.dko div_mod_spec.dko div_mod_spec_intro.dko div_times.dko divides.dko eq.dko eq_ind_r.dko lt.dko match_divides_prop.dko nat.dko plus.dko plus_n_O.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko
+minus_n_n.dko : minus_n_n.dk O.dko S.dko ../theory/cts.dko eq.dko minus.dko minus_O_n.dko minus_S_S.dko nat.dko nat_ind.dko refl.dko rewrite_l.dko rewrite_r.dko
+eq_fact.dko : eq_fact.dk axiom_fact.dko ../theory/cts.dko equal_leibniz.dko fact.dko fact_body.dko filter_nat_type.dko leibniz.dko nat.dko
+times.dko : times.dk ../theory/cts.dko nat.dko
+sym_not_eq.dko : sym_not_eq.dk Not.dko absurd.dko ../theory/cts.dko eq.dko nmk.dko refl.dko rewrite_r.dko
+le_times.dko : le_times.dk commutative_times.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko monotonic_le_times_r.dko nat.dko refl.dko rewrite_r.dko times.dko transitive_le.dko
+div_aux.dko : div_aux.dk ../theory/cts.dko nat.dko
+sym_eq_plus_body_O.dko : sym_eq_plus_body_O.dk O.dko ../theory/cts.dko eq_plus_body_O.dko leibniz.dko nat.dko plus_body.dko sym_leibniz.dko
+eq_mod_aux_body_O.dko : eq_mod_aux_body_O.dk O.dko axiom_mod_aux_body_O.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko mod_aux_body.dko nat.dko
+eqb_true_to_eq.dko : eqb_true_to_eq.dk Not.dko absurd.dko bool.dko ../theory/cts.dko eq.dko eqb.dko eqb_elim.dko false.dko falsity.dko nat.dko not_eq_true_false.dko refl.dko rewrite_l.dko rewrite_r.dko true.dko
+nat_ind.dko : nat_ind.dk O.dko S.dko ../theory/cts.dko nat.dko
+axiom_match_nat_type_O.dko : axiom_match_nat_type_O.dk O.dko ../theory/cts.dko equal.dko match_nat_type.dko nat.dko
+sym_eq_bigop_body_O.dko : sym_eq_bigop_body_O.dk O.dko bigop_body.dko bool.dko ../theory/cts.dko eq_bigop_body_O.dko leibniz.dko nat.dko sym_leibniz.dko
+sub_hkO.dko : sub_hkO.dk And.dko O.dko S.dko absurd.dko bool.dko ../theory/cts.dko eq.dko eq_coerc.dko eq_ind_r.dko falsity.dko le.dko lt.dko nat.dko not_le_Sn_O.dko refl.dko rewrite_r.dko sub_hk.dko true.dko
+let_clause_10471.dko : let_clause_10471.dk And.dko O.dko S.dko bigop.dko bool.dko commutative_times.dko ../theory/cts.dko div.dko div_mod.dko eq.dko ex.dko iso.dko le.dko lt.dko mod.dko nat.dko plus.dko rewrite_l.dko sub_hk.dko times.dko true.dko
+exp_pi_bc.dko : exp_pi_bc.dk O.dko S.dko bigop.dko ../theory/cts.dko eq.dko exp.dko exp_pi_l.dko minus.dko nat.dko plus.dko times.dko true.dko
+transitive.dko : transitive.dk ../theory/cts.dko
+reflexive_divides.dko : reflexive_divides.dk O.dko S.dko ../theory/cts.dko divides.dko eq.dko nat.dko quotient.dko refl.dko reflexive.dko rewrite_r.dko times.dko times_n_1.dko
+bigop_I_gen.dko : bigop_I_gen.dk O.dko S.dko S_pred.dko andb.dko bigop.dko bigop_Sfalse.dko bigop_Strue.dko bigop_false.dko bool.dko ../theory/cts.dko eq.dko eq_bigop_O.dko eq_bigop_body_O.dko eq_f.dko eq_f2.dko eq_filter_nat_type_O.dko eq_ind.dko eq_ind_r.dko eq_match_bool_type_false.dko eq_match_bool_type_true.dko eq_minus.dko eq_minus_S_pred.dko eq_minus_body_O.dko false.dko le.dko le_S_S_to_le.dko le_to_leb_true.dko le_to_or_lt_eq.dko leb.dko lt.dko lt_plus_to_minus_r.dko lt_to_not_le.dko match_Or_prop.dko match_bool_prop.dko match_bool_type.dko match_nat_prop.dko minus.dko minus_body.dko minus_n_O.dko minus_n_n.dko nat.dko nat_ind.dko not_le_to_leb_false.dko plus.dko plus_body.dko plus_minus_m_m.dko pred.dko refl.dko rewrite_l.dko rewrite_r.dko same_bigop.dko sym_eq_bigop_O.dko sym_eq_bigop_body_O.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_match_bool_type_false.dko sym_eq_match_nat_type_S.dko sym_eq_minus.dko sym_eq_minus_body_S.dko sym_eq_plus.dko sym_eq_plus_body_O.dko times.dko true.dko true_or_false.dko
+let_clause_1545.dko : let_clause_1545.dk O.dko commutative_times.dko ../theory/cts.dko divides.dko eq.dko gcd.dko nat.dko rewrite_l.dko rewrite_r.dko times.dko times_n_O.dko
+eq_match_bool_type_false.dko : eq_match_bool_type_false.dk axiom_match_bool_type_false.dko ../theory/cts.dko equal_leibniz.dko false.dko leibniz.dko match_bool_type.dko
+axiom_eqb.dko : axiom_eqb.dk bool.dko ../theory/cts.dko eqb.dko eqb_body.dko equal.dko filter_nat_type.dko nat.dko
+mod_O_n.dko : mod_O_n.dk O.dko commutative_plus.dko commutative_times.dko ../theory/cts.dko div.dko div_mod.dko eq.dko eq_coerc.dko le.dko le_n_O_to_eq.dko minus.dko minus_le.dko minus_n_O.dko minus_plus_plus_l.dko mod.dko nat.dko plus.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq.dko times.dko
+or_introl.dko : or_introl.dk Or.dko ../theory/cts.dko
+divides_to_mod_O.dko : divides_to_mod_O.dk O.dko ../theory/cts.dko div.dko div_mod_spec_div_mod.dko div_mod_spec_to_eq2.dko divides.dko divides_to_div_mod_spec.dko eq.dko lt.dko mod.dko nat.dko
+axiom_exp_body_O.dko : axiom_exp_body_O.dk O.dko S.dko ../theory/cts.dko equal.dko exp_body.dko nat.dko
+fact.dko : fact.dk ../theory/cts.dko nat.dko
+eq_gcd_aux.dko : eq_gcd_aux.dk axiom_gcd_aux.dko ../theory/cts.dko equal_leibniz.dko filter_nat_type.dko gcd_aux.dko gcd_aux_body.dko leibniz.dko nat.dko
+le_gen.dko : le_gen.dk ../theory/cts.dko le.dko le_n.dko nat.dko
+ex_intro.dko : ex_intro.dk ../theory/cts.dko ex.dko
+eqb_false_to_not_eq.dko : eqb_false_to_not_eq.dk Not.dko bool.dko ../theory/cts.dko eq.dko eqb.dko eqb_elim.dko false.dko nat.dko not_eq_true_false.dko not_to_not.dko refl.dko rewrite_l.dko true.dko
+times_n_1.dko : times_n_1.dk O.dko S.dko ../theory/cts.dko eq.dko nat.dko plus.dko plus_n_O.dko refl.dko rewrite_l.dko times.dko times_n_O.dko times_n_Sm.dko
+eq_times.dko : eq_times.dk axiom_times.dko ../theory/cts.dko equal_leibniz.dko filter_nat_type.dko leibniz.dko nat.dko times.dko times_body.dko
+eq_mod_aux_body_S.dko : eq_mod_aux_body_S.dk S.dko axiom_mod_aux_body_S.dko ../theory/cts.dko equal_leibniz.dko leb.dko leibniz.dko match_bool_type.dko minus.dko mod_aux.dko mod_aux_body.dko nat.dko
+bijn.dko : bijn.dk And.dko ../theory/cts.dko eq.dko ex.dko le.dko nat.dko
+or_intror.dko : or_intror.dk Or.dko ../theory/cts.dko
+le_to_not_lt.dko : le_to_not_lt.dk Not.dko O.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_plus_n.dko le_to_lt_to_lt.dko lt.dko lt_to_not_le.dko nat.dko plus.dko plus_O_n.dko refl.dko rewrite_l.dko
+decidable_lt.dko : decidable_lt.dk S.dko ../theory/cts.dko decidable.dko decidable_le.dko lt.dko nat.dko
+prime_to_not_divides_fact.dko : prime_to_not_divides_fact.dk False.dko Not.dko O.dko S.dko absurd.dko ../theory/cts.dko divides.dko divides_times_to_divides.dko divides_to_le.dko fact.dko fact_body.dko le.dko lt.dko lt_O_S.dko lt_to_le.dko lt_to_not_le.dko match_Or_prop.dko nat.dko nat_ind.dko nmk.dko prime.dko prime_to_lt_SO.dko sym_eq_fact.dko sym_eq_fact_body_O.dko sym_eq_fact_body_S.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko times.dko
+sym_eq_leb_body_S.dko : sym_eq_leb_body_S.dk S.dko bool.dko ../theory/cts.dko eq_leb_body_S.dko false.dko leb.dko leb_body.dko leibniz.dko match_nat_type.dko nat.dko sym_leibniz.dko
+timesA.dko : timesA.dk Aop.dko O.dko S.dko associative_times.dko ../theory/cts.dko eq.dko mk_Aop.dko nat.dko plus.dko plus_n_O.dko sym_eq.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_times.dko sym_eq_times_body_O.dko sym_eq_times_body_S.dko times.dko times_body.dko times_n_1.dko
+let_clause_1571.dko : let_clause_1571.dk O.dko ../theory/cts.dko eq.dko gcd.dko lt.dko nat.dko rewrite_r.dko
+lt_O_S.dko : lt_O_S.dk O.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_plus_n.dko lt.dko ltn_to_ltO.dko nat.dko plus.dko plus_O_n.dko refl.dko rewrite_l.dko
+let_clause_15491.dko : let_clause_15491.dk O.dko ../theory/cts.dko eq.dko minus.dko minus_n_O.dko nat.dko rewrite_l.dko
+eq_to_bijn.dko : eq_to_bijn.dk And.dko bijn.dko conj.dko ../theory/cts.dko eq.dko eq_ind.dko ex.dko ex_intro.dko le.dko match_And_prop.dko match_ex_prop.dko nat.dko sym_eq.dko
+leb_true_to_le.dko : leb_true_to_le.dk Not.dko absurd.dko bool.dko ../theory/cts.dko eq.dko false.dko falsity.dko le.dko leb.dko leb_elim.dko nat.dko not_eq_true_false.dko refl.dko rewrite_r.dko true.dko
+fact_body.dko : fact_body.dk ../theory/cts.dko nat.dko
+permut.dko : permut.dk And.dko ../theory/cts.dko injn.dko le.dko nat.dko
+axiom_mod_aux.dko : axiom_mod_aux.dk ../theory/cts.dko equal.dko filter_nat_type.dko mod_aux.dko mod_aux_body.dko nat.dko
+le_plus_n.dko : le_plus_n.dk O.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_O_n.dko monotonic_le_plus_l.dko nat.dko plus.dko plus_O_n.dko refl.dko rewrite_l.dko
+injn_Sn_n.dko : injn_Sn_n.dk S.dko ../theory/cts.dko eq.dko injn.dko le.dko le_S.dko nat.dko refl.dko rewrite_l.dko
+dividesb_true_to_divides.dko : dividesb_true_to_divides.dk O.dko bool.dko ../theory/cts.dko divides.dko divides_n_n.dko dividesb.dko eq.dko eq_ind.dko eq_ind_r.dko eqb.dko eqb_true_to_eq.dko le_O_n.dko le_to_or_lt_eq.dko lt.dko match_Or_prop.dko mod.dko mod_O_to_divides.dko mod_aux.dko nat.dko sym_eq_match_nat_type_O.dko true.dko
+sym_eq_times_body_S.dko : sym_eq_times_body_S.dk S.dko ../theory/cts.dko eq_times_body_S.dko leibniz.dko nat.dko plus.dko sym_leibniz.dko times.dko times_body.dko
+Not_ind.dko : Not_ind.dk False.dko Not.dko ../theory/cts.dko
+refl.dko : refl.dk ../theory/cts.dko eq.dko
+axiom_fact_body_S.dko : axiom_fact_body_S.dk S.dko ../theory/cts.dko equal.dko fact.dko fact_body.dko nat.dko times.dko
+eq_invert_permut_body_S.dko : eq_invert_permut_body_S.dk S.dko axiom_invert_permut_body_S.dko ../theory/cts.dko eqb.dko equal_leibniz.dko invert_permut.dko invert_permut_body.dko leibniz.dko match_bool_type.dko nat.dko
+axiom_fact.dko : axiom_fact.dk ../theory/cts.dko equal.dko fact.dko fact_body.dko filter_nat_type.dko nat.dko
+monotonic_le_minus_l.dko : monotonic_le_minus_l.dk O.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko eq_filter_nat_type_O.dko eq_minus.dko eq_minus_body_O.dko eq_plus.dko eq_plus_body_O.dko le.dko le_n.dko le_n_O_elim.dko le_plus_minus_m_m.dko match_nat_prop.dko match_nat_type.dko minus.dko minus_body.dko monotonic_pred.dko nat.dko nat_elim2.dko plus.dko plus_body.dko pred.dko pred_Sn.dko refl.dko rewrite_l.dko sym_eq_filter_nat_type_S.dko sym_eq_match_nat_type_O.dko sym_eq_match_nat_type_S.dko sym_eq_minus.dko sym_eq_minus_body_S.dko
+le_S_S_to_le.dko : le_S_S_to_le.dk O.dko S.dko ../theory/cts.dko eq_match_nat_type_S.dko le.dko match_nat_type.dko monotonic_pred.dko nat.dko
+prime_to_lt_SO.dko : prime_to_lt_SO.dk O.dko S.dko ../theory/cts.dko divides.dko eq.dko lt.dko match_And_prop.dko nat.dko prime.dko
+divides_times_to_divides.dko : divides_times_to_divides.dk Not.dko O.dko Or.dko S.dko associative_times.dko commutative_gcd.dko commutative_times.dko ../theory/cts.dko decidable_divides.dko distributive_times_minus.dko divides.dko eq.dko eq_ind.dko eq_ind_r.dko eq_minus_gcd.dko ex.dko gcd.dko match_Or_prop.dko match_divides_prop.dko match_ex_prop.dko minus.dko nat.dko or_introl.dko or_intror.dko prime.dko prime_to_gcd_1.dko quotient.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko times_n_1.dko
+match_le_prop.dko : match_le_prop.dk S.dko ../theory/cts.dko le.dko nat.dko
+le_plus_n_r.dko : le_plus_n_r.dk commutative_plus.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_plus_n.dko nat.dko plus.dko refl.dko rewrite_r.dko
+lt_O_exp.dko : lt_O_exp.dk O.dko S.dko ../theory/cts.dko eq_filter_nat_type_O.dko eq_filter_nat_type_S.dko eq_plus.dko eq_plus_body_O.dko eq_plus_body_S.dko eq_times.dko eq_times_body_O.dko eq_times_body_S.dko exp.dko exp_body.dko le.dko le_times.dko lt.dko lt_O_S.dko nat.dko nat_ind.dko plus_body.dko sym_eq_exp.dko sym_eq_exp_body_O.dko sym_eq_exp_body_S.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko times.dko times_body.dko
+eq_minus.dko : eq_minus.dk axiom_minus.dko ../theory/cts.dko equal_leibniz.dko filter_nat_type.dko leibniz.dko minus.dko minus_body.dko nat.dko
+axiom_invert_permut_body_O.dko : axiom_invert_permut_body_O.dk O.dko ../theory/cts.dko eqb.dko equal.dko invert_permut_body.dko match_bool_type.dko nat.dko
+le_S.dko : le_S.dk S.dko ../theory/cts.dko le.dko nat.dko
+eq_minus_body_S.dko : eq_minus_body_S.dk S.dko axiom_minus_body_S.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko match_nat_type.dko minus.dko minus_body.dko nat.dko
+eq_ind_r.dko : eq_ind_r.dk ../theory/cts.dko eq.dko eq_rect_r.dko
+congruent_pi.dko : congruent_pi.dk O.dko S.dko bigop.dko bigop_Strue.dko bool.dko congruent.dko congruent_n_mod_n.dko congruent_n_n.dko congruent_times.dko ../theory/cts.dko eq_bigop_O.dko eq_bigop_body_O.dko eq_ind_r.dko lt.dko mod.dko nat.dko nat_ind.dko refl.dko sym_eq_bigop_O.dko sym_eq_bigop_S.dko sym_eq_bigop_body_O.dko sym_eq_bigop_body_S.dko sym_eq_match_bool_type_true.dko times.dko true.dko
+axiom_times.dko : axiom_times.dk ../theory/cts.dko equal.dko filter_nat_type.dko nat.dko times.dko times_body.dko
+rewrite_l.dko : rewrite_l.dk ../theory/cts.dko eq.dko eq_ind.dko
+congruent.dko : congruent.dk ../theory/cts.dko eq.dko mod.dko nat.dko
+sym_eq_leb_body_O.dko : sym_eq_leb_body_O.dk O.dko bool.dko ../theory/cts.dko eq_leb_body_O.dko leb_body.dko leibniz.dko nat.dko sym_leibniz.dko true.dko
+not_eq_S.dko : not_eq_S.dk Not.dko S.dko ../theory/cts.dko eq.dko nat.dko not_to_not.dko pred.dko pred_Sn.dko refl.dko rewrite_l.dko rewrite_r.dko
+match_nat_prop.dko : match_nat_prop.dk O.dko S.dko ../theory/cts.dko nat.dko
+match_ex_prop.dko : match_ex_prop.dk ../theory/cts.dko ex.dko
+divides_n_O.dko : divides_n_O.dk O.dko ../theory/cts.dko divides.dko eq.dko nat.dko quotient.dko refl.dko rewrite_r.dko times.dko times_n_O.dko
+sym_eq_mod_aux_body_O.dko : sym_eq_mod_aux_body_O.dk O.dko ../theory/cts.dko eq_mod_aux_body_O.dko leibniz.dko mod_aux_body.dko nat.dko sym_leibniz.dko
+sym_eq_filter_nat_type_O.dko : sym_eq_filter_nat_type_O.dk O.dko ../theory/cts.dko eq_filter_nat_type_O.dko filter_nat_type.dko leibniz.dko nat.dko sym_leibniz.dko
+prime_to_gcd_1.dko : prime_to_gcd_1.dk Not.dko O.dko S.dko ../theory/cts.dko divides.dko divides_gcd_l.dko divides_gcd_r.dko divides_n_O.dko eq.dko eq_coerc.dko gcd.dko le_O_n.dko le_to_le_to_eq.dko lt.dko lt_O_gcd.dko match_And_prop.dko nat.dko not_eq_to_le_to_lt.dko not_lt_to_le.dko not_to_not.dko prime.dko refl.dko rewrite_r.dko
+commutative_times.dko : commutative_times.dk O.dko S.dko commutative.dko ../theory/cts.dko eq.dko nat.dko nat_ind.dko plus.dko refl.dko rewrite_l.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_times.dko sym_eq_times_body_O.dko sym_eq_times_body_S.dko times.dko times_body.dko times_n_O.dko times_n_Sm.dko
+bigop.dko : bigop.dk bool.dko ../theory/cts.dko nat.dko
+eq_plus.dko : eq_plus.dk axiom_plus.dko ../theory/cts.dko equal_leibniz.dko filter_nat_type.dko leibniz.dko nat.dko plus.dko plus_body.dko
+plus.dko : plus.dk ../theory/cts.dko nat.dko
+injective_.dko : injective_.dk ../theory/cts.dko eq.dko
+axiom_times_body_O.dko : axiom_times_body_O.dk O.dko ../theory/cts.dko equal.dko nat.dko times_body.dko
+axiom_bigop_body_S.dko : axiom_bigop_body_S.dk S.dko bigop.dko bigop_body.dko bool.dko ../theory/cts.dko equal.dko match_bool_type.dko nat.dko
+sub_hk.dko : sub_hk.dk And.dko bool.dko ../theory/cts.dko eq.dko lt.dko nat.dko true.dko
+monotonic_le_times_r.dko : monotonic_le_times_r.dk O.dko S.dko ../theory/cts.dko filter_nat_type.dko le.dko le_O_n.dko le_plus.dko monotonic.dko nat.dko nat_ind.dko plus.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_times.dko sym_eq_times_body_O.dko sym_eq_times_body_S.dko times.dko times_body.dko
+sym_eq_eqb_body_O.dko : sym_eq_eqb_body_O.dk O.dko bool.dko ../theory/cts.dko eq_eqb_body_O.dko eqb_body.dko false.dko leibniz.dko match_nat_type.dko nat.dko sym_leibniz.dko true.dko
+equal_leibniz.dko : equal_leibniz.dk ../theory/cts.dko equal.dko
+match_And_prop.dko : match_And_prop.dk And.dko ../theory/cts.dko
+axiom_bigop_O.dko : axiom_bigop_O.dk O.dko bigop.dko bigop_body.dko bool.dko ../theory/cts.dko equal.dko nat.dko
+eq_match_bool_type_true.dko : eq_match_bool_type_true.dk axiom_match_bool_type_true.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko match_bool_type.dko true.dko
+invert_permut_body.dko : invert_permut_body.dk ../theory/cts.dko nat.dko
+div_aux_mod_aux.dko : div_aux_mod_aux.dk Not.dko O.dko S.dko associative_plus.dko bool.dko commutative_plus.dko ../theory/cts.dko div_aux.dko div_aux_body.dko eq.dko eq_coerc.dko eq_ind.dko eq_ind_r.dko eq_match_nat_type_O.dko eq_match_nat_type_S.dko eq_minus_S_pred.dko false.dko le.dko leb.dko leb_elim.dko match_bool_type.dko match_nat_type.dko minus.dko mod_aux.dko mod_aux_body.dko nat.dko nat_ind.dko not_le_to_lt.dko plus.dko plus_body.dko plus_minus_m_m.dko plus_n_Sm.dko pred.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_div_aux.dko sym_eq_div_aux_body_O.dko sym_eq_div_aux_body_S.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko sym_eq_match_nat_type_O.dko sym_eq_match_nat_type_S.dko sym_eq_mod_aux.dko sym_eq_mod_aux_body_O.dko sym_eq_mod_aux_body_S.dko sym_eq_plus.dko sym_eq_plus_body_O.dko sym_eq_plus_body_S.dko sym_eq_times.dko sym_eq_times_body_O.dko sym_eq_times_body_S.dko times.dko times_body.dko true.dko
+sameF_p.dko : sameF_p.dk bool.dko ../theory/cts.dko eq.dko lt.dko nat.dko true.dko
+div_mod_spec_div_mod.dko : div_mod_spec_div_mod.dk O.dko commutative_plus.dko commutative_times.dko ../theory/cts.dko div.dko div_mod.dko div_mod_spec.dko div_mod_spec_intro.dko eq.dko lt.dko lt_mod_m_m.dko mod.dko nat.dko plus.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko
+sym_eq_match_nat_type_S.dko : sym_eq_match_nat_type_S.dk S.dko ../theory/cts.dko eq_match_nat_type_S.dko leibniz.dko match_nat_type.dko nat.dko sym_leibniz.dko
+le_to_leb_true.dko : le_to_leb_true.dk Not.dko absurd.dko bool.dko ../theory/cts.dko eq.dko false.dko falsity.dko le.dko leb.dko leb_elim.dko nat.dko refl.dko true.dko
+le_plus_to_minus.dko : le_plus_to_minus.dk ../theory/cts.dko eq.dko eq_coerc.dko le.dko minus.dko minus_plus_m_m.dko monotonic_le_minus_l.dko nat.dko plus.dko refl.dko rewrite_l.dko
+exp.dko : exp.dk ../theory/cts.dko nat.dko
+eq_coerc.dko : eq_coerc.dk ../theory/cts.dko eq.dko eq_ind.dko
+axiom_minus_body_S.dko : axiom_minus_body_S.dk S.dko ../theory/cts.dko equal.dko match_nat_type.dko minus.dko minus_body.dko nat.dko
+equal.dko : equal.dk ../theory/cts.dko
+eq_eqb.dko : eq_eqb.dk axiom_eqb.dko bool.dko ../theory/cts.dko eqb.dko eqb_body.dko equal_leibniz.dko filter_nat_type.dko leibniz.dko nat.dko
+axiom_mod_aux_body_O.dko : axiom_mod_aux_body_O.dk O.dko ../theory/cts.dko equal.dko mod_aux_body.dko nat.dko
+axiom_leb_body_O.dko : axiom_leb_body_O.dk O.dko bool.dko ../theory/cts.dko equal.dko leb_body.dko nat.dko true.dko
+invert_permut.dko : invert_permut.dk ../theory/cts.dko nat.dko
+ACop.dko : ACop.dk ../theory/cts.dko
+eq_div_aux.dko : eq_div_aux.dk axiom_div_aux.dko ../theory/cts.dko div_aux.dko div_aux_body.dko equal_leibniz.dko filter_nat_type.dko leibniz.dko nat.dko
+monotonic_lt_times_l.dko : monotonic_lt_times_l.dk O.dko S.dko commutative_times.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko lt.dko monotonic.dko monotonic_lt_times_r.dko nat.dko refl.dko rewrite_r.dko times.dko
+leb_body.dko : leb_body.dk bool.dko ../theory/cts.dko nat.dko
+distributive_times_plus_r.dko : distributive_times_plus_r.dk commutative_times.dko ../theory/cts.dko distributive_times_plus.dko eq.dko nat.dko plus.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko
+lt_to_le.dko : lt_to_le.dk O.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_plus_b.dko lt.dko nat.dko plus.dko plus_n_O.dko plus_n_Sm.dko refl.dko rewrite_r.dko
+ltn_to_ltO.dko : ltn_to_ltO.dk O.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_plus_n.dko lt.dko lt_to_le_to_lt.dko nat.dko plus.dko plus_n_O.dko plus_n_Sm.dko refl.dko rewrite_l.dko rewrite_r.dko
+conj.dko : conj.dk And.dko ../theory/cts.dko
+transitive_le.dko : transitive_le.dk ../theory/cts.dko le.dko le_S.dko le_ind.dko nat.dko transitive.dko
+le_mod_aux_m_m.dko : le_mod_aux_m_m.dk Not.dko O.dko S.dko bool.dko commutative_plus.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_O_n.dko le_n_O_elim.dko le_plus_n_r.dko le_plus_to_minus.dko leb_elim.dko match_bool_type.dko minus.dko mod_aux.dko mod_aux_body.dko nat.dko nat_ind.dko plus.dko plus_n_Sm.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko sym_eq_mod_aux.dko sym_eq_mod_aux_body_O.dko sym_eq_mod_aux_body_S.dko transitive_le.dko
+bijn_fg.dko : bijn_fg.dk And.dko bijn.dko conj.dko ../theory/cts.dko eq.dko ex.dko ex_intro.dko le.dko match_And_prop.dko match_ex_prop.dko nat.dko refl.dko rewrite_r.dko
+axiom_filter_nat_type_O.dko : axiom_filter_nat_type_O.dk O.dko ../theory/cts.dko equal.dko filter_nat_type.dko nat.dko
+monotonic_pred.dko : monotonic_pred.dk O.dko S.dko ../theory/cts.dko le.dko le_ind.dko le_n.dko le_pred_n.dko monotonic.dko nat.dko pred.dko sym_eq_match_nat_type_S.dko transitive_le.dko
+minus_minus.dko : minus_minus.dk associative_plus.dko commutative_plus.dko ../theory/cts.dko eq.dko eq_ind.dko le.dko minus.dko nat.dko plus.dko plus_minus_m_m.dko plus_to_minus.dko refl.dko sym_eq.dko
+commutative_plus.dko : commutative_plus.dk O.dko S.dko commutative.dko ../theory/cts.dko eq.dko nat.dko nat_ind.dko plus.dko plus_body.dko plus_n_O.dko plus_n_Sm.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_plus.dko sym_eq_plus_body_O.dko sym_eq_plus_body_S.dko
+nat_elim2.dko : nat_elim2.dk O.dko S.dko ../theory/cts.dko match_nat_prop.dko nat.dko nat_ind.dko
+let_clause_1034.dko : let_clause_1034.dk O.dko commutative_plus.dko commutative_times.dko ../theory/cts.dko div.dko div_mod.dko eq.dko lt.dko mod.dko nat.dko plus.dko rewrite_l.dko times.dko
+minus_to_plus.dko : minus_to_plus.dk commutative_plus.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko minus.dko nat.dko plus.dko plus_minus_m_m.dko refl.dko rewrite_r.dko
+le_plus_to_minus_r.dko : le_plus_to_minus_r.dk ../theory/cts.dko le.dko le_plus_minus_m_m.dko le_plus_to_le_r.dko minus.dko nat.dko plus.dko transitive_le.dko
+bool_discr.dko : bool_discr.dk bool.dko ../theory/cts.dko eq.dko eq_ind.dko false.dko match_bool_prop.dko match_bool_type.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko true.dko
+eq_f2.dko : eq_f2.dk ../theory/cts.dko eq.dko eq_ind_r.dko refl.dko rewrite_l.dko
+sym_eq_plus_body_S.dko : sym_eq_plus_body_S.dk S.dko ../theory/cts.dko eq_plus_body_S.dko leibniz.dko nat.dko plus.dko plus_body.dko sym_leibniz.dko
+times_times.dko : times_times.dk associative_times.dko commutative_times.dko ../theory/cts.dko eq.dko nat.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko
+le_plus_b.dko : le_plus_b.dk commutative_plus.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_plus_n.dko nat.dko plus.dko refl.dko rewrite_r.dko transitive_le.dko
+sameF_p_le.dko : sameF_p_le.dk bool.dko ../theory/cts.dko eq.dko le.dko lt.dko lt_to_le_to_lt.dko nat.dko refl.dko rewrite_r.dko sameF_p.dko true.dko
+gcd_aux_body.dko : gcd_aux_body.dk ../theory/cts.dko nat.dko
+commutative_gcd.dko : commutative_gcd.dk Not.dko S.dko bool.dko ../theory/cts.dko eq.dko eq_ind_r.dko eq_match_bool_type_false.dko eq_match_bool_type_true.dko false.dko gcd.dko gcd_aux.dko le.dko le_n_Sn.dko le_to_leb_true.dko le_to_or_lt_eq.dko leb.dko leb_elim.dko lt.dko lt_to_not_le.dko match_Or_prop.dko match_bool_prop.dko match_bool_type.dko nat.dko not_le_to_leb_false.dko not_le_to_lt.dko refl.dko sym_eq_match_bool_type_false.dko sym_eq_match_bool_type_true.dko transitive_le.dko true.dko
+sym_eq_fact.dko : sym_eq_fact.dk ../theory/cts.dko eq_fact.dko fact.dko fact_body.dko filter_nat_type.dko leibniz.dko nat.dko sym_leibniz.dko
+times_n_Sm.dko : times_n_Sm.dk O.dko S.dko assoc_plus1.dko associative_plus.dko ../theory/cts.dko eq.dko filter_nat_type.dko nat.dko nat_ind.dko plus.dko plus_body.dko plus_n_Sm.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_plus.dko sym_eq_plus_body_O.dko sym_eq_plus_body_S.dko sym_eq_times.dko sym_eq_times_body_O.dko sym_eq_times_body_S.dko times.dko times_body.dko
+eq_times_div_minus_mod.dko : eq_times_div_minus_mod.dk commutative_plus.dko commutative_times.dko ../theory/cts.dko div.dko div_mod.dko eq.dko eq_coerc.dko minus.dko minus_plus_m_m.dko mod.dko nat.dko plus.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko
+eq_times_body_O.dko : eq_times_body_O.dk O.dko axiom_times_body_O.dko ../theory/cts.dko equal_leibniz.dko leibniz.dko nat.dko times_body.dko
+divides.dko : divides.dk ../theory/cts.dko nat.dko
+transitive_congruent.dko : transitive_congruent.dk congruent.dko ../theory/cts.dko eq.dko mod.dko nat.dko refl.dko rewrite_l.dko rewrite_r.dko transitive.dko
+sym_leibniz.dko : sym_leibniz.dk ../theory/cts.dko leibniz.dko
+falsity.dko : falsity.dk False.dko ../theory/cts.dko
+sym_eq.dko : sym_eq.dk ../theory/cts.dko eq.dko refl.dko rewrite_l.dko
+not_eq_O_S.dko : not_eq_O_S.dk False.dko I.dko Not.dko O.dko S.dko True.dko ../theory/cts.dko eq.dko eq_ind_r.dko eq_match_nat_type_O.dko nat.dko nmk.dko not_zero.dko sym_eq_match_nat_type_S.dko
+let_clause_1068.dko : let_clause_1068.dk And.dko ../theory/cts.dko eq.dko injn.dko le.dko let_clause_1063.dko nat.dko permut.dko rewrite_l.dko
+lt_times.dko : lt_times.dk ../theory/cts.dko lt.dko lt_to_le.dko lt_to_le_to_lt_times.dko ltn_to_ltO.dko nat.dko times.dko
+injective_S.dko : injective_S.dk S.dko ../theory/cts.dko eq.dko injective_.dko nat.dko pred.dko pred_Sn.dko refl.dko rewrite_l.dko rewrite_r.dko
+not_to_not.dko : not_to_not.dk Not.dko absurd.dko ../theory/cts.dko nmk.dko
+le_plus_minus_m_m.dko : le_plus_minus_m_m.dk O.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_S_S.dko le_plus_n_r.dko match_nat_prop.dko minus.dko minus_body.dko nat.dko nat_ind.dko plus.dko plus_n_Sm.dko refl.dko rewrite_r.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_match_nat_type_O.dko sym_eq_match_nat_type_S.dko sym_eq_minus.dko sym_eq_minus_body_O.dko sym_eq_minus_body_S.dko
+Or.dko : Or.dk ../theory/cts.dko
+lt_S_to_lt.dko : lt_S_to_lt.dk O.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_plus_n.dko lt.dko nat.dko plus.dko plus_O_n.dko refl.dko rewrite_l.dko transitive_lt.dko
+RC.dko : RC.dk Or.dko ../theory/cts.dko eq.dko
+lt.dko : lt.dk S.dko ../theory/cts.dko le.dko nat.dko
+eq_gcd_aux_body_O.dko : eq_gcd_aux_body_O.dk O.dko axiom_gcd_aux_body_O.dko ../theory/cts.dko equal_leibniz.dko gcd_aux_body.dko leibniz.dko nat.dko
+mod_mod.dko : mod_mod.dk O.dko commutative_times.dko ../theory/cts.dko div.dko div_mod.dko eq.dko eq_div_O.dko eq_ind_r.dko lt.dko lt_mod_m_m.dko mod.dko nat.dko plus.dko plus_O_n.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko times_n_O.dko
+eq_fact_body_O.dko : eq_fact_body_O.dk O.dko S.dko axiom_fact_body_O.dko ../theory/cts.dko equal_leibniz.dko fact_body.dko leibniz.dko nat.dko
+times_O_n.dko : times_O_n.dk O.dko ../theory/cts.dko eq.dko nat.dko refl.dko sym_eq_filter_nat_type_O.dko sym_eq_times.dko sym_eq_times_body_O.dko times.dko times_body.dko
+nmk.dko : nmk.dk False.dko Not.dko ../theory/cts.dko
+sym_eq_fact_body_S.dko : sym_eq_fact_body_S.dk S.dko ../theory/cts.dko eq_fact_body_S.dko fact.dko fact_body.dko leibniz.dko nat.dko sym_leibniz.dko times.dko
+le_to_le_to_eq.dko : le_to_le_to_eq.dk O.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko eq_f.dko le.dko le_n_O_to_eq.dko monotonic_pred.dko nat.dko nat_elim2.dko pred.dko pred_Sn.dko refl.dko rewrite_l.dko sym_eq.dko
+sym_eq_bigop_body_S.dko : sym_eq_bigop_body_S.dk S.dko bigop.dko bigop_body.dko bool.dko ../theory/cts.dko eq_bigop_body_S.dko leibniz.dko match_bool_type.dko nat.dko sym_leibniz.dko
+filter_nat_type.dko : filter_nat_type.dk ../theory/cts.dko nat.dko
+sym_eq_leb.dko : sym_eq_leb.dk bool.dko ../theory/cts.dko eq_leb.dko filter_nat_type.dko leb.dko leb_body.dko leibniz.dko nat.dko sym_leibniz.dko
+plus_minus_m_m.dko : plus_minus_m_m.dk commutative_plus.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko minus.dko minus_plus_m_m.dko nat.dko plus.dko plus_minus.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq.dko
+eq_minus_gcd_aux.dko : eq_minus_gcd_aux.dk Not.dko O.dko Or.dko S.dko absurd.dko associative_times.dko commutative_plus.dko commutative_times.dko ../theory/cts.dko decidable_divides.dko distributive_times_plus.dko distributive_times_plus_r.dko div.dko div_mod.dko divides.dko divides_to_gcd_aux.dko eq.dko eq_ind.dko eq_ind_r.dko ex.dko ex_intro.dko falsity.dko gcd_aux.dko le.dko le_O_n.dko le_S_S_to_le.dko le_n.dko le_to_not_lt.dko le_to_or_lt_eq.dko let_clause_1544.dko let_clause_15441.dko lt.dko lt_O_S.dko lt_mod_m_m.dko lt_to_le.dko match_Or_prop.dko match_ex_prop.dko minus.dko minus_n_O.dko minus_n_n.dko minus_plus.dko mod.dko mod_O_to_divides.dko nat.dko nat_ind.dko not_divides_to_gcd_aux.dko or_introl.dko or_intror.dko plus.dko plus_O_n.dko plus_minus.dko plus_n_O.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko times_n_O.dko times_n_Sm.dko times_times.dko transitive_le.dko
+dividesb.dko : dividesb.dk O.dko bool.dko ../theory/cts.dko eqb.dko mod.dko nat.dko
+decidable.dko : decidable.dk Not.dko Or.dko ../theory/cts.dko
+not_zero.dko : not_zero.dk False.dko True.dko ../theory/cts.dko match_nat_type.dko nat.dko
+let_clause_15441.dko : let_clause_15441.dk Not.dko O.dko Or.dko S.dko commutative_times.dko ../theory/cts.dko divides.dko eq.dko ex.dko gcd_aux.dko le.dko lt.dko minus.dko mod.dko nat.dko rewrite_l.dko times.dko
+axiom_gcd_aux_body_S.dko : axiom_gcd_aux_body_S.dk S.dko ../theory/cts.dko dividesb.dko equal.dko gcd_aux.dko gcd_aux_body.dko match_bool_type.dko mod.dko nat.dko
+mod_O_to_divides.dko : mod_O_to_divides.dk O.dko commutative_times.dko ../theory/cts.dko div.dko divides.dko eq.dko eq_times_div_minus_mod.dko lt.dko minus.dko minus_n_O.dko mod.dko nat.dko quotient.dko refl.dko rewrite_l.dko rewrite_r.dko times.dko
+axiom_filter_nat_type_S.dko : axiom_filter_nat_type_S.dk S.dko ../theory/cts.dko equal.dko filter_nat_type.dko nat.dko
+sameF_upto.dko : sameF_upto.dk ../theory/cts.dko eq.dko lt.dko nat.dko
+permut_mod.dko : permut_mod.dk Not.dko O.dko S.dko S_pred.dko absurd.dko conj.dko ../theory/cts.dko decidable_lt.dko distributive_times_minus.dko divides.dko divides_times_to_divides.dko divides_to_le.dko eq.dko eq_ind.dko eq_ind_r.dko eq_mod_to_divides.dko falsity.dko injn.dko le.dko le_S_S.dko le_S_S_to_le.dko le_n.dko le_plus_n_r.dko le_plus_to_minus.dko le_to_not_lt.dko le_to_or_lt_eq.dko lt.dko lt_mod_m_m.dko lt_plus_to_minus_r.dko match_Or_prop.dko minus.dko mod.dko nat.dko not_lt_to_le.dko permut.dko plus.dko plus_body.dko pred.dko prime.dko prime_to_lt_O.dko refl.dko rewrite_l.dko rewrite_r.dko sym_eq_filter_nat_type_O.dko sym_eq_plus.dko sym_eq_plus_body_O.dko times.dko transitive_le.dko
+permut_invert_permut.dko : permut_invert_permut.dk O.dko S.dko bool.dko conj.dko ../theory/cts.dko eq_match_bool_type_false.dko eq_match_bool_type_true.dko eqb.dko false.dko injective_invert_permut.dko injn.dko invert_permut.dko invert_permut_body.dko le.dko le_S.dko le_n.dko match_bool_prop.dko match_bool_type.dko nat.dko nat_ind.dko permut.dko sym_eq_filter_nat_type_O.dko sym_eq_filter_nat_type_S.dko sym_eq_invert_permut.dko sym_eq_invert_permut_body_O.dko sym_eq_invert_permut_body_S.dko sym_eq_match_bool_type_false.dko true.dko
+not_le_to_lt.dko : not_le_to_lt.dk Not.dko O.dko S.dko absurd.dko ../theory/cts.dko eq.dko eq_coerc.dko falsity.dko le.dko le_S_S.dko le_plus_n.dko lt.dko lt_O_S.dko nat.dko nat_elim2.dko not_le_S_S_to_not_le.dko plus.dko plus_n_O.dko refl.dko rewrite_l.dko
+axiom_match_bool_type_true.dko : axiom_match_bool_type_true.dk ../theory/cts.dko equal.dko match_bool_type.dko true.dko
+eq_minus_O.dko : eq_minus_O.dk O.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko le_n_O_elim.dko minus.dko minus_n_n.dko monotonic_le_minus_r.dko nat.dko refl.dko rewrite_l.dko
+not_le_to_not_le_S_S.dko : not_le_to_not_le_S_S.dk Not.dko S.dko ../theory/cts.dko eq.dko eq_coerc.dko le.dko monotonic_pred.dko nat.dko not_to_not.dko pred.dko pred_Sn.dko refl.dko rewrite_l.dko
+div_aux_body.dko : div_aux_body.dk ../theory/cts.dko nat.dko
+eq_div_aux_body_S.dko : eq_div_aux_body_S.dk O.dko S.dko axiom_div_aux_body_S.dko ../theory/cts.dko div_aux.dko div_aux_body.dko equal_leibniz.dko leb.dko leibniz.dko match_bool_type.dko minus.dko nat.dko
