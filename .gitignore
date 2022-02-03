@@ -1,6 +1,8 @@
+_build/
 *~
 *.dk*
 #*#
 *program
 *.cm*
 !example/*.dk
+example/test

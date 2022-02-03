@@ -2,6 +2,18 @@ open Str
    
 type lvl = Var of string | Max of lvl * lvl | Lzero | Lsucc of lvl
 
+let remove_dup l =
+  List.fold_left (fun acc x -> if List.mem x acc then acc else (x :: acc) ) [] l
+                                                             
+let get_var_list l =  
+  let rec get_var l =
+    match l with
+    | Var x -> [x]
+    | Lzero -> []
+    | Lsucc t -> get_var t
+    | Max (t, s) -> get_var t @ get_var s
+  in let var_list = List.fold_left (fun acc x -> (get_var x) @ acc) [] l in
+     remove_dup var_list
                                                              
 let rec find_y l x =
   match l with
@@ -87,7 +99,42 @@ let rec unify (subst : (string * lvl) list) (l : (lvl * lvl) list) : (string * l
   | (Max (t1, s1), Max (t2, s2)) :: l' -> unify subst ((t1, t2) :: (s1, s2) :: l')
   | _ :: l -> None
 
+exception E
+            
+let rec add_up fin fout list_var =
+  let rec generate_up_prod l =
+    match l with
+    | [] -> ""
+    | x :: l' -> " (" ^ x ^ " : cts.Sort) ->" ^ generate_up_prod l' in       
+  let rec generate_up_abs l =
+    match l with
+    | [] -> ""
+    | x :: l' -> " " ^ x ^ " =>" ^ generate_up_abs l' in         
+  let require = Str.regexp "#REQUIRE" in
+  let def = Str.regexp ":=" in  
+  let s = ref (input_line fin) in        
+  try (* removes #REQUIRE *)
+    while true do
+      let _ = search_forward require !s 0 in      
+      s := input_line fin
+    done; ()
+  with
+    _ ->
+    (* prints (x1 : cts.Sort) -> ... *)
+    Printf.fprintf fout "%s%s\n" !s (generate_up_prod list_var);
+    (* prints x1 => x2 => ... *)    
+    try
+      while true do
+        s := input_line fin;
+        try
+          let _ = search_forward def !s 0 in 
+          Printf.fprintf fout "%s%s\n" !s (generate_up_abs list_var)
+        with _ ->
+          Printf.fprintf fout "%s\n" !s
+      done; ()
+    with _ -> ()
 
+            
 let rec substitute_in_string (subst : (string * lvl) list) (s : string) =
   let reg = Str.regexp "\\([A-Za-z0-9_\\?]+\\).\\?\\([A-Za-z0-9_\\?]+\\)" in
   let reg_of file lvl = Str.regexp (file ^ ".\\?" ^ lvl) in  
@@ -114,21 +161,25 @@ let rec substitute_in_file subst fin fout =
   with
     _ -> ()
 
-exception E
+exception NoSolution
         
 let () =
   let input_file_name = Sys.argv.(1) in
   let constraints_file_name = Sys.argv.(2) in
   let input_file = open_in input_file_name in
   let constraints_file = open_in constraints_file_name in
-  let output_file = open_out "out.dk" in
+  let temp_file = open_out "temp.dk" in
   let lines = read_lines constraints_file in
   let consts = read_constraints lines in
   let subst =
     match unify [] consts with
     | Some x -> x
-    | _ -> raise E in
-  substitute_in_file subst input_file output_file;
-  close_out output_file;
+    | _ -> raise NoSolution in
+  substitute_in_file subst input_file temp_file;
+  close_out temp_file;
+  let temp_file = open_in "temp.dk" in
+  let output_file = open_out "out.dk" in  
+  let var_list = get_var_list (List.map (fun (x,y) -> y) subst) in
+  add_up temp_file output_file var_list;
   close_in input_file;
   close_in constraints_file
