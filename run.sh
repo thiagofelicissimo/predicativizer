@@ -19,6 +19,6 @@ cd temp_univ
 to_dependencies=$(../program $name)
 cp out.dk ../final/$file
 cd ../final
-dkcheck -e -I ../theory $file
+dkcheck --errors-in-snf -e -I ../theory $file
 cd ../ctslib
 sed -i "s/$name.$name/$to_dependencies/g" *.dk
