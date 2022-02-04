@@ -1,0 +1,34 @@
+def eq_match_bool_type_false :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.triangle
+       cts.star
+       cts.star
+       cts.I
+       (cts.univ cts.box cts.triangle cts.I)
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             x
+             (x1 => leibniz.leibniz x (match_bool_type.match_bool_type x x0 x1 false.false) x1))))
+  :=
+  return:(cts.Term cts.triangle (cts.univ cts.box cts.triangle cts.I)) =>
+  case_true:(cts.Term cts.box return) =>
+  case_false:(cts.Term cts.box return) =>
+  equal_leibniz.equal_leibniz
+    return
+    (match_bool_type.match_bool_type return case_true case_false false.false)
+    case_false
+    (axiom_match_bool_type_false.axiom_match_bool_type_false return case_true case_false).
+

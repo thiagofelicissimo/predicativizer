@@ -1,0 +1,53 @@
+def not_eq_S :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (Not.Not (eq.eq nat.nat x x0))
+             (x1 => Not.Not (eq.eq nat.nat (S.S x) (S.S x0))))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  auto:(cts.Term cts.star (Not.Not (eq.eq nat.nat n m))) =>
+  not_to_not.not_to_not
+    (eq.eq nat.nat (S.S n) (S.S m))
+    (eq.eq nat.nat n m)
+    (auto':(cts.Term cts.star (eq.eq nat.nat (S.S n) (S.S m))) =>
+     rewrite_l.rewrite_l
+       nat.nat
+       m
+       (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ m)
+       (refl.refl nat.nat m)
+       n
+       (rewrite_r.rewrite_r
+          nat.nat
+          (pred.pred (S.S n))
+          (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat m __)
+          (rewrite_r.rewrite_r
+             nat.nat
+             (S.S m)
+             (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat m (pred.pred __))
+             (pred_Sn.pred_Sn m)
+             (S.S n)
+             auto')
+          n
+          (pred_Sn.pred_Sn n)))
+    auto.
+

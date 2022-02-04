@@ -1,0 +1,25 @@
+match_bool_prop :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.prod cts.box cts.box cts.box cts.I bool.bool (x => cts.univ cts.star cts.box cts.I))
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (x true.true)
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (x false.false)
+             (x1 => cts.prod cts.box cts.star cts.star cts.I bool.bool (x2 => x x2))))).
+

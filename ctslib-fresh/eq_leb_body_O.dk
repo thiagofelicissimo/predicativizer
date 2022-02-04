@@ -1,0 +1,14 @@
+def eq_leb_body_O :
+  cts.Term
+    cts.star
+    (leibniz.leibniz
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+       (leb_body.leb_body O.O)
+       (m:(cts.Term cts.box nat.nat) => true.true))
+  :=
+  equal_leibniz.equal_leibniz
+    (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+    (leb_body.leb_body O.O)
+    (m:(cts.Term cts.box nat.nat) => true.true)
+    axiom_leb_body_O.axiom_leb_body_O.
+

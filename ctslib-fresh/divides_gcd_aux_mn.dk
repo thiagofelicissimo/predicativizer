@@ -1,0 +1,230 @@
+def divides_gcd_aux_mn :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (lt.lt O.O x1)
+                (x2 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (le.le x1 x0)
+                   (x3 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (le.le x1 x)
+                      (x4 =>
+                       And.And
+                         (divides.divides (gcd_aux.gcd_aux x x0 x1) x0)
+                         (divides.divides (gcd_aux.gcd_aux x x0 x1) x1))))))))
+  :=
+  p:(cts.Term cts.box nat.nat) =>
+  nat_ind.nat_ind
+    (_x_365:(cts.Term cts.box nat.nat) =>
+     cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (lt.lt O.O x0)
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (le.le x0 x)
+                (x2 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (le.le x0 _x_365)
+                   (x3 =>
+                    And.And
+                      (divides.divides (gcd_aux.gcd_aux _x_365 x x0) x)
+                      (divides.divides (gcd_aux.gcd_aux _x_365 x x0) x0)))))))
+    (m:(cts.Term cts.box nat.nat) =>
+     n:(cts.Term cts.box nat.nat) =>
+     posn:(cts.Term cts.star (lt.lt O.O n)) =>
+     lenm:(cts.Term cts.star (le.le n m)) =>
+     lenO:(cts.Term cts.star (le.le n O.O)) =>
+     falsity.falsity
+       (And.And
+          (divides.divides (gcd_aux.gcd_aux O.O m n) m)
+          (divides.divides (gcd_aux.gcd_aux O.O m n) n))
+       (absurd.absurd (lt.lt O.O n) posn (le_to_not_lt.le_to_not_lt n O.O lenO)))
+    (q:(cts.Term cts.box nat.nat) =>
+     Hind:(cts.Term
+             cts.star
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x =>
+                 cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   nat.nat
+                   (x0 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (lt.lt O.O x0)
+                      (x1 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (le.le x0 x)
+                         (x2 =>
+                          cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (le.le x0 q)
+                            (x3 =>
+                             And.And
+                               (divides.divides (gcd_aux.gcd_aux q x x0) x)
+                               (divides.divides (gcd_aux.gcd_aux q x x0) x0)))))))) =>
+     m:(cts.Term cts.box nat.nat) =>
+     n:(cts.Term cts.box nat.nat) =>
+     posn:(cts.Term cts.star (lt.lt O.O n)) =>
+     lenm:(cts.Term cts.star (le.le n m)) =>
+     lenS:(cts.Term cts.star (le.le n (S.S q))) =>
+     match_Or_prop.match_Or_prop
+       (divides.divides n m)
+       (Not.Not (divides.divides n m))
+       (And.And
+          (divides.divides (gcd_aux.gcd_aux (S.S q) m n) m)
+          (divides.divides (gcd_aux.gcd_aux (S.S q) m n) n))
+       (divnm:(cts.Term cts.star (divides.divides n m)) =>
+        eq_ind_r.eq_ind_r
+          nat.nat
+          n
+          (x:(cts.Term cts.box nat.nat) => And.And (divides.divides x m) (divides.divides x n))
+          (conj.conj (divides.divides n m) (divides.divides n n) divnm (divides_n_n.divides_n_n n))
+          (gcd_aux.gcd_aux (S.S q) m n)
+          (divides_to_gcd_aux.divides_to_gcd_aux (S.S q) m n (lt_O_S.lt_O_S q) posn divnm))
+       (ndivnm:(cts.Term cts.star (Not.Not (divides.divides n m))) =>
+        eq_ind_r.eq_ind_r
+          nat.nat
+          (gcd_aux.gcd_aux q n (mod.mod m n))
+          (x:(cts.Term cts.box nat.nat) => And.And (divides.divides x m) (divides.divides x n))
+          (match_And_prop.match_And_prop
+             (divides.divides (gcd_aux.gcd_aux q n (mod.mod m n)) n)
+             (divides.divides (gcd_aux.gcd_aux q n (mod.mod m n)) (mod.mod m n))
+             (And.And
+                (divides.divides (gcd_aux.gcd_aux q n (mod.mod m n)) m)
+                (divides.divides (gcd_aux.gcd_aux q n (mod.mod m n)) n))
+             (H:(cts.Term cts.star (divides.divides (gcd_aux.gcd_aux q n (mod.mod m n)) n)) =>
+              H1:(cts.Term
+                    cts.star
+                    (divides.divides (gcd_aux.gcd_aux q n (mod.mod m n)) (mod.mod m n))) =>
+              conj.conj
+                (divides.divides (gcd_aux.gcd_aux q n (mod.mod m n)) m)
+                (divides.divides (gcd_aux.gcd_aux q n (mod.mod m n)) n)
+                (divides_mod_to_divides.divides_mod_to_divides
+                   (gcd_aux.gcd_aux q n (mod.mod m n))
+                   m
+                   n
+                   posn
+                   H1
+                   H)
+                H)
+             (Hind
+                n
+                (mod.mod m n)
+                (match_Or_prop.match_Or_prop
+                   (lt.lt O.O (mod.mod m n))
+                   (eq.eq nat.nat O.O (mod.mod m n))
+                   (lt.lt O.O (mod.mod m n))
+                   (auto:(cts.Term cts.star (lt.lt O.O (mod.mod m n))) => auto)
+                   (modO:(cts.Term cts.star (eq.eq nat.nat O.O (mod.mod m n))) =>
+                    falsity.falsity
+                      (lt.lt O.O (mod.mod m n))
+                      (absurd.absurd
+                         (divides.divides n m)
+                         (mod_O_to_divides.mod_O_to_divides
+                            n
+                            m
+                            posn
+                            (rewrite_l.rewrite_l
+                               nat.nat
+                               O.O
+                               (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ O.O)
+                               (refl.refl nat.nat O.O)
+                               (mod.mod m n)
+                               modO))
+                         ndivnm))
+                   (le_to_or_lt_eq.le_to_or_lt_eq
+                      O.O
+                      (mod.mod m n)
+                      (le_O_n.le_O_n (mod.mod m n))))
+                (lt_to_le.lt_to_le (mod.mod m n) n (lt_mod_m_m.lt_mod_m_m m n posn))
+                (le_S_S_to_le.le_S_S_to_le
+                   (mod.mod m n)
+                   q
+                   (transitive_le.transitive_le
+                      (S.S (mod.mod m n))
+                      n
+                      (S.S q)
+                      (lt_mod_m_m.lt_mod_m_m m n posn)
+                      lenS))))
+          (gcd_aux.gcd_aux (S.S q) m n)
+          (not_divides_to_gcd_aux.not_divides_to_gcd_aux q m n posn ndivnm))
+       (decidable_divides.decidable_divides n m))
+    p.
+

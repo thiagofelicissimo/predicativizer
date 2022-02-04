@@ -1,0 +1,80 @@
+def dividesb_true_to_divides :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (eq.eq bool.bool (dividesb.dividesb x x0) true.true)
+             (x1 => divides.divides x x0))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  match_Or_prop.match_Or_prop
+    (lt.lt O.O n)
+    (eq.eq nat.nat O.O n)
+    (cts.prod
+       cts.star
+       cts.star
+       cts.star
+       cts.I
+       (eq.eq bool.bool (dividesb.dividesb n m) true.true)
+       (x => divides.divides n m))
+    (posn:(cts.Term cts.star (lt.lt O.O n)) =>
+     divbnm:(cts.Term cts.star (eq.eq bool.bool (dividesb.dividesb n m) true.true)) =>
+     mod_O_to_divides.mod_O_to_divides
+       n
+       m
+       posn
+       (eqb_true_to_eq.eqb_true_to_eq (mod.mod m n) O.O divbnm))
+    (eqnO:(cts.Term cts.star (eq.eq nat.nat O.O n)) =>
+     eq_ind.eq_ind
+       nat.nat
+       O.O
+       (x_1:(cts.Term cts.box nat.nat) =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (eq.eq bool.bool (dividesb.dividesb x_1 m) true.true)
+          (x => divides.divides x_1 m))
+       (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
+          nat.nat
+          m
+          (p:(cts.Term cts.box nat.nat) => mod_aux.mod_aux m m p)
+          (y:(cts.Term cts.box nat.nat) =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (eq.eq bool.bool (eqb.eqb y O.O) true.true)
+             (x => divides.divides O.O m))
+          (eqbmO:(cts.Term cts.star (eq.eq bool.bool (eqb.eqb m O.O) true.true)) =>
+           eq_ind_r.eq_ind_r
+             nat.nat
+             O.O
+             (x:(cts.Term cts.box nat.nat) => divides.divides O.O x)
+             (divides_n_n.divides_n_n O.O)
+             m
+             (eqb_true_to_eq.eqb_true_to_eq m O.O eqbmO)))
+       n
+       eqnO)
+    (le_to_or_lt_eq.le_to_or_lt_eq O.O n (le_O_n.le_O_n n)).
+

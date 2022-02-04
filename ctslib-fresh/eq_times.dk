@@ -1,0 +1,28 @@
+def eq_times :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat))
+          (times.times x)
+          (filter_nat_type.filter_nat_type
+             (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat))
+             times_body.times_body
+             x)))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  equal_leibniz.equal_leibniz
+    (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+    (times.times n)
+    (filter_nat_type.filter_nat_type
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+       times_body.times_body
+       n)
+    (axiom_times.axiom_times n).
+

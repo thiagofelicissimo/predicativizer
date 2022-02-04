@@ -1,0 +1,46 @@
+def sym_eq_gcd_aux_body_S :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          (cts.prod
+             cts.box
+             cts.box
+             cts.box
+             cts.I
+             nat.nat
+             (x0 => cts.prod cts.box cts.box cts.box cts.I nat.nat (x1 => nat.nat)))
+          (m:(cts.Term cts.box nat.nat) =>
+           n:(cts.Term cts.box nat.nat) =>
+           match_bool_type.match_bool_type
+             nat.nat
+             n
+             (gcd_aux.gcd_aux x n (mod.mod m n))
+             (dividesb.dividesb n m))
+          (gcd_aux_body.gcd_aux_body (S.S x))))
+  :=
+  p:(cts.Term cts.box nat.nat) =>
+  sym_leibniz.sym_leibniz
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       nat.nat
+       (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))
+    (gcd_aux_body.gcd_aux_body (S.S p))
+    (m:(cts.Term cts.box nat.nat) =>
+     n:(cts.Term cts.box nat.nat) =>
+     match_bool_type.match_bool_type
+       nat.nat
+       n
+       (gcd_aux.gcd_aux p n (mod.mod m n))
+       (dividesb.dividesb n m))
+    (eq_gcd_aux_body_S.eq_gcd_aux_body_S p).
+

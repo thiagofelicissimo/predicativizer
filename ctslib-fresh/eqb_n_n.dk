@@ -1,0 +1,86 @@
+def eqb_n_n :
+  cts.Term
+    cts.star
+    (cts.prod cts.box cts.star cts.star cts.I nat.nat (x => eq.eq bool.bool (eqb.eqb x x) true.true))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  nat_ind.nat_ind
+    (_x_365:(cts.Term cts.box nat.nat) => eq.eq bool.bool (eqb.eqb _x_365 _x_365) true.true)
+    (sym_eq_eqb.sym_eq_eqb
+       O.O
+       (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+        eq.eq bool.bool (y O.O) true.true)
+       (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+          eqb_body.eqb_body
+          (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+           eq.eq bool.bool (y O.O) true.true)
+          (sym_eq_eqb_body_O.sym_eq_eqb_body_O
+             (y:(cts.Term
+                   cts.box
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+              eq.eq bool.bool (y O.O) true.true)
+             (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
+                bool.bool
+                true.true
+                (q:(cts.Term cts.box nat.nat) => false.false)
+                (y:(cts.Term cts.box bool.bool) => eq.eq bool.bool y true.true)
+                (refl.refl bool.bool true.true)))))
+    (x_366:(cts.Term cts.box nat.nat) =>
+     sym_eq_eqb.sym_eq_eqb
+       (S.S x_366)
+       (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (eq.eq bool.bool (eqb.eqb x_366 x_366) true.true)
+          (x => eq.eq bool.bool (y (S.S x_366)) true.true))
+       (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+          eqb_body.eqb_body
+          x_366
+          (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (eq.eq bool.bool (eqb.eqb x_366 x_366) true.true)
+             (x => eq.eq bool.bool (y (S.S x_366)) true.true))
+          (sym_eq_eqb_body_S.sym_eq_eqb_body_S
+             x_366
+             (y:(cts.Term
+                   cts.box
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (eq.eq bool.bool (eqb.eqb x_366 x_366) true.true)
+                (x => eq.eq bool.bool (y (S.S x_366)) true.true))
+             (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+                bool.bool
+                false.false
+                (q:(cts.Term cts.box nat.nat) => eqb.eqb x_366 q)
+                x_366
+                (y:(cts.Term cts.box bool.bool) =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (eq.eq bool.bool (eqb.eqb x_366 x_366) true.true)
+                   (x => eq.eq bool.bool y true.true))
+                (_x_368:(cts.Term cts.star (eq.eq bool.bool (eqb.eqb x_366 x_366) true.true)) =>
+                 rewrite_r.rewrite_r
+                   bool.bool
+                   true.true
+                   (__:(cts.Term cts.box bool.bool) => eq.eq bool.bool __ true.true)
+                   (refl.refl bool.bool true.true)
+                   (eqb.eqb x_366 x_366)
+                   _x_368)))))
+    n.
+

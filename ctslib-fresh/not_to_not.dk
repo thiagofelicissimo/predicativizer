@@ -1,0 +1,31 @@
+def not_to_not :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.univ cts.star cts.box cts.I)
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          (cts.univ cts.star cts.box cts.I)
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod cts.star cts.star cts.star cts.I x (x1 => x0))
+             (x1 => cts.prod cts.star cts.star cts.star cts.I (Not.Not x0) (x2 => Not.Not x)))))
+  :=
+  A:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) =>
+  B:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) =>
+  auto:(cts.Term cts.star (cts.prod cts.star cts.star cts.star cts.I A (x => B))) =>
+  auto':(cts.Term cts.star (Not.Not B)) =>
+  nmk.nmk A (auto'':(cts.Term cts.star A) => absurd.absurd B (auto auto'') auto').
+

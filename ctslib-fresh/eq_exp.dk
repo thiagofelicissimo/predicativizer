@@ -1,0 +1,30 @@
+def eq_exp :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           leibniz.leibniz
+             nat.nat
+             (exp.exp x x0)
+             (filter_nat_type.filter_nat_type nat.nat (exp_body.exp_body x) x0))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  equal_leibniz.equal_leibniz
+    nat.nat
+    (exp.exp n m)
+    (filter_nat_type.filter_nat_type nat.nat (exp_body.exp_body n) m)
+    (axiom_exp.axiom_exp n m).
+

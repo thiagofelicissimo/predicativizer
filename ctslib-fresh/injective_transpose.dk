@@ -1,0 +1,43 @@
+def injective_transpose :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 => injective_.injective_ nat.nat nat.nat (transpose.transpose x x0))))
+  :=
+  i:(cts.Term cts.box nat.nat) =>
+  j:(cts.Term cts.box nat.nat) =>
+  x:(cts.Term cts.box nat.nat) =>
+  y:(cts.Term cts.box nat.nat) =>
+  auto:(cts.Term cts.star (eq.eq nat.nat (transpose.transpose i j x) (transpose.transpose i j y))) =>
+  rewrite_r.rewrite_r
+    nat.nat
+    y
+    (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ y)
+    (refl.refl nat.nat y)
+    x
+    (rewrite_l.rewrite_l
+       nat.nat
+       (transpose.transpose i j (transpose.transpose i j x))
+       (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ y)
+       (rewrite_r.rewrite_r
+          nat.nat
+          (transpose.transpose i j y)
+          (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat (transpose.transpose i j __) y)
+          (transpose_transpose.transpose_transpose i j y)
+          (transpose.transpose i j x)
+          auto)
+       x
+       (transpose_transpose.transpose_transpose i j x)).
+

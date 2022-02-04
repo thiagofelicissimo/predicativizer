@@ -1,0 +1,66 @@
+def mod_mod :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (lt.lt O.O x0)
+             (x1 => eq.eq nat.nat (mod.mod x x0) (mod.mod (mod.mod x x0) x0)))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  p:(cts.Term cts.box nat.nat) =>
+  posp:(cts.Term cts.star (lt.lt O.O p)) =>
+  eq_ind_r.eq_ind_r
+    nat.nat
+    (plus.plus (times.times (div.div (mod.mod n p) p) p) (mod.mod (mod.mod n p) p))
+    (x:(cts.Term cts.box nat.nat) => eq.eq nat.nat x (mod.mod (mod.mod n p) p))
+    (eq_ind_r.eq_ind_r
+       nat.nat
+       O.O
+       (x:(cts.Term cts.box nat.nat) =>
+        eq.eq
+          nat.nat
+          (plus.plus (times.times x p) (mod.mod (mod.mod n p) p))
+          (mod.mod (mod.mod n p) p))
+       (rewrite_r.rewrite_r
+          nat.nat
+          (times.times p O.O)
+          (__:(cts.Term cts.box nat.nat) =>
+           eq.eq nat.nat (plus.plus __ (mod.mod (mod.mod n p) p)) (mod.mod (mod.mod n p) p))
+          (rewrite_l.rewrite_l
+             nat.nat
+             O.O
+             (__:(cts.Term cts.box nat.nat) =>
+              eq.eq nat.nat (plus.plus __ (mod.mod (mod.mod n p) p)) (mod.mod (mod.mod n p) p))
+             (rewrite_l.rewrite_l
+                nat.nat
+                (mod.mod (mod.mod n p) p)
+                (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ (mod.mod (mod.mod n p) p))
+                (refl.refl nat.nat (mod.mod (mod.mod n p) p))
+                (plus.plus O.O (mod.mod (mod.mod n p) p))
+                (plus_O_n.plus_O_n (mod.mod (mod.mod n p) p)))
+             (times.times p O.O)
+             (times_n_O.times_n_O p))
+          (times.times O.O p)
+          (commutative_times.commutative_times O.O p))
+       (div.div (mod.mod n p) p)
+       (eq_div_O.eq_div_O (mod.mod n p) p (lt_mod_m_m.lt_mod_m_m n p posp)))
+    (mod.mod n p)
+    (div_mod.div_mod (mod.mod n p) p).
+

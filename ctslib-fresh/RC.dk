@@ -1,0 +1,45 @@
+def RC :
+  cts.Term
+    cts.diamond
+    (cts.prod
+       cts.triangle
+       cts.box
+       cts.diamond
+       cts.I
+       (cts.univ cts.box cts.triangle cts.I)
+       (x =>
+        cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          (cts.prod
+             cts.box
+             cts.box
+             cts.box
+             cts.I
+             x
+             (x0 =>
+              cts.prod cts.box cts.box cts.box cts.I x (x1 => cts.univ cts.star cts.box cts.I)))
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.box
+             cts.box
+             cts.I
+             x
+             (x1 =>
+              cts.prod cts.box cts.box cts.box cts.I x (x2 => cts.univ cts.star cts.box cts.I)))))
+  :=
+  A:(cts.Term cts.triangle (cts.univ cts.box cts.triangle cts.I)) =>
+  R:(cts.Term
+       cts.box
+       (cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          A
+          (x => cts.prod cts.box cts.box cts.box cts.I A (x0 => cts.univ cts.star cts.box cts.I)))) =>
+  x:(cts.Term cts.box A) => y:(cts.Term cts.box A) => Or.Or (R x y) (eq.eq A x y).
+

@@ -1,0 +1,53 @@
+le_ind :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => cts.univ cts.star cts.box cts.I))
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (x0 x)
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   nat.nat
+                   (x2 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (le.le x x2)
+                      (x3 =>
+                       cts.prod cts.star cts.star cts.star cts.I (x0 x2) (x4 => x0 (S.S x2)))))
+                (x2 =>
+                 cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   nat.nat
+                   (x3 => cts.prod cts.star cts.star cts.star cts.I (le.le x x3) (x4 => x0 x3))))))).
+

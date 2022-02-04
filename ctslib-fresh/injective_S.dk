@@ -1,0 +1,26 @@
+def injective_S :
+  cts.Term cts.star (injective_.injective_ nat.nat nat.nat S.S)
+  :=
+  x:(cts.Term cts.box nat.nat) =>
+  y:(cts.Term cts.box nat.nat) =>
+  auto:(cts.Term cts.star (eq.eq nat.nat (S.S x) (S.S y))) =>
+  rewrite_l.rewrite_l
+    nat.nat
+    y
+    (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ y)
+    (refl.refl nat.nat y)
+    x
+    (rewrite_r.rewrite_r
+       nat.nat
+       (pred.pred (S.S x))
+       (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat y __)
+       (rewrite_r.rewrite_r
+          nat.nat
+          (S.S y)
+          (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat y (pred.pred __))
+          (pred_Sn.pred_Sn y)
+          (S.S x)
+          auto)
+       x
+       (pred_Sn.pred_Sn x)).
+

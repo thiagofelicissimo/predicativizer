@@ -1,0 +1,93 @@
+def sub_hk :
+  cts.Term
+    cts.box
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat))
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.box
+             cts.box
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.box
+                   cts.box
+                   cts.box
+                   cts.I
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x3 => bool.bool))
+                   (x3 =>
+                    cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      (cts.prod cts.box cts.box cts.box cts.I nat.nat (x4 => bool.bool))
+                      (x4 =>
+                       cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         (cts.prod cts.box cts.box cts.box cts.I nat.nat (x5 => nat.nat))
+                         (x5 =>
+                          cts.prod
+                            cts.box
+                            cts.box
+                            cts.box
+                            cts.I
+                            (cts.prod cts.box cts.box cts.box cts.I nat.nat (x6 => nat.nat))
+                            (x6 => cts.univ cts.star cts.box cts.I)))))))))
+  :=
+  h:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  k:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  n1:(cts.Term cts.box nat.nat) =>
+  n2:(cts.Term cts.box nat.nat) =>
+  p1:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+  p2:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+  f1:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  f2:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  cts.prod
+    cts.box
+    cts.star
+    cts.star
+    cts.I
+    nat.nat
+    (x =>
+     cts.prod
+       cts.star
+       cts.star
+       cts.star
+       cts.I
+       (lt.lt x n1)
+       (x0 =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (eq.eq bool.bool (p1 x) true.true)
+          (x1 =>
+           And.And
+             (And.And (lt.lt (h x) n2) (eq.eq bool.bool (p2 (h x)) true.true))
+             (eq.eq nat.nat (k (h x)) x)))).
+

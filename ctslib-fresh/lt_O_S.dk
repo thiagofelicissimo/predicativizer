@@ -1,0 +1,20 @@
+def lt_O_S :
+  cts.Term cts.star (cts.prod cts.box cts.star cts.star cts.I nat.nat (x => lt.lt O.O (S.S x)))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  ltn_to_ltO.ltn_to_ltO
+    n
+    (S.S n)
+    (eq_coerc.eq_coerc
+       (le.le (S.S n) (plus.plus O.O (S.S n)))
+       (le.le (S.S n) (S.S n))
+       (le_plus_n.le_plus_n O.O (S.S n))
+       (rewrite_l.rewrite_l
+          nat.nat
+          (S.S n)
+          (__:(cts.Term cts.box nat.nat) =>
+           eq.eq (cts.univ cts.star cts.box cts.I) (le.le (S.S n) __) (le.le (S.S n) (S.S n)))
+          (refl.refl (cts.univ cts.star cts.box cts.I) (le.le (S.S n) (S.S n)))
+          (plus.plus O.O (S.S n))
+          (plus_O_n.plus_O_n (S.S n)))).
+

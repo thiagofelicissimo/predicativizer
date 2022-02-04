@@ -1,0 +1,116 @@
+def f_invert_permut :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (le.le x1 x0)
+                (x2 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (permut.permut x x0)
+                   (x3 => eq.eq nat.nat (x (invert_permut.invert_permut x0 x x1)) x1))))))
+  :=
+  f:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  lemn:(cts.Term cts.star (le.le m n)) =>
+  permf:(cts.Term cts.star (permut.permut f n)) =>
+  match_And_prop.match_And_prop
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (le.le x n)
+          (x0 => le.le (invert_permut.invert_permut n f x) n)))
+    (injn.injn (invert_permut.invert_permut n f) n)
+    (eq.eq nat.nat (f (invert_permut.invert_permut n f m)) m)
+    (Hle:(cts.Term
+            cts.star
+            (cts.prod
+               cts.box
+               cts.star
+               cts.star
+               cts.I
+               nat.nat
+               (x =>
+                cts.prod
+                  cts.star
+                  cts.star
+                  cts.star
+                  cts.I
+                  (le.le x n)
+                  (x0 => le.le (invert_permut.invert_permut n f x) n)))) =>
+     Hinj:(cts.Term cts.star (injn.injn (invert_permut.invert_permut n f) n)) =>
+     match_And_prop.match_And_prop
+       (cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x => cts.prod cts.star cts.star cts.star cts.I (le.le x n) (x0 => le.le (f x) n)))
+       (injn.injn f n)
+       (eq.eq nat.nat (f (invert_permut.invert_permut n f m)) m)
+       (lef:(cts.Term
+               cts.star
+               (cts.prod
+                  cts.box
+                  cts.star
+                  cts.star
+                  cts.I
+                  nat.nat
+                  (x =>
+                   cts.prod cts.star cts.star cts.star cts.I (le.le x n) (x0 => le.le (f x) n)))) =>
+        injf:(cts.Term cts.star (injn.injn f n)) =>
+        injective_invert_permut.injective_invert_permut
+          f
+          n
+          permf
+          (f (invert_permut.invert_permut n f m))
+          m
+          (lef (invert_permut.invert_permut n f m) (Hle m lemn))
+          lemn
+          (invert_permut_f.invert_permut_f
+             f
+             n
+             (invert_permut.invert_permut n f m)
+             (Hle m lemn)
+             injf))
+       permf)
+    (permut_invert_permut.permut_invert_permut f n permf).
+

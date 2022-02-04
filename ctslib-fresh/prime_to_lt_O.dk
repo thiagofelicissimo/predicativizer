@@ -1,0 +1,58 @@
+def prime_to_lt_O :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x => cts.prod cts.star cts.star cts.star cts.I (prime.prime x) (x0 => lt.lt O.O x)))
+  :=
+  p:(cts.Term cts.box nat.nat) =>
+  _clearme:(cts.Term cts.star (prime.prime p)) =>
+  match_And_prop.match_And_prop
+    (lt.lt (S.S O.O) p)
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (divides.divides x p)
+          (x0 =>
+           cts.prod cts.star cts.star cts.star cts.I (lt.lt (S.S O.O) x) (x1 => eq.eq nat.nat x p))))
+    (lt.lt O.O p)
+    (lt1p:(cts.Term cts.star (lt.lt (S.S O.O) p)) =>
+     auto:(cts.Term
+             cts.star
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (divides.divides x p)
+                   (x0 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (lt.lt (S.S O.O) x)
+                      (x1 => eq.eq nat.nat x p))))) =>
+     lt_S_to_lt.lt_S_to_lt O.O p lt1p)
+    _clearme.
+

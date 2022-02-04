@@ -1,0 +1,44 @@
+def eq_coerc :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.univ cts.star cts.box cts.I)
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          (cts.univ cts.star cts.box cts.I)
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             x
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (eq.eq (cts.univ cts.star cts.box cts.I) x x0)
+                (x2 => x0)))))
+  :=
+  A:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) =>
+  B:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) =>
+  Ha:(cts.Term cts.star A) =>
+  Heq:(cts.Term cts.star (eq.eq (cts.univ cts.star cts.box cts.I) A B)) =>
+  eq_ind.eq_ind
+    (cts.univ cts.star cts.box cts.I)
+    A
+    (x_19:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) => x_19)
+    Ha
+    B
+    Heq.
+

@@ -1,0 +1,110 @@
+def nat_elim2 :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          nat.nat
+          (x =>
+           cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => cts.univ cts.star cts.box cts.I)))
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (cts.prod cts.box cts.star cts.star cts.I nat.nat (x0 => x O.O x0))
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod cts.box cts.star cts.star cts.I nat.nat (x1 => x (S.S x1) O.O))
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   nat.nat
+                   (x2 =>
+                    cts.prod
+                      cts.box
+                      cts.star
+                      cts.star
+                      cts.I
+                      nat.nat
+                      (x3 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (x x2 x3)
+                         (x4 => x (S.S x2) (S.S x3)))))
+                (x2 =>
+                 cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   nat.nat
+                   (x3 => cts.prod cts.box cts.star cts.star cts.I nat.nat (x4 => x x3 x4)))))))
+  :=
+  R:(cts.Term
+       cts.box
+       (cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          nat.nat
+          (x =>
+           cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => cts.univ cts.star cts.box cts.I)))) =>
+  ROn:(cts.Term cts.star (cts.prod cts.box cts.star cts.star cts.I nat.nat (x => R O.O x))) =>
+  RSO:(cts.Term cts.star (cts.prod cts.box cts.star cts.star cts.I nat.nat (x => R (S.S x) O.O))) =>
+  RSS:(cts.Term
+         cts.star
+         (cts.prod
+            cts.box
+            cts.star
+            cts.star
+            cts.I
+            nat.nat
+            (x =>
+             cts.prod
+               cts.box
+               cts.star
+               cts.star
+               cts.I
+               nat.nat
+               (x0 =>
+                cts.prod cts.star cts.star cts.star cts.I (R x x0) (x1 => R (S.S x) (S.S x0)))))) =>
+  n:(cts.Term cts.box nat.nat) =>
+  nat_ind.nat_ind
+    (_x_365:(cts.Term cts.box nat.nat) =>
+     cts.prod cts.box cts.star cts.star cts.I nat.nat (x => R _x_365 x))
+    (m:(cts.Term cts.box nat.nat) => ROn m)
+    (n0:(cts.Term cts.box nat.nat) =>
+     Rn0m:(cts.Term cts.star (cts.prod cts.box cts.star cts.star cts.I nat.nat (x => R n0 x))) =>
+     m:(cts.Term cts.box nat.nat) =>
+     match_nat_prop.match_nat_prop
+       (__:(cts.Term cts.box nat.nat) => R (S.S n0) __)
+       (RSO n0)
+       (auto:(cts.Term cts.box nat.nat) => RSS n0 auto (Rn0m auto))
+       m)
+    n.
+

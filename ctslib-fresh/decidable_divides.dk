@@ -1,0 +1,54 @@
+def decidable_divides :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 => decidable.decidable (divides.divides x x0))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  match_Or_prop.match_Or_prop
+    (eq.eq bool.bool (dividesb.dividesb n m) true.true)
+    (eq.eq bool.bool (dividesb.dividesb n m) false.false)
+    (decidable.decidable (divides.divides n m))
+    (auto:(cts.Term cts.star (eq.eq bool.bool (dividesb.dividesb n m) true.true)) =>
+     or_introl.or_introl
+       (divides.divides n m)
+       (Not.Not (divides.divides n m))
+       (dividesb_true_to_divides.dividesb_true_to_divides
+          n
+          m
+          (rewrite_r.rewrite_r
+             bool.bool
+             true.true
+             (__:(cts.Term cts.box bool.bool) => eq.eq bool.bool __ true.true)
+             (refl.refl bool.bool true.true)
+             (dividesb.dividesb n m)
+             auto)))
+    (auto:(cts.Term cts.star (eq.eq bool.bool (dividesb.dividesb n m) false.false)) =>
+     or_intror.or_intror
+       (divides.divides n m)
+       (Not.Not (divides.divides n m))
+       (dividesb_false_to_not_divides.dividesb_false_to_not_divides
+          n
+          m
+          (rewrite_r.rewrite_r
+             bool.bool
+             false.false
+             (__:(cts.Term cts.box bool.bool) => eq.eq bool.bool __ false.false)
+             (refl.refl bool.bool false.false)
+             (dividesb.dividesb n m)
+             auto)))
+    (true_or_false.true_or_false (dividesb.dividesb n m)).
+

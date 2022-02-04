@@ -1,0 +1,19 @@
+def sym_eq_fact_body_S :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz nat.nat (times.times (fact.fact x) (S.S x)) (fact_body.fact_body (S.S x))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  sym_leibniz.sym_leibniz
+    nat.nat
+    (fact_body.fact_body (S.S n))
+    (times.times (fact.fact n) (S.S n))
+    (eq_fact_body_S.eq_fact_body_S n).
+

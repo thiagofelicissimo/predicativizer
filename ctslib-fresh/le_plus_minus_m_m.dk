@@ -1,0 +1,131 @@
+def le_plus_minus_m_m :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 => le.le x (plus.plus (minus.minus x x0) x0))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  nat_ind.nat_ind
+    (_x_365:(cts.Term cts.box nat.nat) =>
+     cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x => le.le _x_365 (plus.plus (minus.minus _x_365 x) x)))
+    (sym_eq_minus.sym_eq_minus
+       O.O
+       (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+        cts.prod cts.box cts.star cts.star cts.I nat.nat (x => le.le O.O (plus.plus (y x) x)))
+       (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+          minus_body.minus_body
+          (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+           cts.prod cts.box cts.star cts.star cts.I nat.nat (x => le.le O.O (plus.plus (y x) x)))
+          (sym_eq_minus_body_O.sym_eq_minus_body_O
+             (y:(cts.Term
+                   cts.box
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x => le.le O.O (plus.plus (y x) x)))
+             (m:(cts.Term cts.box nat.nat) => le_plus_n_r.le_plus_n_r m O.O))))
+    (a:(cts.Term cts.box nat.nat) =>
+     Hind:(cts.Term
+             cts.star
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x => le.le a (plus.plus (minus.minus a x) x)))) =>
+     m:(cts.Term cts.box nat.nat) =>
+     match_nat_prop.match_nat_prop
+       (__:(cts.Term cts.box nat.nat) => le.le (S.S a) (plus.plus (minus.minus (S.S a) __) __))
+       (sym_eq_minus.sym_eq_minus
+          (S.S a)
+          (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+           le.le (S.S a) (plus.plus (y O.O) O.O))
+          (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+             (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+             minus_body.minus_body
+             a
+             (y:(cts.Term
+                   cts.box
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+              le.le (S.S a) (plus.plus (y O.O) O.O))
+             (sym_eq_minus_body_S.sym_eq_minus_body_S
+                a
+                (y:(cts.Term
+                      cts.box
+                      (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+                 le.le (S.S a) (plus.plus (y O.O) O.O))
+                (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
+                   nat.nat
+                   (S.S a)
+                   (q:(cts.Term cts.box nat.nat) => minus.minus a q)
+                   (y:(cts.Term cts.box nat.nat) => le.le (S.S a) (plus.plus y O.O))
+                   (le_plus_n_r.le_plus_n_r O.O (S.S a))))))
+       (n0:(cts.Term cts.box nat.nat) =>
+        sym_eq_minus.sym_eq_minus
+          (S.S a)
+          (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+           le.le (S.S a) (plus.plus (y (S.S n0)) (S.S n0)))
+          (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+             (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+             minus_body.minus_body
+             a
+             (y:(cts.Term
+                   cts.box
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+              le.le (S.S a) (plus.plus (y (S.S n0)) (S.S n0)))
+             (sym_eq_minus_body_S.sym_eq_minus_body_S
+                a
+                (y:(cts.Term
+                      cts.box
+                      (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+                 le.le (S.S a) (plus.plus (y (S.S n0)) (S.S n0)))
+                (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+                   nat.nat
+                   (S.S a)
+                   (q:(cts.Term cts.box nat.nat) => minus.minus a q)
+                   n0
+                   (y:(cts.Term cts.box nat.nat) => le.le (S.S a) (plus.plus y (S.S n0)))
+                   (eq_coerc.eq_coerc
+                      (le.le (S.S a) (S.S (plus.plus (minus.minus a n0) n0)))
+                      (le.le (S.S a) (plus.plus (minus.minus a n0) (S.S n0)))
+                      (le_S_S.le_S_S a (plus.plus (minus.minus a n0) n0) (Hind n0))
+                      (rewrite_r.rewrite_r
+                         nat.nat
+                         (plus.plus (minus.minus a n0) (S.S n0))
+                         (__:(cts.Term cts.box nat.nat) =>
+                          eq.eq
+                            (cts.univ cts.star cts.box cts.I)
+                            (le.le (S.S a) __)
+                            (le.le (S.S a) (plus.plus (minus.minus a n0) (S.S n0))))
+                         (refl.refl
+                            (cts.univ cts.star cts.box cts.I)
+                            (le.le (S.S a) (plus.plus (minus.minus a n0) (S.S n0))))
+                         (S.S (plus.plus (minus.minus a n0) n0))
+                         (plus_n_Sm.plus_n_Sm (minus.minus a n0) n0)))))))
+       m)
+    n.
+

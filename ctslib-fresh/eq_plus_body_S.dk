@@ -1,0 +1,22 @@
+def eq_plus_body_S :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat))
+          (plus_body.plus_body (S.S x))
+          (m:(cts.Term cts.box nat.nat) => S.S (plus.plus x m))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  equal_leibniz.equal_leibniz
+    (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+    (plus_body.plus_body (S.S n))
+    (m:(cts.Term cts.box nat.nat) => S.S (plus.plus n m))
+    (axiom_plus_body_S.axiom_plus_body_S n).
+

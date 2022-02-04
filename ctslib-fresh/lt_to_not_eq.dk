@@ -1,0 +1,49 @@
+def lt_to_not_eq :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (lt.lt x x0)
+             (x1 => Not.Not (eq.eq nat.nat x x0)))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  H:(cts.Term cts.star (lt.lt n m)) =>
+  not_to_not.not_to_not
+    (eq.eq nat.nat n m)
+    False.False
+    (auto:(cts.Term cts.star (eq.eq nat.nat n m)) =>
+     absurd.absurd
+       (le.le (S.S n) n)
+       (eq_coerc.eq_coerc
+          (le.le (S.S n) m)
+          (le.le (S.S n) n)
+          H
+          (rewrite_l.rewrite_l
+             nat.nat
+             n
+             (__:(cts.Term cts.box nat.nat) =>
+              eq.eq (cts.univ cts.star cts.box cts.I) (le.le (S.S n) __) (le.le (S.S n) n))
+             (refl.refl (cts.univ cts.star cts.box cts.I) (le.le (S.S n) n))
+             m
+             auto))
+       (not_le_Sn_n.not_le_Sn_n n))
+    (nmk.nmk False.False (auto:(cts.Term cts.star False.False) => auto)).
+

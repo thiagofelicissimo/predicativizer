@@ -1,0 +1,32 @@
+def sym_eq_leb_body_S :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => bool.bool))
+          (m:(cts.Term cts.box nat.nat) =>
+           match_nat_type.match_nat_type
+             bool.bool
+             false.false
+             (q:(cts.Term cts.box nat.nat) => leb.leb x q)
+             m)
+          (leb_body.leb_body (S.S x))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  sym_leibniz.sym_leibniz
+    (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+    (leb_body.leb_body (S.S n))
+    (m:(cts.Term cts.box nat.nat) =>
+     match_nat_type.match_nat_type
+       bool.bool
+       false.false
+       (q:(cts.Term cts.box nat.nat) => leb.leb n q)
+       m)
+    (eq_leb_body_S.eq_leb_body_S n).
+

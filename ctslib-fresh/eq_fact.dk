@@ -1,0 +1,22 @@
+def eq_fact :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          nat.nat
+          (fact.fact x)
+          (filter_nat_type.filter_nat_type nat.nat fact_body.fact_body x)))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  equal_leibniz.equal_leibniz
+    nat.nat
+    (fact.fact n)
+    (filter_nat_type.filter_nat_type nat.nat fact_body.fact_body n)
+    (axiom_fact.axiom_fact n).
+

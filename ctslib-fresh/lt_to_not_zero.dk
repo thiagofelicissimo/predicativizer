@@ -1,0 +1,45 @@
+def lt_to_not_zero :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod cts.star cts.star cts.star cts.I (lt.lt x x0) (x1 => not_zero.not_zero x0))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  Hlt:(cts.Term cts.star (lt.lt n m)) =>
+  le_ind.le_ind
+    (S.S n)
+    (x_417:(cts.Term cts.box nat.nat) => not_zero.not_zero x_417)
+    (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+       (cts.univ cts.star cts.box cts.I)
+       False.False
+       (p:(cts.Term cts.box nat.nat) => True.True)
+       n
+       (y:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) => y)
+       I.I)
+    (m0:(cts.Term cts.box nat.nat) =>
+     _x_419:(cts.Term cts.star (le.le (S.S n) m0)) =>
+     _x_421:(cts.Term cts.star (not_zero.not_zero m0)) =>
+     sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+       (cts.univ cts.star cts.box cts.I)
+       False.False
+       (p:(cts.Term cts.box nat.nat) => True.True)
+       m0
+       (y:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) => y)
+       I.I)
+    m
+    Hlt.
+

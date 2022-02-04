@@ -1,0 +1,11 @@
+Not :
+  cts.Term
+    cts.box
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       (cts.univ cts.star cts.box cts.I)
+       (x => cts.univ cts.star cts.box cts.I)).
+

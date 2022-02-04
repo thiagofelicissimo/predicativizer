@@ -1,0 +1,5 @@
+def le_n_Sn :
+  cts.Term cts.star (cts.prod cts.box cts.star cts.star cts.I nat.nat (x => le.le x (S.S x)))
+  :=
+  n:(cts.Term cts.box nat.nat) => le_S.le_S n n (le_n.le_n n).
+

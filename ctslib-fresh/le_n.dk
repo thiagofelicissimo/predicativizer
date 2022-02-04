@@ -1,0 +1,3 @@
+le_n :
+  cts.Term cts.star (cts.prod cts.box cts.star cts.star cts.I nat.nat (x => le.le x x)).
+

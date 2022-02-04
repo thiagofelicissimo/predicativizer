@@ -1,0 +1,13 @@
+def decidable :
+  cts.Term
+    cts.box
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       (cts.univ cts.star cts.box cts.I)
+       (x => cts.univ cts.star cts.box cts.I))
+  :=
+  A:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) => Or.Or A (Not.Not A).
+

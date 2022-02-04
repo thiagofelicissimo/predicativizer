@@ -1,0 +1,22 @@
+def sym_eq_fact :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          nat.nat
+          (filter_nat_type.filter_nat_type nat.nat fact_body.fact_body x)
+          (fact.fact x)))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  sym_leibniz.sym_leibniz
+    nat.nat
+    (fact.fact n)
+    (filter_nat_type.filter_nat_type nat.nat fact_body.fact_body n)
+    (eq_fact.eq_fact n).
+

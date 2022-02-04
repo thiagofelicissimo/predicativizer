@@ -1,0 +1,12 @@
+def not_zero :
+  cts.Term
+    cts.box
+    (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => cts.univ cts.star cts.box cts.I))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  match_nat_type.match_nat_type
+    (cts.univ cts.star cts.box cts.I)
+    False.False
+    (p:(cts.Term cts.box nat.nat) => True.True)
+    n.
+

@@ -1,0 +1,211 @@
+def permut_invert_permut :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (permut.permut x x0)
+             (x1 => permut.permut (invert_permut.invert_permut x0 x) x0))))
+  :=
+  f:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  n:(cts.Term cts.box nat.nat) =>
+  permf:(cts.Term cts.star (permut.permut f n)) =>
+  conj.conj
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (le.le x n)
+          (x0 => le.le (invert_permut.invert_permut n f x) n)))
+    (injn.injn (invert_permut.invert_permut n f) n)
+    (i:(cts.Term cts.box nat.nat) =>
+     lein:(cts.Term cts.star (le.le i n)) =>
+     nat_ind.nat_ind
+       (_x_365:(cts.Term cts.box nat.nat) => le.le (invert_permut.invert_permut _x_365 f i) _x_365)
+       (sym_eq_invert_permut.sym_eq_invert_permut
+          O.O
+          (y:(cts.Term
+                cts.box
+                (cts.prod
+                   cts.box
+                   cts.box
+                   cts.box
+                   cts.I
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+                   (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))) =>
+           le.le (y f i) O.O)
+          (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+             (cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+                (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))
+             invert_permut_body.invert_permut_body
+             (y:(cts.Term
+                   cts.box
+                   (cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+                      (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))) =>
+              le.le (y f i) O.O)
+             (sym_eq_invert_permut_body_O.sym_eq_invert_permut_body_O
+                (y:(cts.Term
+                      cts.box
+                      (cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+                         (x =>
+                          cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))) =>
+                 le.le (y f i) O.O)
+                (match_bool_prop.match_bool_prop
+                   (__:(cts.Term cts.box bool.bool) =>
+                    le.le (match_bool_type.match_bool_type nat.nat O.O O.O __) O.O)
+                   (eq_match_bool_type_true.eq_match_bool_type_true
+                      nat.nat
+                      O.O
+                      O.O
+                      (y:(cts.Term cts.box nat.nat) =>
+                       le.le (match_bool_type.match_bool_type nat.nat O.O O.O true.true) y)
+                      (le_n.le_n (match_bool_type.match_bool_type nat.nat O.O O.O true.true)))
+                   (eq_match_bool_type_false.eq_match_bool_type_false
+                      nat.nat
+                      O.O
+                      O.O
+                      (y:(cts.Term cts.box nat.nat) =>
+                       le.le (match_bool_type.match_bool_type nat.nat O.O O.O false.false) y)
+                      (le_n.le_n (match_bool_type.match_bool_type nat.nat O.O O.O false.false)))
+                   (eqb.eqb i (f O.O))))))
+       (n1:(cts.Term cts.box nat.nat) =>
+        sym_eq_invert_permut.sym_eq_invert_permut
+          (S.S n1)
+          (y:(cts.Term
+                cts.box
+                (cts.prod
+                   cts.box
+                   cts.box
+                   cts.box
+                   cts.I
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+                   (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))) =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (le.le (invert_permut.invert_permut n1 f i) n1)
+             (x => le.le (y f i) (S.S n1)))
+          (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+             (cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+                (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))
+             invert_permut_body.invert_permut_body
+             n1
+             (y:(cts.Term
+                   cts.box
+                   (cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+                      (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))) =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (le.le (invert_permut.invert_permut n1 f i) n1)
+                (x => le.le (y f i) (S.S n1)))
+             (sym_eq_invert_permut_body_S.sym_eq_invert_permut_body_S
+                n1
+                (y:(cts.Term
+                      cts.box
+                      (cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+                         (x =>
+                          cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))) =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (le.le (invert_permut.invert_permut n1 f i) n1)
+                   (x => le.le (y f i) (S.S n1)))
+                (Hind:(cts.Term cts.star (le.le (invert_permut.invert_permut n1 f i) n1)) =>
+                 match_bool_prop.match_bool_prop
+                   (__:(cts.Term cts.box bool.bool) =>
+                    le.le
+                      (match_bool_type.match_bool_type
+                         nat.nat
+                         (S.S n1)
+                         (invert_permut.invert_permut n1 f i)
+                         __)
+                      (S.S n1))
+                   (eq_match_bool_type_true.eq_match_bool_type_true
+                      nat.nat
+                      (S.S n1)
+                      (invert_permut.invert_permut n1 f i)
+                      (y:(cts.Term cts.box nat.nat) =>
+                       le.le
+                         (match_bool_type.match_bool_type
+                            nat.nat
+                            (S.S n1)
+                            (invert_permut.invert_permut n1 f i)
+                            true.true)
+                         y)
+                      (le_n.le_n
+                         (match_bool_type.match_bool_type
+                            nat.nat
+                            (S.S n1)
+                            (invert_permut.invert_permut n1 f i)
+                            true.true)))
+                   (sym_eq_match_bool_type_false.sym_eq_match_bool_type_false
+                      nat.nat
+                      (S.S n1)
+                      (invert_permut.invert_permut n1 f i)
+                      (y:(cts.Term cts.box nat.nat) => le.le y (S.S n1))
+                      (le_S.le_S (invert_permut.invert_permut n1 f i) n1 Hind))
+                   (eqb.eqb i (f (S.S n1)))))))
+       n)
+    (injective_invert_permut.injective_invert_permut f n permf).
+

@@ -1,0 +1,14 @@
+def andb :
+  cts.Term
+    cts.box
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       bool.bool
+       (x => cts.prod cts.box cts.box cts.box cts.I bool.bool (x0 => bool.bool)))
+  :=
+  b1:(cts.Term cts.box bool.bool) =>
+  b2:(cts.Term cts.box bool.bool) => match_bool_type.match_bool_type bool.bool b2 false.false b1.
+

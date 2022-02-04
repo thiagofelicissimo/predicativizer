@@ -1,0 +1,16 @@
+def not_le_Sn_O :
+  cts.Term
+    cts.star
+    (cts.prod cts.box cts.star cts.star cts.I nat.nat (x => Not.Not (le.le (S.S x) O.O)))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  nmk.nmk
+    (le.le (S.S n) O.O)
+    (Hlen0:(cts.Term cts.star (le.le (S.S n) O.O)) =>
+     eq_match_nat_type_O.eq_match_nat_type_O
+       (cts.univ cts.star cts.box cts.I)
+       False.False
+       (p:(cts.Term cts.box nat.nat) => True.True)
+       (y:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) => y)
+       (lt_to_not_zero.lt_to_not_zero n O.O Hlen0)).
+

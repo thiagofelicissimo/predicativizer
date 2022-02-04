@@ -1,0 +1,18 @@
+gcd_aux_body :
+  cts.Term
+    cts.box
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          nat.nat
+          (x0 => cts.prod cts.box cts.box cts.box cts.I nat.nat (x1 => nat.nat)))).
+

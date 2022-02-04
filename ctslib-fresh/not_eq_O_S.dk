@@ -1,0 +1,28 @@
+def not_eq_O_S :
+  cts.Term
+    cts.star
+    (cts.prod cts.box cts.star cts.star cts.I nat.nat (x => Not.Not (eq.eq nat.nat O.O (S.S x))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  nmk.nmk
+    (eq.eq nat.nat O.O (S.S n))
+    (eqOS:(cts.Term cts.star (eq.eq nat.nat O.O (S.S n))) =>
+     eq_match_nat_type_O.eq_match_nat_type_O
+       (cts.univ cts.star cts.box cts.I)
+       False.False
+       (p:(cts.Term cts.box nat.nat) => True.True)
+       (y:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) => y)
+       (eq_ind_r.eq_ind_r
+          nat.nat
+          (S.S n)
+          (x:(cts.Term cts.box nat.nat) => not_zero.not_zero x)
+          (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+             (cts.univ cts.star cts.box cts.I)
+             False.False
+             (p:(cts.Term cts.box nat.nat) => True.True)
+             n
+             (y:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) => y)
+             I.I)
+          O.O
+          eqOS)).
+

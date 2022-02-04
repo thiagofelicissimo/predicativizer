@@ -1,0 +1,27 @@
+def eq_exp_body_S :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           leibniz.leibniz nat.nat (exp_body.exp_body x (S.S x0)) (times.times (exp.exp x x0) x))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  equal_leibniz.equal_leibniz
+    nat.nat
+    (exp_body.exp_body n (S.S m))
+    (times.times (exp.exp n m) n)
+    (axiom_exp_body_S.axiom_exp_body_S n m).
+

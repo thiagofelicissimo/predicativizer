@@ -1,0 +1,2 @@
+True : cts.Term cts.box (cts.univ cts.star cts.box cts.I).
+

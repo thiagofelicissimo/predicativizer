@@ -1,0 +1,13 @@
+axiom_eqb_body_O :
+  cts.Term
+    cts.star
+    (equal.equal
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+       (eqb_body.eqb_body O.O)
+       (m:(cts.Term cts.box nat.nat) =>
+        match_nat_type.match_nat_type
+          bool.bool
+          true.true
+          (q:(cts.Term cts.box nat.nat) => false.false)
+          m)).
+

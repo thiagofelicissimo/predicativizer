@@ -1,0 +1,53 @@
+def times_times :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              eq.eq
+                nat.nat
+                (times.times x (times.times x0 x1))
+                (times.times x0 (times.times x x1))))))
+  :=
+  x:(cts.Term cts.box nat.nat) =>
+  y:(cts.Term cts.box nat.nat) =>
+  z:(cts.Term cts.box nat.nat) =>
+  rewrite_r.rewrite_r
+    nat.nat
+    (times.times y (times.times x z))
+    (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ (times.times y (times.times x z)))
+    (refl.refl nat.nat (times.times y (times.times x z)))
+    (times.times x (times.times y z))
+    (rewrite_l.rewrite_l
+       nat.nat
+       (times.times (times.times x y) z)
+       (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ (times.times y (times.times x z)))
+       (rewrite_l.rewrite_l
+          nat.nat
+          (times.times y x)
+          (__:(cts.Term cts.box nat.nat) =>
+           eq.eq nat.nat (times.times __ z) (times.times y (times.times x z)))
+          (associative_times.associative_times y x z)
+          (times.times x y)
+          (commutative_times.commutative_times y x))
+       (times.times x (times.times y z))
+       (associative_times.associative_times x y z)).
+

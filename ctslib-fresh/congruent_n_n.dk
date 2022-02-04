@@ -1,0 +1,13 @@
+def congruent_n_n :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x => cts.prod cts.box cts.star cts.star cts.I nat.nat (x0 => congruent.congruent x x x0)))
+  :=
+  n:(cts.Term cts.box nat.nat) => p:(cts.Term cts.box nat.nat) => refl.refl nat.nat (mod.mod n p).
+

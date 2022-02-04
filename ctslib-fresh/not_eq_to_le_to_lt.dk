@@ -1,0 +1,52 @@
+def not_eq_to_le_to_lt :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (Not.Not (eq.eq nat.nat x x0))
+             (x1 => cts.prod cts.star cts.star cts.star cts.I (le.le x x0) (x2 => lt.lt x x0)))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  Hneq:(cts.Term cts.star (Not.Not (eq.eq nat.nat n m))) =>
+  Hle:(cts.Term cts.star (le.le n m)) =>
+  match_Or_prop.match_Or_prop
+    (lt.lt n m)
+    (eq.eq nat.nat n m)
+    (lt.lt n m)
+    (auto:(cts.Term cts.star (lt.lt n m)) => auto)
+    (Heq:(cts.Term cts.star (eq.eq nat.nat n m)) =>
+     not_le_to_lt.not_le_to_lt
+       m
+       n
+       (not_to_not.not_to_not
+          (le.le m n)
+          (eq.eq nat.nat n m)
+          (auto:(cts.Term cts.star (le.le m n)) =>
+           rewrite_l.rewrite_l
+             nat.nat
+             n
+             (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat n __)
+             (refl.refl nat.nat n)
+             m
+             Heq)
+          Hneq))
+    (le_to_or_lt_eq.le_to_or_lt_eq n m Hle).
+

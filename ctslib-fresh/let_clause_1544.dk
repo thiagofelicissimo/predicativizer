@@ -1,0 +1,307 @@
+def let_clause_1544 :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x1 =>
+                 cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   nat.nat
+                   (x2 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (lt.lt O.O x2)
+                      (x3 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (le.le x2 x1)
+                         (x4 =>
+                          cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (le.le x2 x0)
+                            (x5 =>
+                             ex.ex
+                               nat.nat
+                               (a:(cts.Term cts.box nat.nat) =>
+                                ex.ex
+                                  nat.nat
+                                  (b:(cts.Term cts.box nat.nat) =>
+                                   Or.Or
+                                     (eq.eq
+                                        nat.nat
+                                        (minus.minus
+                                           (times.times a x2)
+                                           (times.times b x1))
+                                        (gcd_aux.gcd_aux x0 x1 x2))
+                                     (eq.eq
+                                        nat.nat
+                                        (minus.minus
+                                           (times.times b x1)
+                                           (times.times a x2))
+                                        (gcd_aux.gcd_aux x0 x1 x2))))))))))
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (lt.lt O.O x3)
+                      (x4 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (le.le x3 x2)
+                         (x5 =>
+                          cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (le.le x3 (S.S x0))
+                            (x6 =>
+                             cts.prod
+                               cts.star
+                               cts.star
+                               cts.star
+                               cts.I
+                               (Not.Not (divides.divides x3 x2))
+                               (x7 =>
+                                cts.prod
+                                  cts.box
+                                  cts.star
+                                  cts.star
+                                  cts.I
+                                  nat.nat
+                                  (x8 =>
+                                   cts.prod
+                                     cts.star
+                                     cts.star
+                                     cts.star
+                                     cts.I
+                                     (ex.ex
+                                        nat.nat
+                                        (b:(cts.Term cts.box nat.nat) =>
+                                         Or.Or
+                                           (eq.eq
+                                              nat.nat
+                                              (minus.minus
+                                                 (times.times x8 (mod.mod x2 x3))
+                                                 (times.times b x3))
+                                              (gcd_aux.gcd_aux x0 x3 (mod.mod x2 x3)))
+                                           (eq.eq
+                                              nat.nat
+                                              (minus.minus
+                                                 (times.times b x3)
+                                                 (times.times x8 (mod.mod x2 x3)))
+                                              (gcd_aux.gcd_aux x0 x3 (mod.mod x2 x3)))))
+                                     (x9 =>
+                                      cts.prod
+                                        cts.box
+                                        cts.star
+                                        cts.star
+                                        cts.I
+                                        nat.nat
+                                        (x10 =>
+                                         cts.prod
+                                           cts.star
+                                           cts.star
+                                           cts.star
+                                           cts.I
+                                           (Or.Or
+                                              (eq.eq
+                                                 nat.nat
+                                                 (minus.minus
+                                                    (times.times x8 (mod.mod x2 x3))
+                                                    (times.times x10 x3))
+                                                 (gcd_aux.gcd_aux
+                                                    x0
+                                                    x3
+                                                    (mod.mod x2 x3)))
+                                              (eq.eq
+                                                 nat.nat
+                                                 (minus.minus
+                                                    (times.times x10 x3)
+                                                    (times.times x8 (mod.mod x2 x3)))
+                                                 (gcd_aux.gcd_aux
+                                                    x0
+                                                    x3
+                                                    (mod.mod x2 x3))))
+                                           (x11 =>
+                                            cts.prod
+                                              cts.star
+                                              cts.star
+                                              cts.star
+                                              cts.I
+                                              (eq.eq
+                                                 nat.nat
+                                                 (minus.minus
+                                                    (times.times x8 (mod.mod x2 x3))
+                                                    (times.times x10 x3))
+                                                 (gcd_aux.gcd_aux
+                                                    x0
+                                                    x3
+                                                    (mod.mod x2 x3)))
+                                              (x12 =>
+                                               eq.eq
+                                                 nat.nat
+                                                 (minus.minus
+                                                    (times.times x8 (mod.mod x2 x3))
+                                                    (times.times x3 x10))
+                                                 (gcd_aux.gcd_aux
+                                                    x0
+                                                    x3
+                                                    (mod.mod x2 x3)))))))))))))))))
+  :=
+  p:(cts.Term cts.box nat.nat) =>
+  q:(cts.Term cts.box nat.nat) =>
+  Hind:(cts.Term
+          cts.star
+          (cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x0 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (lt.lt O.O x0)
+                   (x1 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (le.le x0 x)
+                      (x2 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (le.le x0 q)
+                         (x3 =>
+                          ex.ex
+                            nat.nat
+                            (a:(cts.Term cts.box nat.nat) =>
+                             ex.ex
+                               nat.nat
+                               (b:(cts.Term cts.box nat.nat) =>
+                                Or.Or
+                                  (eq.eq
+                                     nat.nat
+                                     (minus.minus (times.times a x0) (times.times b x))
+                                     (gcd_aux.gcd_aux q x x0))
+                                  (eq.eq
+                                     nat.nat
+                                     (minus.minus (times.times b x) (times.times a x0))
+                                     (gcd_aux.gcd_aux q x x0))))))))))) =>
+  m:(cts.Term cts.box nat.nat) =>
+  n:(cts.Term cts.box nat.nat) =>
+  posn:(cts.Term cts.star (lt.lt O.O n)) =>
+  lenm:(cts.Term cts.star (le.le n m)) =>
+  lenS:(cts.Term cts.star (le.le n (S.S q))) =>
+  ndivnm:(cts.Term cts.star (Not.Not (divides.divides n m))) =>
+  a:(cts.Term cts.box nat.nat) =>
+  _clearme:(cts.Term
+              cts.star
+              (ex.ex
+                 nat.nat
+                 (b:(cts.Term cts.box nat.nat) =>
+                  Or.Or
+                    (eq.eq
+                       nat.nat
+                       (minus.minus (times.times a (mod.mod m n)) (times.times b n))
+                       (gcd_aux.gcd_aux q n (mod.mod m n)))
+                    (eq.eq
+                       nat.nat
+                       (minus.minus (times.times b n) (times.times a (mod.mod m n)))
+                       (gcd_aux.gcd_aux q n (mod.mod m n)))))) =>
+  b:(cts.Term cts.box nat.nat) =>
+  _clearme0:(cts.Term
+               cts.star
+               (Or.Or
+                  (eq.eq
+                     nat.nat
+                     (minus.minus (times.times a (mod.mod m n)) (times.times b n))
+                     (gcd_aux.gcd_aux q n (mod.mod m n)))
+                  (eq.eq
+                     nat.nat
+                     (minus.minus (times.times b n) (times.times a (mod.mod m n)))
+                     (gcd_aux.gcd_aux q n (mod.mod m n))))) =>
+  H:(cts.Term
+       cts.star
+       (eq.eq
+          nat.nat
+          (minus.minus (times.times a (mod.mod m n)) (times.times b n))
+          (gcd_aux.gcd_aux q n (mod.mod m n)))) =>
+  rewrite_l.rewrite_l
+    nat.nat
+    (times.times b n)
+    (__:(cts.Term cts.box nat.nat) =>
+     eq.eq nat.nat (minus.minus (times.times a (mod.mod m n)) __) (gcd_aux.gcd_aux q n (mod.mod m n)))
+    H
+    (times.times n b)
+    (commutative_times.commutative_times b n).
+

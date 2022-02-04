@@ -1,0 +1,18 @@
+axiom_plus :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        equal.equal
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat))
+          (plus.plus x)
+          (filter_nat_type.filter_nat_type
+             (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat))
+             plus_body.plus_body
+             x))).
+

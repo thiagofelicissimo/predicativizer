@@ -1,0 +1,30 @@
+def eq_invert_permut_body_O :
+  cts.Term
+    cts.star
+    (leibniz.leibniz
+       (cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+          (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))
+       (invert_permut_body.invert_permut_body O.O)
+       (f:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+        m:(cts.Term cts.box nat.nat) =>
+        match_bool_type.match_bool_type nat.nat O.O O.O (eqb.eqb m (f O.O))))
+  :=
+  equal_leibniz.equal_leibniz
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+       (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))
+    (invert_permut_body.invert_permut_body O.O)
+    (f:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+     m:(cts.Term cts.box nat.nat) =>
+     match_bool_type.match_bool_type nat.nat O.O O.O (eqb.eqb m (f O.O)))
+    axiom_invert_permut_body_O.axiom_invert_permut_body_O.
+

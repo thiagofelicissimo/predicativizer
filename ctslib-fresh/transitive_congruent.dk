@@ -1,0 +1,35 @@
+def transitive_congruent :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        transitive.transitive
+          nat.nat
+          (n:(cts.Term cts.box nat.nat) =>
+           m:(cts.Term cts.box nat.nat) => congruent.congruent n m x)))
+  :=
+  p:(cts.Term cts.box nat.nat) =>
+  x:(cts.Term cts.box nat.nat) =>
+  y:(cts.Term cts.box nat.nat) =>
+  z:(cts.Term cts.box nat.nat) =>
+  auto:(cts.Term cts.star (congruent.congruent x y p)) =>
+  auto':(cts.Term cts.star (congruent.congruent y z p)) =>
+  rewrite_l.rewrite_l
+    nat.nat
+    (mod.mod x p)
+    (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat (mod.mod x p) __)
+    (refl.refl nat.nat (mod.mod x p))
+    (mod.mod z p)
+    (rewrite_r.rewrite_r
+       nat.nat
+       (mod.mod y p)
+       (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ (mod.mod z p))
+       auto'
+       (mod.mod x p)
+       auto).
+

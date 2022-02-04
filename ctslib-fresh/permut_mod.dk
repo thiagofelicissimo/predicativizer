@@ -1,0 +1,314 @@
+def permut_mod :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (prime.prime x)
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (Not.Not (divides.divides x x0))
+                (x2 =>
+                 permut.permut
+                   (n:(cts.Term cts.box nat.nat) => mod.mod (times.times x0 n) x)
+                   (pred.pred x))))))
+  :=
+  p:(cts.Term cts.box nat.nat) =>
+  a:(cts.Term cts.box nat.nat) =>
+  primep:(cts.Term cts.star (prime.prime p)) =>
+  ndiv:(cts.Term cts.star (Not.Not (divides.divides p a))) =>
+  conj.conj
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (le.le x (pred.pred p))
+          (x0 => le.le (mod.mod (times.times a x) p) (pred.pred p))))
+    (injn.injn (n:(cts.Term cts.box nat.nat) => mod.mod (times.times a n) p) (pred.pred p))
+    (i:(cts.Term cts.box nat.nat) =>
+     lei:(cts.Term cts.star (le.le i (pred.pred p))) =>
+     le_S_S_to_le.le_S_S_to_le
+       (mod.mod (times.times a i) p)
+       (pred.pred p)
+       (transitive_le.transitive_le
+          (S.S (mod.mod (times.times a i) p))
+          p
+          (S.S (pred.pred p))
+          (lt_mod_m_m.lt_mod_m_m (times.times a i) p (prime_to_lt_O.prime_to_lt_O p primep))
+          (eq_ind_r.eq_ind_r
+             nat.nat
+             p
+             (x:(cts.Term cts.box nat.nat) => le.le p x)
+             (le_n.le_n p)
+             (S.S (pred.pred p))
+             (S_pred.S_pred p (prime_to_lt_O.prime_to_lt_O p primep)))))
+    (i:(cts.Term cts.box nat.nat) =>
+     j:(cts.Term cts.box nat.nat) =>
+     lei:(cts.Term cts.star (le.le i (pred.pred p))) =>
+     lej:(cts.Term cts.star (le.le j (pred.pred p))) =>
+     H:(cts.Term
+          cts.star
+          (eq.eq nat.nat (mod.mod (times.times a i) p) (mod.mod (times.times a j) p))) =>
+     match_Or_prop.match_Or_prop
+       (lt.lt i j)
+       (Not.Not (lt.lt i j))
+       (eq.eq nat.nat i j)
+       (ltij:(cts.Term cts.star (lt.lt i j)) =>
+        falsity.falsity
+          (eq.eq nat.nat i j)
+          (absurd.absurd
+             (lt.lt (minus.minus j i) p)
+             (eq_ind.eq_ind
+                nat.nat
+                (S.S (pred.pred p))
+                (x_1:(cts.Term cts.box nat.nat) => lt.lt (minus.minus j i) x_1)
+                (le_S_S.le_S_S
+                   (minus.minus j i)
+                   (pred.pred p)
+                   (le_plus_to_minus.le_plus_to_minus
+                      j
+                      i
+                      (pred.pred p)
+                      (transitive_le.transitive_le
+                         j
+                         (pred.pred p)
+                         (plus.plus (pred.pred p) i)
+                         lej
+                         (le_plus_n_r.le_plus_n_r i (pred.pred p)))))
+                p
+                (S_pred.S_pred p (prime_to_lt_O.prime_to_lt_O p primep)))
+             (le_to_not_lt.le_to_not_lt
+                p
+                (minus.minus j i)
+                (divides_to_le.divides_to_le
+                   p
+                   (minus.minus j i)
+                   (lt_plus_to_minus_r.lt_plus_to_minus_r
+                      O.O
+                      i
+                      j
+                      (sym_eq_plus.sym_eq_plus
+                         O.O
+                         (y:(cts.Term
+                               cts.box
+                               (cts.prod
+                                  cts.box
+                                  cts.box
+                                  cts.box
+                                  cts.I
+                                  nat.nat
+                                  (x => nat.nat))) =>
+                          le.le (S.S (y i)) j)
+                         (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+                            (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+                            plus_body.plus_body
+                            (y:(cts.Term
+                                  cts.box
+                                  (cts.prod
+                                     cts.box
+                                     cts.box
+                                     cts.box
+                                     cts.I
+                                     nat.nat
+                                     (x => nat.nat))) =>
+                             le.le (S.S (y i)) j)
+                            (sym_eq_plus_body_O.sym_eq_plus_body_O
+                               (y:(cts.Term
+                                     cts.box
+                                     (cts.prod
+                                        cts.box
+                                        cts.box
+                                        cts.box
+                                        cts.I
+                                        nat.nat
+                                        (x => nat.nat))) =>
+                                le.le (S.S (y i)) j)
+                               ltij))))
+                   (match_Or_prop.match_Or_prop
+                      (divides.divides p a)
+                      (divides.divides p (minus.minus j i))
+                      (divides.divides p (minus.minus j i))
+                      (Hdiv:(cts.Term cts.star (divides.divides p a)) =>
+                       falsity.falsity
+                         (divides.divides p (minus.minus j i))
+                         (absurd.absurd (divides.divides p a) Hdiv ndiv))
+                      (auto:(cts.Term cts.star (divides.divides p (minus.minus j i))) => auto)
+                      (divides_times_to_divides.divides_times_to_divides
+                         p
+                         a
+                         (minus.minus j i)
+                         primep
+                         (eq_ind_r.eq_ind_r
+                            nat.nat
+                            (minus.minus (times.times a j) (times.times a i))
+                            (x:(cts.Term cts.box nat.nat) => divides.divides p x)
+                            (eq_mod_to_divides.eq_mod_to_divides
+                               (times.times a j)
+                               (times.times a i)
+                               p
+                               (prime_to_lt_O.prime_to_lt_O p primep)
+                               (rewrite_l.rewrite_l
+                                  nat.nat
+                                  (mod.mod (times.times a i) p)
+                                  (__:(cts.Term cts.box nat.nat) =>
+                                   eq.eq nat.nat __ (mod.mod (times.times a i) p))
+                                  (refl.refl nat.nat (mod.mod (times.times a i) p))
+                                  (mod.mod (times.times a j) p)
+                                  H))
+                            (times.times a (minus.minus j i))
+                            (distributive_times_minus.distributive_times_minus a j i))))))))
+       (Hij:(cts.Term cts.star (Not.Not (lt.lt i j))) =>
+        match_Or_prop.match_Or_prop
+          (lt.lt j i)
+          (eq.eq nat.nat j i)
+          (eq.eq nat.nat i j)
+          (Hij0:(cts.Term cts.star (lt.lt j i)) =>
+           falsity.falsity
+             (eq.eq nat.nat i j)
+             (absurd.absurd
+                (lt.lt (minus.minus i j) p)
+                (eq_ind.eq_ind
+                   nat.nat
+                   (S.S (pred.pred p))
+                   (x_1:(cts.Term cts.box nat.nat) => lt.lt (minus.minus i j) x_1)
+                   (le_S_S.le_S_S
+                      (minus.minus i j)
+                      (pred.pred p)
+                      (le_plus_to_minus.le_plus_to_minus
+                         i
+                         j
+                         (pred.pred p)
+                         (transitive_le.transitive_le
+                            i
+                            (pred.pred p)
+                            (plus.plus (pred.pred p) j)
+                            lei
+                            (le_plus_n_r.le_plus_n_r j (pred.pred p)))))
+                   p
+                   (S_pred.S_pred p (prime_to_lt_O.prime_to_lt_O p primep)))
+                (le_to_not_lt.le_to_not_lt
+                   p
+                   (minus.minus i j)
+                   (divides_to_le.divides_to_le
+                      p
+                      (minus.minus i j)
+                      (lt_plus_to_minus_r.lt_plus_to_minus_r
+                         O.O
+                         j
+                         i
+                         (sym_eq_plus.sym_eq_plus
+                            O.O
+                            (y:(cts.Term
+                                  cts.box
+                                  (cts.prod
+                                     cts.box
+                                     cts.box
+                                     cts.box
+                                     cts.I
+                                     nat.nat
+                                     (x => nat.nat))) =>
+                             le.le (S.S (y j)) i)
+                            (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+                               (cts.prod
+                                  cts.box
+                                  cts.box
+                                  cts.box
+                                  cts.I
+                                  nat.nat
+                                  (x => nat.nat))
+                               plus_body.plus_body
+                               (y:(cts.Term
+                                     cts.box
+                                     (cts.prod
+                                        cts.box
+                                        cts.box
+                                        cts.box
+                                        cts.I
+                                        nat.nat
+                                        (x => nat.nat))) =>
+                                le.le (S.S (y j)) i)
+                               (sym_eq_plus_body_O.sym_eq_plus_body_O
+                                  (y:(cts.Term
+                                        cts.box
+                                        (cts.prod
+                                           cts.box
+                                           cts.box
+                                           cts.box
+                                           cts.I
+                                           nat.nat
+                                           (x => nat.nat))) =>
+                                   le.le (S.S (y j)) i)
+                                  Hij0))))
+                      (match_Or_prop.match_Or_prop
+                         (divides.divides p a)
+                         (divides.divides p (minus.minus i j))
+                         (divides.divides p (minus.minus i j))
+                         (Hdiv:(cts.Term cts.star (divides.divides p a)) =>
+                          falsity.falsity
+                            (divides.divides p (minus.minus i j))
+                            (absurd.absurd (divides.divides p a) Hdiv ndiv))
+                         (auto:(cts.Term cts.star (divides.divides p (minus.minus i j))) =>
+                          auto)
+                         (divides_times_to_divides.divides_times_to_divides
+                            p
+                            a
+                            (minus.minus i j)
+                            primep
+                            (eq_ind_r.eq_ind_r
+                               nat.nat
+                               (minus.minus (times.times a i) (times.times a j))
+                               (x:(cts.Term cts.box nat.nat) => divides.divides p x)
+                               (eq_mod_to_divides.eq_mod_to_divides
+                                  (times.times a i)
+                                  (times.times a j)
+                                  p
+                                  (prime_to_lt_O.prime_to_lt_O p primep)
+                                  (rewrite_l.rewrite_l
+                                     nat.nat
+                                     (mod.mod (times.times a i) p)
+                                     (__:(cts.Term cts.box nat.nat) =>
+                                      eq.eq nat.nat (mod.mod (times.times a i) p) __)
+                                     (refl.refl nat.nat (mod.mod (times.times a i) p))
+                                     (mod.mod (times.times a j) p)
+                                     H))
+                               (times.times a (minus.minus i j))
+                               (distributive_times_minus.distributive_times_minus a i j))))))))
+          (Hij0:(cts.Term cts.star (eq.eq nat.nat j i)) =>
+           rewrite_r.rewrite_r
+             nat.nat
+             i
+             (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat i __)
+             (refl.refl nat.nat i)
+             j
+             Hij0)
+          (le_to_or_lt_eq.le_to_or_lt_eq j i (not_lt_to_le.not_lt_to_le i j Hij)))
+       (decidable_lt.decidable_lt i j)).
+

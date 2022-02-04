@@ -1,0 +1,55 @@
+def transpose_i_j_i :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 => eq.eq nat.nat (transpose.transpose x x0 x) x0)))
+  :=
+  i:(cts.Term cts.box nat.nat) =>
+  j:(cts.Term cts.box nat.nat) =>
+  eq_ind_r.eq_ind_r
+    bool.bool
+    true.true
+    (x:(cts.Term cts.box bool.bool) =>
+     eq.eq
+       nat.nat
+       (match_bool_type.match_bool_type
+          nat.nat
+          j
+          (match_bool_type.match_bool_type nat.nat i i (eqb.eqb i j))
+          x)
+       j)
+    (eq_match_bool_type_true.eq_match_bool_type_true
+       nat.nat
+       j
+       (match_bool_type.match_bool_type nat.nat i i (eqb.eqb i j))
+       (y:(cts.Term cts.box nat.nat) =>
+        eq.eq
+          nat.nat
+          (match_bool_type.match_bool_type
+             nat.nat
+             j
+             (match_bool_type.match_bool_type nat.nat i i (eqb.eqb i j))
+             true.true)
+          y)
+       (refl.refl
+          nat.nat
+          (match_bool_type.match_bool_type
+             nat.nat
+             j
+             (match_bool_type.match_bool_type nat.nat i i (eqb.eqb i j))
+             true.true)))
+    (eqb.eqb i i)
+    (eqb_n_n.eqb_n_n i).
+

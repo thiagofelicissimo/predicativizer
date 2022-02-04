@@ -1,0 +1,66 @@
+def divides_to_dividesb_true :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (lt.lt O.O x)
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (divides.divides x x0)
+                (x2 => eq.eq bool.bool (dividesb.dividesb x x0) true.true)))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  posn:(cts.Term cts.star (lt.lt O.O n)) =>
+  divnm:(cts.Term cts.star (divides.divides n m)) =>
+  match_Or_prop.match_Or_prop
+    (eq.eq bool.bool (dividesb.dividesb n m) true.true)
+    (eq.eq bool.bool (dividesb.dividesb n m) false.false)
+    (eq.eq bool.bool (dividesb.dividesb n m) true.true)
+    (auto:(cts.Term cts.star (eq.eq bool.bool (dividesb.dividesb n m) true.true)) =>
+     rewrite_r.rewrite_r
+       bool.bool
+       true.true
+       (__:(cts.Term cts.box bool.bool) => eq.eq bool.bool __ true.true)
+       (refl.refl bool.bool true.true)
+       (dividesb.dividesb n m)
+       auto)
+    (ndivbnm:(cts.Term cts.star (eq.eq bool.bool (dividesb.dividesb n m) false.false)) =>
+     falsity.falsity
+       (eq.eq bool.bool (dividesb.dividesb n m) true.true)
+       (absurd.absurd
+          (divides.divides n m)
+          divnm
+          (dividesb_false_to_not_divides.dividesb_false_to_not_divides
+             n
+             m
+             (rewrite_r.rewrite_r
+                bool.bool
+                false.false
+                (__:(cts.Term cts.box bool.bool) => eq.eq bool.bool __ false.false)
+                (refl.refl bool.bool false.false)
+                (dividesb.dividesb n m)
+                ndivbnm))))
+    (true_or_false.true_or_false (dividesb.dividesb n m)).
+

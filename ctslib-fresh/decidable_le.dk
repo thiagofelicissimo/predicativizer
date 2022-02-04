@@ -1,0 +1,41 @@
+def decidable_le :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod cts.box cts.star cts.star cts.I nat.nat (x0 => decidable.decidable (le.le x x0))))
+  :=
+  nat_elim2.nat_elim2
+    (__:(cts.Term cts.box nat.nat) =>
+     _0:(cts.Term cts.box nat.nat) => decidable.decidable (le.le __ _0))
+    (n:(cts.Term cts.box nat.nat) =>
+     or_introl.or_introl (le.le O.O n) (Not.Not (le.le O.O n)) (le_O_n.le_O_n n))
+    (n:(cts.Term cts.box nat.nat) =>
+     or_intror.or_intror
+       (le.le (S.S n) O.O)
+       (Not.Not (le.le (S.S n) O.O))
+       (not_le_Sn_O.not_le_Sn_O n))
+    (n:(cts.Term cts.box nat.nat) =>
+     m:(cts.Term cts.box nat.nat) =>
+     _clearme:(cts.Term cts.star (decidable.decidable (le.le n m))) =>
+     match_Or_prop.match_Or_prop
+       (le.le n m)
+       (Not.Not (le.le n m))
+       (decidable.decidable (le.le (S.S n) (S.S m)))
+       (auto:(cts.Term cts.star (le.le n m)) =>
+        or_introl.or_introl
+          (le.le (S.S n) (S.S m))
+          (Not.Not (le.le (S.S n) (S.S m)))
+          (le_S_S.le_S_S n m auto))
+       (auto:(cts.Term cts.star (Not.Not (le.le n m))) =>
+        or_intror.or_intror
+          (le.le (S.S n) (S.S m))
+          (Not.Not (le.le (S.S n) (S.S m)))
+          (not_le_to_not_le_S_S.not_le_to_not_le_S_S n m auto))
+       _clearme).
+

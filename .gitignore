@@ -6,4 +6,5 @@ ctslib
 *program
 *.cm*
 !example/*.dk
+!ctslib-fresh/*.dk
 example/test

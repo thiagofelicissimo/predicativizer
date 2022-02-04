@@ -1,0 +1,44 @@
+def sym_not_eq :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.triangle
+       cts.star
+       cts.star
+       cts.I
+       (cts.univ cts.box cts.triangle cts.I)
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             x
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (Not.Not (eq.eq x x0 x1))
+                (x2 => Not.Not (eq.eq x x1 x0))))))
+  :=
+  A:(cts.Term cts.triangle (cts.univ cts.box cts.triangle cts.I)) =>
+  x:(cts.Term cts.box A) =>
+  y:(cts.Term cts.box A) =>
+  auto:(cts.Term cts.star (Not.Not (eq.eq A x y))) =>
+  nmk.nmk
+    (eq.eq A y x)
+    (auto':(cts.Term cts.star (eq.eq A y x)) =>
+     absurd.absurd
+       (eq.eq A x y)
+       (rewrite_r.rewrite_r A x (__:(cts.Term cts.box A) => eq.eq A x __) (refl.refl A x) y auto')
+       auto).
+

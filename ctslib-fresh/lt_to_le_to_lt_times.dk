@@ -1,0 +1,67 @@
+def lt_to_le_to_lt_times :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (lt.lt x x0)
+                   (x3 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (le.le x1 x2)
+                      (x4 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (lt.lt O.O x2)
+                         (x5 => lt.lt (times.times x x1) (times.times x0 x2)))))))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  p:(cts.Term cts.box nat.nat) =>
+  q:(cts.Term cts.box nat.nat) =>
+  ltnm:(cts.Term cts.star (lt.lt n m)) =>
+  lepq:(cts.Term cts.star (le.le p q)) =>
+  posq:(cts.Term cts.star (lt.lt O.O q)) =>
+  le_to_lt_to_lt.le_to_lt_to_lt
+    (times.times n p)
+    (times.times n q)
+    (times.times m q)
+    (monotonic_le_times_r.monotonic_le_times_r n p q lepq)
+    (monotonic_lt_times_l.monotonic_lt_times_l q posq n m ltnm).
+

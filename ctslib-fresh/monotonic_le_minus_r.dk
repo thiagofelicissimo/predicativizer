@@ -1,0 +1,47 @@
+def monotonic_le_minus_r :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (le.le x0 x)
+                (x2 => le.le (minus.minus x1 x) (minus.minus x1 x0))))))
+  :=
+  p:(cts.Term cts.box nat.nat) =>
+  q:(cts.Term cts.box nat.nat) =>
+  n:(cts.Term cts.box nat.nat) =>
+  lepq:(cts.Term cts.star (le.le q p)) =>
+  le_plus_to_minus.le_plus_to_minus
+    n
+    p
+    (minus.minus n q)
+    (transitive_le.transitive_le
+       n
+       (plus.plus (minus.minus n q) q)
+       (plus.plus (minus.minus n q) p)
+       (le_plus_minus_m_m.le_plus_minus_m_m n q)
+       (monotonic_le_plus_r.monotonic_le_plus_r (minus.minus n q) q p lepq)).
+

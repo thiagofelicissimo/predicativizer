@@ -1,0 +1,23 @@
+def permut :
+  cts.Term
+    cts.box
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+       (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => cts.univ cts.star cts.box cts.I)))
+  :=
+  f:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  m:(cts.Term cts.box nat.nat) =>
+  And.And
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x => cts.prod cts.star cts.star cts.star cts.I (le.le x m) (x0 => le.le (f x) m)))
+    (injn.injn f m).
+

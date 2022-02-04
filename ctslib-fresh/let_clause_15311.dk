@@ -1,0 +1,68 @@
+def let_clause_15311 :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (lt.lt O.O x0)
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (divides.divides x x0)
+                (x2 =>
+                 cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.box
+                      cts.star
+                      cts.star
+                      cts.I
+                      nat.nat
+                      (x4 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (eq.eq nat.nat x0 (times.times x (S.S x4)))
+                         (x5 => eq.eq nat.nat x0 (plus.plus x (times.times x x4))))))))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  posm:(cts.Term cts.star (lt.lt O.O m)) =>
+  _clearme:(cts.Term cts.star (divides.divides n m)) =>
+  d:(cts.Term cts.box nat.nat) =>
+  p:(cts.Term cts.box nat.nat) =>
+  eqm:(cts.Term cts.star (eq.eq nat.nat m (times.times n (S.S p)))) =>
+  rewrite_r.rewrite_r
+    nat.nat
+    (times.times n (S.S p))
+    (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat m __)
+    eqm
+    (plus.plus n (times.times n p))
+    (times_n_Sm.times_n_Sm n p).
+

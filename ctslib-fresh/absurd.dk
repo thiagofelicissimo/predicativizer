@@ -1,0 +1,28 @@
+def absurd :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.univ cts.star cts.box cts.I)
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          x
+          (x0 => cts.prod cts.star cts.star cts.star cts.I (Not.Not x) (x1 => False.False))))
+  :=
+  A:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) =>
+  H:(cts.Term cts.star A) =>
+  Hn:(cts.Term cts.star (Not.Not A)) =>
+  Not_ind.Not_ind
+    A
+    False.False
+    (_x_80:(cts.Term cts.star (cts.prod cts.star cts.star cts.star cts.I A (x => False.False))) =>
+     _x_80 H)
+    Hn.
+

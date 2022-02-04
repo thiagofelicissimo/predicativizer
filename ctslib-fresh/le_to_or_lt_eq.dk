@@ -1,0 +1,61 @@
+def le_to_or_lt_eq :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (le.le x x0)
+             (x1 => Or.Or (lt.lt x x0) (eq.eq nat.nat x x0)))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  lenm:(cts.Term cts.star (le.le n m)) =>
+  le_ind.le_ind
+    n
+    (x_417:(cts.Term cts.box nat.nat) => Or.Or (lt.lt n x_417) (eq.eq nat.nat n x_417))
+    (RC_reflexive.RC_reflexive nat.nat lt.lt n)
+    (m0:(cts.Term cts.box nat.nat) =>
+     _x_419:(cts.Term cts.star (le.le n m0)) =>
+     _x_421:(cts.Term cts.star (Or.Or (lt.lt n m0) (eq.eq nat.nat n m0))) =>
+     or_introl.or_introl
+       (lt.lt n (S.S m0))
+       (eq.eq nat.nat n (S.S m0))
+       (le_to_lt_to_lt.le_to_lt_to_lt
+          n
+          m0
+          (S.S m0)
+          _x_419
+          (eq_coerc.eq_coerc
+             (le.le (S.S m0) (plus.plus O.O (S.S m0)))
+             (le.le (S.S m0) (S.S m0))
+             (le_plus_n.le_plus_n O.O (S.S m0))
+             (rewrite_l.rewrite_l
+                nat.nat
+                (S.S m0)
+                (__:(cts.Term cts.box nat.nat) =>
+                 eq.eq
+                   (cts.univ cts.star cts.box cts.I)
+                   (le.le (S.S m0) __)
+                   (le.le (S.S m0) (S.S m0)))
+                (refl.refl (cts.univ cts.star cts.box cts.I) (le.le (S.S m0) (S.S m0)))
+                (plus.plus O.O (S.S m0))
+                (plus_O_n.plus_O_n (S.S m0))))))
+    m
+    lenm.
+

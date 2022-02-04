@@ -1,0 +1,52 @@
+def sym_eq_mod_aux :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          (cts.prod
+             cts.box
+             cts.box
+             cts.box
+             cts.I
+             nat.nat
+             (x0 => cts.prod cts.box cts.box cts.box cts.I nat.nat (x1 => nat.nat)))
+          (filter_nat_type.filter_nat_type
+             (cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                nat.nat
+                (x0 => cts.prod cts.box cts.box cts.box cts.I nat.nat (x1 => nat.nat)))
+             mod_aux_body.mod_aux_body
+             x)
+          (mod_aux.mod_aux x)))
+  :=
+  p:(cts.Term cts.box nat.nat) =>
+  sym_leibniz.sym_leibniz
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       nat.nat
+       (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))
+    (mod_aux.mod_aux p)
+    (filter_nat_type.filter_nat_type
+       (cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          nat.nat
+          (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))
+       mod_aux_body.mod_aux_body
+       p)
+    (eq_mod_aux.eq_mod_aux p).
+

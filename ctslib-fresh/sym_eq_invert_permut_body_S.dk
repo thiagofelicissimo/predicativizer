@@ -1,0 +1,46 @@
+def sym_eq_invert_permut_body_S :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          (cts.prod
+             cts.box
+             cts.box
+             cts.box
+             cts.I
+             (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat))
+             (x0 => cts.prod cts.box cts.box cts.box cts.I nat.nat (x1 => nat.nat)))
+          (f:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat))) =>
+           m:(cts.Term cts.box nat.nat) =>
+           match_bool_type.match_bool_type
+             nat.nat
+             (S.S x)
+             (invert_permut.invert_permut x f m)
+             (eqb.eqb m (f (S.S x))))
+          (invert_permut_body.invert_permut_body (S.S x))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  sym_leibniz.sym_leibniz
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+       (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))
+    (invert_permut_body.invert_permut_body (S.S n))
+    (f:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+     m:(cts.Term cts.box nat.nat) =>
+     match_bool_type.match_bool_type
+       nat.nat
+       (S.S n)
+       (invert_permut.invert_permut n f m)
+       (eqb.eqb m (f (S.S n))))
+    (eq_invert_permut_body_S.eq_invert_permut_body_S n).
+

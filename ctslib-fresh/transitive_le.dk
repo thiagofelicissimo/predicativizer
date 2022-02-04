@@ -1,0 +1,18 @@
+def transitive_le :
+  cts.Term cts.star (transitive.transitive nat.nat le.le)
+  :=
+  a:(cts.Term cts.box nat.nat) =>
+  b:(cts.Term cts.box nat.nat) =>
+  c:(cts.Term cts.box nat.nat) =>
+  leab:(cts.Term cts.star (le.le a b)) =>
+  lebc:(cts.Term cts.star (le.le b c)) =>
+  le_ind.le_ind
+    b
+    (x_417:(cts.Term cts.box nat.nat) => le.le a x_417)
+    leab
+    (m:(cts.Term cts.box nat.nat) =>
+     _x_419:(cts.Term cts.star (le.le b m)) =>
+     _x_421:(cts.Term cts.star (le.le a m)) => le_S.le_S a m _x_421)
+    c
+    lebc.
+

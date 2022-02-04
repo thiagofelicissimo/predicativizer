@@ -1,0 +1,28 @@
+def eq_minus :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat))
+          (minus.minus x)
+          (filter_nat_type.filter_nat_type
+             (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat))
+             minus_body.minus_body
+             x)))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  equal_leibniz.equal_leibniz
+    (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+    (minus.minus n)
+    (filter_nat_type.filter_nat_type
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+       minus_body.minus_body
+       n)
+    (axiom_minus.axiom_minus n).
+

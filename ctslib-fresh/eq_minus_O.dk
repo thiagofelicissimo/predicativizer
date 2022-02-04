@@ -1,0 +1,48 @@
+def eq_minus_O :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (le.le x x0)
+             (x1 => eq.eq nat.nat (minus.minus x x0) O.O))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  lenm:(cts.Term cts.star (le.le n m)) =>
+  le_n_O_elim.le_n_O_elim
+    (minus.minus n m)
+    (eq_coerc.eq_coerc
+       (le.le (minus.minus n m) (minus.minus n n))
+       (le.le (minus.minus n m) O.O)
+       (monotonic_le_minus_r.monotonic_le_minus_r m n n lenm)
+       (rewrite_l.rewrite_l
+          nat.nat
+          O.O
+          (__:(cts.Term cts.box nat.nat) =>
+           eq.eq
+             (cts.univ cts.star cts.box cts.I)
+             (le.le (minus.minus n m) __)
+             (le.le (minus.minus n m) O.O))
+          (refl.refl (cts.univ cts.star cts.box cts.I) (le.le (minus.minus n m) O.O))
+          (minus.minus n n)
+          (minus_n_n.minus_n_n n)))
+    (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ O.O)
+    (refl.refl nat.nat O.O).
+

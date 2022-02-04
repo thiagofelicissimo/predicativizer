@@ -1,0 +1,32 @@
+div_mod_spec :
+  cts.Term
+    cts.box
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.box
+             cts.box
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                nat.nat
+                (x2 => cts.univ cts.star cts.box cts.I))))).
+

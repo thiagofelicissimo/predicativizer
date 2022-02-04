@@ -1,0 +1,174 @@
+def let_clause_1063 :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (permut.permut x x0)
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (le.le x2 x0)
+                      (x4 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (le.le x3 x0)
+                         (x5 =>
+                          cts.prod
+                            cts.box
+                            cts.star
+                            cts.star
+                            cts.I
+                            nat.nat
+                            (x6 =>
+                             cts.prod
+                               cts.star
+                               cts.star
+                               cts.star
+                               cts.I
+                               (And.And (le.le x6 x0) (eq.eq nat.nat (x x6) x2))
+                               (x7 =>
+                                cts.prod
+                                  cts.star
+                                  cts.star
+                                  cts.star
+                                  cts.I
+                                  (le.le x6 x0)
+                                  (x8 =>
+                                   cts.prod
+                                     cts.star
+                                     cts.star
+                                     cts.star
+                                     cts.I
+                                     (eq.eq nat.nat (x x6) x2)
+                                     (x9 =>
+                                      cts.prod
+                                        cts.box
+                                        cts.star
+                                        cts.star
+                                        cts.I
+                                        nat.nat
+                                        (x10 =>
+                                         cts.prod
+                                           cts.star
+                                           cts.star
+                                           cts.star
+                                           cts.I
+                                           (And.And
+                                              (le.le x10 x0)
+                                              (eq.eq nat.nat (x x10) x3))
+                                           (x11 =>
+                                            cts.prod
+                                              cts.star
+                                              cts.star
+                                              cts.star
+                                              cts.I
+                                              (le.le x10 x0)
+                                              (x12 =>
+                                               cts.prod
+                                                 cts.star
+                                                 cts.star
+                                                 cts.star
+                                                 cts.I
+                                                 (eq.eq nat.nat (x x10) x3)
+                                                 (x13 =>
+                                                  cts.prod
+                                                    cts.star
+                                                    cts.star
+                                                    cts.star
+                                                    cts.I
+                                                    (cts.prod
+                                                       cts.box
+                                                       cts.star
+                                                       cts.star
+                                                       cts.I
+                                                       nat.nat
+                                                       (x14 =>
+                                                        cts.prod
+                                                          cts.star
+                                                          cts.star
+                                                          cts.star
+                                                          cts.I
+                                                          (le.le x14 x0)
+                                                          (x15 => le.le (x x14) x0)))
+                                                    (x14 =>
+                                                     cts.prod
+                                                       cts.star
+                                                       cts.star
+                                                       cts.star
+                                                       cts.I
+                                                       (injn.injn x x0)
+                                                       (x15 =>
+                                                        cts.prod
+                                                          cts.star
+                                                          cts.star
+                                                          cts.star
+                                                          cts.I
+                                                          (eq.eq nat.nat x6 x10)
+                                                          (x16 =>
+                                                           eq.eq nat.nat (x x6) x3)))))))))))))))))))
+  :=
+  f:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  n:(cts.Term cts.box nat.nat) =>
+  permf:(cts.Term cts.star (permut.permut f n)) =>
+  i:(cts.Term cts.box nat.nat) =>
+  j:(cts.Term cts.box nat.nat) =>
+  lein:(cts.Term cts.star (le.le i n)) =>
+  lejn:(cts.Term cts.star (le.le j n)) =>
+  a:(cts.Term cts.box nat.nat) =>
+  _clearme:(cts.Term cts.star (And.And (le.le a n) (eq.eq nat.nat (f a) i))) =>
+  lean:(cts.Term cts.star (le.le a n)) =>
+  fa:(cts.Term cts.star (eq.eq nat.nat (f a) i)) =>
+  b:(cts.Term cts.box nat.nat) =>
+  _clearme0:(cts.Term cts.star (And.And (le.le b n) (eq.eq nat.nat (f b) j))) =>
+  lebn:(cts.Term cts.star (le.le b n)) =>
+  fb:(cts.Term cts.star (eq.eq nat.nat (f b) j)) =>
+  __:(cts.Term
+        cts.star
+        (cts.prod
+           cts.box
+           cts.star
+           cts.star
+           cts.I
+           nat.nat
+           (x => cts.prod cts.star cts.star cts.star cts.I (le.le x n) (x0 => le.le (f x) n)))) =>
+  injf:(cts.Term cts.star (injn.injn f n)) =>
+  auto:(cts.Term cts.star (eq.eq nat.nat a b)) =>
+  rewrite_r.rewrite_r nat.nat b (__1:(cts.Term cts.box nat.nat) => eq.eq nat.nat (f __1) j) fb a auto.
+

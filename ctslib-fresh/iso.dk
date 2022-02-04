@@ -1,0 +1,84 @@
+def iso :
+  cts.Term
+    cts.box
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.box
+             cts.box
+             cts.I
+             (cts.prod cts.box cts.box cts.box cts.I nat.nat (x1 => bool.bool))
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                (cts.prod cts.box cts.box cts.box cts.I nat.nat (x2 => bool.bool))
+                (x2 =>
+                 cts.prod
+                   cts.box
+                   cts.box
+                   cts.box
+                   cts.I
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x3 => nat.nat))
+                   (x3 =>
+                    cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      (cts.prod cts.box cts.box cts.box cts.I nat.nat (x4 => nat.nat))
+                      (x4 => cts.univ cts.star cts.box cts.I)))))))
+  :=
+  n1:(cts.Term cts.box nat.nat) =>
+  n2:(cts.Term cts.box nat.nat) =>
+  p1:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+  p2:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+  f1:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  f2:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  ex.ex
+    (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+    (h:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+     ex.ex
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+       (k:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+        And.And
+          (And.And
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (lt.lt x n1)
+                   (x0 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (eq.eq bool.bool (p1 x) true.true)
+                      (x1 => eq.eq nat.nat (f1 x) (f2 (h x))))))
+             (sub_hk.sub_hk h k n1 n2 p1 p2 f1 f2))
+          (sub_hk.sub_hk k h n2 n1 p2 p1 f2 f1))).
+

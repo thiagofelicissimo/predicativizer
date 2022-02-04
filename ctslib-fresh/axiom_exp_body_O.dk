@@ -1,0 +1,11 @@
+axiom_exp_body_O :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x => equal.equal nat.nat (exp_body.exp_body x O.O) (S.S O.O))).
+

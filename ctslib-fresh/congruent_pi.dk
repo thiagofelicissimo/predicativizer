@@ -1,0 +1,607 @@
+def congruent_pi :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (lt.lt O.O x1)
+                (x2 =>
+                 congruent.congruent
+                   (bigop.bigop
+                      nat.nat
+                      x0
+                      (i:(cts.Term cts.box nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i:(cts.Term cts.box nat.nat) => x i))
+                   (bigop.bigop
+                      nat.nat
+                      x0
+                      (i:(cts.Term cts.box nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i:(cts.Term cts.box nat.nat) => mod.mod (x i) x1))
+                   x1)))))
+  :=
+  f:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  n:(cts.Term cts.box nat.nat) =>
+  nat_ind.nat_ind
+    (_x_365:(cts.Term cts.box nat.nat) =>
+     cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (lt.lt O.O x)
+          (x0 =>
+           congruent.congruent
+             (bigop.bigop
+                nat.nat
+                _x_365
+                (i:(cts.Term cts.box nat.nat) => true.true)
+                (S.S O.O)
+                times.times
+                (i:(cts.Term cts.box nat.nat) => f i))
+             (bigop.bigop
+                nat.nat
+                _x_365
+                (i:(cts.Term cts.box nat.nat) => true.true)
+                (S.S O.O)
+                times.times
+                (i:(cts.Term cts.box nat.nat) => mod.mod (f i) x))
+             x)))
+    (p:(cts.Term cts.box nat.nat) =>
+     sym_eq_bigop_O.sym_eq_bigop_O
+       nat.nat
+       (y:(cts.Term
+             cts.box
+             (cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+                (x =>
+                 cts.prod
+                   cts.box
+                   cts.box
+                   cts.box
+                   cts.I
+                   nat.nat
+                   (x0 =>
+                    cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      (cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         nat.nat
+                         (x1 =>
+                          cts.prod cts.box cts.box cts.box cts.I nat.nat (x2 => nat.nat)))
+                      (x1 =>
+                       cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         (cts.prod cts.box cts.box cts.box cts.I nat.nat (x2 => nat.nat))
+                         (x2 => nat.nat)))))) =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (lt.lt O.O p)
+          (x =>
+           congruent.congruent
+             (bigop.bigop
+                nat.nat
+                O.O
+                (i:(cts.Term cts.box nat.nat) => true.true)
+                (S.S O.O)
+                times.times
+                (i:(cts.Term cts.box nat.nat) => f i))
+             (y
+                (i:(cts.Term cts.box nat.nat) => true.true)
+                (S.S O.O)
+                times.times
+                (i:(cts.Term cts.box nat.nat) => mod.mod (f i) p))
+             p))
+       (sym_eq_bigop_body_O.sym_eq_bigop_body_O
+          nat.nat
+          (y:(cts.Term
+                cts.box
+                (cts.prod
+                   cts.box
+                   cts.box
+                   cts.box
+                   cts.I
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+                   (x =>
+                    cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      nat.nat
+                      (x0 =>
+                       cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         (cts.prod
+                            cts.box
+                            cts.box
+                            cts.box
+                            cts.I
+                            nat.nat
+                            (x1 =>
+                             cts.prod cts.box cts.box cts.box cts.I nat.nat (x2 => nat.nat)))
+                         (x1 =>
+                          cts.prod
+                            cts.box
+                            cts.box
+                            cts.box
+                            cts.I
+                            (cts.prod cts.box cts.box cts.box cts.I nat.nat (x2 => nat.nat))
+                            (x2 => nat.nat)))))) =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (lt.lt O.O p)
+             (x =>
+              congruent.congruent
+                (bigop.bigop
+                   nat.nat
+                   O.O
+                   (i:(cts.Term cts.box nat.nat) => true.true)
+                   (S.S O.O)
+                   times.times
+                   (i:(cts.Term cts.box nat.nat) => f i))
+                (y
+                   (i:(cts.Term cts.box nat.nat) => true.true)
+                   (S.S O.O)
+                   times.times
+                   (i:(cts.Term cts.box nat.nat) => mod.mod (f i) p))
+                p))
+          (eq_bigop_body_O.eq_bigop_body_O
+             nat.nat
+             (y:(cts.Term
+                   cts.box
+                   (cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+                      (x =>
+                       cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         nat.nat
+                         (x0 =>
+                          cts.prod
+                            cts.box
+                            cts.box
+                            cts.box
+                            cts.I
+                            (cts.prod
+                               cts.box
+                               cts.box
+                               cts.box
+                               cts.I
+                               nat.nat
+                               (x1 =>
+                                cts.prod
+                                  cts.box
+                                  cts.box
+                                  cts.box
+                                  cts.I
+                                  nat.nat
+                                  (x2 => nat.nat)))
+                            (x1 =>
+                             cts.prod
+                               cts.box
+                               cts.box
+                               cts.box
+                               cts.I
+                               (cts.prod
+                                  cts.box
+                                  cts.box
+                                  cts.box
+                                  cts.I
+                                  nat.nat
+                                  (x2 => nat.nat))
+                               (x2 => nat.nat)))))) =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (lt.lt O.O p)
+                (x =>
+                 congruent.congruent
+                   (bigop.bigop
+                      nat.nat
+                      O.O
+                      (i:(cts.Term cts.box nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i:(cts.Term cts.box nat.nat) => f i))
+                   (y
+                      (i:(cts.Term cts.box nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i:(cts.Term cts.box nat.nat) => f i))
+                   p))
+             (eq_bigop_O.eq_bigop_O
+                nat.nat
+                (y:(cts.Term
+                      cts.box
+                      (cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+                         (x =>
+                          cts.prod
+                            cts.box
+                            cts.box
+                            cts.box
+                            cts.I
+                            nat.nat
+                            (x0 =>
+                             cts.prod
+                               cts.box
+                               cts.box
+                               cts.box
+                               cts.I
+                               (cts.prod
+                                  cts.box
+                                  cts.box
+                                  cts.box
+                                  cts.I
+                                  nat.nat
+                                  (x1 =>
+                                   cts.prod
+                                     cts.box
+                                     cts.box
+                                     cts.box
+                                     cts.I
+                                     nat.nat
+                                     (x2 => nat.nat)))
+                               (x1 =>
+                                cts.prod
+                                  cts.box
+                                  cts.box
+                                  cts.box
+                                  cts.I
+                                  (cts.prod
+                                     cts.box
+                                     cts.box
+                                     cts.box
+                                     cts.I
+                                     nat.nat
+                                     (x2 => nat.nat))
+                                  (x2 => nat.nat)))))) =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (lt.lt O.O p)
+                   (x =>
+                    congruent.congruent
+                      (bigop.bigop
+                         nat.nat
+                         O.O
+                         (i:(cts.Term cts.box nat.nat) => true.true)
+                         (S.S O.O)
+                         times.times
+                         (i:(cts.Term cts.box nat.nat) => f i))
+                      (y
+                         (i:(cts.Term cts.box nat.nat) => true.true)
+                         (S.S O.O)
+                         times.times
+                         (i:(cts.Term cts.box nat.nat) => f i))
+                      p))
+                (auto:(cts.Term cts.star (lt.lt O.O p)) =>
+                 congruent_n_n.congruent_n_n
+                   (bigop.bigop
+                      nat.nat
+                      O.O
+                      (i:(cts.Term cts.box nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i:(cts.Term cts.box nat.nat) => f i))
+                   p)))))
+    (n1:(cts.Term cts.box nat.nat) =>
+     Hind:(cts.Term
+             cts.star
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (lt.lt O.O x)
+                   (x0 =>
+                    congruent.congruent
+                      (bigop.bigop
+                         nat.nat
+                         n1
+                         (i:(cts.Term cts.box nat.nat) => true.true)
+                         (S.S O.O)
+                         times.times
+                         (i:(cts.Term cts.box nat.nat) => f i))
+                      (bigop.bigop
+                         nat.nat
+                         n1
+                         (i:(cts.Term cts.box nat.nat) => true.true)
+                         (S.S O.O)
+                         times.times
+                         (i:(cts.Term cts.box nat.nat) => mod.mod (f i) x))
+                      x)))) =>
+     p:(cts.Term cts.box nat.nat) =>
+     posp:(cts.Term cts.star (lt.lt O.O p)) =>
+     eq_ind_r.eq_ind_r
+       nat.nat
+       (times.times
+          (f n1)
+          (bigop.bigop
+             nat.nat
+             n1
+             (i:(cts.Term cts.box nat.nat) => true.true)
+             (S.S O.O)
+             times.times
+             (i:(cts.Term cts.box nat.nat) => f i)))
+       (x:(cts.Term cts.box nat.nat) =>
+        congruent.congruent
+          x
+          (bigop.bigop
+             nat.nat
+             (S.S n1)
+             (i:(cts.Term cts.box nat.nat) => true.true)
+             (S.S O.O)
+             times.times
+             (i:(cts.Term cts.box nat.nat) => mod.mod (f i) p))
+          p)
+       (sym_eq_bigop_S.sym_eq_bigop_S
+          nat.nat
+          n1
+          (y:(cts.Term
+                cts.box
+                (cts.prod
+                   cts.box
+                   cts.box
+                   cts.box
+                   cts.I
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+                   (x =>
+                    cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      nat.nat
+                      (x0 =>
+                       cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         (cts.prod
+                            cts.box
+                            cts.box
+                            cts.box
+                            cts.I
+                            nat.nat
+                            (x1 =>
+                             cts.prod cts.box cts.box cts.box cts.I nat.nat (x2 => nat.nat)))
+                         (x1 =>
+                          cts.prod
+                            cts.box
+                            cts.box
+                            cts.box
+                            cts.I
+                            (cts.prod cts.box cts.box cts.box cts.I nat.nat (x2 => nat.nat))
+                            (x2 => nat.nat)))))) =>
+           congruent.congruent
+             (times.times
+                (f n1)
+                (bigop.bigop
+                   nat.nat
+                   n1
+                   (i:(cts.Term cts.box nat.nat) => true.true)
+                   (S.S O.O)
+                   times.times
+                   (i:(cts.Term cts.box nat.nat) => f i)))
+             (y
+                (i:(cts.Term cts.box nat.nat) => true.true)
+                (S.S O.O)
+                times.times
+                (i:(cts.Term cts.box nat.nat) => mod.mod (f i) p))
+             p)
+          (sym_eq_bigop_body_S.sym_eq_bigop_body_S
+             nat.nat
+             n1
+             (y:(cts.Term
+                   cts.box
+                   (cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+                      (x =>
+                       cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         nat.nat
+                         (x0 =>
+                          cts.prod
+                            cts.box
+                            cts.box
+                            cts.box
+                            cts.I
+                            (cts.prod
+                               cts.box
+                               cts.box
+                               cts.box
+                               cts.I
+                               nat.nat
+                               (x1 =>
+                                cts.prod
+                                  cts.box
+                                  cts.box
+                                  cts.box
+                                  cts.I
+                                  nat.nat
+                                  (x2 => nat.nat)))
+                            (x1 =>
+                             cts.prod
+                               cts.box
+                               cts.box
+                               cts.box
+                               cts.I
+                               (cts.prod
+                                  cts.box
+                                  cts.box
+                                  cts.box
+                                  cts.I
+                                  nat.nat
+                                  (x2 => nat.nat))
+                               (x2 => nat.nat)))))) =>
+              congruent.congruent
+                (times.times
+                   (f n1)
+                   (bigop.bigop
+                      nat.nat
+                      n1
+                      (i:(cts.Term cts.box nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i:(cts.Term cts.box nat.nat) => f i)))
+                (y
+                   (i:(cts.Term cts.box nat.nat) => true.true)
+                   (S.S O.O)
+                   times.times
+                   (i:(cts.Term cts.box nat.nat) => mod.mod (f i) p))
+                p)
+             (sym_eq_match_bool_type_true.sym_eq_match_bool_type_true
+                nat.nat
+                (times.times
+                   (mod.mod (f n1) p)
+                   (bigop.bigop
+                      nat.nat
+                      n1
+                      (i:(cts.Term cts.box nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i:(cts.Term cts.box nat.nat) => mod.mod (f i) p)))
+                (bigop.bigop
+                   nat.nat
+                   n1
+                   (i:(cts.Term cts.box nat.nat) => true.true)
+                   (S.S O.O)
+                   times.times
+                   (i:(cts.Term cts.box nat.nat) => mod.mod (f i) p))
+                (y:(cts.Term cts.box nat.nat) =>
+                 congruent.congruent
+                   (times.times
+                      (f n1)
+                      (bigop.bigop
+                         nat.nat
+                         n1
+                         (i:(cts.Term cts.box nat.nat) => true.true)
+                         (S.S O.O)
+                         times.times
+                         (i:(cts.Term cts.box nat.nat) => f i)))
+                   y
+                   p)
+                (congruent_times.congruent_times
+                   (f n1)
+                   (bigop.bigop
+                      nat.nat
+                      n1
+                      (i:(cts.Term cts.box nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i:(cts.Term cts.box nat.nat) => f i))
+                   (mod.mod (f n1) p)
+                   (bigop.bigop
+                      nat.nat
+                      n1
+                      (i:(cts.Term cts.box nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i:(cts.Term cts.box nat.nat) => mod.mod (f i) p))
+                   p
+                   posp
+                   (congruent_n_mod_n.congruent_n_mod_n (f n1) p posp)
+                   (Hind p posp)))))
+       (bigop.bigop
+          nat.nat
+          (S.S n1)
+          (i:(cts.Term cts.box nat.nat) => true.true)
+          (S.S O.O)
+          times.times
+          (i:(cts.Term cts.box nat.nat) => f i))
+       (bigop_Strue.bigop_Strue
+          nat.nat
+          n1
+          (__:(cts.Term cts.box nat.nat) => true.true)
+          (S.S O.O)
+          times.times
+          f
+          (refl.refl bool.bool true.true)))
+    n.
+

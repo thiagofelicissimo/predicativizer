@@ -1,0 +1,28 @@
+def eq_eqb :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => bool.bool))
+          (eqb.eqb x)
+          (filter_nat_type.filter_nat_type
+             (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => bool.bool))
+             eqb_body.eqb_body
+             x)))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  equal_leibniz.equal_leibniz
+    (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+    (eqb.eqb n)
+    (filter_nat_type.filter_nat_type
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+       eqb_body.eqb_body
+       n)
+    (axiom_eqb.axiom_eqb n).
+

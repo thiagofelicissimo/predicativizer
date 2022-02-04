@@ -1,0 +1,66 @@
+def le_plus_to_le_r :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (le.le (plus.plus x0 x) (plus.plus x1 x))
+                (x2 => le.le x0 x1)))))
+  :=
+  a:(cts.Term cts.box nat.nat) =>
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  auto:(cts.Term cts.star (le.le (plus.plus n a) (plus.plus m a))) =>
+  le_plus_to_le.le_plus_to_le
+    a
+    n
+    m
+    (eq_coerc.eq_coerc
+       (le.le (plus.plus n a) (plus.plus m a))
+       (le.le (plus.plus a n) (plus.plus a m))
+       auto
+       (rewrite_r.rewrite_r
+          nat.nat
+          (plus.plus a n)
+          (__:(cts.Term cts.box nat.nat) =>
+           eq.eq
+             (cts.univ cts.star cts.box cts.I)
+             (le.le __ (plus.plus m a))
+             (le.le (plus.plus a n) (plus.plus a m)))
+          (rewrite_r.rewrite_r
+             nat.nat
+             (plus.plus a m)
+             (__:(cts.Term cts.box nat.nat) =>
+              eq.eq
+                (cts.univ cts.star cts.box cts.I)
+                (le.le (plus.plus a n) __)
+                (le.le (plus.plus a n) (plus.plus a m)))
+             (refl.refl (cts.univ cts.star cts.box cts.I) (le.le (plus.plus a n) (plus.plus a m)))
+             (plus.plus m a)
+             (commutative_plus.commutative_plus m a))
+          (plus.plus n a)
+          (commutative_plus.commutative_plus n a))).
+

@@ -1,0 +1,26 @@
+def sym_eq_div_aux_body_O :
+  cts.Term
+    cts.star
+    (leibniz.leibniz
+       (cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          nat.nat
+          (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))
+       (m:(cts.Term cts.box nat.nat) => n:(cts.Term cts.box nat.nat) => O.O)
+       (div_aux_body.div_aux_body O.O))
+  :=
+  sym_leibniz.sym_leibniz
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       nat.nat
+       (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))
+    (div_aux_body.div_aux_body O.O)
+    (m:(cts.Term cts.box nat.nat) => n:(cts.Term cts.box nat.nat) => O.O)
+    eq_div_aux_body_O.eq_div_aux_body_O.
+

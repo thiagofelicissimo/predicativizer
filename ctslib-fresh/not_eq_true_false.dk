@@ -1,0 +1,45 @@
+def not_eq_true_false :
+  cts.Term cts.star (Not.Not (eq.eq bool.bool true.true false.false))
+  :=
+  nmk.nmk
+    (eq.eq bool.bool true.true false.false)
+    (Heq:(cts.Term cts.star (eq.eq bool.bool true.true false.false)) =>
+     eq_match_bool_type_false.eq_match_bool_type_false
+       (cts.univ cts.star cts.box cts.I)
+       (cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          (cts.univ cts.star cts.box cts.I)
+          (x => cts.prod cts.star cts.star cts.star cts.I x (x0 => x)))
+       (cts.prod cts.box cts.star cts.star cts.I (cts.univ cts.star cts.box cts.I) (x => x))
+       (x:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) => x)
+       (eq_match_bool_type_true.eq_match_bool_type_true
+          (cts.univ cts.star cts.box cts.I)
+          (match_bool_type.match_bool_type
+             (cts.univ cts.star cts.box cts.I)
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x => cts.prod cts.star cts.star cts.star cts.I x (x0 => x)))
+             (cts.prod cts.box cts.star cts.star cts.I (cts.univ cts.star cts.box cts.I) (x => x))
+             false.false)
+          (match_bool_type.match_bool_type
+             (cts.univ cts.star cts.box cts.I)
+             (cts.prod cts.box cts.star cts.star cts.I (cts.univ cts.star cts.box cts.I) (x => x))
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x => cts.prod cts.star cts.star cts.star cts.I x (x0 => x)))
+             false.false)
+          (x:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) => x)
+          (bool_discr.bool_discr true.true false.false Heq))
+       False.False).
+

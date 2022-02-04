@@ -1,0 +1,14 @@
+def sym_eq_exp_body_O :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x => leibniz.leibniz nat.nat (S.S O.O) (exp_body.exp_body x O.O)))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  sym_leibniz.sym_leibniz nat.nat (exp_body.exp_body n O.O) (S.S O.O) (eq_exp_body_O.eq_exp_body_O n).
+

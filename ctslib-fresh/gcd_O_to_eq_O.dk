@@ -1,0 +1,122 @@
+def gcd_O_to_eq_O :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (eq.eq nat.nat (gcd.gcd x x0) O.O)
+             (x1 => And.And (eq.eq nat.nat x O.O) (eq.eq nat.nat x0 O.O)))))
+  :=
+  m:(cts.Term cts.box nat.nat) =>
+  n:(cts.Term cts.box nat.nat) =>
+  H:(cts.Term cts.star (eq.eq nat.nat (gcd.gcd m n) O.O)) =>
+  match_And_prop.match_And_prop
+    (divides.divides O.O n)
+    (divides.divides O.O m)
+    (And.And (eq.eq nat.nat m O.O) (eq.eq nat.nat n O.O))
+    (_clearme:(cts.Term cts.star (divides.divides O.O n)) =>
+     match_divides_prop.match_divides_prop
+       O.O
+       n
+       (cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (divides.divides O.O m)
+          (x => And.And (eq.eq nat.nat m O.O) (eq.eq nat.nat n O.O)))
+       (q1:(cts.Term cts.box nat.nat) =>
+        H1:(cts.Term cts.star (eq.eq nat.nat n (times.times O.O q1))) =>
+        _clearme0:(cts.Term cts.star (divides.divides O.O m)) =>
+        match_divides_prop.match_divides_prop
+          O.O
+          m
+          (And.And (eq.eq nat.nat m O.O) (eq.eq nat.nat n O.O))
+          (q2:(cts.Term cts.box nat.nat) =>
+           H2:(cts.Term cts.star (eq.eq nat.nat m (times.times O.O q2))) =>
+           conj.conj
+             (eq.eq nat.nat m O.O)
+             (eq.eq nat.nat n O.O)
+             (rewrite_l.rewrite_l
+                nat.nat
+                m
+                (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat m __)
+                (refl.refl nat.nat m)
+                O.O
+                (rewrite_r.rewrite_r
+                   nat.nat
+                   (times.times q2 O.O)
+                   (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat m __)
+                   (rewrite_l.rewrite_l
+                      nat.nat
+                      (times.times O.O q2)
+                      (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat m __)
+                      H2
+                      (times.times q2 O.O)
+                      (commutative_times.commutative_times O.O q2))
+                   O.O
+                   (times_n_O.times_n_O q2)))
+             (rewrite_r.rewrite_r
+                nat.nat
+                m
+                (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ O.O)
+                (rewrite_l.rewrite_l
+                   nat.nat
+                   m
+                   (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat m __)
+                   (refl.refl nat.nat m)
+                   O.O
+                   (let_clause_1545.let_clause_1545 m n H _clearme q1 H1 _clearme0 q2 H2))
+                n
+                (rewrite_r.rewrite_r
+                   nat.nat
+                   (times.times m q1)
+                   (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat n __)
+                   (rewrite_r.rewrite_r
+                      nat.nat
+                      O.O
+                      (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat n (times.times __ q1))
+                      H1
+                      m
+                      (let_clause_1545.let_clause_1545 m n H _clearme q1 H1 _clearme0 q2 H2))
+                   m
+                   (rewrite_r.rewrite_r
+                      nat.nat
+                      O.O
+                      (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat m (times.times __ q1))
+                      (rewrite_r.rewrite_r
+                         nat.nat
+                         O.O
+                         (__:(cts.Term cts.box nat.nat) =>
+                          eq.eq nat.nat __ (times.times O.O q1))
+                         (times_O_n.times_O_n q1)
+                         m
+                         (let_clause_1545.let_clause_1545 m n H _clearme q1 H1 _clearme0 q2 H2))
+                      m
+                      (let_clause_1545.let_clause_1545 m n H _clearme q1 H1 _clearme0 q2 H2)))))
+          _clearme0)
+       _clearme)
+    (eq_ind.eq_ind
+       nat.nat
+       (gcd.gcd m n)
+       (x_1:(cts.Term cts.box nat.nat) => And.And (divides.divides x_1 n) (divides.divides x_1 m))
+       (divides_gcd_nm.divides_gcd_nm m n)
+       O.O
+       H).
+

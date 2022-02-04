@@ -1,0 +1,47 @@
+def not_eq_to_eqb_false :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (Not.Not (eq.eq nat.nat x x0))
+             (x1 => eq.eq bool.bool (eqb.eqb x x0) false.false))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  noteq:(cts.Term cts.star (Not.Not (eq.eq nat.nat n m))) =>
+  eqb_elim.eqb_elim
+    n
+    m
+    (__:(cts.Term cts.box bool.bool) => eq.eq bool.bool __ false.false)
+    (Heq:(cts.Term cts.star (eq.eq nat.nat n m)) =>
+     falsity.falsity
+       (eq.eq bool.bool true.true false.false)
+       (absurd.absurd
+          (eq.eq nat.nat n m)
+          (rewrite_l.rewrite_l
+             nat.nat
+             n
+             (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat n __)
+             (refl.refl nat.nat n)
+             m
+             Heq)
+          noteq))
+    (auto:(cts.Term cts.star (Not.Not (eq.eq nat.nat n m))) => refl.refl bool.bool false.false).
+

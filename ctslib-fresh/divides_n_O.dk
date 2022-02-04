@@ -1,0 +1,16 @@
+def divides_n_O :
+  cts.Term cts.star (cts.prod cts.box cts.star cts.star cts.I nat.nat (x => divides.divides x O.O))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  quotient.quotient
+    n
+    O.O
+    O.O
+    (rewrite_r.rewrite_r
+       nat.nat
+       (times.times n O.O)
+       (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ (times.times n O.O))
+       (refl.refl nat.nat (times.times n O.O))
+       O.O
+       (times_n_O.times_n_O n)).
+

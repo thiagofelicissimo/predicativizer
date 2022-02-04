@@ -1,0 +1,53 @@
+def monotonic_lt_plus_l :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x => monotonic.monotonic nat.nat lt.lt (m:(cts.Term cts.box nat.nat) => plus.plus m x)))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  x:(cts.Term cts.box nat.nat) =>
+  y:(cts.Term cts.box nat.nat) =>
+  auto:(cts.Term cts.star (lt.lt x y)) =>
+  eq_coerc.eq_coerc
+    (le.le (plus.plus n (S.S x)) (plus.plus n y))
+    (le.le (S.S (plus.plus x n)) (plus.plus y n))
+    (monotonic_le_plus_r.monotonic_le_plus_r n (S.S x) y auto)
+    (rewrite_r.rewrite_r
+       nat.nat
+       (plus.plus n x)
+       (__:(cts.Term cts.box nat.nat) =>
+        eq.eq
+          (cts.univ cts.star cts.box cts.I)
+          (le.le (plus.plus n (S.S x)) (plus.plus n y))
+          (le.le (S.S __) (plus.plus y n)))
+       (rewrite_r.rewrite_r
+          nat.nat
+          (plus.plus n (S.S x))
+          (__:(cts.Term cts.box nat.nat) =>
+           eq.eq
+             (cts.univ cts.star cts.box cts.I)
+             (le.le (plus.plus n (S.S x)) (plus.plus n y))
+             (le.le __ (plus.plus y n)))
+          (rewrite_r.rewrite_r
+             nat.nat
+             (plus.plus n y)
+             (__:(cts.Term cts.box nat.nat) =>
+              eq.eq
+                (cts.univ cts.star cts.box cts.I)
+                (le.le (plus.plus n (S.S x)) (plus.plus n y))
+                (le.le (plus.plus n (S.S x)) __))
+             (refl.refl
+                (cts.univ cts.star cts.box cts.I)
+                (le.le (plus.plus n (S.S x)) (plus.plus n y)))
+             (plus.plus y n)
+             (commutative_plus.commutative_plus y n))
+          (S.S (plus.plus n x))
+          (plus_n_Sm.plus_n_Sm n x))
+       (plus.plus x n)
+       (commutative_plus.commutative_plus x n)).
+

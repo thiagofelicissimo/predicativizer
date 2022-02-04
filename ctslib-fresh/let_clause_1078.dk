@@ -1,0 +1,137 @@
+def let_clause_1078 :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.box
+                      cts.star
+                      cts.star
+                      cts.I
+                      nat.nat
+                      (x4 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (div_mod_spec.div_mod_spec x x0 x1 x2)
+                         (x5 =>
+                          cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (lt.lt x2 x0)
+                            (x6 =>
+                             cts.prod
+                               cts.star
+                               cts.star
+                               cts.star
+                               cts.I
+                               (eq.eq nat.nat x (plus.plus (times.times x1 x0) x2))
+                               (x7 =>
+                                cts.prod
+                                  cts.star
+                                  cts.star
+                                  cts.star
+                                  cts.I
+                                  (div_mod_spec.div_mod_spec x x0 x3 x4)
+                                  (x8 =>
+                                   cts.prod
+                                     cts.star
+                                     cts.star
+                                     cts.star
+                                     cts.I
+                                     (lt.lt x4 x0)
+                                     (x9 =>
+                                      cts.prod
+                                        cts.star
+                                        cts.star
+                                        cts.star
+                                        cts.I
+                                        (eq.eq
+                                           nat.nat
+                                           x
+                                           (plus.plus (times.times x3 x0) x4))
+                                        (x10 =>
+                                         cts.prod
+                                           cts.star
+                                           cts.star
+                                           cts.star
+                                           cts.I
+                                           (le.le x1 x3)
+                                           (x11 =>
+                                            cts.prod
+                                              cts.star
+                                              cts.star
+                                              cts.star
+                                              cts.I
+                                              (lt.lt x1 x3)
+                                              (x12 =>
+                                               eq.eq
+                                                 nat.nat
+                                                 x
+                                                 (plus.plus x2 (times.times x0 x1)))))))))))))))))
+  :=
+  a:(cts.Term cts.box nat.nat) =>
+  b:(cts.Term cts.box nat.nat) =>
+  q:(cts.Term cts.box nat.nat) =>
+  r:(cts.Term cts.box nat.nat) =>
+  q1:(cts.Term cts.box nat.nat) =>
+  r1:(cts.Term cts.box nat.nat) =>
+  _clearme:(cts.Term cts.star (div_mod_spec.div_mod_spec a b q r)) =>
+  ltrb:(cts.Term cts.star (lt.lt r b)) =>
+  spec:(cts.Term cts.star (eq.eq nat.nat a (plus.plus (times.times q b) r))) =>
+  _clearme0:(cts.Term cts.star (div_mod_spec.div_mod_spec a b q1 r1)) =>
+  ltr1b:(cts.Term cts.star (lt.lt r1 b)) =>
+  spec1:(cts.Term cts.star (eq.eq nat.nat a (plus.plus (times.times q1 b) r1))) =>
+  leqq1:(cts.Term cts.star (le.le q q1)) =>
+  ltqq1:(cts.Term cts.star (lt.lt q q1)) =>
+  rewrite_l.rewrite_l
+    nat.nat
+    (plus.plus (times.times b q) r)
+    (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat a __)
+    (rewrite_l.rewrite_l
+       nat.nat
+       (times.times q b)
+       (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat a (plus.plus __ r))
+       spec
+       (times.times b q)
+       (commutative_times.commutative_times q b))
+    (plus.plus r (times.times b q))
+    (commutative_plus.commutative_plus (times.times b q) r).
+

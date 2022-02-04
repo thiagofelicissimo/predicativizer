@@ -1,0 +1,6 @@
+def pred :
+  cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  match_nat_type.match_nat_type nat.nat O.O (p:(cts.Term cts.box nat.nat) => p) n.
+

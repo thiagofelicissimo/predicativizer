@@ -1,0 +1,52 @@
+def le_plus_to_minus :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (le.le x (plus.plus x1 x0))
+                (x2 => le.le (minus.minus x x0) x1)))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  p:(cts.Term cts.box nat.nat) =>
+  lep:(cts.Term cts.star (le.le n (plus.plus p m))) =>
+  eq_coerc.eq_coerc
+    (le.le (minus.minus n m) (minus.minus (plus.plus p m) m))
+    (le.le (minus.minus n m) p)
+    (monotonic_le_minus_l.monotonic_le_minus_l (plus.plus p m) n m lep)
+    (rewrite_l.rewrite_l
+       nat.nat
+       p
+       (__:(cts.Term cts.box nat.nat) =>
+        eq.eq
+          (cts.univ cts.star cts.box cts.I)
+          (le.le (minus.minus n m) __)
+          (le.le (minus.minus n m) p))
+       (refl.refl (cts.univ cts.star cts.box cts.I) (le.le (minus.minus n m) p))
+       (minus.minus (plus.plus p m) m)
+       (minus_plus_m_m.minus_plus_m_m p m)).
+

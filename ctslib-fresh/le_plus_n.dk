@@ -1,0 +1,26 @@
+def le_plus_n :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x => cts.prod cts.box cts.star cts.star cts.I nat.nat (x0 => le.le x0 (plus.plus x x0))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  eq_coerc.eq_coerc
+    (le.le (plus.plus O.O m) (plus.plus n m))
+    (le.le m (plus.plus n m))
+    (monotonic_le_plus_l.monotonic_le_plus_l m O.O n (le_O_n.le_O_n n))
+    (rewrite_l.rewrite_l
+       nat.nat
+       m
+       (__:(cts.Term cts.box nat.nat) =>
+        eq.eq (cts.univ cts.star cts.box cts.I) (le.le __ (plus.plus n m)) (le.le m (plus.plus n m)))
+       (refl.refl (cts.univ cts.star cts.box cts.I) (le.le m (plus.plus n m)))
+       (plus.plus O.O m)
+       (plus_O_n.plus_O_n m)).
+

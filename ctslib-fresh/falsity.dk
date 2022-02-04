@@ -1,0 +1,11 @@
+falsity :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.univ cts.star cts.box cts.I)
+       (x => cts.prod cts.star cts.star cts.star cts.I False.False (x0 => x))).
+

@@ -1,0 +1,54 @@
+def let_clause_1571 :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (lt.lt O.O x0)
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (eq.eq nat.nat (gcd.gcd x x0) O.O)
+                (x2 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (eq.eq nat.nat x O.O)
+                   (x3 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (eq.eq nat.nat x0 O.O)
+                      (x4 => eq.eq nat.nat x x0)))))))
+  :=
+  m:(cts.Term cts.box nat.nat) =>
+  n:(cts.Term cts.box nat.nat) =>
+  posn:(cts.Term cts.star (lt.lt O.O n)) =>
+  H:(cts.Term cts.star (eq.eq nat.nat (gcd.gcd m n) O.O)) =>
+  auto:(cts.Term cts.star (eq.eq nat.nat m O.O)) =>
+  auto':(cts.Term cts.star (eq.eq nat.nat n O.O)) =>
+  rewrite_r.rewrite_r nat.nat O.O (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat m __) auto n auto'.
+

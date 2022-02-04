@@ -1,0 +1,52 @@
+bigop :
+  cts.Term
+    cts.diamond
+    (cts.prod
+       cts.triangle
+       cts.box
+       cts.diamond
+       cts.I
+       (cts.univ cts.box cts.triangle cts.I)
+       (x =>
+        cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.box
+             cts.box
+             cts.I
+             (cts.prod cts.box cts.box cts.box cts.I nat.nat (x1 => bool.bool))
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                x
+                (x2 =>
+                 cts.prod
+                   cts.box
+                   cts.box
+                   cts.box
+                   cts.I
+                   (cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      x
+                      (x3 => cts.prod cts.box cts.box cts.box cts.I x (x4 => x)))
+                   (x3 =>
+                    cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      (cts.prod cts.box cts.box cts.box cts.I nat.nat (x4 => x))
+                      (x4 => x))))))).
+

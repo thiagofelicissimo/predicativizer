@@ -1,0 +1,19 @@
+def div :
+  cts.Term
+    cts.box
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       nat.nat
+       (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  match_nat_type.match_nat_type
+    nat.nat
+    (S.S n)
+    (p:(cts.Term cts.box nat.nat) => div_aux.div_aux n n p)
+    m.
+

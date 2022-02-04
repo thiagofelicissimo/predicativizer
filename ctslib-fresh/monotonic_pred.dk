@@ -1,0 +1,28 @@
+def monotonic_pred :
+  cts.Term cts.star (monotonic.monotonic nat.nat le.le pred.pred)
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  lenm:(cts.Term cts.star (le.le n m)) =>
+  le_ind.le_ind
+    n
+    (x_417:(cts.Term cts.box nat.nat) => le.le (pred.pred n) (pred.pred x_417))
+    (le_n.le_n (pred.pred n))
+    (m0:(cts.Term cts.box nat.nat) =>
+     _x_419:(cts.Term cts.star (le.le n m0)) =>
+     _x_421:(cts.Term cts.star (le.le (pred.pred n) (pred.pred m0))) =>
+     transitive_le.transitive_le
+       (pred.pred n)
+       n
+       (pred.pred (S.S m0))
+       (le_pred_n.le_pred_n n)
+       (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+          nat.nat
+          O.O
+          (p:(cts.Term cts.box nat.nat) => p)
+          m0
+          (y:(cts.Term cts.box nat.nat) => le.le n y)
+          _x_419))
+    m
+    lenm.
+

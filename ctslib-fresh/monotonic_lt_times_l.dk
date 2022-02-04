@@ -1,0 +1,52 @@
+def monotonic_lt_times_l :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (lt.lt O.O x)
+          (x0 =>
+           monotonic.monotonic nat.nat lt.lt (t:(cts.Term cts.box nat.nat) => times.times t x))))
+  :=
+  c:(cts.Term cts.box nat.nat) =>
+  auto:(cts.Term cts.star (lt.lt O.O c)) =>
+  x:(cts.Term cts.box nat.nat) =>
+  y:(cts.Term cts.box nat.nat) =>
+  auto':(cts.Term cts.star (lt.lt x y)) =>
+  eq_coerc.eq_coerc
+    (le.le (S.S (times.times c x)) (times.times c y))
+    (le.le (S.S (times.times x c)) (times.times y c))
+    (monotonic_lt_times_r.monotonic_lt_times_r c auto x y auto')
+    (rewrite_r.rewrite_r
+       nat.nat
+       (times.times c x)
+       (__:(cts.Term cts.box nat.nat) =>
+        eq.eq
+          (cts.univ cts.star cts.box cts.I)
+          (le.le (S.S (times.times c x)) (times.times c y))
+          (le.le (S.S __) (times.times y c)))
+       (rewrite_r.rewrite_r
+          nat.nat
+          (times.times c y)
+          (__:(cts.Term cts.box nat.nat) =>
+           eq.eq
+             (cts.univ cts.star cts.box cts.I)
+             (le.le (S.S (times.times c x)) (times.times c y))
+             (le.le (S.S (times.times c x)) __))
+          (refl.refl
+             (cts.univ cts.star cts.box cts.I)
+             (le.le (S.S (times.times c x)) (times.times c y)))
+          (times.times y c)
+          (commutative_times.commutative_times y c))
+       (times.times x c)
+       (commutative_times.commutative_times x c)).
+

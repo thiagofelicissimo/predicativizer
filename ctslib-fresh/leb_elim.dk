@@ -1,0 +1,824 @@
+def leb_elim :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                bool.bool
+                (x1 => cts.univ cts.star cts.box cts.I))
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod cts.star cts.star cts.star cts.I (le.le x x0) (x2 => x1 true.true))
+                (x2 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (Not.Not (le.le x x0))
+                      (x3 => x1 false.false))
+                   (x3 => x1 (leb.leb x x0)))))))
+  :=
+  nat_elim2.nat_elim2
+    (__:(cts.Term cts.box nat.nat) =>
+     _0:(cts.Term cts.box nat.nat) =>
+     cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.prod cts.box cts.box cts.box cts.I bool.bool (x => cts.univ cts.star cts.box cts.I))
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (cts.prod cts.star cts.star cts.star cts.I (le.le __ _0) (x0 => x true.true))
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (Not.Not (le.le __ _0))
+                (x1 => x false.false))
+             (x1 => x (leb.leb __ _0)))))
+    (n:(cts.Term cts.box nat.nat) =>
+     sym_eq_leb.sym_eq_leb
+       O.O
+       (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          (cts.prod cts.box cts.box cts.box cts.I bool.bool (x => cts.univ cts.star cts.box cts.I))
+          (x =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod cts.star cts.star cts.star cts.I (le.le O.O n) (x0 => x true.true))
+             (x0 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (Not.Not (le.le O.O n))
+                   (x1 => x false.false))
+                (x1 => x (y n)))))
+       (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+          leb_body.leb_body
+          (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                bool.bool
+                (x => cts.univ cts.star cts.box cts.I))
+             (x =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod cts.star cts.star cts.star cts.I (le.le O.O n) (x0 => x true.true))
+                (x0 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (Not.Not (le.le O.O n))
+                      (x1 => x false.false))
+                   (x1 => x (y n)))))
+          (sym_eq_leb_body_O.sym_eq_leb_body_O
+             (y:(cts.Term
+                   cts.box
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod
+                   cts.box
+                   cts.box
+                   cts.box
+                   cts.I
+                   bool.bool
+                   (x => cts.univ cts.star cts.box cts.I))
+                (x =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod cts.star cts.star cts.star cts.I (le.le O.O n) (x0 => x true.true))
+                   (x0 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (Not.Not (le.le O.O n))
+                         (x1 => x false.false))
+                      (x1 => x (y n)))))
+             (P:(cts.Term
+                   cts.box
+                   (cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      bool.bool
+                      (x => cts.univ cts.star cts.box cts.I))) =>
+              auto:(cts.Term
+                      cts.star
+                      (cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (le.le O.O n)
+                         (x => P true.true))) =>
+              auto':(cts.Term
+                       cts.star
+                       (cts.prod
+                          cts.star
+                          cts.star
+                          cts.star
+                          cts.I
+                          (Not.Not (le.le O.O n))
+                          (x => P false.false))) =>
+              auto (le_O_n.le_O_n n)))))
+    (n:(cts.Term cts.box nat.nat) =>
+     sym_eq_leb.sym_eq_leb
+       (S.S n)
+       (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          (cts.prod cts.box cts.box cts.box cts.I bool.bool (x => cts.univ cts.star cts.box cts.I))
+          (x =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod cts.star cts.star cts.star cts.I (le.le (S.S n) O.O) (x0 => x true.true))
+             (x0 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (Not.Not (le.le (S.S n) O.O))
+                   (x1 => x false.false))
+                (x1 => x (y O.O)))))
+       (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+          leb_body.leb_body
+          n
+          (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                bool.bool
+                (x => cts.univ cts.star cts.box cts.I))
+             (x =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (le.le (S.S n) O.O)
+                   (x0 => x true.true))
+                (x0 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (Not.Not (le.le (S.S n) O.O))
+                      (x1 => x false.false))
+                   (x1 => x (y O.O)))))
+          (sym_eq_leb_body_S.sym_eq_leb_body_S
+             n
+             (y:(cts.Term
+                   cts.box
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod
+                   cts.box
+                   cts.box
+                   cts.box
+                   cts.I
+                   bool.bool
+                   (x => cts.univ cts.star cts.box cts.I))
+                (x =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (le.le (S.S n) O.O)
+                      (x0 => x true.true))
+                   (x0 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (Not.Not (le.le (S.S n) O.O))
+                         (x1 => x false.false))
+                      (x1 => x (y O.O)))))
+             (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
+                bool.bool
+                false.false
+                (q:(cts.Term cts.box nat.nat) => leb.leb n q)
+                (y:(cts.Term cts.box bool.bool) =>
+                 cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      bool.bool
+                      (x => cts.univ cts.star cts.box cts.I))
+                   (x =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (le.le (S.S n) O.O)
+                         (x0 => x true.true))
+                      (x0 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (Not.Not (le.le (S.S n) O.O))
+                            (x1 => x false.false))
+                         (x1 => x y))))
+                (P:(cts.Term
+                      cts.box
+                      (cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         bool.bool
+                         (x => cts.univ cts.star cts.box cts.I))) =>
+                 auto:(cts.Term
+                         cts.star
+                         (cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (le.le (S.S n) O.O)
+                            (x => P true.true))) =>
+                 auto':(cts.Term
+                          cts.star
+                          (cts.prod
+                             cts.star
+                             cts.star
+                             cts.star
+                             cts.I
+                             (Not.Not (le.le (S.S n) O.O))
+                             (x => P false.false))) =>
+                 auto' (not_le_Sn_O.not_le_Sn_O n))))))
+    (n:(cts.Term cts.box nat.nat) =>
+     m:(cts.Term cts.box nat.nat) =>
+     sym_eq_leb.sym_eq_leb
+       (S.S n)
+       (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                bool.bool
+                (x => cts.univ cts.star cts.box cts.I))
+             (x =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod cts.star cts.star cts.star cts.I (le.le n m) (x0 => x true.true))
+                (x0 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (Not.Not (le.le n m))
+                      (x1 => x false.false))
+                   (x1 => x (leb.leb n m)))))
+          (x =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                bool.bool
+                (x0 => cts.univ cts.star cts.box cts.I))
+             (x0 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (le.le (S.S n) (S.S m))
+                   (x1 => x0 true.true))
+                (x1 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (Not.Not (le.le (S.S n) (S.S m)))
+                      (x2 => x0 false.false))
+                   (x2 => x0 (y (S.S m)))))))
+       (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+          leb_body.leb_body
+          n
+          (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod
+                   cts.box
+                   cts.box
+                   cts.box
+                   cts.I
+                   bool.bool
+                   (x => cts.univ cts.star cts.box cts.I))
+                (x =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod cts.star cts.star cts.star cts.I (le.le n m) (x0 => x true.true))
+                   (x0 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (Not.Not (le.le n m))
+                         (x1 => x false.false))
+                      (x1 => x (leb.leb n m)))))
+             (x =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod
+                   cts.box
+                   cts.box
+                   cts.box
+                   cts.I
+                   bool.bool
+                   (x0 => cts.univ cts.star cts.box cts.I))
+                (x0 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (le.le (S.S n) (S.S m))
+                      (x1 => x0 true.true))
+                   (x1 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (Not.Not (le.le (S.S n) (S.S m)))
+                         (x2 => x0 false.false))
+                      (x2 => x0 (y (S.S m)))))))
+          (sym_eq_leb_body_S.sym_eq_leb_body_S
+             n
+             (y:(cts.Term
+                   cts.box
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      bool.bool
+                      (x => cts.univ cts.star cts.box cts.I))
+                   (x =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (le.le n m)
+                         (x0 => x true.true))
+                      (x0 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (Not.Not (le.le n m))
+                            (x1 => x false.false))
+                         (x1 => x (leb.leb n m)))))
+                (x =>
+                 cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod
+                      cts.box
+                      cts.box
+                      cts.box
+                      cts.I
+                      bool.bool
+                      (x0 => cts.univ cts.star cts.box cts.I))
+                   (x0 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (le.le (S.S n) (S.S m))
+                         (x1 => x0 true.true))
+                      (x1 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (Not.Not (le.le (S.S n) (S.S m)))
+                            (x2 => x0 false.false))
+                         (x2 => x0 (y (S.S m)))))))
+             (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+                bool.bool
+                false.false
+                (q:(cts.Term cts.box nat.nat) => leb.leb n q)
+                m
+                (y:(cts.Term cts.box bool.bool) =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod
+                      cts.box
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         bool.bool
+                         (x => cts.univ cts.star cts.box cts.I))
+                      (x =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (le.le n m)
+                            (x0 => x true.true))
+                         (x0 =>
+                          cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (cts.prod
+                               cts.star
+                               cts.star
+                               cts.star
+                               cts.I
+                               (Not.Not (le.le n m))
+                               (x1 => x false.false))
+                            (x1 => x (leb.leb n m)))))
+                   (x =>
+                    cts.prod
+                      cts.box
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         bool.bool
+                         (x0 => cts.univ cts.star cts.box cts.I))
+                      (x0 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (le.le (S.S n) (S.S m))
+                            (x1 => x0 true.true))
+                         (x1 =>
+                          cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (cts.prod
+                               cts.star
+                               cts.star
+                               cts.star
+                               cts.I
+                               (Not.Not (le.le (S.S n) (S.S m)))
+                               (x2 => x0 false.false))
+                            (x2 => x0 y)))))
+                (Hind:(cts.Term
+                         cts.star
+                         (cts.prod
+                            cts.box
+                            cts.star
+                            cts.star
+                            cts.I
+                            (cts.prod
+                               cts.box
+                               cts.box
+                               cts.box
+                               cts.I
+                               bool.bool
+                               (x => cts.univ cts.star cts.box cts.I))
+                            (x =>
+                             cts.prod
+                               cts.star
+                               cts.star
+                               cts.star
+                               cts.I
+                               (cts.prod
+                                  cts.star
+                                  cts.star
+                                  cts.star
+                                  cts.I
+                                  (le.le n m)
+                                  (x0 => x true.true))
+                               (x0 =>
+                                cts.prod
+                                  cts.star
+                                  cts.star
+                                  cts.star
+                                  cts.I
+                                  (cts.prod
+                                     cts.star
+                                     cts.star
+                                     cts.star
+                                     cts.I
+                                     (Not.Not (le.le n m))
+                                     (x1 => x false.false))
+                                  (x1 => x (leb.leb n m)))))) =>
+                 P:(cts.Term
+                      cts.box
+                      (cts.prod
+                         cts.box
+                         cts.box
+                         cts.box
+                         cts.I
+                         bool.bool
+                         (x => cts.univ cts.star cts.box cts.I))) =>
+                 Pt:(cts.Term
+                       cts.star
+                       (cts.prod
+                          cts.star
+                          cts.star
+                          cts.star
+                          cts.I
+                          (le.le (S.S n) (S.S m))
+                          (x => P true.true))) =>
+                 Pf:(cts.Term
+                       cts.star
+                       (cts.prod
+                          cts.star
+                          cts.star
+                          cts.star
+                          cts.I
+                          (Not.Not (le.le (S.S n) (S.S m)))
+                          (x => P false.false))) =>
+                 Hind
+                   P
+                   (lenm:(cts.Term cts.star (le.le n m)) => Pt (le_S_S.le_S_S n m lenm))
+                   (nlenm:(cts.Term cts.star (Not.Not (le.le n m))) =>
+                    Pf (not_le_to_not_le_S_S.not_le_to_not_le_S_S n m nlenm))))))).
+

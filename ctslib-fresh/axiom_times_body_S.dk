@@ -1,0 +1,15 @@
+axiom_times_body_S :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        equal.equal
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat))
+          (times_body.times_body (S.S x))
+          (m:(cts.Term cts.box nat.nat) => plus.plus m (times.times x m)))).
+

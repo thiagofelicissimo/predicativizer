@@ -1,0 +1,143 @@
+def prime_to_gcd_1 :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (prime.prime x)
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (Not.Not (divides.divides x x0))
+                (x2 => eq.eq nat.nat (gcd.gcd x x0) (S.S O.O))))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  _clearme:(cts.Term cts.star (prime.prime n)) =>
+  match_And_prop.match_And_prop
+    (lt.lt (S.S O.O) n)
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (divides.divides x n)
+          (x0 =>
+           cts.prod cts.star cts.star cts.star cts.I (lt.lt (S.S O.O) x) (x1 => eq.eq nat.nat x n))))
+    (cts.prod
+       cts.star
+       cts.star
+       cts.star
+       cts.I
+       (Not.Not (divides.divides n m))
+       (x => eq.eq nat.nat (gcd.gcd n m) (S.S O.O)))
+    (lt1n:(cts.Term cts.star (lt.lt (S.S O.O) n)) =>
+     primen:(cts.Term
+               cts.star
+               (cts.prod
+                  cts.box
+                  cts.star
+                  cts.star
+                  cts.I
+                  nat.nat
+                  (x =>
+                   cts.prod
+                     cts.star
+                     cts.star
+                     cts.star
+                     cts.I
+                     (divides.divides x n)
+                     (x0 =>
+                      cts.prod
+                        cts.star
+                        cts.star
+                        cts.star
+                        cts.I
+                        (lt.lt (S.S O.O) x)
+                        (x1 => eq.eq nat.nat x n))))) =>
+     ndivnm:(cts.Term cts.star (Not.Not (divides.divides n m))) =>
+     le_to_le_to_eq.le_to_le_to_eq
+       (gcd.gcd n m)
+       (S.S O.O)
+       (not_lt_to_le.not_lt_to_le
+          (S.S O.O)
+          (gcd.gcd n m)
+          (not_to_not.not_to_not
+             (lt.lt (S.S O.O) (gcd.gcd n m))
+             (eq.eq nat.nat (gcd.gcd n m) n)
+             (primen (gcd.gcd n m) (divides_gcd_l.divides_gcd_l n m))
+             (not_to_not.not_to_not
+                (eq.eq nat.nat (gcd.gcd n m) n)
+                (divides.divides n m)
+                (auto:(cts.Term cts.star (eq.eq nat.nat (gcd.gcd n m) n)) =>
+                 eq_coerc.eq_coerc
+                   (divides.divides (gcd.gcd n m) m)
+                   (divides.divides n m)
+                   (divides_gcd_r.divides_gcd_r n m)
+                   (rewrite_r.rewrite_r
+                      nat.nat
+                      n
+                      (__:(cts.Term cts.box nat.nat) =>
+                       eq.eq
+                         (cts.univ cts.star cts.box cts.I)
+                         (divides.divides __ m)
+                         (divides.divides n m))
+                      (refl.refl (cts.univ cts.star cts.box cts.I) (divides.divides n m))
+                      (gcd.gcd n m)
+                      auto))
+                ndivnm)))
+       (lt_O_gcd.lt_O_gcd
+          n
+          m
+          (not_eq_to_le_to_lt.not_eq_to_le_to_lt
+             O.O
+             m
+             (not_to_not.not_to_not
+                (eq.eq nat.nat O.O m)
+                (divides.divides n m)
+                (auto:(cts.Term cts.star (eq.eq nat.nat O.O m)) =>
+                 eq_coerc.eq_coerc
+                   (divides.divides n O.O)
+                   (divides.divides n m)
+                   (divides_n_O.divides_n_O n)
+                   (rewrite_r.rewrite_r
+                      nat.nat
+                      m
+                      (__:(cts.Term cts.box nat.nat) =>
+                       eq.eq
+                         (cts.univ cts.star cts.box cts.I)
+                         (divides.divides n __)
+                         (divides.divides n m))
+                      (refl.refl (cts.univ cts.star cts.box cts.I) (divides.divides n m))
+                      O.O
+                      auto))
+                ndivnm)
+             (le_O_n.le_O_n m))))
+    _clearme.
+

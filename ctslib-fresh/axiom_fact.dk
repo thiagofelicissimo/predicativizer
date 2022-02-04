@@ -1,0 +1,15 @@
+axiom_fact :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        equal.equal
+          nat.nat
+          (fact.fact x)
+          (filter_nat_type.filter_nat_type nat.nat fact_body.fact_body x))).
+

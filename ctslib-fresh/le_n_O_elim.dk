@@ -1,0 +1,66 @@
+def le_n_O_elim :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (le.le x O.O)
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                nat.nat
+                (x1 => cts.univ cts.star cts.box cts.I))
+             (x1 => cts.prod cts.star cts.star cts.star cts.I (x1 O.O) (x2 => x1 x)))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  match_nat_prop.match_nat_prop
+    (__:(cts.Term cts.box nat.nat) =>
+     cts.prod
+       cts.star
+       cts.star
+       cts.star
+       cts.I
+       (le.le __ O.O)
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => cts.univ cts.star cts.box cts.I))
+          (x0 => cts.prod cts.star cts.star cts.star cts.I (x0 O.O) (x1 => x0 __))))
+    (auto:(cts.Term cts.star (le.le O.O O.O)) =>
+     P:(cts.Term
+          cts.box
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => cts.univ cts.star cts.box cts.I))) =>
+     auto':(cts.Term cts.star (P O.O)) => auto')
+    (a:(cts.Term cts.box nat.nat) =>
+     abs:(cts.Term cts.star (le.le (S.S a) O.O)) =>
+     falsity.falsity
+       (cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => cts.univ cts.star cts.box cts.I))
+          (x => cts.prod cts.star cts.star cts.star cts.I (x O.O) (x0 => x (S.S a))))
+       (absurd.absurd (le.le (S.S a) O.O) abs (not_le_Sn_O.not_le_Sn_O a)))
+    n.
+

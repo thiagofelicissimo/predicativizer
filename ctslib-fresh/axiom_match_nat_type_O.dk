@@ -1,0 +1,25 @@
+axiom_match_nat_type_O :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.triangle
+       cts.star
+       cts.star
+       cts.I
+       (cts.univ cts.box cts.triangle cts.I)
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod cts.box cts.box cts.box cts.I nat.nat (x1 => x))
+             (x1 => equal.equal x (match_nat_type.match_nat_type x x0 x1 O.O) x0)))).
+

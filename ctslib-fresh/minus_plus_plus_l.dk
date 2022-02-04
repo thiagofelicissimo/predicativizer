@@ -1,0 +1,50 @@
+def minus_plus_plus_l :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              eq.eq nat.nat (minus.minus (plus.plus x x1) (plus.plus x0 x1)) (minus.minus x x0)))))
+  :=
+  x:(cts.Term cts.box nat.nat) =>
+  y:(cts.Term cts.box nat.nat) =>
+  h:(cts.Term cts.box nat.nat) =>
+  rewrite_l.rewrite_l
+    nat.nat
+    (minus.minus (minus.minus (plus.plus x h) y) h)
+    (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ (minus.minus x y))
+    (rewrite_r.rewrite_r
+       nat.nat
+       (minus.minus x y)
+       (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat __ (minus.minus x y))
+       (refl.refl nat.nat (minus.minus x y))
+       (minus.minus (minus.minus (plus.plus x h) y) h)
+       (rewrite_r.rewrite_r
+          nat.nat
+          (minus.minus (plus.plus x h) h)
+          (__:(cts.Term cts.box nat.nat) =>
+           eq.eq nat.nat (minus.minus (minus.minus (plus.plus x h) y) h) (minus.minus __ y))
+          (minus_minus_comm.minus_minus_comm (plus.plus x h) y h)
+          x
+          (minus_plus_m_m.minus_plus_m_m x h)))
+    (minus.minus (plus.plus x h) (plus.plus y h))
+    (minus_plus.minus_plus (plus.plus x h) y h).
+

@@ -1,0 +1,24 @@
+def prime :
+  cts.Term
+    cts.box
+    (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => cts.univ cts.star cts.box cts.I))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  And.And
+    (lt.lt (S.S O.O) n)
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (divides.divides x n)
+          (x0 =>
+           cts.prod cts.star cts.star cts.star cts.I (lt.lt (S.S O.O) x) (x1 => eq.eq nat.nat x n)))).
+

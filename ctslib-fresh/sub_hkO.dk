@@ -1,0 +1,121 @@
+def sub_hkO :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat))
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x3 => bool.bool))
+                   (x3 =>
+                    cts.prod
+                      cts.box
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.prod cts.box cts.box cts.box cts.I nat.nat (x4 => bool.bool))
+                      (x4 =>
+                       cts.prod
+                         cts.box
+                         cts.star
+                         cts.star
+                         cts.I
+                         (cts.prod cts.box cts.box cts.box cts.I nat.nat (x5 => nat.nat))
+                         (x5 =>
+                          cts.prod
+                            cts.box
+                            cts.star
+                            cts.star
+                            cts.I
+                            (cts.prod cts.box cts.box cts.box cts.I nat.nat (x6 => nat.nat))
+                            (x6 =>
+                             cts.prod
+                               cts.star
+                               cts.star
+                               cts.star
+                               cts.I
+                               (eq.eq nat.nat x1 O.O)
+                               (x7 => sub_hk.sub_hk x x0 x1 x2 x3 x4 x5 x6))))))))))
+  :=
+  h:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  k:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  n1:(cts.Term cts.box nat.nat) =>
+  n2:(cts.Term cts.box nat.nat) =>
+  p1:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+  p2:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))) =>
+  f1:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  f2:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  up0:(cts.Term cts.star (eq.eq nat.nat n1 O.O)) =>
+  i:(cts.Term cts.box nat.nat) =>
+  lti:(cts.Term cts.star (lt.lt i n1)) =>
+  eq_ind_r.eq_ind_r
+    nat.nat
+    O.O
+    (x:(cts.Term cts.box nat.nat) =>
+     cts.prod
+       cts.star
+       cts.star
+       cts.star
+       cts.I
+       (eq.eq bool.bool (p1 i) true.true)
+       (x0 =>
+        And.And
+          (And.And (lt.lt (h i) n2) (eq.eq bool.bool (p2 (h i)) true.true))
+          (eq.eq nat.nat (k (h i)) i)))
+    (falsity.falsity
+       (cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (eq.eq bool.bool (p1 i) true.true)
+          (x =>
+           And.And
+             (And.And (lt.lt (h i) n2) (eq.eq bool.bool (p2 (h i)) true.true))
+             (eq.eq nat.nat (k (h i)) i)))
+       (absurd.absurd
+          (le.le (S.S i) O.O)
+          (eq_coerc.eq_coerc
+             (le.le (S.S i) n1)
+             (le.le (S.S i) O.O)
+             lti
+             (rewrite_r.rewrite_r
+                nat.nat
+                O.O
+                (__:(cts.Term cts.box nat.nat) =>
+                 eq.eq (cts.univ cts.star cts.box cts.I) (le.le (S.S i) __) (le.le (S.S i) O.O))
+                (refl.refl (cts.univ cts.star cts.box cts.I) (le.le (S.S i) O.O))
+                n1
+                up0))
+          (not_le_Sn_O.not_le_Sn_O i)))
+    n1
+    up0.
+

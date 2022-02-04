@@ -1,0 +1,14 @@
+def pred_Sn :
+  cts.Term
+    cts.star
+    (cts.prod cts.box cts.star cts.star cts.I nat.nat (x => eq.eq nat.nat x (pred.pred (S.S x))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+    nat.nat
+    O.O
+    (p:(cts.Term cts.box nat.nat) => p)
+    n
+    (y:(cts.Term cts.box nat.nat) => eq.eq nat.nat n y)
+    (refl.refl nat.nat n).
+

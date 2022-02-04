@@ -1,0 +1,175 @@
+def not_divides_to_gcd_aux :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (lt.lt O.O x1)
+                (x2 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (Not.Not (divides.divides x1 x0))
+                   (x3 =>
+                    eq.eq
+                      nat.nat
+                      (gcd_aux.gcd_aux (S.S x) x0 x1)
+                      (gcd_aux.gcd_aux x x1 (mod.mod x0 x1))))))))
+  :=
+  p:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  n:(cts.Term cts.box nat.nat) =>
+  sym_eq_gcd_aux.sym_eq_gcd_aux
+    (S.S p)
+    (y:(cts.Term
+          cts.box
+          (cts.prod
+             cts.box
+             cts.box
+             cts.box
+             cts.I
+             nat.nat
+             (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))) =>
+     cts.prod
+       cts.star
+       cts.star
+       cts.star
+       cts.I
+       (lt.lt O.O n)
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (Not.Not (divides.divides n m))
+          (x0 => eq.eq nat.nat (y m n) (gcd_aux.gcd_aux p n (mod.mod m n)))))
+    (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+       (cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          nat.nat
+          (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))
+       gcd_aux_body.gcd_aux_body
+       p
+       (y:(cts.Term
+             cts.box
+             (cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                nat.nat
+                (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))) =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (lt.lt O.O n)
+          (x =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (Not.Not (divides.divides n m))
+             (x0 => eq.eq nat.nat (y m n) (gcd_aux.gcd_aux p n (mod.mod m n)))))
+       (sym_eq_gcd_aux_body_S.sym_eq_gcd_aux_body_S
+          p
+          (y:(cts.Term
+                cts.box
+                (cts.prod
+                   cts.box
+                   cts.box
+                   cts.box
+                   cts.I
+                   nat.nat
+                   (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => nat.nat)))) =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (lt.lt O.O n)
+             (x =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (Not.Not (divides.divides n m))
+                (x0 => eq.eq nat.nat (y m n) (gcd_aux.gcd_aux p n (mod.mod m n)))))
+          (lenm:(cts.Term cts.star (lt.lt O.O n)) =>
+           divnm:(cts.Term cts.star (Not.Not (divides.divides n m))) =>
+           eq_ind_r.eq_ind_r
+             bool.bool
+             false.false
+             (x:(cts.Term cts.box bool.bool) =>
+              eq.eq
+                nat.nat
+                (match_bool_type.match_bool_type nat.nat n (gcd_aux.gcd_aux p n (mod.mod m n)) x)
+                (gcd_aux.gcd_aux p n (mod.mod m n)))
+             (sym_eq_match_bool_type_false.sym_eq_match_bool_type_false
+                nat.nat
+                n
+                (gcd_aux.gcd_aux
+                   p
+                   n
+                   (match_nat_type.match_nat_type
+                      nat.nat
+                      m
+                      (p0:(cts.Term cts.box nat.nat) => mod_aux.mod_aux m m p0)
+                      n))
+                (y:(cts.Term cts.box nat.nat) =>
+                 eq.eq
+                   nat.nat
+                   y
+                   (gcd_aux.gcd_aux
+                      p
+                      n
+                      (match_nat_type.match_nat_type
+                         nat.nat
+                         m
+                         (p0:(cts.Term cts.box nat.nat) => mod_aux.mod_aux m m p0)
+                         n)))
+                (refl.refl
+                   nat.nat
+                   (gcd_aux.gcd_aux
+                      p
+                      n
+                      (match_nat_type.match_nat_type
+                         nat.nat
+                         m
+                         (p0:(cts.Term cts.box nat.nat) => mod_aux.mod_aux m m p0)
+                         n))))
+             (dividesb.dividesb n m)
+             (not_divides_to_dividesb_false.not_divides_to_dividesb_false n m lenm divnm)))).
+

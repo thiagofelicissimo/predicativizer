@@ -1,0 +1,61 @@
+def lt_times :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.star
+                   cts.star
+                   cts.star
+                   cts.I
+                   (lt.lt x x0)
+                   (x3 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (lt.lt x1 x2)
+                      (x4 => lt.lt (times.times x x1) (times.times x0 x2))))))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  p:(cts.Term cts.box nat.nat) =>
+  q:(cts.Term cts.box nat.nat) =>
+  ltnm:(cts.Term cts.star (lt.lt n m)) =>
+  ltpq:(cts.Term cts.star (lt.lt p q)) =>
+  lt_to_le_to_lt_times.lt_to_le_to_lt_times
+    n
+    m
+    p
+    q
+    ltnm
+    (lt_to_le.lt_to_le p q ltpq)
+    (ltn_to_ltO.ltn_to_ltO p q ltpq).
+

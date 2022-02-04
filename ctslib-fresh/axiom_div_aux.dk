@@ -1,0 +1,30 @@
+axiom_div_aux :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        equal.equal
+          (cts.prod
+             cts.box
+             cts.box
+             cts.box
+             cts.I
+             nat.nat
+             (x0 => cts.prod cts.box cts.box cts.box cts.I nat.nat (x1 => nat.nat)))
+          (div_aux.div_aux x)
+          (filter_nat_type.filter_nat_type
+             (cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                nat.nat
+                (x0 => cts.prod cts.box cts.box cts.box cts.I nat.nat (x1 => nat.nat)))
+             div_aux_body.div_aux_body
+             x))).
+

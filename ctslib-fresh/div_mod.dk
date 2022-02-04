@@ -1,0 +1,161 @@
+def div_mod :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 => eq.eq nat.nat x (plus.plus (times.times (div.div x x0) x0) (mod.mod x x0)))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  match_nat_prop.match_nat_prop
+    (__:(cts.Term cts.box nat.nat) =>
+     eq.eq nat.nat n (plus.plus (times.times (div.div n __) __) (mod.mod n __)))
+    (sym_eq_times.sym_eq_times
+       (div.div n O.O)
+       (y:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+        eq.eq nat.nat n (plus.plus (y O.O) (mod.mod n O.O)))
+       (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
+          nat.nat
+          (S.S n)
+          (p:(cts.Term cts.box nat.nat) => div_aux.div_aux n n p)
+          (y:(cts.Term cts.box nat.nat) =>
+           eq.eq
+             nat.nat
+             n
+             (plus.plus
+                (filter_nat_type.filter_nat_type
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+                   times_body.times_body
+                   y
+                   O.O)
+                (match_nat_type.match_nat_type
+                   nat.nat
+                   n
+                   (p:(cts.Term cts.box nat.nat) => mod_aux.mod_aux n n p)
+                   O.O)))
+          (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+             (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+             times_body.times_body
+             n
+             (y:(cts.Term
+                   cts.box
+                   (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+              eq.eq nat.nat n (plus.plus (y O.O) (mod.mod n O.O)))
+             (sym_eq_times_body_S.sym_eq_times_body_S
+                n
+                (y:(cts.Term
+                      cts.box
+                      (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+                 eq.eq nat.nat n (plus.plus (y O.O) (mod.mod n O.O)))
+                (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
+                   nat.nat
+                   n
+                   (p:(cts.Term cts.box nat.nat) => mod_aux.mod_aux n n p)
+                   (y:(cts.Term cts.box nat.nat) =>
+                    eq.eq nat.nat n (plus.plus (plus.plus O.O (times.times n O.O)) y))
+                   (sym_eq_plus.sym_eq_plus
+                      O.O
+                      (y:(cts.Term
+                            cts.box
+                            (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+                       eq.eq nat.nat n (plus.plus (y (times.times n O.O)) n))
+                      (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+                         (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+                         plus_body.plus_body
+                         (y:(cts.Term
+                               cts.box
+                               (cts.prod
+                                  cts.box
+                                  cts.box
+                                  cts.box
+                                  cts.I
+                                  nat.nat
+                                  (x => nat.nat))) =>
+                          eq.eq nat.nat n (plus.plus (y (times.times n O.O)) n))
+                         (sym_eq_plus_body_O.sym_eq_plus_body_O
+                            (y:(cts.Term
+                                  cts.box
+                                  (cts.prod
+                                     cts.box
+                                     cts.box
+                                     cts.box
+                                     cts.I
+                                     nat.nat
+                                     (x => nat.nat))) =>
+                             eq.eq nat.nat n (plus.plus (y (times.times n O.O)) n))
+                            (rewrite_l.rewrite_l
+                               nat.nat
+                               O.O
+                               (__:(cts.Term cts.box nat.nat) =>
+                                eq.eq nat.nat n (plus.plus __ n))
+                               (rewrite_r.rewrite_r
+                                  nat.nat
+                                  (plus.plus n O.O)
+                                  (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat n __)
+                                  (rewrite_l.rewrite_l
+                                     nat.nat
+                                     n
+                                     (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat n __)
+                                     (refl.refl nat.nat n)
+                                     (plus.plus n O.O)
+                                     (plus_n_O.plus_n_O n))
+                                  (plus.plus O.O n)
+                                  (commutative_plus.commutative_plus O.O n))
+                               (times.times n O.O)
+                               (times_n_O.times_n_O n))))))))))
+    (auto:(cts.Term cts.box nat.nat) =>
+     sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+       nat.nat
+       (S.S n)
+       (p:(cts.Term cts.box nat.nat) => div_aux.div_aux n n p)
+       auto
+       (y:(cts.Term cts.box nat.nat) =>
+        eq.eq
+          nat.nat
+          n
+          (plus.plus
+             (times.times y (S.S auto))
+             (match_nat_type.match_nat_type
+                nat.nat
+                n
+                (p:(cts.Term cts.box nat.nat) => mod_aux.mod_aux n n p)
+                (S.S auto))))
+       (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+          nat.nat
+          n
+          (p:(cts.Term cts.box nat.nat) => mod_aux.mod_aux n n p)
+          auto
+          (y:(cts.Term cts.box nat.nat) =>
+           eq.eq nat.nat n (plus.plus (times.times (div_aux.div_aux n n auto) (S.S auto)) y))
+          (rewrite_r.rewrite_r
+             nat.nat
+             (plus.plus
+                (times.times (div_aux.div_aux n n auto) (S.S auto))
+                (mod_aux.mod_aux n n auto))
+             (__:(cts.Term cts.box nat.nat) =>
+              eq.eq
+                nat.nat
+                __
+                (plus.plus
+                   (times.times (div_aux.div_aux n n auto) (S.S auto))
+                   (mod_aux.mod_aux n n auto)))
+             (refl.refl
+                nat.nat
+                (plus.plus
+                   (times.times (div_aux.div_aux n n auto) (S.S auto))
+                   (mod_aux.mod_aux n n auto)))
+             n
+             (div_aux_mod_aux.div_aux_mod_aux n n auto))))
+    m.
+

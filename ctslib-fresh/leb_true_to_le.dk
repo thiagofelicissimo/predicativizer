@@ -1,0 +1,49 @@
+def leb_true_to_le :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (eq.eq bool.bool (leb.leb x x0) true.true)
+             (x1 => le.le x x0))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  leb_elim.leb_elim
+    n
+    m
+    (__:(cts.Term cts.box bool.bool) =>
+     cts.prod cts.star cts.star cts.star cts.I (eq.eq bool.bool __ true.true) (x => le.le n m))
+    (auto:(cts.Term cts.star (le.le n m)) =>
+     auto':(cts.Term cts.star (eq.eq bool.bool true.true true.true)) => auto)
+    (__:(cts.Term cts.star (Not.Not (le.le n m))) =>
+     abs:(cts.Term cts.star (eq.eq bool.bool false.false true.true)) =>
+     falsity.falsity
+       (le.le n m)
+       (absurd.absurd
+          (eq.eq bool.bool true.true false.false)
+          (rewrite_r.rewrite_r
+             bool.bool
+             true.true
+             (__1:(cts.Term cts.box bool.bool) => eq.eq bool.bool true.true __1)
+             (refl.refl bool.bool true.true)
+             false.false
+             abs)
+          not_eq_true_false.not_eq_true_false)).
+

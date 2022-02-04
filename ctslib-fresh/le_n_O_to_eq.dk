@@ -1,0 +1,23 @@
+def le_n_O_to_eq :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x => cts.prod cts.star cts.star cts.star cts.I (le.le x O.O) (x0 => eq.eq nat.nat O.O x)))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  match_nat_prop.match_nat_prop
+    (__:(cts.Term cts.box nat.nat) =>
+     cts.prod cts.star cts.star cts.star cts.I (le.le __ O.O) (x => eq.eq nat.nat O.O __))
+    (auto:(cts.Term cts.star (le.le O.O O.O)) => refl.refl nat.nat O.O)
+    (a:(cts.Term cts.box nat.nat) =>
+     abs:(cts.Term cts.star (le.le (S.S a) O.O)) =>
+     falsity.falsity
+       (eq.eq nat.nat O.O (S.S a))
+       (absurd.absurd (le.le (S.S a) O.O) abs (not_le_Sn_O.not_le_Sn_O a)))
+    n.
+

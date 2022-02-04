@@ -1,0 +1,95 @@
+def congruent_times :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (lt.lt O.O x3)
+                      (x4 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (congruent.congruent x x1 x3)
+                         (x5 =>
+                          cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (congruent.congruent x0 x2 x3)
+                            (x6 =>
+                             congruent.congruent (times.times x x0) (times.times x1 x2) x3)))))))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  n1:(cts.Term cts.box nat.nat) =>
+  m1:(cts.Term cts.box nat.nat) =>
+  p:(cts.Term cts.box nat.nat) =>
+  posp:(cts.Term cts.star (lt.lt O.O p)) =>
+  Hcongn:(cts.Term cts.star (congruent.congruent n n1 p)) =>
+  Hcongm:(cts.Term cts.star (congruent.congruent m m1 p)) =>
+  eq_ind_r.eq_ind_r
+    nat.nat
+    (mod.mod (times.times (mod.mod n p) (mod.mod m p)) p)
+    (x:(cts.Term cts.box nat.nat) => eq.eq nat.nat x (mod.mod (times.times n1 m1) p))
+    (eq_ind_r.eq_ind_r
+       nat.nat
+       (mod.mod n1 p)
+       (x:(cts.Term cts.box nat.nat) =>
+        eq.eq nat.nat (mod.mod (times.times x (mod.mod m p)) p) (mod.mod (times.times n1 m1) p))
+       (eq_ind_r.eq_ind_r
+          nat.nat
+          (mod.mod m1 p)
+          (x:(cts.Term cts.box nat.nat) =>
+           eq.eq nat.nat (mod.mod (times.times (mod.mod n1 p) x) p) (mod.mod (times.times n1 m1) p))
+          (sym_eq.sym_eq
+             nat.nat
+             (mod.mod (times.times n1 m1) p)
+             (mod.mod (times.times (mod.mod n1 p) (mod.mod m1 p)) p)
+             (mod_times.mod_times n1 m1 p posp))
+          (mod.mod m p)
+          Hcongm)
+       (mod.mod n p)
+       Hcongn)
+    (mod.mod (times.times n m) p)
+    (mod_times.mod_times n m p posp).
+

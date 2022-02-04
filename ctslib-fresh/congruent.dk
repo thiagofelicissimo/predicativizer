@@ -1,0 +1,23 @@
+def congruent :
+  cts.Term
+    cts.box
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod cts.box cts.box cts.box cts.I nat.nat (x1 => cts.univ cts.star cts.box cts.I))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  p:(cts.Term cts.box nat.nat) => eq.eq nat.nat (mod.mod n p) (mod.mod m p).
+

@@ -1,0 +1,31 @@
+nat_ind :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => cts.univ cts.star cts.box cts.I))
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (x O.O)
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x1 => cts.prod cts.star cts.star cts.star cts.I (x x1) (x2 => x (S.S x1))))
+             (x1 => cts.prod cts.box cts.star cts.star cts.I nat.nat (x2 => x x2))))).
+

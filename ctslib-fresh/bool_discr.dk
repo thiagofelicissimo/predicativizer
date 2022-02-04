@@ -1,0 +1,249 @@
+def bool_discr :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       bool.bool
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          bool.bool
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (eq.eq bool.bool x x0)
+             (x1 =>
+              match_bool_type.match_bool_type
+                (cts.univ cts.star cts.box cts.I)
+                (match_bool_type.match_bool_type
+                   (cts.univ cts.star cts.box cts.I)
+                   (cts.prod
+                      cts.box
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.univ cts.star cts.box cts.I)
+                      (x2 => cts.prod cts.star cts.star cts.star cts.I x2 (x3 => x2)))
+                   (cts.prod
+                      cts.box
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.univ cts.star cts.box cts.I)
+                      (x2 => x2))
+                   x0)
+                (match_bool_type.match_bool_type
+                   (cts.univ cts.star cts.box cts.I)
+                   (cts.prod
+                      cts.box
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.univ cts.star cts.box cts.I)
+                      (x2 => x2))
+                   (cts.prod
+                      cts.box
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.univ cts.star cts.box cts.I)
+                      (x2 => cts.prod cts.star cts.star cts.star cts.I x2 (x3 => x2)))
+                   x0)
+                x))))
+  :=
+  x:(cts.Term cts.box bool.bool) =>
+  y:(cts.Term cts.box bool.bool) =>
+  Deq:(cts.Term cts.star (eq.eq bool.bool x y)) =>
+  eq_ind.eq_ind
+    bool.bool
+    x
+    (x_13:(cts.Term cts.box bool.bool) =>
+     match_bool_type.match_bool_type
+       (cts.univ cts.star cts.box cts.I)
+       (match_bool_type.match_bool_type
+          (cts.univ cts.star cts.box cts.I)
+          (cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             (cts.univ cts.star cts.box cts.I)
+             (x0 => cts.prod cts.star cts.star cts.star cts.I x0 (x1 => x0)))
+          (cts.prod cts.box cts.star cts.star cts.I (cts.univ cts.star cts.box cts.I) (x0 => x0))
+          x_13)
+       (match_bool_type.match_bool_type
+          (cts.univ cts.star cts.box cts.I)
+          (cts.prod cts.box cts.star cts.star cts.I (cts.univ cts.star cts.box cts.I) (x0 => x0))
+          (cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             (cts.univ cts.star cts.box cts.I)
+             (x0 => cts.prod cts.star cts.star cts.star cts.I x0 (x1 => x0)))
+          x_13)
+       x)
+    (match_bool_prop.match_bool_prop
+       (__:(cts.Term cts.box bool.bool) =>
+        match_bool_type.match_bool_type
+          (cts.univ cts.star cts.box cts.I)
+          (match_bool_type.match_bool_type
+             (cts.univ cts.star cts.box cts.I)
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => cts.prod cts.star cts.star cts.star cts.I x0 (x1 => x0)))
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => x0))
+             __)
+          (match_bool_type.match_bool_type
+             (cts.univ cts.star cts.box cts.I)
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => x0))
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => cts.prod cts.star cts.star cts.star cts.I x0 (x1 => x0)))
+             __)
+          __)
+       (sym_eq_match_bool_type_true.sym_eq_match_bool_type_true
+          (cts.univ cts.star cts.box cts.I)
+          (match_bool_type.match_bool_type
+             (cts.univ cts.star cts.box cts.I)
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => cts.prod cts.star cts.star cts.star cts.I x0 (x1 => x0)))
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => x0))
+             true.true)
+          (match_bool_type.match_bool_type
+             (cts.univ cts.star cts.box cts.I)
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => x0))
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => cts.prod cts.star cts.star cts.star cts.I x0 (x1 => x0)))
+             true.true)
+          (x0:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) => x0)
+          (sym_eq_match_bool_type_true.sym_eq_match_bool_type_true
+             (cts.univ cts.star cts.box cts.I)
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => cts.prod cts.star cts.star cts.star cts.I x0 (x1 => x0)))
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => x0))
+             (x0:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) => x0)
+             (P:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) =>
+              DH:(cts.Term cts.star P) => DH)))
+       (sym_eq_match_bool_type_false.sym_eq_match_bool_type_false
+          (cts.univ cts.star cts.box cts.I)
+          (match_bool_type.match_bool_type
+             (cts.univ cts.star cts.box cts.I)
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => cts.prod cts.star cts.star cts.star cts.I x0 (x1 => x0)))
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => x0))
+             false.false)
+          (match_bool_type.match_bool_type
+             (cts.univ cts.star cts.box cts.I)
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => x0))
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => cts.prod cts.star cts.star cts.star cts.I x0 (x1 => x0)))
+             false.false)
+          (x0:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) => x0)
+          (sym_eq_match_bool_type_false.sym_eq_match_bool_type_false
+             (cts.univ cts.star cts.box cts.I)
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => x0))
+             (cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                (cts.univ cts.star cts.box cts.I)
+                (x0 => cts.prod cts.star cts.star cts.star cts.I x0 (x1 => x0)))
+             (x0:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) => x0)
+             (P:(cts.Term cts.box (cts.univ cts.star cts.box cts.I)) =>
+              DH:(cts.Term cts.star P) => DH)))
+       x)
+    y
+    Deq.
+

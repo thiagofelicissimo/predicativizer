@@ -1,0 +1,26 @@
+def true_or_false :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       bool.bool
+       (x => Or.Or (eq.eq bool.bool x true.true) (eq.eq bool.bool x false.false)))
+  :=
+  b:(cts.Term cts.box bool.bool) =>
+  match_bool_prop.match_bool_prop
+    (__:(cts.Term cts.box bool.bool) =>
+     Or.Or (eq.eq bool.bool __ true.true) (eq.eq bool.bool __ false.false))
+    (or_introl.or_introl
+       (eq.eq bool.bool true.true true.true)
+       (eq.eq bool.bool true.true false.false)
+       (refl.refl bool.bool true.true))
+    (RC_reflexive.RC_reflexive
+       bool.bool
+       (__:(cts.Term cts.box bool.bool) =>
+        _0:(cts.Term cts.box bool.bool) => eq.eq bool.bool false.false true.true)
+       false.false)
+    b.
+

@@ -1,0 +1,13 @@
+def dividesb :
+  cts.Term
+    cts.box
+    (cts.prod
+       cts.box
+       cts.box
+       cts.box
+       cts.I
+       nat.nat
+       (x => cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => bool.bool)))
+  :=
+  n:(cts.Term cts.box nat.nat) => m:(cts.Term cts.box nat.nat) => eqb.eqb (mod.mod m n) O.O.
+

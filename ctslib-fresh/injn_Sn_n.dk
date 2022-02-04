@@ -1,0 +1,40 @@
+def injn_Sn_n :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod cts.star cts.star cts.star cts.I (injn.injn x (S.S x0)) (x1 => injn.injn x x0))))
+  :=
+  f:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => nat.nat))) =>
+  n:(cts.Term cts.box nat.nat) =>
+  H:(cts.Term cts.star (injn.injn f (S.S n))) =>
+  i:(cts.Term cts.box nat.nat) =>
+  j:(cts.Term cts.box nat.nat) =>
+  lei:(cts.Term cts.star (le.le i n)) =>
+  lej:(cts.Term cts.star (le.le j n)) =>
+  eqf:(cts.Term cts.star (eq.eq nat.nat (f i) (f j))) =>
+  H
+    i
+    j
+    (le_S.le_S i n lei)
+    (le_S.le_S j n lej)
+    (rewrite_l.rewrite_l
+       nat.nat
+       (f i)
+       (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat (f i) __)
+       (refl.refl nat.nat (f i))
+       (f j)
+       eqf).
+

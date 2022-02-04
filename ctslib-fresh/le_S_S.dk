@@ -1,0 +1,32 @@
+def le_S_S :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod cts.star cts.star cts.star cts.I (le.le x x0) (x1 => le.le (S.S x) (S.S x0)))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  lenm:(cts.Term cts.star (le.le n m)) =>
+  le_ind.le_ind
+    n
+    (x_417:(cts.Term cts.box nat.nat) => le.le (S.S n) (S.S x_417))
+    (le_n.le_n (S.S n))
+    (m0:(cts.Term cts.box nat.nat) =>
+     _x_419:(cts.Term cts.star (le.le n m0)) =>
+     _x_421:(cts.Term cts.star (le.le (S.S n) (S.S m0))) => le_S.le_S (S.S n) (S.S m0) _x_421)
+    m
+    lenm.
+

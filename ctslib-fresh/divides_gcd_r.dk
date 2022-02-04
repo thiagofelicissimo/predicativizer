@@ -1,0 +1,19 @@
+def divides_gcd_r :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod cts.box cts.star cts.star cts.I nat.nat (x0 => divides.divides (gcd.gcd x x0) x0)))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  proj1.proj1
+    (divides.divides (gcd.gcd n m) m)
+    (divides.divides (gcd.gcd n m) n)
+    (divides_gcd_nm.divides_gcd_nm n m).
+

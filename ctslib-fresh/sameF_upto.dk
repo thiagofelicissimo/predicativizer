@@ -1,0 +1,44 @@
+def sameF_upto :
+  cts.Term
+    cts.diamond
+    (cts.prod
+       cts.triangle
+       cts.box
+       cts.diamond
+       cts.I
+       (cts.univ cts.box cts.triangle cts.I)
+       (x =>
+        cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.box
+             cts.box
+             cts.I
+             (cts.prod cts.box cts.box cts.box cts.I nat.nat (x1 => x))
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.box
+                cts.box
+                cts.I
+                (cts.prod cts.box cts.box cts.box cts.I nat.nat (x2 => x))
+                (x2 => cts.univ cts.star cts.box cts.I)))))
+  :=
+  A:(cts.Term cts.triangle (cts.univ cts.box cts.triangle cts.I)) =>
+  k:(cts.Term cts.box nat.nat) =>
+  f:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => A))) =>
+  g:(cts.Term cts.box (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => A))) =>
+  cts.prod
+    cts.box
+    cts.star
+    cts.star
+    cts.I
+    nat.nat
+    (x => cts.prod cts.star cts.star cts.star cts.I (lt.lt x k) (x0 => eq.eq A (f x) (g x))).
+

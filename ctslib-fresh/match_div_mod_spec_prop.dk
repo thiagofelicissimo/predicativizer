@@ -1,0 +1,66 @@
+match_div_mod_spec_prop :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   (cts.univ cts.star cts.box cts.I)
+                   (x3 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (lt.lt x2 x0)
+                         (x4 =>
+                          cts.prod
+                            cts.star
+                            cts.star
+                            cts.star
+                            cts.I
+                            (eq.eq nat.nat x (plus.plus (times.times x1 x0) x2))
+                            (x5 => x3)))
+                      (x4 =>
+                       cts.prod
+                         cts.star
+                         cts.star
+                         cts.star
+                         cts.I
+                         (div_mod_spec.div_mod_spec x x0 x1 x2)
+                         (x5 => x3)))))))).
+

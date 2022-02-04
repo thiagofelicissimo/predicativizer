@@ -1,0 +1,25 @@
+match_bool_type :
+  cts.Term
+    cts.diamond
+    (cts.prod
+       cts.triangle
+       cts.box
+       cts.diamond
+       cts.I
+       (cts.univ cts.box cts.triangle cts.I)
+       (x =>
+        cts.prod
+          cts.box
+          cts.box
+          cts.box
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             cts.box
+             cts.box
+             cts.box
+             cts.I
+             x
+             (x1 => cts.prod cts.box cts.box cts.box cts.I bool.bool (x2 => x))))).
+

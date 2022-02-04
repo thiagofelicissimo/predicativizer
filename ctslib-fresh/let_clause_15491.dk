@@ -1,0 +1,44 @@
+def let_clause_15491 :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (eq.eq nat.nat O.O x0)
+             (x1 =>
+              cts.prod
+                cts.box
+                cts.star
+                cts.star
+                cts.I
+                nat.nat
+                (x2 => eq.eq nat.nat x2 (minus.minus x2 x0))))))
+  :=
+  m:(cts.Term cts.box nat.nat) =>
+  n:(cts.Term cts.box nat.nat) =>
+  eqn0:(cts.Term cts.star (eq.eq nat.nat O.O n)) =>
+  x1106:(cts.Term cts.box nat.nat) =>
+  rewrite_l.rewrite_l
+    nat.nat
+    O.O
+    (__:(cts.Term cts.box nat.nat) => eq.eq nat.nat x1106 (minus.minus x1106 __))
+    (minus_n_O.minus_n_O x1106)
+    n
+    eqn0.
+

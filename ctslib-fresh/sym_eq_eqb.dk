@@ -1,0 +1,28 @@
+def sym_eq_eqb :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => bool.bool))
+          (filter_nat_type.filter_nat_type
+             (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => bool.bool))
+             eqb_body.eqb_body
+             x)
+          (eqb.eqb x)))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  sym_leibniz.sym_leibniz
+    (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+    (eqb.eqb n)
+    (filter_nat_type.filter_nat_type
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => bool.bool))
+       eqb_body.eqb_body
+       n)
+    (eq_eqb.eq_eqb n).
+

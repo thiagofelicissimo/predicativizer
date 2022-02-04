@@ -1,0 +1,162 @@
+def nat_case :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          (cts.prod cts.box cts.box cts.box cts.I nat.nat (x0 => cts.univ cts.star cts.box cts.I))
+          (x0 =>
+           cts.prod
+             cts.star
+             cts.star
+             cts.star
+             cts.I
+             (cts.prod cts.star cts.star cts.star cts.I (eq.eq nat.nat x O.O) (x1 => x0 O.O))
+             (x1 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (cts.prod
+                   cts.box
+                   cts.star
+                   cts.star
+                   cts.I
+                   nat.nat
+                   (x2 =>
+                    cts.prod
+                      cts.star
+                      cts.star
+                      cts.star
+                      cts.I
+                      (eq.eq nat.nat x (S.S x2))
+                      (x3 => x0 (S.S x2))))
+                (x2 => x0 x)))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  P:(cts.Term
+       cts.box
+       (cts.prod cts.box cts.box cts.box cts.I nat.nat (x => cts.univ cts.star cts.box cts.I))) =>
+  nat_ind.nat_ind
+    (_x_365:(cts.Term cts.box nat.nat) =>
+     cts.prod
+       cts.star
+       cts.star
+       cts.star
+       cts.I
+       (cts.prod cts.star cts.star cts.star cts.I (eq.eq nat.nat _x_365 O.O) (x => P O.O))
+       (x =>
+        cts.prod
+          cts.star
+          cts.star
+          cts.star
+          cts.I
+          (cts.prod
+             cts.box
+             cts.star
+             cts.star
+             cts.I
+             nat.nat
+             (x0 =>
+              cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (eq.eq nat.nat _x_365 (S.S x0))
+                (x1 => P (S.S x0))))
+          (x0 => P _x_365)))
+    (auto:(cts.Term
+             cts.star
+             (cts.prod cts.star cts.star cts.star cts.I (eq.eq nat.nat O.O O.O) (x => P O.O))) =>
+     auto':(cts.Term
+              cts.star
+              (cts.prod
+                 cts.box
+                 cts.star
+                 cts.star
+                 cts.I
+                 nat.nat
+                 (x =>
+                  cts.prod
+                    cts.star
+                    cts.star
+                    cts.star
+                    cts.I
+                    (eq.eq nat.nat O.O (S.S x))
+                    (x0 => P (S.S x))))) =>
+     auto (refl.refl nat.nat O.O))
+    (x_366:(cts.Term cts.box nat.nat) =>
+     _x_368:(cts.Term
+               cts.star
+               (cts.prod
+                  cts.star
+                  cts.star
+                  cts.star
+                  cts.I
+                  (cts.prod
+                     cts.star
+                     cts.star
+                     cts.star
+                     cts.I
+                     (eq.eq nat.nat x_366 O.O)
+                     (x => P O.O))
+                  (x =>
+                   cts.prod
+                     cts.star
+                     cts.star
+                     cts.star
+                     cts.I
+                     (cts.prod
+                        cts.box
+                        cts.star
+                        cts.star
+                        cts.I
+                        nat.nat
+                        (x0 =>
+                         cts.prod
+                           cts.star
+                           cts.star
+                           cts.star
+                           cts.I
+                           (eq.eq nat.nat x_366 (S.S x0))
+                           (x1 => P (S.S x0))))
+                     (x0 => P x_366)))) =>
+     auto:(cts.Term
+             cts.star
+             (cts.prod
+                cts.star
+                cts.star
+                cts.star
+                cts.I
+                (eq.eq nat.nat (S.S x_366) O.O)
+                (x => P O.O))) =>
+     auto':(cts.Term
+              cts.star
+              (cts.prod
+                 cts.box
+                 cts.star
+                 cts.star
+                 cts.I
+                 nat.nat
+                 (x =>
+                  cts.prod
+                    cts.star
+                    cts.star
+                    cts.star
+                    cts.I
+                    (eq.eq nat.nat (S.S x_366) (S.S x))
+                    (x0 => P (S.S x))))) =>
+     auto' x_366 (refl.refl nat.nat (S.S x_366)))
+    n.
+

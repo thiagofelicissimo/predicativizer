@@ -1,0 +1,40 @@
+def lt_mod_m_m :
+  cts.Term
+    cts.star
+    (cts.prod
+       cts.box
+       cts.star
+       cts.star
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.box
+          cts.star
+          cts.star
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod cts.star cts.star cts.star cts.I (lt.lt O.O x0) (x1 => lt.lt (mod.mod x x0) x0))))
+  :=
+  n:(cts.Term cts.box nat.nat) =>
+  m:(cts.Term cts.box nat.nat) =>
+  match_nat_prop.match_nat_prop
+    (__:(cts.Term cts.box nat.nat) =>
+     cts.prod cts.star cts.star cts.star cts.I (lt.lt O.O __) (x => lt.lt (mod.mod n __) __))
+    (abs:(cts.Term cts.star (lt.lt O.O O.O)) =>
+     falsity.falsity
+       (lt.lt (mod.mod n O.O) O.O)
+       (absurd.absurd (le.le (S.S O.O) O.O) abs (not_le_Sn_O.not_le_Sn_O O.O)))
+    (p:(cts.Term cts.box nat.nat) =>
+     sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+       nat.nat
+       n
+       (q:(cts.Term cts.box nat.nat) => mod_aux.mod_aux n n q)
+       p
+       (y:(cts.Term cts.box nat.nat) =>
+        cts.prod cts.star cts.star cts.star cts.I (lt.lt O.O (S.S p)) (x => lt.lt y (S.S p)))
+       (__:(cts.Term cts.star (lt.lt O.O (S.S p))) =>
+        le_S_S.le_S_S (mod_aux.mod_aux n n p) p (le_mod_aux_m_m.le_mod_aux_m_m n n p (le_n.le_n n))))
+    m.
+
