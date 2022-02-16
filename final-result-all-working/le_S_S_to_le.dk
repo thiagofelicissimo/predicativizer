@@ -1,0 +1,54 @@
+def le_S_S_to_le : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (le.le (S.S x) (S.S x0))
+             (x1 => le.le x x0))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  auto:(cts.Term cts.zero (le.le (S.S n) (S.S m))) =>
+  eq_match_nat_type_S.eq_match_nat_type_S
+    cts.zero
+    cts.zero
+    nat.nat
+    O.O
+    (p:(cts.Term cts.zero nat.nat) => p)
+    m
+    (y:(cts.Term cts.zero nat.nat) => le.le n y)
+    (eq_match_nat_type_S.eq_match_nat_type_S
+       cts.zero
+       cts.zero
+       nat.nat
+       O.O
+       (p:(cts.Term cts.zero nat.nat) => p)
+       n
+       (y:(cts.Term cts.zero nat.nat) =>
+        le.le
+          y
+          (match_nat_type.match_nat_type
+             cts.zero
+             nat.nat
+             O.O
+             (p:(cts.Term cts.zero nat.nat) => p)
+             (S.S m)))
+       (monotonic_pred.monotonic_pred (S.S n) (S.S m) auto)).
+

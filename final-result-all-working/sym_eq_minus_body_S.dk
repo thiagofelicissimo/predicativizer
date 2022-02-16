@@ -1,0 +1,51 @@
+def sym_eq_minus_body_S :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          cts.zero
+          l?5
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat))
+          (m:(cts.Term cts.zero nat.nat) =>
+           match_nat_type.match_nat_type
+             cts.zero
+             nat.nat
+             (S.S x)
+             (q:(cts.Term cts.zero nat.nat) => minus.minus x q)
+             m)
+          (minus_body.minus_body (S.S x))))
+  := l?5 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  sym_leibniz.sym_leibniz
+    cts.zero
+    cts.zero
+    l?5
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => nat.nat))
+    (minus_body.minus_body (S.S n))
+    (m:(cts.Term cts.zero nat.nat) =>
+     match_nat_type.match_nat_type
+       cts.zero
+       nat.nat
+       (S.S n)
+       (q:(cts.Term cts.zero nat.nat) => minus.minus n q)
+       m)
+    (eq_minus_body_S.eq_minus_body_S cts.zero n).
+

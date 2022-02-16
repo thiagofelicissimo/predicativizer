@@ -1,0 +1,40 @@
+def eq_eqb :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          cts.zero
+          l?5
+          (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x0 => bool.bool))
+          (eqb.eqb x)
+          (filter_nat_type.filter_nat_type
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x0 => bool.bool))
+             eqb_body.eqb_body
+             x)))
+  := l?5 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  equal_leibniz.equal_leibniz
+    cts.zero
+    l?5
+    (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => bool.bool))
+    (eqb.eqb n)
+    (filter_nat_type.filter_nat_type
+       cts.zero
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => bool.bool))
+       eqb_body.eqb_body
+       n)
+    (axiom_eqb.axiom_eqb n).
+

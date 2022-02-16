@@ -1,0 +1,109 @@
+def lt_O_gcd : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (lt.lt O.O x0)
+             (x1 => lt.lt O.O (gcd.gcd x x0)))))
+  :=
+  m:(cts.Term cts.zero nat.nat) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  posn:(cts.Term cts.zero (lt.lt O.O n)) =>
+  nat_case.nat_case
+    cts.zero
+    (gcd.gcd m n)
+    (lt.lt O.O)
+    (H:(cts.Term cts.zero (eq.eq cts.zero nat.nat (gcd.gcd m n) O.O)) =>
+     match_And_prop.match_And_prop
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.zero
+       (eq.eq cts.zero nat.nat m O.O)
+       (eq.eq cts.zero nat.nat n O.O)
+       (lt.lt O.O O.O)
+       (auto:(cts.Term cts.zero (eq.eq cts.zero nat.nat m O.O)) =>
+        auto':(cts.Term cts.zero (eq.eq cts.zero nat.nat n O.O)) =>
+        eq_coerc.eq_coerc
+          cts.zero
+          (lt.lt O.O n)
+          (lt.lt O.O O.O)
+          posn
+          (rewrite_l.rewrite_l
+             (cts.succ cts.zero)
+             cts.zero
+             nat.nat
+             m
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                (cts.succ cts.zero)
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (lt.lt __ n)
+                (lt.lt O.O O.O))
+             (rewrite_l.rewrite_l
+                (cts.succ cts.zero)
+                cts.zero
+                nat.nat
+                m
+                (__:(cts.Term cts.zero nat.nat) =>
+                 eq.eq
+                   (cts.succ cts.zero)
+                   (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                   (lt.lt m __)
+                   (lt.lt O.O O.O))
+                (rewrite_l.rewrite_l
+                   (cts.succ cts.zero)
+                   cts.zero
+                   nat.nat
+                   m
+                   (__:(cts.Term cts.zero nat.nat) =>
+                    eq.eq
+                      (cts.succ cts.zero)
+                      (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                      (lt.lt m m)
+                      (lt.lt __ O.O))
+                   (rewrite_l.rewrite_l
+                      (cts.succ cts.zero)
+                      cts.zero
+                      nat.nat
+                      m
+                      (__:(cts.Term cts.zero nat.nat) =>
+                       eq.eq
+                         (cts.succ cts.zero)
+                         (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                         (lt.lt m m)
+                         (lt.lt m __))
+                      (refl.refl
+                         (cts.succ cts.zero)
+                         (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                         (lt.lt m m))
+                      O.O
+                      (let_clause_1572.let_clause_1572 m n posn H auto auto'))
+                   O.O
+                   (let_clause_1572.let_clause_1572 m n posn H auto auto'))
+                n
+                (let_clause_1571.let_clause_1571 m n posn H auto auto'))
+             O.O
+             (let_clause_1572.let_clause_1572 m n posn H auto auto')))
+       (gcd_O_to_eq_O.gcd_O_to_eq_O cts.zero m n H))
+    (m0:(cts.Term cts.zero nat.nat) =>
+     auto:(cts.Term cts.zero (eq.eq cts.zero nat.nat (gcd.gcd m n) (S.S m0))) =>
+     lt_O_S.lt_O_S m0).
+

@@ -1,0 +1,54 @@
+def sym_eq :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (cts.prod
+       (cts.succ l?2)
+       l?2
+       (cts.succ l?2)
+       cts.I
+       (cts.univ l?2 (cts.succ l?2) cts.I)
+       (x =>
+        cts.prod
+          l?2
+          l?2
+          l?2
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             l?2
+             l?2
+             l?2
+             cts.I
+             x
+             (x1 =>
+              cts.prod
+                l?2
+                l?2
+                l?2
+                cts.I
+                (eq.eq l?2 x x0 x1)
+                (x2 => eq.eq l?2 x x1 x0)))))
+  := l?2 =>
+  A:(cts.Term (cts.succ l?2) (cts.univ l?2 (cts.succ l?2) cts.I)) =>
+  x:(cts.Term l?2 A) =>
+  y:(cts.Term l?2 A) =>
+  Heq:(cts.Term l?2 (eq.eq l?2 A x y)) =>
+  rewrite_l.rewrite_l
+    l?2
+    l?2
+    A
+    x
+    (__:(cts.Term l?2 A) => eq.eq l?2 A __ x)
+    (refl.refl l?2 A x)
+    y
+    (rewrite_l.rewrite_l
+       l?2
+       l?2
+       A
+       x
+       (__:(cts.Term l?2 A) => eq.eq l?2 A x __)
+       (refl.refl l?2 A x)
+       y
+       Heq).
+

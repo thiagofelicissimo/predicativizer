@@ -1,0 +1,70 @@
+def associative :  (l?6 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?6)
+    (cts.prod
+       (cts.succ l?6)
+       (cts.succ l?6)
+       (cts.succ l?6)
+       cts.I
+       (cts.univ l?6 (cts.succ l?6) cts.I)
+       (x =>
+        cts.prod
+          l?6
+          (cts.succ l?6)
+          (cts.succ l?6)
+          cts.I
+          (cts.prod
+             l?6
+             l?6
+             l?6
+             cts.I
+             x
+             (x0 =>
+              cts.prod
+                l?6
+                l?6
+                l?6
+                cts.I
+                x
+                (x1 => x)))
+          (x0 => cts.univ l?6 (cts.succ l?6) cts.I)))
+  := l?6 =>
+  A:(cts.Term (cts.succ l?6) (cts.univ l?6 (cts.succ l?6) cts.I)) =>
+  f:(cts.Term
+       l?6
+       (cts.prod
+          l?6
+          l?6
+          l?6
+          cts.I
+          A
+          (x =>
+           cts.prod
+             l?6
+             l?6
+             l?6
+             cts.I
+             A
+             (x0 => A)))) =>
+  cts.prod
+    l?6
+    l?6
+    l?6
+    cts.I
+    A
+    (x =>
+     cts.prod
+       l?6
+       l?6
+       l?6
+       cts.I
+       A
+       (x0 =>
+        cts.prod
+          l?6
+          l?6
+          l?6
+          cts.I
+          A
+          (x1 => eq.eq l?6 A (f (f x x0) x1) (f x (f x0 x1))))).
+

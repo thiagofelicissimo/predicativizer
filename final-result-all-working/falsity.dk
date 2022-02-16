@@ -1,0 +1,18 @@
+falsity :  (l?7 : cts.Sort) -> (l?6 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?7) (cts.max l?6 l?7))
+    (cts.prod
+       (cts.succ l?7)
+       (cts.max l?6 l?7)
+       (cts.max (cts.succ l?7) (cts.max l?6 l?7))
+       cts.I
+       (cts.univ l?7 (cts.succ l?7) cts.I)
+       (x =>
+        cts.prod
+          l?6
+          l?7
+          (cts.max l?6 l?7)
+          cts.I
+          (False.False l?6)
+          (x0 => x))).
+

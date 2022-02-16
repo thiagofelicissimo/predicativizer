@@ -1,0 +1,26 @@
+def reflexive_divides :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (reflexive.reflexive
+       cts.zero
+       l?0
+       nat.nat
+       (divides.divides l?0))
+  := l?0 =>
+  x:(cts.Term cts.zero nat.nat) =>
+  quotient.quotient
+    l?0
+    x
+    x
+    (S.S O.O)
+    (rewrite_r.rewrite_r
+       cts.zero
+       cts.zero
+       nat.nat
+       (times.times x (S.S O.O))
+       (__:(cts.Term cts.zero nat.nat) =>
+        eq.eq cts.zero nat.nat __ (times.times x (S.S O.O)))
+       (refl.refl cts.zero nat.nat (times.times x (S.S O.O)))
+       x
+       (times_n_1.times_n_1 x)).
+

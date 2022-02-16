@@ -1,0 +1,1698 @@
+def exp_pi_l : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x1 => nat.nat))
+             (x1 =>
+              eq.eq
+                cts.zero
+                nat.nat
+                (times.times
+                   (exp.exp x0 x)
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      x
+                      (i:(cts.Term cts.zero nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i:(cts.Term cts.zero nat.nat) => x1 i)))
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   x
+                   (i:(cts.Term cts.zero nat.nat) => true.true)
+                   (S.S O.O)
+                   times.times
+                   (i:(cts.Term cts.zero nat.nat) => times.times x0 (x1 i)))))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  a:(cts.Term cts.zero nat.nat) =>
+  f:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))) =>
+  nat_ind.nat_ind
+    cts.zero
+    (_x_365:(cts.Term cts.zero nat.nat) =>
+     eq.eq
+       cts.zero
+       nat.nat
+       (times.times
+          (exp.exp a _x_365)
+          (bigop.bigop
+             cts.zero
+             nat.nat
+             _x_365
+             (i:(cts.Term cts.zero nat.nat) => true.true)
+             (S.S O.O)
+             times.times
+             (i:(cts.Term cts.zero nat.nat) => f i)))
+       (bigop.bigop
+          cts.zero
+          nat.nat
+          _x_365
+          (i:(cts.Term cts.zero nat.nat) => true.true)
+          (S.S O.O)
+          times.times
+          (i:(cts.Term cts.zero nat.nat) => times.times a (f i))))
+    (sym_eq_bigop_O.sym_eq_bigop_O
+       cts.zero
+       cts.zero
+       nat.nat
+       (y:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => bool.bool))
+                (x =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x1 =>
+                          cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x2 => nat.nat)))
+                      (x1 =>
+                       cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x2 => nat.nat))
+                         (x2 => nat.nat)))))) =>
+        eq.eq
+          cts.zero
+          nat.nat
+          (times.times
+             (exp.exp a O.O)
+             (bigop.bigop
+                cts.zero
+                nat.nat
+                O.O
+                (i:(cts.Term cts.zero nat.nat) => true.true)
+                (S.S O.O)
+                times.times
+                (i:(cts.Term cts.zero nat.nat) => f i)))
+          (y
+             (i:(cts.Term cts.zero nat.nat) => true.true)
+             (S.S O.O)
+             times.times
+             (i:(cts.Term cts.zero nat.nat) => times.times a (f i))))
+       (sym_eq_bigop_body_O.sym_eq_bigop_body_O
+          cts.zero
+          cts.zero
+          nat.nat
+          (y:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => bool.bool))
+                   (x =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x0 =>
+                       cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x1 =>
+                             cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x2 => nat.nat)))
+                         (x1 =>
+                          cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x2 => nat.nat))
+                            (x2 => nat.nat)))))) =>
+           eq.eq
+             cts.zero
+             nat.nat
+             (times.times
+                (exp.exp a O.O)
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   O.O
+                   (i:(cts.Term cts.zero nat.nat) => true.true)
+                   (S.S O.O)
+                   times.times
+                   (i:(cts.Term cts.zero nat.nat) => f i)))
+             (y
+                (i:(cts.Term cts.zero nat.nat) => true.true)
+                (S.S O.O)
+                times.times
+                (i:(cts.Term cts.zero nat.nat) => times.times a (f i))))
+          (eq_times_body_O.eq_times_body_O
+             cts.zero
+             (y:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => nat.nat))) =>
+              eq.eq
+                cts.zero
+                nat.nat
+                (times.times
+                   (exp.exp a O.O)
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      O.O
+                      (i:(cts.Term cts.zero nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i:(cts.Term cts.zero nat.nat) => f i)))
+                (S.S (y (S.S O.O))))
+             (eq_filter_nat_type_O.eq_filter_nat_type_O
+                cts.zero
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => nat.nat))
+                times_body.times_body
+                (y:(cts.Term
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x => nat.nat))) =>
+                 eq.eq
+                   cts.zero
+                   nat.nat
+                   (times.times
+                      (exp.exp a O.O)
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         O.O
+                         (i:(cts.Term cts.zero nat.nat) => true.true)
+                         (S.S O.O)
+                         times.times
+                         (i:(cts.Term cts.zero nat.nat) => f i)))
+                   (S.S (y (S.S O.O))))
+                (eq_times.eq_times
+                   cts.zero
+                   O.O
+                   (y:(cts.Term
+                         cts.zero
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x => nat.nat))) =>
+                    eq.eq
+                      cts.zero
+                      nat.nat
+                      (times.times
+                         (exp.exp a O.O)
+                         (bigop.bigop
+                            cts.zero
+                            nat.nat
+                            O.O
+                            (i:(cts.Term cts.zero nat.nat) => true.true)
+                            (S.S O.O)
+                            times.times
+                            (i:(cts.Term cts.zero nat.nat) => f i)))
+                      (S.S (y (S.S O.O))))
+                   (eq_plus_body_O.eq_plus_body_O
+                      cts.zero
+                      (y:(cts.Term
+                            cts.zero
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x => nat.nat))) =>
+                       eq.eq
+                         cts.zero
+                         nat.nat
+                         (times.times
+                            (exp.exp a O.O)
+                            (bigop.bigop
+                               cts.zero
+                               nat.nat
+                               O.O
+                               (i:(cts.Term cts.zero nat.nat) => true.true)
+                               (S.S O.O)
+                               times.times
+                               (i:(cts.Term cts.zero nat.nat) => f i)))
+                         (S.S (y (times.times O.O (S.S O.O)))))
+                      (eq_filter_nat_type_O.eq_filter_nat_type_O
+                         cts.zero
+                         cts.zero
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x => nat.nat))
+                         plus_body.plus_body
+                         (y:(cts.Term
+                               cts.zero
+                               (cts.prod
+                                  cts.zero
+                                  cts.zero
+                                  cts.zero
+                                  cts.I
+                                  nat.nat
+                                  (x => nat.nat))) =>
+                          eq.eq
+                            cts.zero
+                            nat.nat
+                            (times.times
+                               (exp.exp a O.O)
+                               (bigop.bigop
+                                  cts.zero
+                                  nat.nat
+                                  O.O
+                                  (i:(cts.Term cts.zero nat.nat) => true.true)
+                                  (S.S O.O)
+                                  times.times
+                                  (i:(cts.Term cts.zero nat.nat) => f i)))
+                            (S.S (y (times.times O.O (S.S O.O)))))
+                         (eq_plus.eq_plus
+                            cts.zero
+                            O.O
+                            (y:(cts.Term
+                                  cts.zero
+                                  (cts.prod
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
+                                     cts.I
+                                     nat.nat
+                                     (x => nat.nat))) =>
+                             eq.eq
+                               cts.zero
+                               nat.nat
+                               (times.times
+                                  (exp.exp a O.O)
+                                  (bigop.bigop
+                                     cts.zero
+                                     nat.nat
+                                     O.O
+                                     (i:(cts.Term cts.zero nat.nat) => true.true)
+                                     (S.S O.O)
+                                     times.times
+                                     (i:(cts.Term cts.zero nat.nat) => f i)))
+                               (S.S (y (times.times O.O (S.S O.O)))))
+                            (eq_plus_body_S.eq_plus_body_S
+                               cts.zero
+                               O.O
+                               (y:(cts.Term
+                                     cts.zero
+                                     (cts.prod
+                                        cts.zero
+                                        cts.zero
+                                        cts.zero
+                                        cts.I
+                                        nat.nat
+                                        (x => nat.nat))) =>
+                                eq.eq
+                                  cts.zero
+                                  nat.nat
+                                  (times.times
+                                     (exp.exp a O.O)
+                                     (bigop.bigop
+                                        cts.zero
+                                        nat.nat
+                                        O.O
+                                        (i:(cts.Term cts.zero nat.nat) =>
+                                         true.true)
+                                        (S.S O.O)
+                                        times.times
+                                        (i:(cts.Term cts.zero nat.nat) => f i)))
+                                  (y (times.times O.O (S.S O.O))))
+                               (eq_filter_nat_type_S.eq_filter_nat_type_S
+                                  cts.zero
+                                  cts.zero
+                                  (cts.prod
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
+                                     cts.I
+                                     nat.nat
+                                     (x => nat.nat))
+                                  plus_body.plus_body
+                                  O.O
+                                  (y:(cts.Term
+                                        cts.zero
+                                        (cts.prod
+                                           cts.zero
+                                           cts.zero
+                                           cts.zero
+                                           cts.I
+                                           nat.nat
+                                           (x => nat.nat))) =>
+                                   eq.eq
+                                     cts.zero
+                                     nat.nat
+                                     (times.times
+                                        (exp.exp a O.O)
+                                        (bigop.bigop
+                                           cts.zero
+                                           nat.nat
+                                           O.O
+                                           (i:(cts.Term cts.zero nat.nat) =>
+                                            true.true)
+                                           (S.S O.O)
+                                           times.times
+                                           (i:(cts.Term cts.zero nat.nat) =>
+                                            f i)))
+                                     (y (times.times O.O (S.S O.O))))
+                                  (eq_plus.eq_plus
+                                     cts.zero
+                                     (S.S O.O)
+                                     (y:(cts.Term
+                                           cts.zero
+                                           (cts.prod
+                                              cts.zero
+                                              cts.zero
+                                              cts.zero
+                                              cts.I
+                                              nat.nat
+                                              (x => nat.nat))) =>
+                                      eq.eq
+                                        cts.zero
+                                        nat.nat
+                                        (times.times
+                                           (exp.exp a O.O)
+                                           (bigop.bigop
+                                              cts.zero
+                                              nat.nat
+                                              O.O
+                                              (i:(cts.Term
+                                                    cts.zero
+                                                    nat.nat) =>
+                                               true.true)
+                                              (S.S O.O)
+                                              times.times
+                                              (i:(cts.Term
+                                                    cts.zero
+                                                    nat.nat) =>
+                                               f i)))
+                                        (y (times.times O.O (S.S O.O))))
+                                     (eq_times_body_S.eq_times_body_S
+                                        cts.zero
+                                        O.O
+                                        (y:(cts.Term
+                                              cts.zero
+                                              (cts.prod
+                                                 cts.zero
+                                                 cts.zero
+                                                 cts.zero
+                                                 cts.I
+                                                 nat.nat
+                                                 (x => nat.nat))) =>
+                                         eq.eq
+                                           cts.zero
+                                           nat.nat
+                                           (times.times
+                                              (exp.exp a O.O)
+                                              (bigop.bigop
+                                                 cts.zero
+                                                 nat.nat
+                                                 O.O
+                                                 (i:(cts.Term
+                                                       cts.zero
+                                                       nat.nat) =>
+                                                  true.true)
+                                                 (S.S O.O)
+                                                 times.times
+                                                 (i:(cts.Term
+                                                       cts.zero
+                                                       nat.nat) =>
+                                                  f i)))
+                                           (y (S.S O.O)))
+                                        (eq_filter_nat_type_S.eq_filter_nat_type_S
+                                           cts.zero
+                                           cts.zero
+                                           (cts.prod
+                                              cts.zero
+                                              cts.zero
+                                              cts.zero
+                                              cts.I
+                                              nat.nat
+                                              (x => nat.nat))
+                                           times_body.times_body
+                                           O.O
+                                           (y:(cts.Term
+                                                 cts.zero
+                                                 (cts.prod
+                                                    cts.zero
+                                                    cts.zero
+                                                    cts.zero
+                                                    cts.I
+                                                    nat.nat
+                                                    (x => nat.nat))) =>
+                                            eq.eq
+                                              cts.zero
+                                              nat.nat
+                                              (times.times
+                                                 (exp.exp a O.O)
+                                                 (bigop.bigop
+                                                    cts.zero
+                                                    nat.nat
+                                                    O.O
+                                                    (i:(cts.Term
+                                                          cts.zero
+                                                          nat.nat) =>
+                                                     true.true)
+                                                    (S.S O.O)
+                                                    times.times
+                                                    (i:(cts.Term
+                                                          cts.zero
+                                                          nat.nat) =>
+                                                     f i)))
+                                              (y (S.S O.O)))
+                                           (eq_times.eq_times
+                                              cts.zero
+                                              (S.S O.O)
+                                              (y:(cts.Term
+                                                    cts.zero
+                                                    (cts.prod
+                                                       cts.zero
+                                                       cts.zero
+                                                       cts.zero
+                                                       cts.I
+                                                       nat.nat
+                                                       (x => nat.nat))) =>
+                                               eq.eq
+                                                 cts.zero
+                                                 nat.nat
+                                                 (times.times
+                                                    (exp.exp a O.O)
+                                                    (bigop.bigop
+                                                       cts.zero
+                                                       nat.nat
+                                                       O.O
+                                                       (i:(cts.Term
+                                                             cts.zero
+                                                             nat.nat) =>
+                                                        true.true)
+                                                       (S.S O.O)
+                                                       times.times
+                                                       (i:(cts.Term
+                                                             cts.zero
+                                                             nat.nat) =>
+                                                        f i)))
+                                                 (y (S.S O.O)))
+                                              (eq_match_nat_type_O.eq_match_nat_type_O
+                                                 cts.zero
+                                                 cts.zero
+                                                 nat.nat
+                                                 (S.S O.O)
+                                                 (k:(cts.Term
+                                                       cts.zero
+                                                       nat.nat) =>
+                                                  match_bool_type.match_bool_type
+                                                    cts.zero
+                                                    nat.nat
+                                                    (times.times
+                                                       (times.times a (f k))
+                                                       (bigop.bigop
+                                                          cts.zero
+                                                          nat.nat
+                                                          k
+                                                          (i:(cts.Term
+                                                                cts.zero
+                                                                nat.nat) =>
+                                                           true.true)
+                                                          (S.S O.O)
+                                                          times.times
+                                                          (i:(cts.Term
+                                                                cts.zero
+                                                                nat.nat) =>
+                                                           times.times a (f i))))
+                                                    (bigop.bigop
+                                                       cts.zero
+                                                       nat.nat
+                                                       k
+                                                       (i:(cts.Term
+                                                             cts.zero
+                                                             nat.nat) =>
+                                                        true.true)
+                                                       (S.S O.O)
+                                                       times.times
+                                                       (i:(cts.Term
+                                                             cts.zero
+                                                             nat.nat) =>
+                                                        times.times a (f i)))
+                                                    true.true)
+                                                 (y:(cts.Term
+                                                       cts.zero
+                                                       nat.nat) =>
+                                                  eq.eq
+                                                    cts.zero
+                                                    nat.nat
+                                                    (times.times
+                                                       (exp.exp a O.O)
+                                                       (bigop.bigop
+                                                          cts.zero
+                                                          nat.nat
+                                                          O.O
+                                                          (i:(cts.Term
+                                                                cts.zero
+                                                                nat.nat) =>
+                                                           true.true)
+                                                          (S.S O.O)
+                                                          times.times
+                                                          (i:(cts.Term
+                                                                cts.zero
+                                                                nat.nat) =>
+                                                           f i)))
+                                                    (times.times (S.S O.O) y))
+                                                 (eq_exp_body_O.eq_exp_body_O
+                                                    cts.zero
+                                                    a
+                                                    (y:(cts.Term
+                                                          cts.zero
+                                                          nat.nat) =>
+                                                     eq.eq
+                                                       cts.zero
+                                                       nat.nat
+                                                       (times.times
+                                                          (exp.exp a O.O)
+                                                          (bigop.bigop
+                                                             cts.zero
+                                                             nat.nat
+                                                             O.O
+                                                             (i:(cts.Term
+                                                                   cts.zero
+                                                                   nat.nat) =>
+                                                              true.true)
+                                                             (S.S O.O)
+                                                             times.times
+                                                             (i:(cts.Term
+                                                                   cts.zero
+                                                                   nat.nat) =>
+                                                              f i)))
+                                                       (times.times
+                                                          y
+                                                          (match_nat_type.match_nat_type
+                                                             cts.zero
+                                                             nat.nat
+                                                             (S.S O.O)
+                                                             (k:(cts.Term
+                                                                   cts.zero
+                                                                   nat.nat) =>
+                                                              match_bool_type.match_bool_type
+                                                                cts.zero
+                                                                nat.nat
+                                                                (times.times
+                                                                   (times.times
+                                                                    a
+                                                                    (f k))
+                                                                   (bigop.bigop
+                                                                    cts.zero
+                                                                    nat.nat
+                                                                    k
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                    (S.S O.O)
+                                                                    times.times
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    times.times
+                                                                    a
+                                                                    (f i))))
+                                                                (bigop.bigop
+                                                                   cts.zero
+                                                                   nat.nat
+                                                                   k
+                                                                   (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                   (S.S O.O)
+                                                                   times.times
+                                                                   (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    times.times
+                                                                    a
+                                                                    (f i)))
+                                                                true.true)
+                                                             O.O)))
+                                                    (eq_filter_nat_type_O.eq_filter_nat_type_O
+                                                       cts.zero
+                                                       cts.zero
+                                                       nat.nat
+                                                       (exp_body.exp_body a)
+                                                       (y:(cts.Term
+                                                             cts.zero
+                                                             nat.nat) =>
+                                                        eq.eq
+                                                          cts.zero
+                                                          nat.nat
+                                                          (times.times
+                                                             (exp.exp a O.O)
+                                                             (bigop.bigop
+                                                                cts.zero
+                                                                nat.nat
+                                                                O.O
+                                                                (i:(cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                 true.true)
+                                                                (S.S O.O)
+                                                                times.times
+                                                                (i:(cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                 f i)))
+                                                          (times.times
+                                                             y
+                                                             (match_nat_type.match_nat_type
+                                                                cts.zero
+                                                                nat.nat
+                                                                (S.S O.O)
+                                                                (k:(cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                 match_bool_type.match_bool_type
+                                                                   cts.zero
+                                                                   nat.nat
+                                                                   (times.times
+                                                                    (times.times
+                                                                    a
+                                                                    (f k))
+                                                                    (bigop.bigop
+                                                                    cts.zero
+                                                                    nat.nat
+                                                                    k
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                    (S.S
+                                                                    O.O)
+                                                                    times.times
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    times.times
+                                                                    a
+                                                                    (f
+                                                                    i))))
+                                                                   (bigop.bigop
+                                                                    cts.zero
+                                                                    nat.nat
+                                                                    k
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                    (S.S O.O)
+                                                                    times.times
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    times.times
+                                                                    a
+                                                                    (f i)))
+                                                                   true.true)
+                                                                O.O)))
+                                                       (eq_exp.eq_exp
+                                                          cts.zero
+                                                          a
+                                                          O.O
+                                                          (y:(cts.Term
+                                                                cts.zero
+                                                                nat.nat) =>
+                                                           eq.eq
+                                                             cts.zero
+                                                             nat.nat
+                                                             (times.times
+                                                                (exp.exp a O.O)
+                                                                (bigop.bigop
+                                                                   cts.zero
+                                                                   nat.nat
+                                                                   O.O
+                                                                   (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                   (S.S O.O)
+                                                                   times.times
+                                                                   (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    f i)))
+                                                             (times.times
+                                                                y
+                                                                (match_nat_type.match_nat_type
+                                                                   cts.zero
+                                                                   nat.nat
+                                                                   (S.S O.O)
+                                                                   (k:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    match_bool_type.match_bool_type
+                                                                    cts.zero
+                                                                    nat.nat
+                                                                    (times.times
+                                                                    (times.times
+                                                                    a
+                                                                    (f
+                                                                    k))
+                                                                    (bigop.bigop
+                                                                    cts.zero
+                                                                    nat.nat
+                                                                    k
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                    (S.S
+                                                                    O.O)
+                                                                    times.times
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    times.times
+                                                                    a
+                                                                    (f
+                                                                    i))))
+                                                                    (bigop.bigop
+                                                                    cts.zero
+                                                                    nat.nat
+                                                                    k
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                    (S.S
+                                                                    O.O)
+                                                                    times.times
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    times.times
+                                                                    a
+                                                                    (f
+                                                                    i)))
+                                                                    true.true)
+                                                                   O.O)))
+                                                          (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
+                                                             cts.zero
+                                                             cts.zero
+                                                             nat.nat
+                                                             (S.S O.O)
+                                                             (k:(cts.Term
+                                                                   cts.zero
+                                                                   nat.nat) =>
+                                                              match_bool_type.match_bool_type
+                                                                cts.zero
+                                                                nat.nat
+                                                                (times.times
+                                                                   (times.times
+                                                                    a
+                                                                    (f k))
+                                                                   (bigop.bigop
+                                                                    cts.zero
+                                                                    nat.nat
+                                                                    k
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                    (S.S O.O)
+                                                                    times.times
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    times.times
+                                                                    a
+                                                                    (f i))))
+                                                                (bigop.bigop
+                                                                   cts.zero
+                                                                   nat.nat
+                                                                   k
+                                                                   (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                   (S.S O.O)
+                                                                   times.times
+                                                                   (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    times.times
+                                                                    a
+                                                                    (f i)))
+                                                                true.true)
+                                                             (y:(cts.Term
+                                                                   cts.zero
+                                                                   nat.nat) =>
+                                                              eq.eq
+                                                                cts.zero
+                                                                nat.nat
+                                                                (times.times
+                                                                   (exp.exp
+                                                                    a
+                                                                    O.O)
+                                                                   (bigop.bigop
+                                                                    cts.zero
+                                                                    nat.nat
+                                                                    O.O
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                    (S.S O.O)
+                                                                    times.times
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    f i)))
+                                                                (times.times
+                                                                   (exp.exp
+                                                                    a
+                                                                    O.O)
+                                                                   y))
+                                                             (eq_bigop_body_O.eq_bigop_body_O
+                                                                cts.zero
+                                                                cts.zero
+                                                                nat.nat
+                                                                (y:(cts.Term
+                                                                    cts.zero
+                                                                    (cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    (cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    nat.nat
+                                                                    (x =>
+                                                                    bool.bool))
+                                                                    (x =>
+                                                                    cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    nat.nat
+                                                                    (x0 =>
+                                                                    cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    (cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    nat.nat
+                                                                    (x1 =>
+                                                                    cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    nat.nat
+                                                                    (x2 =>
+                                                                    nat.nat)))
+                                                                    (x1 =>
+                                                                    cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    (cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    nat.nat
+                                                                    (x2 =>
+                                                                    nat.nat))
+                                                                    (x2 =>
+                                                                    nat.nat)))))) =>
+                                                                 eq.eq
+                                                                   cts.zero
+                                                                   nat.nat
+                                                                   (times.times
+                                                                    (exp.exp
+                                                                    a
+                                                                    O.O)
+                                                                    (bigop.bigop
+                                                                    cts.zero
+                                                                    nat.nat
+                                                                    O.O
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                    (S.S
+                                                                    O.O)
+                                                                    times.times
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    f i)))
+                                                                   (times.times
+                                                                    (exp.exp
+                                                                    a
+                                                                    O.O)
+                                                                    (y
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                    (S.S
+                                                                    O.O)
+                                                                    times.times
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    f i))))
+                                                                (eq_bigop_O.eq_bigop_O
+                                                                   cts.zero
+                                                                   cts.zero
+                                                                   nat.nat
+                                                                   (y:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    (cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    (cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    nat.nat
+                                                                    (x =>
+                                                                    bool.bool))
+                                                                    (x =>
+                                                                    cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    nat.nat
+                                                                    (x0 =>
+                                                                    cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    (cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    nat.nat
+                                                                    (x1 =>
+                                                                    cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    nat.nat
+                                                                    (x2 =>
+                                                                    nat.nat)))
+                                                                    (x1 =>
+                                                                    cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    (cts.prod
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.zero
+                                                                    cts.I
+                                                                    nat.nat
+                                                                    (x2 =>
+                                                                    nat.nat))
+                                                                    (x2 =>
+                                                                    nat.nat)))))) =>
+                                                                    eq.eq
+                                                                    cts.zero
+                                                                    nat.nat
+                                                                    (times.times
+                                                                    (exp.exp
+                                                                    a
+                                                                    O.O)
+                                                                    (bigop.bigop
+                                                                    cts.zero
+                                                                    nat.nat
+                                                                    O.O
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                    (S.S
+                                                                    O.O)
+                                                                    times.times
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    f
+                                                                    i)))
+                                                                    (times.times
+                                                                    (exp.exp
+                                                                    a
+                                                                    O.O)
+                                                                    (y
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                    (S.S
+                                                                    O.O)
+                                                                    times.times
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    f
+                                                                    i))))
+                                                                   (refl.refl
+                                                                    cts.zero
+                                                                    nat.nat
+                                                                    (times.times
+                                                                    (exp.exp
+                                                                    a
+                                                                    O.O)
+                                                                    (bigop.bigop
+                                                                    cts.zero
+                                                                    nat.nat
+                                                                    O.O
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    true.true)
+                                                                    (S.S
+                                                                    O.O)
+                                                                    times.times
+                                                                    (i:(
+                                                                    cts.Term
+                                                                    cts.zero
+                                                                    nat.nat) =>
+                                                                    f
+                                                                    i)))))))))))))))))))))))))
+    (i:(cts.Term cts.zero nat.nat) =>
+     Hind:(cts.Term
+             cts.zero
+             (eq.eq
+                cts.zero
+                nat.nat
+                (times.times
+                   (exp.exp a i)
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      i
+                      (i0:(cts.Term cts.zero nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i0:(cts.Term cts.zero nat.nat) => f i0)))
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   i
+                   (i0:(cts.Term cts.zero nat.nat) => true.true)
+                   (S.S O.O)
+                   times.times
+                   (i0:(cts.Term cts.zero nat.nat) => times.times a (f i0))))) =>
+     eq_ind_r.eq_ind_r
+       cts.zero
+       cts.zero
+       nat.nat
+       (times.times
+          (f i)
+          (bigop.bigop
+             cts.zero
+             nat.nat
+             i
+             (i0:(cts.Term cts.zero nat.nat) => true.true)
+             (S.S O.O)
+             times.times
+             (i0:(cts.Term cts.zero nat.nat) => f i0)))
+       (x:(cts.Term cts.zero nat.nat) =>
+        eq.eq
+          cts.zero
+          nat.nat
+          (times.times (exp.exp a (S.S i)) x)
+          (bigop.bigop
+             cts.zero
+             nat.nat
+             (S.S i)
+             (i0:(cts.Term cts.zero nat.nat) => true.true)
+             (S.S O.O)
+             times.times
+             (i0:(cts.Term cts.zero nat.nat) => times.times a (f i0))))
+       (eq_ind_r.eq_ind_r
+          cts.zero
+          cts.zero
+          nat.nat
+          (times.times
+             (times.times a (f i))
+             (bigop.bigop
+                cts.zero
+                nat.nat
+                i
+                (i0:(cts.Term cts.zero nat.nat) => true.true)
+                (S.S O.O)
+                times.times
+                (i0:(cts.Term cts.zero nat.nat) => times.times a (f i0))))
+          (x:(cts.Term cts.zero nat.nat) =>
+           eq.eq
+             cts.zero
+             nat.nat
+             (times.times
+                (exp.exp a (S.S i))
+                (times.times
+                   (f i)
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      i
+                      (i0:(cts.Term cts.zero nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i0:(cts.Term cts.zero nat.nat) => f i0))))
+             x)
+          (eq_ind.eq_ind
+             cts.zero
+             cts.zero
+             nat.nat
+             (times.times
+                (exp.exp a i)
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   i
+                   (i0:(cts.Term cts.zero nat.nat) => true.true)
+                   (S.S O.O)
+                   times.times
+                   (i0:(cts.Term cts.zero nat.nat) => f i0)))
+             (x_1:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                cts.zero
+                nat.nat
+                (times.times
+                   (exp.exp a (S.S i))
+                   (times.times
+                      (f i)
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         i
+                         (i0:(cts.Term cts.zero nat.nat) => true.true)
+                         (S.S O.O)
+                         times.times
+                         (i0:(cts.Term cts.zero nat.nat) => f i0))))
+                (times.times (times.times a (f i)) x_1))
+             (eq_ind.eq_ind
+                cts.zero
+                cts.zero
+                nat.nat
+                (times.times
+                   (times.times (exp.exp a (S.S i)) (f i))
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      i
+                      (i0:(cts.Term cts.zero nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i0:(cts.Term cts.zero nat.nat) => f i0)))
+                (x_1:(cts.Term cts.zero nat.nat) =>
+                 eq.eq
+                   cts.zero
+                   nat.nat
+                   x_1
+                   (times.times
+                      (times.times a (f i))
+                      (times.times
+                         (exp.exp a i)
+                         (bigop.bigop
+                            cts.zero
+                            nat.nat
+                            i
+                            (i0:(cts.Term cts.zero nat.nat) => true.true)
+                            (S.S O.O)
+                            times.times
+                            (i0:(cts.Term cts.zero nat.nat) => f i0)))))
+                (eq_ind.eq_ind
+                   cts.zero
+                   cts.zero
+                   nat.nat
+                   (times.times
+                      (times.times (times.times a (f i)) (exp.exp a i))
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         i
+                         (i0:(cts.Term cts.zero nat.nat) => true.true)
+                         (S.S O.O)
+                         times.times
+                         (i0:(cts.Term cts.zero nat.nat) => f i0)))
+                   (x_1:(cts.Term cts.zero nat.nat) =>
+                    eq.eq
+                      cts.zero
+                      nat.nat
+                      (times.times
+                         (times.times (exp.exp a (S.S i)) (f i))
+                         (bigop.bigop
+                            cts.zero
+                            nat.nat
+                            i
+                            (i0:(cts.Term cts.zero nat.nat) => true.true)
+                            (S.S O.O)
+                            times.times
+                            (i0:(cts.Term cts.zero nat.nat) => f i0)))
+                      x_1)
+                   (eq_f2.eq_f2
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      nat.nat
+                      nat.nat
+                      nat.nat
+                      times.times
+                      (times.times (exp.exp a (S.S i)) (f i))
+                      (times.times (times.times a (f i)) (exp.exp a i))
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         i
+                         (i0:(cts.Term cts.zero nat.nat) => true.true)
+                         (S.S O.O)
+                         times.times
+                         (i0:(cts.Term cts.zero nat.nat) => f i0))
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         i
+                         (i0:(cts.Term cts.zero nat.nat) => true.true)
+                         (S.S O.O)
+                         times.times
+                         (i0:(cts.Term cts.zero nat.nat) => f i0))
+                      (sym_eq_exp.sym_eq_exp
+                         cts.zero
+                         a
+                         (S.S i)
+                         (y:(cts.Term cts.zero nat.nat) =>
+                          eq.eq
+                            cts.zero
+                            nat.nat
+                            (times.times y (f i))
+                            (times.times (times.times a (f i)) (exp.exp a i)))
+                         (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+                            cts.zero
+                            cts.zero
+                            nat.nat
+                            (exp_body.exp_body a)
+                            i
+                            (y:(cts.Term cts.zero nat.nat) =>
+                             eq.eq
+                               cts.zero
+                               nat.nat
+                               (times.times y (f i))
+                               (times.times (times.times a (f i)) (exp.exp a i)))
+                            (sym_eq_exp_body_S.sym_eq_exp_body_S
+                               cts.zero
+                               a
+                               i
+                               (y:(cts.Term cts.zero nat.nat) =>
+                                eq.eq
+                                  cts.zero
+                                  nat.nat
+                                  (times.times y (f i))
+                                  (times.times (times.times a (f i)) (exp.exp a i)))
+                               (rewrite_r.rewrite_r
+                                  cts.zero
+                                  cts.zero
+                                  nat.nat
+                                  (times.times a (exp.exp a i))
+                                  (__:(cts.Term cts.zero nat.nat) =>
+                                   eq.eq
+                                     cts.zero
+                                     nat.nat
+                                     (times.times __ (f i))
+                                     (times.times (times.times a (f i)) (exp.exp a i)))
+                                  (rewrite_r.rewrite_r
+                                     cts.zero
+                                     cts.zero
+                                     nat.nat
+                                     (times.times (f i) (times.times a (exp.exp a i)))
+                                     (__:(cts.Term cts.zero nat.nat) =>
+                                      eq.eq
+                                        cts.zero
+                                        nat.nat
+                                        __
+                                        (times.times (times.times a (f i)) (exp.exp a i)))
+                                     (rewrite_r.rewrite_r
+                                        cts.zero
+                                        cts.zero
+                                        nat.nat
+                                        (times.times a (times.times (f i) (exp.exp a i)))
+                                        (__:(cts.Term cts.zero nat.nat) =>
+                                         eq.eq
+                                           cts.zero
+                                           nat.nat
+                                           __
+                                           (times.times
+                                              (times.times a (f i))
+                                              (exp.exp a i)))
+                                        (rewrite_r.rewrite_r
+                                           cts.zero
+                                           cts.zero
+                                           nat.nat
+                                           (times.times
+                                              (exp.exp a i)
+                                              (times.times a (f i)))
+                                           (__:(cts.Term cts.zero nat.nat) =>
+                                            eq.eq
+                                              cts.zero
+                                              nat.nat
+                                              (times.times
+                                                 a
+                                                 (times.times (f i) (exp.exp a i)))
+                                              __)
+                                           (rewrite_r.rewrite_r
+                                              cts.zero
+                                              cts.zero
+                                              nat.nat
+                                              (times.times
+                                                 a
+                                                 (times.times (exp.exp a i) (f i)))
+                                              (__:(cts.Term
+                                                     cts.zero
+                                                     nat.nat) =>
+                                               eq.eq
+                                                 cts.zero
+                                                 nat.nat
+                                                 (times.times
+                                                    a
+                                                    (times.times (f i) (exp.exp a i)))
+                                                 __)
+                                              (rewrite_r.rewrite_r
+                                                 cts.zero
+                                                 cts.zero
+                                                 nat.nat
+                                                 (times.times (f i) (exp.exp a i))
+                                                 (__:(cts.Term
+                                                        cts.zero
+                                                        nat.nat) =>
+                                                  eq.eq
+                                                    cts.zero
+                                                    nat.nat
+                                                    (times.times
+                                                       a
+                                                       (times.times
+                                                          (f i)
+                                                          (exp.exp a i)))
+                                                    (times.times a __))
+                                                 (refl.refl
+                                                    cts.zero
+                                                    nat.nat
+                                                    (times.times
+                                                       a
+                                                       (times.times
+                                                          (f i)
+                                                          (exp.exp a i))))
+                                                 (times.times (exp.exp a i) (f i))
+                                                 (commutative_times.commutative_times
+                                                    (exp.exp a i)
+                                                    (f i)))
+                                              (times.times
+                                                 (exp.exp a i)
+                                                 (times.times a (f i)))
+                                              (times_times.times_times
+                                                 (exp.exp a i)
+                                                 a
+                                                 (f i)))
+                                           (times.times
+                                              (times.times a (f i))
+                                              (exp.exp a i))
+                                           (commutative_times.commutative_times
+                                              (times.times a (f i))
+                                              (exp.exp a i)))
+                                        (times.times (f i) (times.times a (exp.exp a i)))
+                                        (times_times.times_times (f i) a (exp.exp a i)))
+                                     (times.times (times.times a (exp.exp a i)) (f i))
+                                     (commutative_times.commutative_times
+                                        (times.times a (exp.exp a i))
+                                        (f i)))
+                                  (times.times (exp.exp a i) a)
+                                  (commutative_times.commutative_times (exp.exp a i) a)))))
+                      (refl.refl
+                         cts.zero
+                         nat.nat
+                         (bigop.bigop
+                            cts.zero
+                            nat.nat
+                            i
+                            (i0:(cts.Term cts.zero nat.nat) => true.true)
+                            (S.S O.O)
+                            times.times
+                            (i0:(cts.Term cts.zero nat.nat) => f i0))))
+                   (times.times
+                      (times.times a (f i))
+                      (times.times
+                         (exp.exp a i)
+                         (bigop.bigop
+                            cts.zero
+                            nat.nat
+                            i
+                            (i0:(cts.Term cts.zero nat.nat) => true.true)
+                            (S.S O.O)
+                            times.times
+                            (i0:(cts.Term cts.zero nat.nat) => f i0))))
+                   (associative_times.associative_times
+                      (times.times a (f i))
+                      (exp.exp a i)
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         i
+                         (i0:(cts.Term cts.zero nat.nat) => true.true)
+                         (S.S O.O)
+                         times.times
+                         (i0:(cts.Term cts.zero nat.nat) => f i0))))
+                (times.times
+                   (exp.exp a (S.S i))
+                   (times.times
+                      (f i)
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         i
+                         (i0:(cts.Term cts.zero nat.nat) => true.true)
+                         (S.S O.O)
+                         times.times
+                         (i0:(cts.Term cts.zero nat.nat) => f i0))))
+                (associative_times.associative_times
+                   (exp.exp a (S.S i))
+                   (f i)
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      i
+                      (i0:(cts.Term cts.zero nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i0:(cts.Term cts.zero nat.nat) => f i0))))
+             (bigop.bigop
+                cts.zero
+                nat.nat
+                i
+                (i0:(cts.Term cts.zero nat.nat) => true.true)
+                (S.S O.O)
+                times.times
+                (i0:(cts.Term cts.zero nat.nat) => times.times a (f i0)))
+             Hind)
+          (bigop.bigop
+             cts.zero
+             nat.nat
+             (S.S i)
+             (i0:(cts.Term cts.zero nat.nat) => true.true)
+             (S.S O.O)
+             times.times
+             (i0:(cts.Term cts.zero nat.nat) => times.times a (f i0)))
+          (bigop_Strue.bigop_Strue
+             cts.zero
+             nat.nat
+             i
+             (__:(cts.Term cts.zero nat.nat) => true.true)
+             (S.S O.O)
+             times.times
+             (__:(cts.Term cts.zero nat.nat) => times.times a (f __))
+             (refl.refl cts.zero bool.bool true.true)))
+       (bigop.bigop
+          cts.zero
+          nat.nat
+          (S.S i)
+          (i0:(cts.Term cts.zero nat.nat) => true.true)
+          (S.S O.O)
+          times.times
+          (i0:(cts.Term cts.zero nat.nat) => f i0))
+       (bigop_Strue.bigop_Strue
+          cts.zero
+          nat.nat
+          i
+          (__:(cts.Term cts.zero nat.nat) => true.true)
+          (S.S O.O)
+          times.times
+          f
+          (refl.refl cts.zero bool.bool true.true)))
+    n.
+

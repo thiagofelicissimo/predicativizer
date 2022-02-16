@@ -1,0 +1,110 @@
+def eq_invert_permut :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          cts.zero
+          l?5
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x0 => nat.nat))
+             (x0 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x1 => nat.nat)))
+          (invert_permut.invert_permut x)
+          (filter_nat_type.filter_nat_type
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 => nat.nat))
+                (x0 =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x1 => nat.nat)))
+             invert_permut_body.invert_permut_body
+             x)))
+  := l?5 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  equal_leibniz.equal_leibniz
+    cts.zero
+    l?5
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 => nat.nat)))
+    (invert_permut.invert_permut n)
+    (filter_nat_type.filter_nat_type
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x => nat.nat))
+          (x =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat)))
+       invert_permut_body.invert_permut_body
+       n)
+    (axiom_invert_permut.axiom_invert_permut n).
+

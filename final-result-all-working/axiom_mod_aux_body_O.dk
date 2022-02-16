@@ -1,0 +1,23 @@
+axiom_mod_aux_body_O : 
+  cts.Term
+    cts.zero
+    (equal.equal
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat)))
+       (mod_aux_body.mod_aux_body O.O)
+       (m:(cts.Term cts.zero nat.nat) =>
+        n:(cts.Term cts.zero nat.nat) => m)).
+

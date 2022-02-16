@@ -1,0 +1,30 @@
+def eq_minus_body_O :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (leibniz.leibniz
+       cts.zero
+       l?2
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))
+       (minus_body.minus_body O.O)
+       (m:(cts.Term cts.zero nat.nat) => O.O))
+  := l?2 =>
+  equal_leibniz.equal_leibniz
+    cts.zero
+    l?2
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => nat.nat))
+    (minus_body.minus_body O.O)
+    (m:(cts.Term cts.zero nat.nat) => O.O)
+    axiom_minus_body_O.axiom_minus_body_O.
+

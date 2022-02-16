@@ -1,0 +1,11 @@
+plus : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x0 => nat.nat))).
+

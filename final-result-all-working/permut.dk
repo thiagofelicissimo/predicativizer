@@ -1,0 +1,42 @@
+def permut :  (l?10 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?10)
+    (cts.prod
+       cts.zero
+       (cts.succ l?10)
+       (cts.succ l?10)
+       cts.I
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.succ l?10)
+          (cts.succ l?10)
+          cts.I
+          nat.nat
+          (x0 => cts.univ l?10 (cts.succ l?10) cts.I)))
+  := l?10 =>
+  f:(cts.Term
+       cts.zero
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  And.And
+    cts.zero
+    cts.zero
+    l?10
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (le.le x m)
+          (x0 => le.le (f x) m)))
+    (injn.injn f m).
+

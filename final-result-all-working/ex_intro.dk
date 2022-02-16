@@ -1,0 +1,38 @@
+ex_intro :  (l?20 : cts.Sort) -> (l?17 : cts.Sort) -> (l?18 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?20) (cts.max (cts.max l?20 (cts.succ l?17)) (cts.max l?20 (cts.max l?17 l?18))))
+    (cts.prod
+       (cts.succ l?20)
+       (cts.max (cts.max l?20 (cts.succ l?17)) (cts.max l?20 (cts.max l?17 l?18)))
+       (cts.max (cts.succ l?20) (cts.max (cts.max l?20 (cts.succ l?17)) (cts.max l?20 (cts.max l?17 l?18))))
+       cts.I
+       (cts.univ l?20 (cts.succ l?20) cts.I)
+       (x =>
+        cts.prod
+          (cts.max l?20 (cts.succ l?17))
+          (cts.max l?20 (cts.max l?17 l?18))
+          (cts.max (cts.max l?20 (cts.succ l?17)) (cts.max l?20 (cts.max l?17 l?18)))
+          cts.I
+          (cts.prod
+             l?20
+             (cts.succ l?17)
+             (cts.max l?20 (cts.succ l?17))
+             cts.I
+             x
+             (x0 => cts.univ l?17 (cts.succ l?17) cts.I))
+          (x0 =>
+           cts.prod
+             l?20
+             (cts.max l?17 l?18)
+             (cts.max l?20 (cts.max l?17 l?18))
+             cts.I
+             x
+             (x1 =>
+              cts.prod
+                l?17
+                l?18
+                (cts.max l?17 l?18)
+                cts.I
+                (x0 x1)
+                (x2 => ex.ex l?20 l?17 l?18 x x0))))).
+

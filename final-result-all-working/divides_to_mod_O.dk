@@ -1,0 +1,54 @@
+def divides_to_mod_O :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             (lt.lt O.O x)
+             (x1 =>
+              cts.prod
+                l?0
+                cts.zero
+                l?0
+                cts.I
+                (divides.divides l?0 x x0)
+                (x2 => eq.eq cts.zero nat.nat (mod.mod x0 x) O.O)))))
+  := l?0 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  posn:(cts.Term cts.zero (lt.lt O.O n)) =>
+  divnm:(cts.Term l?0 (divides.divides l?0 n m)) =>
+  div_mod_spec_to_eq2.div_mod_spec_to_eq2
+    cts.zero
+    cts.zero
+    m
+    n
+    (div.div m n)
+    (mod.mod m n)
+    (div.div m n)
+    O.O
+    (div_mod_spec_div_mod.div_mod_spec_div_mod cts.zero m n posn)
+    (divides_to_div_mod_spec.divides_to_div_mod_spec
+       l?0
+       cts.zero
+       n
+       m
+       posn
+       divnm).
+

@@ -1,0 +1,93 @@
+def le_times : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (le.le x x0)
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (le.le x1 x2)
+                      (x4 => le.le (times.times x x1) (times.times x0 x2))))))))
+  :=
+  n1:(cts.Term cts.zero nat.nat) =>
+  n2:(cts.Term cts.zero nat.nat) =>
+  m1:(cts.Term cts.zero nat.nat) =>
+  m2:(cts.Term cts.zero nat.nat) =>
+  len:(cts.Term cts.zero (le.le n1 n2)) =>
+  lem:(cts.Term cts.zero (le.le m1 m2)) =>
+  transitive_le.transitive_le
+    (times.times n1 m1)
+    (times.times n1 m2)
+    (times.times n2 m2)
+    (monotonic_le_times_r.monotonic_le_times_r n1 m1 m2 lem)
+    (eq_coerc.eq_coerc
+       cts.zero
+       (le.le (times.times m2 n1) (times.times m2 n2))
+       (le.le (times.times n1 m2) (times.times n2 m2))
+       (monotonic_le_times_r.monotonic_le_times_r m2 n1 n2 len)
+       (rewrite_r.rewrite_r
+          (cts.succ cts.zero)
+          cts.zero
+          nat.nat
+          (times.times n1 m2)
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq
+             (cts.succ cts.zero)
+             (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+             (le.le __ (times.times m2 n2))
+             (le.le (times.times n1 m2) (times.times n2 m2)))
+          (rewrite_r.rewrite_r
+             (cts.succ cts.zero)
+             cts.zero
+             nat.nat
+             (times.times n2 m2)
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                (cts.succ cts.zero)
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (le.le (times.times n1 m2) __)
+                (le.le (times.times n1 m2) (times.times n2 m2)))
+             (refl.refl
+                (cts.succ cts.zero)
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (le.le (times.times n1 m2) (times.times n2 m2)))
+             (times.times m2 n2)
+             (commutative_times.commutative_times m2 n2))
+          (times.times m2 n1)
+          (commutative_times.commutative_times m2 n1))).
+

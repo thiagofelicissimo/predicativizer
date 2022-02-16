@@ -1,0 +1,16 @@
+axiom_fact : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        equal.equal
+          cts.zero
+          nat.nat
+          (fact.fact x)
+          (filter_nat_type.filter_nat_type cts.zero nat.nat fact_body.fact_body x))).
+

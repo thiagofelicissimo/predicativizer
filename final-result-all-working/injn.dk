@@ -1,0 +1,58 @@
+def injn : 
+  cts.Term
+    (cts.succ cts.zero)
+    (cts.prod
+       cts.zero
+       (cts.succ cts.zero)
+       (cts.succ cts.zero)
+       cts.I
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.succ cts.zero)
+          (cts.succ cts.zero)
+          cts.I
+          nat.nat
+          (x0 => cts.univ cts.zero (cts.succ cts.zero) cts.I)))
+  :=
+  f:(cts.Term
+       cts.zero
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  cts.prod
+    cts.zero
+    cts.zero
+    cts.zero
+    cts.I
+    nat.nat
+    (x =>
+     cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x0 =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (le.le x n)
+          (x1 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (le.le x0 n)
+             (x2 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (eq.eq cts.zero nat.nat (f x) (f x0))
+                (x3 => eq.eq cts.zero nat.nat x x0))))).
+

@@ -1,0 +1,38 @@
+def eq_times_body_S :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          cts.zero
+          l?5
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat))
+          (times_body.times_body (S.S x))
+          (m:(cts.Term cts.zero nat.nat) => plus.plus m (times.times x m))))
+  := l?5 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  equal_leibniz.equal_leibniz
+    cts.zero
+    l?5
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => nat.nat))
+    (times_body.times_body (S.S n))
+    (m:(cts.Term cts.zero nat.nat) => plus.plus m (times.times n m))
+    (axiom_times_body_S.axiom_times_body_S n).
+

@@ -1,0 +1,18 @@
+Aop :  (l?6 : cts.Sort) -> (l?9 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?6) (cts.max l?6 (cts.succ l?9)))
+    (cts.prod
+       (cts.succ l?6)
+       (cts.max l?6 (cts.succ l?9))
+       (cts.max (cts.succ l?6) (cts.max l?6 (cts.succ l?9)))
+       cts.I
+       (cts.univ l?6 (cts.succ l?6) cts.I)
+       (x =>
+        cts.prod
+          l?6
+          (cts.succ l?9)
+          (cts.max l?6 (cts.succ l?9))
+          cts.I
+          x
+          (x0 => cts.univ l?9 (cts.succ l?9) cts.I))).
+

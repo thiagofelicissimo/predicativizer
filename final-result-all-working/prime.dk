@@ -1,0 +1,39 @@
+def prime :  (l?4 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?4)
+    (cts.prod
+       cts.zero
+       (cts.succ l?4)
+       (cts.succ l?4)
+       cts.I
+       nat.nat
+       (x => cts.univ l?4 (cts.succ l?4) cts.I))
+  := l?4 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  And.And
+    cts.zero
+    cts.zero
+    l?4
+    (lt.lt (S.S O.O) n)
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (divides.divides cts.zero x n)
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (lt.lt (S.S O.O) x)
+             (x1 => eq.eq cts.zero nat.nat x n)))).
+

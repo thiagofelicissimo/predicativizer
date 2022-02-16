@@ -1,0 +1,202 @@
+def eq_bigop_body_O :  (l?7 : cts.Sort) -> (l?6 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?6) (cts.max (cts.max l?6 (cts.succ l?7)) l?7))
+    (cts.prod
+       (cts.succ l?6)
+       (cts.max (cts.max l?6 (cts.succ l?7)) l?7)
+       (cts.max (cts.succ l?6) (cts.max (cts.max l?6 (cts.succ l?7)) l?7))
+       cts.I
+       (cts.univ l?6 (cts.succ l?6) cts.I)
+       (x =>
+        leibniz.leibniz
+          l?6
+          l?7
+          (cts.prod
+             cts.zero
+             l?6
+             l?6
+             cts.I
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x0 => bool.bool))
+             (x0 =>
+              cts.prod
+                l?6
+                l?6
+                l?6
+                cts.I
+                x
+                (x1 =>
+                 cts.prod
+                   l?6
+                   l?6
+                   l?6
+                   cts.I
+                   (cts.prod
+                      l?6
+                      l?6
+                      l?6
+                      cts.I
+                      x
+                      (x2 =>
+                       cts.prod
+                         l?6
+                         l?6
+                         l?6
+                         cts.I
+                         x
+                         (x3 => x)))
+                   (x2 =>
+                    cts.prod
+                      l?6
+                      l?6
+                      l?6
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?6
+                         l?6
+                         cts.I
+                         nat.nat
+                         (x3 => x))
+                      (x3 => x)))))
+          (bigop_body.bigop_body l?6 x O.O)
+          (p:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 => bool.bool))) =>
+           nil:(cts.Term l?6 x) =>
+           op:(cts.Term
+                 l?6
+                 (cts.prod
+                    l?6
+                    l?6
+                    l?6
+                    cts.I
+                    x
+                    (x0 =>
+                     cts.prod
+                       l?6
+                       l?6
+                       l?6
+                       cts.I
+                       x
+                       (x1 => x)))) =>
+           f:(cts.Term
+                l?6
+                (cts.prod
+                   cts.zero
+                   l?6
+                   l?6
+                   cts.I
+                   nat.nat
+                   (x0 => x))) =>
+           nil)))
+  := l?7 => l?6 =>
+  H:(cts.Term
+       (cts.succ l?6)
+       (cts.univ l?6 (cts.succ l?6) cts.I)) =>
+  equal_leibniz.equal_leibniz
+    l?6
+    l?7
+    (cts.prod
+       cts.zero
+       l?6
+       l?6
+       cts.I
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => bool.bool))
+       (x =>
+        cts.prod
+          l?6
+          l?6
+          l?6
+          cts.I
+          H
+          (x0 =>
+           cts.prod
+             l?6
+             l?6
+             l?6
+             cts.I
+             (cts.prod
+                l?6
+                l?6
+                l?6
+                cts.I
+                H
+                (x1 =>
+                 cts.prod
+                   l?6
+                   l?6
+                   l?6
+                   cts.I
+                   H
+                   (x2 => H)))
+             (x1 =>
+              cts.prod
+                l?6
+                l?6
+                l?6
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?6
+                   l?6
+                   cts.I
+                   nat.nat
+                   (x2 => H))
+                (x2 => H)))))
+    (bigop_body.bigop_body l?6 H O.O)
+    (p:(cts.Term
+          cts.zero
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x => bool.bool))) =>
+     nil:(cts.Term l?6 H) =>
+     op:(cts.Term
+           l?6
+           (cts.prod
+              l?6
+              l?6
+              l?6
+              cts.I
+              H
+              (x =>
+               cts.prod
+                 l?6
+                 l?6
+                 l?6
+                 cts.I
+                 H
+                 (x0 => H)))) =>
+     f:(cts.Term
+          l?6
+          (cts.prod
+             cts.zero
+             l?6
+             l?6
+             cts.I
+             nat.nat
+             (x => H))) =>
+     nil)
+    (axiom_bigop_body_O.axiom_bigop_body_O l?6 H).
+

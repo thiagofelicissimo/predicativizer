@@ -1,0 +1,82 @@
+def eq_div_O : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (lt.lt x x0)
+             (x1 => eq.eq cts.zero nat.nat (div.div x x0) O.O))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  ltnm:(cts.Term cts.zero (lt.lt n m)) =>
+  div_mod_spec_to_eq.div_mod_spec_to_eq
+    cts.zero
+    cts.zero
+    n
+    m
+    (div.div n m)
+    (mod.mod n m)
+    O.O
+    n
+    (div_mod_spec_div_mod.div_mod_spec_div_mod cts.zero n m (ltn_to_ltO.ltn_to_ltO n m ltnm))
+    (div_mod_spec_intro.div_mod_spec_intro
+       cts.zero
+       n
+       m
+       O.O
+       n
+       ltnm
+       (rewrite_r.rewrite_r
+          cts.zero
+          cts.zero
+          nat.nat
+          (times.times m O.O)
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq cts.zero nat.nat n (plus.plus __ n))
+          (rewrite_l.rewrite_l
+             cts.zero
+             cts.zero
+             nat.nat
+             O.O
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq cts.zero nat.nat n (plus.plus __ n))
+             (rewrite_r.rewrite_r
+                cts.zero
+                cts.zero
+                nat.nat
+                (plus.plus n O.O)
+                (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat n __)
+                (rewrite_l.rewrite_l
+                   cts.zero
+                   cts.zero
+                   nat.nat
+                   n
+                   (__:(cts.Term cts.zero nat.nat) =>
+                    eq.eq cts.zero nat.nat n __)
+                   (refl.refl cts.zero nat.nat n)
+                   (plus.plus n O.O)
+                   (plus_n_O.plus_n_O n))
+                (plus.plus O.O n)
+                (commutative_plus.commutative_plus O.O n))
+             (times.times m O.O)
+             (times_n_O.times_n_O m))
+          (times.times O.O m)
+          (commutative_times.commutative_times O.O m))).
+

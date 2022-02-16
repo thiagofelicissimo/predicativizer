@@ -1,0 +1,65 @@
+def ltn_to_ltO : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (lt.lt x x0)
+             (x1 => lt.lt O.O x0))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  auto:(cts.Term cts.zero (lt.lt n m)) =>
+  lt_to_le_to_lt.lt_to_le_to_lt
+    O.O
+    (S.S n)
+    m
+    (eq_coerc.eq_coerc
+       cts.zero
+       (le.le (S.S O.O) (plus.plus n (S.S O.O)))
+       (le.le (S.S O.O) (S.S n))
+       (le_plus_n.le_plus_n n (S.S O.O))
+       (rewrite_l.rewrite_l
+          (cts.succ cts.zero)
+          cts.zero
+          nat.nat
+          (S.S n)
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq
+             (cts.succ cts.zero)
+             (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+             (le.le (S.S O.O) __)
+             (le.le (S.S O.O) (S.S n)))
+          (refl.refl
+             (cts.succ cts.zero)
+             (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+             (le.le (S.S O.O) (S.S n)))
+          (plus.plus n (S.S O.O))
+          (rewrite_r.rewrite_r
+             cts.zero
+             cts.zero
+             nat.nat
+             (plus.plus n O.O)
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq cts.zero nat.nat (S.S __) (plus.plus n (S.S O.O)))
+             (plus_n_Sm.plus_n_Sm n O.O)
+             n
+             (plus_n_O.plus_n_O n))))
+    auto.
+

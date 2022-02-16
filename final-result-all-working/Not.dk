@@ -1,0 +1,11 @@
+Not :  (l?4 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?4)
+    (cts.prod
+       (cts.succ l?4)
+       (cts.succ l?4)
+       (cts.succ l?4)
+       cts.I
+       (cts.univ l?4 (cts.succ l?4) cts.I)
+       (x => cts.univ l?4 (cts.succ l?4) cts.I)).
+

@@ -1,0 +1,46 @@
+def S_pred : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (lt.lt O.O x)
+          (x0 => eq.eq cts.zero nat.nat (S.S (pred.pred x)) x)))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  posn:(cts.Term cts.zero (lt.lt O.O n)) =>
+  match_le_prop.match_le_prop
+    cts.zero
+    (S.S O.O)
+    (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat (S.S (pred.pred __)) __)
+    (rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       O.O
+       (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat (S.S __) (S.S O.O))
+       (refl.refl cts.zero nat.nat (S.S O.O))
+       (pred.pred (S.S O.O))
+       (pred_Sn.pred_Sn O.O))
+    (m:(cts.Term cts.zero nat.nat) =>
+     rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       m
+       (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat (S.S __) (S.S m))
+       (refl.refl cts.zero nat.nat (S.S m))
+       (pred.pred (S.S m))
+       (pred_Sn.pred_Sn m))
+    n
+    posn.
+

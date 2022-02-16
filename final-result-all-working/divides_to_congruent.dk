@@ -1,0 +1,105 @@
+def divides_to_congruent :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                l?0
+                l?0
+                cts.I
+                (lt.lt O.O x1)
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   l?0
+                   l?0
+                   cts.I
+                   (le.le x0 x)
+                   (x3 =>
+                    cts.prod
+                      l?0
+                      cts.zero
+                      l?0
+                      cts.I
+                      (divides.divides l?0 x1 (minus.minus x x0))
+                      (x4 => congruent.congruent x x0 x1)))))))
+  := l?0 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  p:(cts.Term cts.zero nat.nat) =>
+  posp:(cts.Term cts.zero (lt.lt O.O p)) =>
+  lemn:(cts.Term cts.zero (le.le m n)) =>
+  _clearme:(cts.Term
+              l?0
+              (divides.divides l?0 p (minus.minus n m))) =>
+  match_divides_prop.match_divides_prop
+    cts.zero
+    l?0
+    p
+    (minus.minus n m)
+    (congruent.congruent n m p)
+    (q:(cts.Term cts.zero nat.nat) =>
+     Hdiv:(cts.Term
+             cts.zero
+             (eq.eq cts.zero nat.nat (minus.minus n m) (times.times p q))) =>
+     eq_times_plus_to_congruent.eq_times_plus_to_congruent
+       n
+       m
+       p
+       q
+       posp
+       (eq_ind_r.eq_ind_r
+          cts.zero
+          cts.zero
+          nat.nat
+          (plus.plus m (times.times q p))
+          (x:(cts.Term cts.zero nat.nat) =>
+           eq.eq cts.zero nat.nat n x)
+          (minus_to_plus.minus_to_plus
+             n
+             m
+             (times.times q p)
+             lemn
+             (rewrite_r.rewrite_r
+                cts.zero
+                cts.zero
+                nat.nat
+                (times.times p q)
+                (__:(cts.Term cts.zero nat.nat) =>
+                 eq.eq cts.zero nat.nat __ (times.times q p))
+                (rewrite_r.rewrite_r
+                   cts.zero
+                   cts.zero
+                   nat.nat
+                   (times.times p q)
+                   (__:(cts.Term cts.zero nat.nat) =>
+                    eq.eq cts.zero nat.nat (times.times p q) __)
+                   (refl.refl cts.zero nat.nat (times.times p q))
+                   (times.times q p)
+                   (commutative_times.commutative_times q p))
+                (minus.minus n m)
+                Hdiv))
+          (plus.plus (times.times q p) m)
+          (commutative_plus.commutative_plus (times.times q p) m)))
+    _clearme.
+

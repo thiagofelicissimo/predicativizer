@@ -1,0 +1,64 @@
+def injective_transpose : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           injective_.injective_
+             cts.zero
+             cts.zero
+             nat.nat
+             nat.nat
+             (transpose.transpose x x0))))
+  :=
+  i:(cts.Term cts.zero nat.nat) =>
+  j:(cts.Term cts.zero nat.nat) =>
+  x:(cts.Term cts.zero nat.nat) =>
+  y:(cts.Term cts.zero nat.nat) =>
+  auto:(cts.Term
+          cts.zero
+          (eq.eq
+             cts.zero
+             nat.nat
+             (transpose.transpose i j x)
+             (transpose.transpose i j y))) =>
+  rewrite_r.rewrite_r
+    cts.zero
+    cts.zero
+    nat.nat
+    y
+    (__:(cts.Term cts.zero nat.nat) =>
+     eq.eq cts.zero nat.nat __ y)
+    (refl.refl cts.zero nat.nat y)
+    x
+    (rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       (transpose.transpose i j (transpose.transpose i j x))
+       (__:(cts.Term cts.zero nat.nat) =>
+        eq.eq cts.zero nat.nat __ y)
+       (rewrite_r.rewrite_r
+          cts.zero
+          cts.zero
+          nat.nat
+          (transpose.transpose i j y)
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq cts.zero nat.nat (transpose.transpose i j __) y)
+          (transpose_transpose.transpose_transpose i j y)
+          (transpose.transpose i j x)
+          auto)
+       x
+       (transpose_transpose.transpose_transpose i j x)).
+

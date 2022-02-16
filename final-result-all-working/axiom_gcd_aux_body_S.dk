@@ -1,0 +1,36 @@
+axiom_gcd_aux_body_S : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        equal.equal
+          cts.zero
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x1 => nat.nat)))
+          (gcd_aux_body.gcd_aux_body (S.S x))
+          (m:(cts.Term cts.zero nat.nat) =>
+           n:(cts.Term cts.zero nat.nat) =>
+           match_bool_type.match_bool_type
+             cts.zero
+             nat.nat
+             n
+             (gcd_aux.gcd_aux x n (mod.mod m n))
+             (dividesb.dividesb n m)))).
+

@@ -1,0 +1,83 @@
+def distributive_times_plus_r : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x1 =>
+              eq.eq
+                cts.zero
+                nat.nat
+                (times.times (plus.plus x0 x1) x)
+                (plus.plus (times.times x0 x) (times.times x1 x))))))
+  :=
+  a:(cts.Term cts.zero nat.nat) =>
+  b:(cts.Term cts.zero nat.nat) =>
+  c:(cts.Term cts.zero nat.nat) =>
+  rewrite_r.rewrite_r
+    cts.zero
+    cts.zero
+    nat.nat
+    (times.times a (plus.plus b c))
+    (__:(cts.Term cts.zero nat.nat) =>
+     eq.eq
+       cts.zero
+       nat.nat
+       __
+       (plus.plus (times.times b a) (times.times c a)))
+    (rewrite_r.rewrite_r
+       cts.zero
+       cts.zero
+       nat.nat
+       (times.times a b)
+       (__:(cts.Term cts.zero nat.nat) =>
+        eq.eq
+          cts.zero
+          nat.nat
+          (times.times a (plus.plus b c))
+          (plus.plus __ (times.times c a)))
+       (rewrite_r.rewrite_r
+          cts.zero
+          cts.zero
+          nat.nat
+          (times.times a c)
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq
+             cts.zero
+             nat.nat
+             (times.times a (plus.plus b c))
+             (plus.plus (times.times a b) __))
+          (rewrite_l.rewrite_l
+             cts.zero
+             cts.zero
+             nat.nat
+             (times.times a (plus.plus b c))
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq cts.zero nat.nat (times.times a (plus.plus b c)) __)
+             (refl.refl cts.zero nat.nat (times.times a (plus.plus b c)))
+             (plus.plus (times.times a b) (times.times a c))
+             (distributive_times_plus.distributive_times_plus a b c))
+          (times.times c a)
+          (commutative_times.commutative_times c a))
+       (times.times b a)
+       (commutative_times.commutative_times b a))
+    (times.times (plus.plus b c) a)
+    (commutative_times.commutative_times (plus.plus b c) a).
+

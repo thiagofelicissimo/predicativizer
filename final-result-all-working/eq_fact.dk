@@ -1,0 +1,26 @@
+def eq_fact :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          cts.zero
+          l?5
+          nat.nat
+          (fact.fact x)
+          (filter_nat_type.filter_nat_type cts.zero nat.nat fact_body.fact_body x)))
+  := l?5 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  equal_leibniz.equal_leibniz
+    cts.zero
+    l?5
+    nat.nat
+    (fact.fact n)
+    (filter_nat_type.filter_nat_type cts.zero nat.nat fact_body.fact_body n)
+    (axiom_fact.axiom_fact n).
+

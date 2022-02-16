@@ -1,0 +1,65 @@
+def transpose_i_j_i : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 => eq.eq cts.zero nat.nat (transpose.transpose x x0 x) x0)))
+  :=
+  i:(cts.Term cts.zero nat.nat) =>
+  j:(cts.Term cts.zero nat.nat) =>
+  eq_ind_r.eq_ind_r
+    cts.zero
+    cts.zero
+    bool.bool
+    true.true
+    (x:(cts.Term cts.zero bool.bool) =>
+     eq.eq
+       cts.zero
+       nat.nat
+       (match_bool_type.match_bool_type
+          cts.zero
+          nat.nat
+          j
+          (match_bool_type.match_bool_type cts.zero nat.nat i i (eqb.eqb i j))
+          x)
+       j)
+    (eq_match_bool_type_true.eq_match_bool_type_true
+       cts.zero
+       cts.zero
+       nat.nat
+       j
+       (match_bool_type.match_bool_type cts.zero nat.nat i i (eqb.eqb i j))
+       (y:(cts.Term cts.zero nat.nat) =>
+        eq.eq
+          cts.zero
+          nat.nat
+          (match_bool_type.match_bool_type
+             cts.zero
+             nat.nat
+             j
+             (match_bool_type.match_bool_type cts.zero nat.nat i i (eqb.eqb i j))
+             true.true)
+          y)
+       (refl.refl
+          cts.zero
+          nat.nat
+          (match_bool_type.match_bool_type
+             cts.zero
+             nat.nat
+             j
+             (match_bool_type.match_bool_type cts.zero nat.nat i i (eqb.eqb i j))
+             true.true)))
+    (eqb.eqb i i)
+    (eqb_n_n.eqb_n_n i).
+

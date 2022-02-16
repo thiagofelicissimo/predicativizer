@@ -1,0 +1,29 @@
+axiom_filter_nat_type_O :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (cts.prod
+       (cts.succ l?2)
+       l?2
+       (cts.succ l?2)
+       cts.I
+       (cts.univ l?2 (cts.succ l?2) cts.I)
+       (x =>
+        cts.prod
+          l?2
+          l?2
+          l?2
+          cts.I
+          (cts.prod
+             cts.zero
+             l?2
+             l?2
+             cts.I
+             nat.nat
+             (x0 => x))
+          (x0 =>
+           equal.equal
+             l?2
+             x
+             (filter_nat_type.filter_nat_type l?2 x x0 O.O)
+             (x0 O.O)))).
+

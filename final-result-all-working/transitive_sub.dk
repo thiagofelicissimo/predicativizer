@@ -1,0 +1,487 @@
+def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort) ->
+  cts.Term
+    (cts.max l?70 (cts.max l?74 l?75))
+    (cts.prod
+       cts.zero
+       (cts.max l?70 (cts.max l?74 l?75))
+       (cts.max l?70 (cts.max l?74 l?75))
+       cts.I
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.max l?70 (cts.max l?74 l?75))
+          (cts.max l?70 (cts.max l?74 l?75))
+          cts.I
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat))
+          (x0 =>
+           cts.prod
+             cts.zero
+             (cts.max l?70 (cts.max l?74 l?75))
+             (cts.max l?70 (cts.max l?74 l?75))
+             cts.I
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x1 => nat.nat))
+             (x1 =>
+              cts.prod
+                cts.zero
+                (cts.max l?70 (cts.max l?74 l?75))
+                (cts.max l?70 (cts.max l?74 l?75))
+                cts.I
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x2 => nat.nat))
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   (cts.max l?70 (cts.max l?74 l?75))
+                   (cts.max l?70 (cts.max l?74 l?75))
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      (cts.max l?70 (cts.max l?74 l?75))
+                      (cts.max l?70 (cts.max l?74 l?75))
+                      cts.I
+                      nat.nat
+                      (x4 =>
+                       cts.prod
+                         cts.zero
+                         (cts.max l?70 (cts.max l?74 l?75))
+                         (cts.max l?70 (cts.max l?74 l?75))
+                         cts.I
+                         nat.nat
+                         (x5 =>
+                          cts.prod
+                            cts.zero
+                            (cts.max l?70 (cts.max l?74 l?75))
+                            (cts.max l?70 (cts.max l?74 l?75))
+                            cts.I
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x6 => bool.bool))
+                            (x6 =>
+                             cts.prod
+                               cts.zero
+                               (cts.max l?70 (cts.max l?74 l?75))
+                               (cts.max l?70 (cts.max l?74 l?75))
+                               cts.I
+                               (cts.prod
+                                  cts.zero
+                                  cts.zero
+                                  cts.zero
+                                  cts.I
+                                  nat.nat
+                                  (x7 => bool.bool))
+                               (x7 =>
+                                cts.prod
+                                  cts.zero
+                                  (cts.max l?70 (cts.max l?74 l?75))
+                                  (cts.max l?70 (cts.max l?74 l?75))
+                                  cts.I
+                                  (cts.prod
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
+                                     cts.I
+                                     nat.nat
+                                     (x8 => bool.bool))
+                                  (x8 =>
+                                   cts.prod
+                                     cts.zero
+                                     (cts.max l?70 (cts.max l?74 l?75))
+                                     (cts.max l?70 (cts.max l?74 l?75))
+                                     cts.I
+                                     (cts.prod
+                                        cts.zero
+                                        cts.zero
+                                        cts.zero
+                                        cts.I
+                                        nat.nat
+                                        (x9 => nat.nat))
+                                     (x9 =>
+                                      cts.prod
+                                        cts.zero
+                                        (cts.max l?70 (cts.max l?74 l?75))
+                                        (cts.max l?70 (cts.max l?74 l?75))
+                                        cts.I
+                                        (cts.prod
+                                           cts.zero
+                                           cts.zero
+                                           cts.zero
+                                           cts.I
+                                           nat.nat
+                                           (x10 => nat.nat))
+                                        (x10 =>
+                                         cts.prod
+                                           cts.zero
+                                           (cts.max l?70 (cts.max l?74 l?75))
+                                           (cts.max l?70 (cts.max l?74 l?75))
+                                           cts.I
+                                           (cts.prod
+                                              cts.zero
+                                              cts.zero
+                                              cts.zero
+                                              cts.I
+                                              nat.nat
+                                              (x11 => nat.nat))
+                                           (x11 =>
+                                            cts.prod
+                                              l?70
+                                              (cts.max l?74 l?75)
+                                              (cts.max l?70 (cts.max l?74 l?75))
+                                              cts.I
+                                              (sub_hk.sub_hk
+                                                 l?70
+                                                 x
+                                                 x0
+                                                 x3
+                                                 x4
+                                                 x6
+                                                 x7
+                                                 x9
+                                                 x10)
+                                              (x12 =>
+                                               cts.prod
+                                                 l?74
+                                                 l?75
+                                                 (cts.max l?74 l?75)
+                                                 cts.I
+                                                 (sub_hk.sub_hk
+                                                    l?74
+                                                    x1
+                                                    x2
+                                                    x4
+                                                    x5
+                                                    x7
+                                                    x8
+                                                    x10
+                                                    x11)
+                                                 (x13 =>
+                                                  sub_hk.sub_hk
+                                                    l?75
+                                                    (x14:(cts.Term
+                                                            cts.zero
+                                                            nat.nat) =>
+                                                     x1 (x x14))
+                                                    (x14:(cts.Term
+                                                            cts.zero
+                                                            nat.nat) =>
+                                                     x0 (x2 x14))
+                                                    x3
+                                                    x5
+                                                    x6
+                                                    x8
+                                                    x9
+                                                    x11))))))))))))))))
+  := l?70 => l?74 => l?75 =>
+  h1:(cts.Term
+        cts.zero
+        (cts.prod
+           cts.zero
+           cts.zero
+           cts.zero
+           cts.I
+           nat.nat
+           (x => nat.nat))) =>
+  k1:(cts.Term
+        cts.zero
+        (cts.prod
+           cts.zero
+           cts.zero
+           cts.zero
+           cts.I
+           nat.nat
+           (x => nat.nat))) =>
+  h2:(cts.Term
+        cts.zero
+        (cts.prod
+           cts.zero
+           cts.zero
+           cts.zero
+           cts.I
+           nat.nat
+           (x => nat.nat))) =>
+  k2:(cts.Term
+        cts.zero
+        (cts.prod
+           cts.zero
+           cts.zero
+           cts.zero
+           cts.I
+           nat.nat
+           (x => nat.nat))) =>
+  n1:(cts.Term cts.zero nat.nat) =>
+  n2:(cts.Term cts.zero nat.nat) =>
+  n3:(cts.Term cts.zero nat.nat) =>
+  p1:(cts.Term
+        cts.zero
+        (cts.prod
+           cts.zero
+           cts.zero
+           cts.zero
+           cts.I
+           nat.nat
+           (x => bool.bool))) =>
+  p2:(cts.Term
+        cts.zero
+        (cts.prod
+           cts.zero
+           cts.zero
+           cts.zero
+           cts.I
+           nat.nat
+           (x => bool.bool))) =>
+  p3:(cts.Term
+        cts.zero
+        (cts.prod
+           cts.zero
+           cts.zero
+           cts.zero
+           cts.I
+           nat.nat
+           (x => bool.bool))) =>
+  f1:(cts.Term
+        cts.zero
+        (cts.prod
+           cts.zero
+           cts.zero
+           cts.zero
+           cts.I
+           nat.nat
+           (x => nat.nat))) =>
+  f2:(cts.Term
+        cts.zero
+        (cts.prod
+           cts.zero
+           cts.zero
+           cts.zero
+           cts.I
+           nat.nat
+           (x => nat.nat))) =>
+  f3:(cts.Term
+        cts.zero
+        (cts.prod
+           cts.zero
+           cts.zero
+           cts.zero
+           cts.I
+           nat.nat
+           (x => nat.nat))) =>
+  sub1:(cts.Term
+          l?70
+          (sub_hk.sub_hk l?70 h1 k1 n1 n2 p1 p2 f1 f2)) =>
+  sub2:(cts.Term
+          l?74
+          (sub_hk.sub_hk l?74 h2 k2 n2 n3 p2 p3 f2 f3)) =>
+  i:(cts.Term cts.zero nat.nat) =>
+  lti:(cts.Term cts.zero (lt.lt i n1)) =>
+  fi:(cts.Term cts.zero (eq.eq cts.zero bool.bool (p1 i) true.true)) =>
+  match_And_prop.match_And_prop
+    l?75
+    cts.zero
+    cts.zero
+    l?70
+    (And.And
+       cts.zero
+       cts.zero
+       cts.zero
+       (lt.lt (h1 i) n2)
+       (eq.eq cts.zero bool.bool (p2 (h1 i)) true.true))
+    (eq.eq cts.zero nat.nat (k1 (h1 i)) i)
+    (And.And
+       cts.zero
+       cts.zero
+       l?75
+       (And.And
+          cts.zero
+          cts.zero
+          cts.zero
+          (lt.lt (h2 (h1 i)) n3)
+          (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true))
+       (eq.eq cts.zero nat.nat (k1 (k2 (h2 (h1 i)))) i))
+    (_clearme:(cts.Term
+                 cts.zero
+                 (And.And
+                    cts.zero
+                    cts.zero
+                    cts.zero
+                    (lt.lt (h1 i) n2)
+                    (eq.eq cts.zero bool.bool (p2 (h1 i)) true.true))) =>
+     match_And_prop.match_And_prop
+       l?75
+       cts.zero
+       cts.zero
+       cts.zero
+       (lt.lt (h1 i) n2)
+       (eq.eq cts.zero bool.bool (p2 (h1 i)) true.true)
+       (cts.prod
+          cts.zero
+          l?75
+          l?75
+          cts.I
+          (eq.eq cts.zero nat.nat (k1 (h1 i)) i)
+          (x =>
+           And.And
+             cts.zero
+             cts.zero
+             l?75
+             (And.And
+                cts.zero
+                cts.zero
+                cts.zero
+                (lt.lt (h2 (h1 i)) n3)
+                (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true))
+             (eq.eq cts.zero nat.nat (k1 (k2 (h2 (h1 i)))) i)))
+       (lth1i:(cts.Term cts.zero (lt.lt (h1 i) n2)) =>
+        fh1i:(cts.Term
+                cts.zero
+                (eq.eq cts.zero bool.bool (p2 (h1 i)) true.true)) =>
+        ei:(cts.Term
+              cts.zero
+              (eq.eq cts.zero nat.nat (k1 (h1 i)) i)) =>
+        match_And_prop.match_And_prop
+          l?75
+          cts.zero
+          cts.zero
+          l?74
+          (And.And
+             cts.zero
+             cts.zero
+             cts.zero
+             (lt.lt (h2 (h1 i)) n3)
+             (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true))
+          (eq.eq cts.zero nat.nat (k2 (h2 (h1 i))) (h1 i))
+          (And.And
+             cts.zero
+             cts.zero
+             l?75
+             (And.And
+                cts.zero
+                cts.zero
+                cts.zero
+                (lt.lt (h2 (h1 i)) n3)
+                (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true))
+             (eq.eq cts.zero nat.nat (k1 (k2 (h2 (h1 i)))) i))
+          (_clearme0:(cts.Term
+                        cts.zero
+                        (And.And
+                           cts.zero
+                           cts.zero
+                           cts.zero
+                           (lt.lt (h2 (h1 i)) n3)
+                           (eq.eq
+                              cts.zero
+                              bool.bool
+                              (p3 (h2 (h1 i)))
+                              true.true))) =>
+           match_And_prop.match_And_prop
+             l?75
+             cts.zero
+             cts.zero
+             cts.zero
+             (lt.lt (h2 (h1 i)) n3)
+             (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true)
+             (cts.prod
+                cts.zero
+                l?75
+                l?75
+                cts.I
+                (eq.eq cts.zero nat.nat (k2 (h2 (h1 i))) (h1 i))
+                (x =>
+                 And.And
+                   cts.zero
+                   cts.zero
+                   l?75
+                   (And.And
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      (lt.lt (h2 (h1 i)) n3)
+                      (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true))
+                   (eq.eq cts.zero nat.nat (k1 (k2 (h2 (h1 i)))) i)))
+             (H1:(cts.Term cts.zero (lt.lt (h2 (h1 i)) n3)) =>
+              H2:(cts.Term
+                    cts.zero
+                    (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true)) =>
+              H3:(cts.Term
+                    cts.zero
+                    (eq.eq cts.zero nat.nat (k2 (h2 (h1 i))) (h1 i))) =>
+              conj.conj
+                cts.zero
+                cts.zero
+                l?75
+                (And.And
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   (lt.lt (h2 (h1 i)) n3)
+                   (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true))
+                (eq.eq cts.zero nat.nat (k1 (k2 (h2 (h1 i)))) i)
+                (conj.conj
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   (lt.lt (h2 (h1 i)) n3)
+                   (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true)
+                   H1
+                   (rewrite_r.rewrite_r
+                      cts.zero
+                      cts.zero
+                      bool.bool
+                      true.true
+                      (__:(cts.Term cts.zero bool.bool) =>
+                       eq.eq cts.zero bool.bool __ true.true)
+                      (refl.refl cts.zero bool.bool true.true)
+                      (p3 (h2 (h1 i)))
+                      H2))
+                (rewrite_r.rewrite_r
+                   cts.zero
+                   cts.zero
+                   nat.nat
+                   (h1 i)
+                   (__:(cts.Term cts.zero nat.nat) =>
+                    eq.eq cts.zero nat.nat (k1 __) i)
+                   (rewrite_r.rewrite_r
+                      cts.zero
+                      cts.zero
+                      nat.nat
+                      i
+                      (__:(cts.Term cts.zero nat.nat) =>
+                       eq.eq cts.zero nat.nat __ i)
+                      (refl.refl cts.zero nat.nat i)
+                      (k1 (h1 i))
+                      ei)
+                   (k2 (h2 (h1 i)))
+                   H3))
+             _clearme0)
+          (sub2 (h1 i) lth1i fh1i))
+       _clearme)
+    (sub1 i lti fi).
+

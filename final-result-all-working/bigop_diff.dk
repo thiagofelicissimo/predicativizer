@@ -1,0 +1,1485 @@
+def bigop_diff : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => bool.bool))
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat))
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (lt.lt x1 x2)
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (eq.eq cts.zero bool.bool (x x1) true.true)
+                      (x4 =>
+                       eq.eq
+                         cts.zero
+                         nat.nat
+                         (bigop.bigop
+                            cts.zero
+                            nat.nat
+                            x2
+                            (x5:(cts.Term cts.zero nat.nat) => x x5)
+                            (S.S O.O)
+                            times.times
+                            (x5:(cts.Term cts.zero nat.nat) => x0 x5))
+                         (times.times
+                            (x0 x1)
+                            (bigop.bigop
+                               cts.zero
+                               nat.nat
+                               x2
+                               (x5:(cts.Term cts.zero nat.nat) =>
+                                andb.andb (notb.notb (eqb.eqb x1 x5)) (x x5))
+                               (S.S O.O)
+                               times.times
+                               (x5:(cts.Term cts.zero nat.nat) => x0 x5))))))))))
+  :=
+  p:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => bool.bool))) =>
+  f:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))) =>
+  i:(cts.Term cts.zero nat.nat) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  nat_ind.nat_ind
+    cts.zero
+    (_x_365:(cts.Term cts.zero nat.nat) =>
+     cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       (lt.lt i _x_365)
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (eq.eq cts.zero bool.bool (p i) true.true)
+          (x0 =>
+           eq.eq
+             cts.zero
+             nat.nat
+             (bigop.bigop
+                cts.zero
+                nat.nat
+                _x_365
+                (x1:(cts.Term cts.zero nat.nat) => p x1)
+                (S.S O.O)
+                times.times
+                (x1:(cts.Term cts.zero nat.nat) => f x1))
+             (times.times
+                (f i)
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   _x_365
+                   (x1:(cts.Term cts.zero nat.nat) =>
+                    andb.andb (notb.notb (eqb.eqb i x1)) (p x1))
+                   (S.S O.O)
+                   times.times
+                   (x1:(cts.Term cts.zero nat.nat) => f x1))))))
+    (ltO:(cts.Term cts.zero (lt.lt i O.O)) =>
+     falsity.falsity
+       cts.zero
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (eq.eq cts.zero bool.bool (p i) true.true)
+          (x =>
+           eq.eq
+             cts.zero
+             nat.nat
+             (bigop.bigop
+                cts.zero
+                nat.nat
+                O.O
+                (x0:(cts.Term cts.zero nat.nat) => p x0)
+                (S.S O.O)
+                times.times
+                (x0:(cts.Term cts.zero nat.nat) => f x0))
+             (times.times
+                (f i)
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   O.O
+                   (x0:(cts.Term cts.zero nat.nat) =>
+                    andb.andb (notb.notb (eqb.eqb i x0)) (p x0))
+                   (S.S O.O)
+                   times.times
+                   (x0:(cts.Term cts.zero nat.nat) => f x0)))))
+       (absurd.absurd
+          cts.zero
+          cts.zero
+          (le.le (S.S i) O.O)
+          ltO
+          (not_le_Sn_O.not_le_Sn_O i)))
+    (n0:(cts.Term cts.zero nat.nat) =>
+     Hind:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (lt.lt i n0)
+                (x =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (eq.eq cts.zero bool.bool (p i) true.true)
+                   (x0 =>
+                    eq.eq
+                      cts.zero
+                      nat.nat
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         n0
+                         (x1:(cts.Term cts.zero nat.nat) => p x1)
+                         (S.S O.O)
+                         times.times
+                         (x1:(cts.Term cts.zero nat.nat) => f x1))
+                      (times.times
+                         (f i)
+                         (bigop.bigop
+                            cts.zero
+                            nat.nat
+                            n0
+                            (x1:(cts.Term cts.zero nat.nat) =>
+                             andb.andb (notb.notb (eqb.eqb i x1)) (p x1))
+                            (S.S O.O)
+                            times.times
+                            (x1:(cts.Term cts.zero nat.nat) => f x1))))))) =>
+     lein:(cts.Term cts.zero (lt.lt i (S.S n0))) =>
+     pi:(cts.Term cts.zero (eq.eq cts.zero bool.bool (p i) true.true)) =>
+     match_Or_prop.match_Or_prop
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.zero
+       (lt.lt i n0)
+       (eq.eq cts.zero nat.nat i n0)
+       (eq.eq
+          cts.zero
+          nat.nat
+          (bigop.bigop
+             cts.zero
+             nat.nat
+             (S.S n0)
+             (x:(cts.Term cts.zero nat.nat) => p x)
+             (S.S O.O)
+             times.times
+             (x:(cts.Term cts.zero nat.nat) => f x))
+          (times.times
+             (f i)
+             (bigop.bigop
+                cts.zero
+                nat.nat
+                (S.S n0)
+                (x:(cts.Term cts.zero nat.nat) =>
+                 andb.andb (notb.notb (eqb.eqb i x)) (p x))
+                (S.S O.O)
+                times.times
+                (x:(cts.Term cts.zero nat.nat) => f x))))
+       (Hi:(cts.Term cts.zero (lt.lt i n0)) =>
+        match_Or_prop.match_Or_prop
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.zero
+          (eq.eq cts.zero bool.bool (p n0) true.true)
+          (eq.eq cts.zero bool.bool (p n0) false.false)
+          (eq.eq
+             cts.zero
+             nat.nat
+             (bigop.bigop
+                cts.zero
+                nat.nat
+                (S.S n0)
+                (x:(cts.Term cts.zero nat.nat) => p x)
+                (S.S O.O)
+                times.times
+                (x:(cts.Term cts.zero nat.nat) => f x))
+             (times.times
+                (f i)
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   (S.S n0)
+                   (x:(cts.Term cts.zero nat.nat) =>
+                    andb.andb (notb.notb (eqb.eqb i x)) (p x))
+                   (S.S O.O)
+                   times.times
+                   (x:(cts.Term cts.zero nat.nat) => f x))))
+          (pn:(cts.Term
+                 cts.zero
+                 (eq.eq cts.zero bool.bool (p n0) true.true)) =>
+           eq_ind_r.eq_ind_r
+             cts.zero
+             cts.zero
+             nat.nat
+             (times.times
+                (f n0)
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   n0
+                   (i0:(cts.Term cts.zero nat.nat) => p i0)
+                   (S.S O.O)
+                   times.times
+                   (i0:(cts.Term cts.zero nat.nat) => f i0)))
+             (x:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                cts.zero
+                nat.nat
+                x
+                (times.times
+                   (f i)
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      (S.S n0)
+                      (x0:(cts.Term cts.zero nat.nat) =>
+                       andb.andb (notb.notb (eqb.eqb i x0)) (p x0))
+                      (S.S O.O)
+                      times.times
+                      (x0:(cts.Term cts.zero nat.nat) => f x0))))
+             (eq_ind_r.eq_ind_r
+                cts.zero
+                cts.zero
+                nat.nat
+                (times.times
+                   (f n0)
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      n0
+                      (i0:(cts.Term cts.zero nat.nat) =>
+                       andb.andb (notb.notb (eqb.eqb i i0)) (p i0))
+                      (S.S O.O)
+                      times.times
+                      (i0:(cts.Term cts.zero nat.nat) => f i0)))
+                (x:(cts.Term cts.zero nat.nat) =>
+                 eq.eq
+                   cts.zero
+                   nat.nat
+                   (times.times
+                      (f n0)
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         n0
+                         (i0:(cts.Term cts.zero nat.nat) => p i0)
+                         (S.S O.O)
+                         times.times
+                         (i0:(cts.Term cts.zero nat.nat) => f i0)))
+                   (times.times (f i) x))
+                (eq_ind_r.eq_ind_r
+                   cts.zero
+                   cts.zero
+                   nat.nat
+                   (times.times
+                      (times.times (f i) (f n0))
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         n0
+                         (i0:(cts.Term cts.zero nat.nat) =>
+                          match_bool_type.match_bool_type
+                            cts.zero
+                            bool.bool
+                            (p i0)
+                            false.false
+                            (match_bool_type.match_bool_type
+                               cts.zero
+                               bool.bool
+                               false.false
+                               true.true
+                               (eqb.eqb i i0)))
+                         (S.S O.O)
+                         times.times
+                         (i0:(cts.Term cts.zero nat.nat) => f i0)))
+                   (x:(cts.Term cts.zero nat.nat) =>
+                    eq.eq
+                      cts.zero
+                      nat.nat
+                      (times.times
+                         (f n0)
+                         (bigop.bigop
+                            cts.zero
+                            nat.nat
+                            n0
+                            (i0:(cts.Term cts.zero nat.nat) => p i0)
+                            (S.S O.O)
+                            times.times
+                            (i0:(cts.Term cts.zero nat.nat) => f i0)))
+                      x)
+                   (eq_ind_r.eq_ind_r
+                      cts.zero
+                      cts.zero
+                      nat.nat
+                      (times.times (f n0) (f i))
+                      (x:(cts.Term cts.zero nat.nat) =>
+                       eq.eq
+                         cts.zero
+                         nat.nat
+                         (times.times
+                            (f n0)
+                            (bigop.bigop
+                               cts.zero
+                               nat.nat
+                               n0
+                               (i0:(cts.Term cts.zero nat.nat) => p i0)
+                               (S.S O.O)
+                               times.times
+                               (i0:(cts.Term cts.zero nat.nat) => f i0)))
+                         (times.times
+                            x
+                            (bigop.bigop
+                               cts.zero
+                               nat.nat
+                               n0
+                               (i0:(cts.Term cts.zero nat.nat) =>
+                                match_bool_type.match_bool_type
+                                  cts.zero
+                                  bool.bool
+                                  (p i0)
+                                  false.false
+                                  (match_bool_type.match_bool_type
+                                     cts.zero
+                                     bool.bool
+                                     false.false
+                                     true.true
+                                     (eqb.eqb i i0)))
+                               (S.S O.O)
+                               times.times
+                               (i0:(cts.Term cts.zero nat.nat) => f i0))))
+                      (eq_ind.eq_ind
+                         cts.zero
+                         cts.zero
+                         nat.nat
+                         (times.times
+                            (f n0)
+                            (times.times
+                               (f i)
+                               (bigop.bigop
+                                  cts.zero
+                                  nat.nat
+                                  n0
+                                  (i0:(cts.Term cts.zero nat.nat) =>
+                                   match_bool_type.match_bool_type
+                                     cts.zero
+                                     bool.bool
+                                     (p i0)
+                                     false.false
+                                     (match_bool_type.match_bool_type
+                                        cts.zero
+                                        bool.bool
+                                        false.false
+                                        true.true
+                                        (eqb.eqb i i0)))
+                                  (S.S O.O)
+                                  times.times
+                                  (i0:(cts.Term cts.zero nat.nat) => f i0))))
+                         (x_1:(cts.Term cts.zero nat.nat) =>
+                          eq.eq
+                            cts.zero
+                            nat.nat
+                            (times.times
+                               (f n0)
+                               (bigop.bigop
+                                  cts.zero
+                                  nat.nat
+                                  n0
+                                  (i0:(cts.Term cts.zero nat.nat) => p i0)
+                                  (S.S O.O)
+                                  times.times
+                                  (i0:(cts.Term cts.zero nat.nat) => f i0)))
+                            x_1)
+                         (eq_ind_r.eq_ind_r
+                            cts.zero
+                            cts.zero
+                            nat.nat
+                            (times.times
+                               (f i)
+                               (bigop.bigop
+                                  cts.zero
+                                  nat.nat
+                                  n0
+                                  (x:(cts.Term cts.zero nat.nat) =>
+                                   andb.andb (notb.notb (eqb.eqb i x)) (p x))
+                                  (S.S O.O)
+                                  times.times
+                                  (x:(cts.Term cts.zero nat.nat) => f x)))
+                            (x:(cts.Term cts.zero nat.nat) =>
+                             eq.eq
+                               cts.zero
+                               nat.nat
+                               (times.times (f n0) x)
+                               (times.times
+                                  (f n0)
+                                  (times.times
+                                     (f i)
+                                     (bigop.bigop
+                                        cts.zero
+                                        nat.nat
+                                        n0
+                                        (i0:(cts.Term cts.zero nat.nat) =>
+                                         match_bool_type.match_bool_type
+                                           cts.zero
+                                           bool.bool
+                                           (p i0)
+                                           false.false
+                                           (match_bool_type.match_bool_type
+                                              cts.zero
+                                              bool.bool
+                                              false.false
+                                              true.true
+                                              (eqb.eqb i i0)))
+                                        (S.S O.O)
+                                        times.times
+                                        (i0:(cts.Term cts.zero nat.nat) =>
+                                         f i0)))))
+                            (refl.refl
+                               cts.zero
+                               nat.nat
+                               (times.times
+                                  (f n0)
+                                  (times.times
+                                     (f i)
+                                     (bigop.bigop
+                                        cts.zero
+                                        nat.nat
+                                        n0
+                                        (x:(cts.Term cts.zero nat.nat) =>
+                                         andb.andb (notb.notb (eqb.eqb i x)) (p x))
+                                        (S.S O.O)
+                                        times.times
+                                        (x:(cts.Term cts.zero nat.nat) => f x)))))
+                            (bigop.bigop
+                               cts.zero
+                               nat.nat
+                               n0
+                               (x:(cts.Term cts.zero nat.nat) => p x)
+                               (S.S O.O)
+                               times.times
+                               (x:(cts.Term cts.zero nat.nat) => f x))
+                            (Hind
+                               Hi
+                               (rewrite_r.rewrite_r
+                                  cts.zero
+                                  cts.zero
+                                  bool.bool
+                                  true.true
+                                  (__:(cts.Term cts.zero bool.bool) =>
+                                   eq.eq cts.zero bool.bool __ true.true)
+                                  (refl.refl cts.zero bool.bool true.true)
+                                  (p i)
+                                  pi)))
+                         (times.times
+                            (times.times (f n0) (f i))
+                            (bigop.bigop
+                               cts.zero
+                               nat.nat
+                               n0
+                               (i0:(cts.Term cts.zero nat.nat) =>
+                                match_bool_type.match_bool_type
+                                  cts.zero
+                                  bool.bool
+                                  (p i0)
+                                  false.false
+                                  (match_bool_type.match_bool_type
+                                     cts.zero
+                                     bool.bool
+                                     false.false
+                                     true.true
+                                     (eqb.eqb i i0)))
+                               (S.S O.O)
+                               times.times
+                               (i0:(cts.Term cts.zero nat.nat) => f i0)))
+                         (assoc.assoc
+                            (f n0)
+                            (f i)
+                            (bigop.bigop
+                               cts.zero
+                               nat.nat
+                               n0
+                               (i0:(cts.Term cts.zero nat.nat) =>
+                                match_bool_type.match_bool_type
+                                  cts.zero
+                                  bool.bool
+                                  (p i0)
+                                  false.false
+                                  (match_bool_type.match_bool_type
+                                     cts.zero
+                                     bool.bool
+                                     false.false
+                                     true.true
+                                     (eqb.eqb i i0)))
+                               (S.S O.O)
+                               times.times
+                               (i0:(cts.Term cts.zero nat.nat) => f i0))))
+                      (times.times (f i) (f n0))
+                      (commutative_times.commutative_times (f i) (f n0)))
+                   (times.times
+                      (f i)
+                      (times.times
+                         (f n0)
+                         (bigop.bigop
+                            cts.zero
+                            nat.nat
+                            n0
+                            (i0:(cts.Term cts.zero nat.nat) =>
+                             match_bool_type.match_bool_type
+                               cts.zero
+                               bool.bool
+                               (p i0)
+                               false.false
+                               (match_bool_type.match_bool_type
+                                  cts.zero
+                                  bool.bool
+                                  false.false
+                                  true.true
+                                  (eqb.eqb i i0)))
+                            (S.S O.O)
+                            times.times
+                            (i0:(cts.Term cts.zero nat.nat) => f i0))))
+                   (assoc.assoc
+                      (f i)
+                      (f n0)
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         n0
+                         (i0:(cts.Term cts.zero nat.nat) =>
+                          match_bool_type.match_bool_type
+                            cts.zero
+                            bool.bool
+                            (p i0)
+                            false.false
+                            (match_bool_type.match_bool_type
+                               cts.zero
+                               bool.bool
+                               false.false
+                               true.true
+                               (eqb.eqb i i0)))
+                         (S.S O.O)
+                         times.times
+                         (i0:(cts.Term cts.zero nat.nat) => f i0))))
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   (S.S n0)
+                   (i0:(cts.Term cts.zero nat.nat) =>
+                    andb.andb (notb.notb (eqb.eqb i i0)) (p i0))
+                   (S.S O.O)
+                   times.times
+                   (i0:(cts.Term cts.zero nat.nat) => f i0))
+                (bigop_Strue.bigop_Strue
+                   cts.zero
+                   nat.nat
+                   n0
+                   (__:(cts.Term cts.zero nat.nat) =>
+                    andb.andb (notb.notb (eqb.eqb i __)) (p __))
+                   (S.S O.O)
+                   times.times
+                   f
+                   (rewrite_r.rewrite_r
+                      cts.zero
+                      cts.zero
+                      bool.bool
+                      true.true
+                      (__:(cts.Term cts.zero bool.bool) =>
+                       eq.eq
+                         cts.zero
+                         bool.bool
+                         (andb.andb (notb.notb (eqb.eqb i n0)) __)
+                         true.true)
+                      (rewrite_r.rewrite_r
+                         cts.zero
+                         cts.zero
+                         bool.bool
+                         true.true
+                         (__:(cts.Term cts.zero bool.bool) =>
+                          eq.eq cts.zero bool.bool __ true.true)
+                         (refl.refl cts.zero bool.bool true.true)
+                         (andb.andb (notb.notb (eqb.eqb i n0)) true.true)
+                         (rewrite_l.rewrite_l
+                            cts.zero
+                            cts.zero
+                            bool.bool
+                            (p n0)
+                            (__:(cts.Term cts.zero bool.bool) =>
+                             eq.eq
+                               cts.zero
+                               bool.bool
+                               (andb.andb (notb.notb (eqb.eqb i n0)) true.true)
+                               __)
+                            (rewrite_l.rewrite_l
+                               cts.zero
+                               cts.zero
+                               bool.bool
+                               (p n0)
+                               (__:(cts.Term cts.zero bool.bool) =>
+                                eq.eq
+                                  cts.zero
+                                  bool.bool
+                                  (andb.andb (notb.notb (eqb.eqb i n0)) __)
+                                  (p n0))
+                               (eq_ind_r.eq_ind_r
+                                  cts.zero
+                                  cts.zero
+                                  bool.bool
+                                  false.false
+                                  (x:(cts.Term cts.zero bool.bool) =>
+                                   eq.eq
+                                     cts.zero
+                                     bool.bool
+                                     (andb.andb (notb.notb x) (p n0))
+                                     (p n0))
+                                  (sym_eq_match_bool_type_false.sym_eq_match_bool_type_false
+                                     cts.zero
+                                     cts.zero
+                                     bool.bool
+                                     false.false
+                                     true.true
+                                     (y:(cts.Term cts.zero bool.bool) =>
+                                      eq.eq
+                                        cts.zero
+                                        bool.bool
+                                        (match_bool_type.match_bool_type
+                                           cts.zero
+                                           bool.bool
+                                           (p n0)
+                                           false.false
+                                           y)
+                                        (p n0))
+                                     (eq_match_bool_type_true.eq_match_bool_type_true
+                                        cts.zero
+                                        cts.zero
+                                        bool.bool
+                                        (p n0)
+                                        false.false
+                                        (y:(cts.Term cts.zero bool.bool) =>
+                                         eq.eq
+                                           cts.zero
+                                           bool.bool
+                                           (match_bool_type.match_bool_type
+                                              cts.zero
+                                              bool.bool
+                                              (p n0)
+                                              false.false
+                                              true.true)
+                                           y)
+                                        (eq_match_bool_type_false.eq_match_bool_type_false
+                                           cts.zero
+                                           cts.zero
+                                           bool.bool
+                                           false.false
+                                           true.true
+                                           (y:(cts.Term
+                                                 cts.zero
+                                                 bool.bool) =>
+                                            eq.eq
+                                              cts.zero
+                                              bool.bool
+                                              (match_bool_type.match_bool_type
+                                                 cts.zero
+                                                 bool.bool
+                                                 (p n0)
+                                                 false.false
+                                                 true.true)
+                                              (match_bool_type.match_bool_type
+                                                 cts.zero
+                                                 bool.bool
+                                                 (p n0)
+                                                 false.false
+                                                 y))
+                                           (eq_match_bool_type_false.eq_match_bool_type_false
+                                              cts.zero
+                                              cts.zero
+                                              bool.bool
+                                              false.false
+                                              true.true
+                                              (y:(cts.Term
+                                                    cts.zero
+                                                    bool.bool) =>
+                                               eq.eq
+                                                 cts.zero
+                                                 bool.bool
+                                                 (match_bool_type.match_bool_type
+                                                    cts.zero
+                                                    bool.bool
+                                                    (p n0)
+                                                    false.false
+                                                    y)
+                                                 (match_bool_type.match_bool_type
+                                                    cts.zero
+                                                    bool.bool
+                                                    (p n0)
+                                                    false.false
+                                                    (match_bool_type.match_bool_type
+                                                       cts.zero
+                                                       bool.bool
+                                                       false.false
+                                                       true.true
+                                                       false.false)))
+                                              (refl.refl
+                                                 cts.zero
+                                                 bool.bool
+                                                 (andb.andb
+                                                    (notb.notb false.false)
+                                                    (p n0)))))))
+                                  (eqb.eqb i n0)
+                                  (not_eq_to_eqb_false.not_eq_to_eqb_false
+                                     i
+                                     n0
+                                     (lt_to_not_eq.lt_to_not_eq i n0 Hi)))
+                               true.true
+                               pn)
+                            true.true
+                            pn))
+                      (p n0)
+                      pn)))
+             (bigop.bigop
+                cts.zero
+                nat.nat
+                (S.S n0)
+                (i0:(cts.Term cts.zero nat.nat) => p i0)
+                (S.S O.O)
+                times.times
+                (i0:(cts.Term cts.zero nat.nat) => f i0))
+             (bigop_Strue.bigop_Strue
+                cts.zero
+                nat.nat
+                n0
+                p
+                (S.S O.O)
+                times.times
+                f
+                (rewrite_r.rewrite_r
+                   cts.zero
+                   cts.zero
+                   bool.bool
+                   true.true
+                   (__:(cts.Term cts.zero bool.bool) =>
+                    eq.eq cts.zero bool.bool __ true.true)
+                   (refl.refl cts.zero bool.bool true.true)
+                   (p n0)
+                   pn)))
+          (pn:(cts.Term
+                 cts.zero
+                 (eq.eq cts.zero bool.bool (p n0) false.false)) =>
+           eq_ind_r.eq_ind_r
+             cts.zero
+             cts.zero
+             nat.nat
+             (bigop.bigop
+                cts.zero
+                nat.nat
+                n0
+                (i0:(cts.Term cts.zero nat.nat) => p i0)
+                (S.S O.O)
+                times.times
+                (i0:(cts.Term cts.zero nat.nat) => f i0))
+             (x:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                cts.zero
+                nat.nat
+                x
+                (times.times
+                   (f i)
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      (S.S n0)
+                      (x0:(cts.Term cts.zero nat.nat) =>
+                       andb.andb (notb.notb (eqb.eqb i x0)) (p x0))
+                      (S.S O.O)
+                      times.times
+                      (x0:(cts.Term cts.zero nat.nat) => f x0))))
+             (eq_ind_r.eq_ind_r
+                cts.zero
+                cts.zero
+                nat.nat
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   n0
+                   (i0:(cts.Term cts.zero nat.nat) =>
+                    andb.andb (notb.notb (eqb.eqb i i0)) (p i0))
+                   (S.S O.O)
+                   times.times
+                   (i0:(cts.Term cts.zero nat.nat) => f i0))
+                (x:(cts.Term cts.zero nat.nat) =>
+                 eq.eq
+                   cts.zero
+                   nat.nat
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      n0
+                      (i0:(cts.Term cts.zero nat.nat) => p i0)
+                      (S.S O.O)
+                      times.times
+                      (i0:(cts.Term cts.zero nat.nat) => f i0))
+                   (times.times (f i) x))
+                (eq_ind_r.eq_ind_r
+                   cts.zero
+                   cts.zero
+                   nat.nat
+                   (times.times
+                      (f i)
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         n0
+                         (x:(cts.Term cts.zero nat.nat) =>
+                          andb.andb (notb.notb (eqb.eqb i x)) (p x))
+                         (S.S O.O)
+                         times.times
+                         (x:(cts.Term cts.zero nat.nat) => f x)))
+                   (x:(cts.Term cts.zero nat.nat) =>
+                    eq.eq
+                      cts.zero
+                      nat.nat
+                      x
+                      (times.times
+                         (f i)
+                         (bigop.bigop
+                            cts.zero
+                            nat.nat
+                            n0
+                            (i0:(cts.Term cts.zero nat.nat) =>
+                             andb.andb (notb.notb (eqb.eqb i i0)) (p i0))
+                            (S.S O.O)
+                            times.times
+                            (i0:(cts.Term cts.zero nat.nat) => f i0))))
+                   (refl.refl
+                      cts.zero
+                      nat.nat
+                      (times.times
+                         (f i)
+                         (bigop.bigop
+                            cts.zero
+                            nat.nat
+                            n0
+                            (x:(cts.Term cts.zero nat.nat) =>
+                             andb.andb (notb.notb (eqb.eqb i x)) (p x))
+                            (S.S O.O)
+                            times.times
+                            (x:(cts.Term cts.zero nat.nat) => f x))))
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      n0
+                      (x:(cts.Term cts.zero nat.nat) => p x)
+                      (S.S O.O)
+                      times.times
+                      (x:(cts.Term cts.zero nat.nat) => f x))
+                   (Hind
+                      Hi
+                      (rewrite_r.rewrite_r
+                         cts.zero
+                         cts.zero
+                         bool.bool
+                         true.true
+                         (__:(cts.Term cts.zero bool.bool) =>
+                          eq.eq cts.zero bool.bool __ true.true)
+                         (refl.refl cts.zero bool.bool true.true)
+                         (p i)
+                         pi)))
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   (S.S n0)
+                   (i0:(cts.Term cts.zero nat.nat) =>
+                    andb.andb (notb.notb (eqb.eqb i i0)) (p i0))
+                   (S.S O.O)
+                   times.times
+                   (i0:(cts.Term cts.zero nat.nat) => f i0))
+                (bigop_Sfalse.bigop_Sfalse
+                   cts.zero
+                   nat.nat
+                   n0
+                   (__:(cts.Term cts.zero nat.nat) =>
+                    andb.andb (notb.notb (eqb.eqb i __)) (p __))
+                   (S.S O.O)
+                   times.times
+                   f
+                   (rewrite_r.rewrite_r
+                      cts.zero
+                      cts.zero
+                      bool.bool
+                      false.false
+                      (__:(cts.Term cts.zero bool.bool) =>
+                       eq.eq
+                         cts.zero
+                         bool.bool
+                         (andb.andb (notb.notb (eqb.eqb i n0)) __)
+                         false.false)
+                      (rewrite_r.rewrite_r
+                         cts.zero
+                         cts.zero
+                         bool.bool
+                         false.false
+                         (__:(cts.Term cts.zero bool.bool) =>
+                          eq.eq cts.zero bool.bool __ false.false)
+                         (refl.refl cts.zero bool.bool false.false)
+                         (andb.andb (notb.notb (eqb.eqb i n0)) false.false)
+                         (rewrite_l.rewrite_l
+                            cts.zero
+                            cts.zero
+                            bool.bool
+                            (p n0)
+                            (__:(cts.Term cts.zero bool.bool) =>
+                             eq.eq
+                               cts.zero
+                               bool.bool
+                               (andb.andb (notb.notb (eqb.eqb i n0)) false.false)
+                               __)
+                            (rewrite_l.rewrite_l
+                               cts.zero
+                               cts.zero
+                               bool.bool
+                               (p n0)
+                               (__:(cts.Term cts.zero bool.bool) =>
+                                eq.eq
+                                  cts.zero
+                                  bool.bool
+                                  (andb.andb (notb.notb (eqb.eqb i n0)) __)
+                                  (p n0))
+                               (eq_ind_r.eq_ind_r
+                                  cts.zero
+                                  cts.zero
+                                  bool.bool
+                                  false.false
+                                  (x:(cts.Term cts.zero bool.bool) =>
+                                   eq.eq
+                                     cts.zero
+                                     bool.bool
+                                     (andb.andb (notb.notb x) (p n0))
+                                     (p n0))
+                                  (sym_eq_match_bool_type_false.sym_eq_match_bool_type_false
+                                     cts.zero
+                                     cts.zero
+                                     bool.bool
+                                     false.false
+                                     true.true
+                                     (y:(cts.Term cts.zero bool.bool) =>
+                                      eq.eq
+                                        cts.zero
+                                        bool.bool
+                                        (match_bool_type.match_bool_type
+                                           cts.zero
+                                           bool.bool
+                                           (p n0)
+                                           false.false
+                                           y)
+                                        (p n0))
+                                     (eq_match_bool_type_true.eq_match_bool_type_true
+                                        cts.zero
+                                        cts.zero
+                                        bool.bool
+                                        (p n0)
+                                        false.false
+                                        (y:(cts.Term cts.zero bool.bool) =>
+                                         eq.eq
+                                           cts.zero
+                                           bool.bool
+                                           (match_bool_type.match_bool_type
+                                              cts.zero
+                                              bool.bool
+                                              (p n0)
+                                              false.false
+                                              true.true)
+                                           y)
+                                        (eq_match_bool_type_false.eq_match_bool_type_false
+                                           cts.zero
+                                           cts.zero
+                                           bool.bool
+                                           false.false
+                                           true.true
+                                           (y:(cts.Term
+                                                 cts.zero
+                                                 bool.bool) =>
+                                            eq.eq
+                                              cts.zero
+                                              bool.bool
+                                              (match_bool_type.match_bool_type
+                                                 cts.zero
+                                                 bool.bool
+                                                 (p n0)
+                                                 false.false
+                                                 true.true)
+                                              (match_bool_type.match_bool_type
+                                                 cts.zero
+                                                 bool.bool
+                                                 (p n0)
+                                                 false.false
+                                                 y))
+                                           (eq_match_bool_type_false.eq_match_bool_type_false
+                                              cts.zero
+                                              cts.zero
+                                              bool.bool
+                                              false.false
+                                              true.true
+                                              (y:(cts.Term
+                                                    cts.zero
+                                                    bool.bool) =>
+                                               eq.eq
+                                                 cts.zero
+                                                 bool.bool
+                                                 (match_bool_type.match_bool_type
+                                                    cts.zero
+                                                    bool.bool
+                                                    (p n0)
+                                                    false.false
+                                                    y)
+                                                 (match_bool_type.match_bool_type
+                                                    cts.zero
+                                                    bool.bool
+                                                    (p n0)
+                                                    false.false
+                                                    (match_bool_type.match_bool_type
+                                                       cts.zero
+                                                       bool.bool
+                                                       false.false
+                                                       true.true
+                                                       false.false)))
+                                              (refl.refl
+                                                 cts.zero
+                                                 bool.bool
+                                                 (andb.andb
+                                                    (notb.notb false.false)
+                                                    (p n0)))))))
+                                  (eqb.eqb i n0)
+                                  (not_eq_to_eqb_false.not_eq_to_eqb_false
+                                     i
+                                     n0
+                                     (lt_to_not_eq.lt_to_not_eq i n0 Hi)))
+                               false.false
+                               pn)
+                            false.false
+                            pn))
+                      (p n0)
+                      pn)))
+             (bigop.bigop
+                cts.zero
+                nat.nat
+                (S.S n0)
+                (i0:(cts.Term cts.zero nat.nat) => p i0)
+                (S.S O.O)
+                times.times
+                (i0:(cts.Term cts.zero nat.nat) => f i0))
+             (bigop_Sfalse.bigop_Sfalse
+                cts.zero
+                nat.nat
+                n0
+                p
+                (S.S O.O)
+                times.times
+                f
+                (rewrite_r.rewrite_r
+                   cts.zero
+                   cts.zero
+                   bool.bool
+                   false.false
+                   (__:(cts.Term cts.zero bool.bool) =>
+                    eq.eq cts.zero bool.bool __ false.false)
+                   (refl.refl cts.zero bool.bool false.false)
+                   (p n0)
+                   pn)))
+          (true_or_false.true_or_false cts.zero (p n0)))
+       (Hi:(cts.Term cts.zero (eq.eq cts.zero nat.nat i n0)) =>
+        eq_ind.eq_ind
+          cts.zero
+          cts.zero
+          nat.nat
+          i
+          (x_1:(cts.Term cts.zero nat.nat) =>
+           eq.eq
+             cts.zero
+             nat.nat
+             (bigop.bigop
+                cts.zero
+                nat.nat
+                (S.S x_1)
+                (x:(cts.Term cts.zero nat.nat) => p x)
+                (S.S O.O)
+                times.times
+                (x:(cts.Term cts.zero nat.nat) => f x))
+             (times.times
+                (f i)
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   (S.S x_1)
+                   (x:(cts.Term cts.zero nat.nat) =>
+                    andb.andb (notb.notb (eqb.eqb i x)) (p x))
+                   (S.S O.O)
+                   times.times
+                   (x:(cts.Term cts.zero nat.nat) => f x))))
+          (eq_ind_r.eq_ind_r
+             cts.zero
+             cts.zero
+             nat.nat
+             (times.times
+                (f i)
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   i
+                   (i0:(cts.Term cts.zero nat.nat) => p i0)
+                   (S.S O.O)
+                   times.times
+                   (i0:(cts.Term cts.zero nat.nat) => f i0)))
+             (x:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                cts.zero
+                nat.nat
+                x
+                (times.times
+                   (f i)
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      (S.S i)
+                      (x0:(cts.Term cts.zero nat.nat) =>
+                       andb.andb (notb.notb (eqb.eqb i x0)) (p x0))
+                      (S.S O.O)
+                      times.times
+                      (x0:(cts.Term cts.zero nat.nat) => f x0))))
+             (eq_f.eq_f
+                cts.zero
+                cts.zero
+                nat.nat
+                nat.nat
+                (times.times (f i))
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   i
+                   (i0:(cts.Term cts.zero nat.nat) => p i0)
+                   (S.S O.O)
+                   times.times
+                   (i0:(cts.Term cts.zero nat.nat) => f i0))
+                (bigop.bigop
+                   cts.zero
+                   nat.nat
+                   (S.S i)
+                   (x:(cts.Term cts.zero nat.nat) =>
+                    andb.andb (notb.notb (eqb.eqb i x)) (p x))
+                   (S.S O.O)
+                   times.times
+                   (x:(cts.Term cts.zero nat.nat) => f x))
+                (eq_ind_r.eq_ind_r
+                   cts.zero
+                   cts.zero
+                   nat.nat
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      i
+                      (i0:(cts.Term cts.zero nat.nat) =>
+                       andb.andb (notb.notb (eqb.eqb i i0)) (p i0))
+                      (S.S O.O)
+                      times.times
+                      (i0:(cts.Term cts.zero nat.nat) => f i0))
+                   (x:(cts.Term cts.zero nat.nat) =>
+                    eq.eq
+                      cts.zero
+                      nat.nat
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         i
+                         (i0:(cts.Term cts.zero nat.nat) => p i0)
+                         (S.S O.O)
+                         times.times
+                         (i0:(cts.Term cts.zero nat.nat) => f i0))
+                      x)
+                   (same_bigop.same_bigop
+                      cts.zero
+                      nat.nat
+                      i
+                      p
+                      (__:(cts.Term cts.zero nat.nat) =>
+                       andb.andb (notb.notb (eqb.eqb i __)) (p __))
+                      (S.S O.O)
+                      times.times
+                      f
+                      f
+                      (k:(cts.Term cts.zero nat.nat) =>
+                       ltki:(cts.Term cts.zero (lt.lt k i)) =>
+                       eq_ind_r.eq_ind_r
+                         cts.zero
+                         cts.zero
+                         bool.bool
+                         false.false
+                         (x:(cts.Term cts.zero bool.bool) =>
+                          eq.eq
+                            cts.zero
+                            bool.bool
+                            (p k)
+                            (andb.andb (notb.notb x) (p k)))
+                         (sym_eq_match_bool_type_false.sym_eq_match_bool_type_false
+                            cts.zero
+                            cts.zero
+                            bool.bool
+                            false.false
+                            true.true
+                            (y:(cts.Term cts.zero bool.bool) =>
+                             eq.eq
+                               cts.zero
+                               bool.bool
+                               (p k)
+                               (match_bool_type.match_bool_type
+                                  cts.zero
+                                  bool.bool
+                                  (p k)
+                                  false.false
+                                  y))
+                            (sym_eq_match_bool_type_true.sym_eq_match_bool_type_true
+                               cts.zero
+                               cts.zero
+                               bool.bool
+                               (p k)
+                               false.false
+                               (y:(cts.Term cts.zero bool.bool) =>
+                                eq.eq cts.zero bool.bool (p k) y)
+                               (refl.refl cts.zero bool.bool (p k))))
+                         (eqb.eqb i k)
+                         (not_eq_to_eqb_false.not_eq_to_eqb_false
+                            i
+                            k
+                            (not_to_not.not_to_not
+                               cts.zero
+                               cts.zero
+                               (eq.eq cts.zero nat.nat i k)
+                               (le.le (S.S i) i)
+                               (auto:(cts.Term
+                                        cts.zero
+                                        (eq.eq cts.zero nat.nat i k)) =>
+                                eq_coerc.eq_coerc
+                                  cts.zero
+                                  (le.le (S.S k) i)
+                                  (le.le (S.S i) i)
+                                  ltki
+                                  (rewrite_l.rewrite_l
+                                     (cts.succ cts.zero)
+                                     cts.zero
+                                     nat.nat
+                                     i
+                                     (__:(cts.Term cts.zero nat.nat) =>
+                                      eq.eq
+                                        (cts.succ cts.zero)
+                                        (cts.univ
+                                           cts.zero
+                                           (cts.succ cts.zero)
+                                           cts.I)
+                                        (le.le (S.S __) i)
+                                        (le.le (S.S i) i))
+                                     (refl.refl
+                                        (cts.succ cts.zero)
+                                        (cts.univ
+                                           cts.zero
+                                           (cts.succ cts.zero)
+                                           cts.I)
+                                        (le.le (S.S i) i))
+                                     k
+                                     auto))
+                               (not_le_Sn_n.not_le_Sn_n i))))
+                      (i0:(cts.Term cts.zero nat.nat) =>
+                       auto:(cts.Term cts.zero (lt.lt i0 i)) =>
+                       auto':(cts.Term
+                                cts.zero
+                                (eq.eq cts.zero bool.bool (p i0) true.true)) =>
+                       refl.refl cts.zero nat.nat (f i0)))
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      (S.S i)
+                      (i0:(cts.Term cts.zero nat.nat) =>
+                       andb.andb (notb.notb (eqb.eqb i i0)) (p i0))
+                      (S.S O.O)
+                      times.times
+                      (i0:(cts.Term cts.zero nat.nat) => f i0))
+                   (bigop_Sfalse.bigop_Sfalse
+                      cts.zero
+                      nat.nat
+                      i
+                      (__:(cts.Term cts.zero nat.nat) =>
+                       andb.andb (notb.notb (eqb.eqb i __)) (p __))
+                      (S.S O.O)
+                      times.times
+                      f
+                      (eq_ind_r.eq_ind_r
+                         cts.zero
+                         cts.zero
+                         bool.bool
+                         true.true
+                         (x:(cts.Term cts.zero bool.bool) =>
+                          eq.eq
+                            cts.zero
+                            bool.bool
+                            (andb.andb (notb.notb x) (p i))
+                            false.false)
+                         (eq_match_bool_type_false.eq_match_bool_type_false
+                            cts.zero
+                            cts.zero
+                            bool.bool
+                            (p i)
+                            false.false
+                            (y:(cts.Term cts.zero bool.bool) =>
+                             eq.eq
+                               cts.zero
+                               bool.bool
+                               (match_bool_type.match_bool_type
+                                  cts.zero
+                                  bool.bool
+                                  (p i)
+                                  false.false
+                                  (match_bool_type.match_bool_type
+                                     cts.zero
+                                     bool.bool
+                                     false.false
+                                     true.true
+                                     true.true))
+                               y)
+                            (eq_match_bool_type_true.eq_match_bool_type_true
+                               cts.zero
+                               cts.zero
+                               bool.bool
+                               false.false
+                               true.true
+                               (y:(cts.Term cts.zero bool.bool) =>
+                                eq.eq
+                                  cts.zero
+                                  bool.bool
+                                  (match_bool_type.match_bool_type
+                                     cts.zero
+                                     bool.bool
+                                     (p i)
+                                     false.false
+                                     (match_bool_type.match_bool_type
+                                        cts.zero
+                                        bool.bool
+                                        false.false
+                                        true.true
+                                        true.true))
+                                  (match_bool_type.match_bool_type
+                                     cts.zero
+                                     bool.bool
+                                     (p i)
+                                     false.false
+                                     y))
+                               (refl.refl
+                                  cts.zero
+                                  bool.bool
+                                  (andb.andb (notb.notb true.true) (p i)))))
+                         (eqb.eqb i i)
+                         (eq_to_eqb_true.eq_to_eqb_true
+                            i
+                            i
+                            (refl.refl cts.zero nat.nat i))))))
+             (bigop.bigop
+                cts.zero
+                nat.nat
+                (S.S i)
+                (i0:(cts.Term cts.zero nat.nat) => p i0)
+                (S.S O.O)
+                times.times
+                (i0:(cts.Term cts.zero nat.nat) => f i0))
+             (bigop_Strue.bigop_Strue
+                cts.zero
+                nat.nat
+                i
+                p
+                (S.S O.O)
+                times.times
+                f
+                (rewrite_r.rewrite_r
+                   cts.zero
+                   cts.zero
+                   bool.bool
+                   true.true
+                   (__:(cts.Term cts.zero bool.bool) =>
+                    eq.eq cts.zero bool.bool __ true.true)
+                   (refl.refl cts.zero bool.bool true.true)
+                   (p i)
+                   pi)))
+          n0
+          Hi)
+       (le_to_or_lt_eq.le_to_or_lt_eq
+          cts.zero
+          i
+          n0
+          (le_S_S_to_le.le_S_S_to_le i n0 lein)))
+    n.
+

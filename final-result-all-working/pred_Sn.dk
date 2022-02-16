@@ -1,0 +1,22 @@
+def pred_Sn : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => eq.eq cts.zero nat.nat x (pred.pred (S.S x))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+    cts.zero
+    cts.zero
+    nat.nat
+    O.O
+    (p:(cts.Term cts.zero nat.nat) => p)
+    n
+    (y:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat n y)
+    (refl.refl cts.zero nat.nat n).
+

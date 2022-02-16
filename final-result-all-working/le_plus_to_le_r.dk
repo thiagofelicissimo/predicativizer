@@ -1,0 +1,76 @@
+def le_plus_to_le_r : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (le.le (plus.plus x0 x) (plus.plus x1 x))
+                (x2 => le.le x0 x1)))))
+  :=
+  a:(cts.Term cts.zero nat.nat) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  auto:(cts.Term cts.zero (le.le (plus.plus n a) (plus.plus m a))) =>
+  le_plus_to_le.le_plus_to_le
+    a
+    n
+    m
+    (eq_coerc.eq_coerc
+       cts.zero
+       (le.le (plus.plus n a) (plus.plus m a))
+       (le.le (plus.plus a n) (plus.plus a m))
+       auto
+       (rewrite_r.rewrite_r
+          (cts.succ cts.zero)
+          cts.zero
+          nat.nat
+          (plus.plus a n)
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq
+             (cts.succ cts.zero)
+             (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+             (le.le __ (plus.plus m a))
+             (le.le (plus.plus a n) (plus.plus a m)))
+          (rewrite_r.rewrite_r
+             (cts.succ cts.zero)
+             cts.zero
+             nat.nat
+             (plus.plus a m)
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                (cts.succ cts.zero)
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (le.le (plus.plus a n) __)
+                (le.le (plus.plus a n) (plus.plus a m)))
+             (refl.refl
+                (cts.succ cts.zero)
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (le.le (plus.plus a n) (plus.plus a m)))
+             (plus.plus m a)
+             (commutative_plus.commutative_plus m a))
+          (plus.plus n a)
+          (commutative_plus.commutative_plus n a))).
+

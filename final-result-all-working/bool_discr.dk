@@ -1,0 +1,385 @@
+def bool_discr :  (l?182 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?182)
+    (cts.prod
+       cts.zero
+       (cts.succ l?182)
+       (cts.succ l?182)
+       cts.I
+       bool.bool
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.succ l?182)
+          (cts.succ l?182)
+          cts.I
+          bool.bool
+          (x0 =>
+           cts.prod
+             cts.zero
+             (cts.succ l?182)
+             (cts.succ l?182)
+             cts.I
+             (eq.eq cts.zero bool.bool x x0)
+             (x1 =>
+              match_bool_type.match_bool_type
+                (cts.succ (cts.succ l?182))
+                (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+                (match_bool_type.match_bool_type
+                   (cts.succ (cts.succ l?182))
+                   (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+                   (cts.prod
+                      (cts.succ l?182)
+                      l?182
+                      (cts.succ l?182)
+                      cts.I
+                      (cts.univ l?182 (cts.succ l?182) cts.I)
+                      (x2 =>
+                       cts.prod
+                         l?182
+                         l?182
+                         l?182
+                         cts.I
+                         x2
+                         (x3 => x2)))
+                   (cts.prod
+                      (cts.succ l?182)
+                      l?182
+                      (cts.succ l?182)
+                      cts.I
+                      (cts.univ l?182 (cts.succ l?182) cts.I)
+                      (x2 => x2))
+                   x0)
+                (match_bool_type.match_bool_type
+                   (cts.succ (cts.succ l?182))
+                   (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+                   (cts.prod
+                      (cts.succ l?182)
+                      l?182
+                      (cts.succ l?182)
+                      cts.I
+                      (cts.univ l?182 (cts.succ l?182) cts.I)
+                      (x2 => x2))
+                   (cts.prod
+                      (cts.succ l?182)
+                      l?182
+                      (cts.succ l?182)
+                      cts.I
+                      (cts.univ l?182 (cts.succ l?182) cts.I)
+                      (x2 =>
+                       cts.prod
+                         l?182
+                         l?182
+                         l?182
+                         cts.I
+                         x2
+                         (x3 => x2)))
+                   x0)
+                x))))
+  := l?182 =>
+  x:(cts.Term cts.zero bool.bool) =>
+  y:(cts.Term cts.zero bool.bool) =>
+  Deq:(cts.Term cts.zero (eq.eq cts.zero bool.bool x y)) =>
+  eq_ind.eq_ind
+    (cts.succ l?182)
+    cts.zero
+    bool.bool
+    x
+    (x_13:(cts.Term cts.zero bool.bool) =>
+     match_bool_type.match_bool_type
+       (cts.succ (cts.succ l?182))
+       (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+       (match_bool_type.match_bool_type
+          (cts.succ (cts.succ l?182))
+          (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+          (cts.prod
+             (cts.succ l?182)
+             l?182
+             (cts.succ l?182)
+             cts.I
+             (cts.univ l?182 (cts.succ l?182) cts.I)
+             (x0 =>
+              cts.prod
+                l?182
+                l?182
+                l?182
+                cts.I
+                x0
+                (x1 => x0)))
+          (cts.prod
+             (cts.succ l?182)
+             l?182
+             (cts.succ l?182)
+             cts.I
+             (cts.univ l?182 (cts.succ l?182) cts.I)
+             (x0 => x0))
+          x_13)
+       (match_bool_type.match_bool_type
+          (cts.succ (cts.succ l?182))
+          (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+          (cts.prod
+             (cts.succ l?182)
+             l?182
+             (cts.succ l?182)
+             cts.I
+             (cts.univ l?182 (cts.succ l?182) cts.I)
+             (x0 => x0))
+          (cts.prod
+             (cts.succ l?182)
+             l?182
+             (cts.succ l?182)
+             cts.I
+             (cts.univ l?182 (cts.succ l?182) cts.I)
+             (x0 =>
+              cts.prod
+                l?182
+                l?182
+                l?182
+                cts.I
+                x0
+                (x1 => x0)))
+          x_13)
+       x)
+    (match_bool_prop.match_bool_prop
+       (cts.succ l?182)
+       (__:(cts.Term cts.zero bool.bool) =>
+        match_bool_type.match_bool_type
+          (cts.succ (cts.succ l?182))
+          (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+          (match_bool_type.match_bool_type
+             (cts.succ (cts.succ l?182))
+             (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 =>
+                 cts.prod
+                   l?182
+                   l?182
+                   l?182
+                   cts.I
+                   x0
+                   (x1 => x0)))
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 => x0))
+             __)
+          (match_bool_type.match_bool_type
+             (cts.succ (cts.succ l?182))
+             (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 => x0))
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 =>
+                 cts.prod
+                   l?182
+                   l?182
+                   l?182
+                   cts.I
+                   x0
+                   (x1 => x0)))
+             __)
+          __)
+       (sym_eq_match_bool_type_true.sym_eq_match_bool_type_true
+          (cts.succ l?182)
+          (cts.succ (cts.succ l?182))
+          (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+          (match_bool_type.match_bool_type
+             (cts.succ (cts.succ l?182))
+             (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 =>
+                 cts.prod
+                   l?182
+                   l?182
+                   l?182
+                   cts.I
+                   x0
+                   (x1 => x0)))
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 => x0))
+             true.true)
+          (match_bool_type.match_bool_type
+             (cts.succ (cts.succ l?182))
+             (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 => x0))
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 =>
+                 cts.prod
+                   l?182
+                   l?182
+                   l?182
+                   cts.I
+                   x0
+                   (x1 => x0)))
+             true.true)
+          (x0:(cts.Term
+                 (cts.succ (cts.succ l?182))
+                 (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)) =>
+           x0)
+          (sym_eq_match_bool_type_true.sym_eq_match_bool_type_true
+             (cts.succ l?182)
+             (cts.succ (cts.succ l?182))
+             (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 =>
+                 cts.prod
+                   l?182
+                   l?182
+                   l?182
+                   cts.I
+                   x0
+                   (x1 => x0)))
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 => x0))
+             (x0:(cts.Term
+                    (cts.succ (cts.succ l?182))
+                    (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)) =>
+              x0)
+             (P:(cts.Term
+                   (cts.succ l?182)
+                   (cts.univ l?182 (cts.succ l?182) cts.I)) =>
+              DH:(cts.Term l?182 P) => DH)))
+       (sym_eq_match_bool_type_false.sym_eq_match_bool_type_false
+          (cts.succ l?182)
+          (cts.succ (cts.succ l?182))
+          (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+          (match_bool_type.match_bool_type
+             (cts.succ (cts.succ l?182))
+             (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 =>
+                 cts.prod
+                   l?182
+                   l?182
+                   l?182
+                   cts.I
+                   x0
+                   (x1 => x0)))
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 => x0))
+             false.false)
+          (match_bool_type.match_bool_type
+             (cts.succ (cts.succ l?182))
+             (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 => x0))
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 =>
+                 cts.prod
+                   l?182
+                   l?182
+                   l?182
+                   cts.I
+                   x0
+                   (x1 => x0)))
+             false.false)
+          (x0:(cts.Term
+                 (cts.succ (cts.succ l?182))
+                 (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)) =>
+           x0)
+          (sym_eq_match_bool_type_false.sym_eq_match_bool_type_false
+             (cts.succ l?182)
+             (cts.succ (cts.succ l?182))
+             (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 => x0))
+             (cts.prod
+                (cts.succ l?182)
+                l?182
+                (cts.succ l?182)
+                cts.I
+                (cts.univ l?182 (cts.succ l?182) cts.I)
+                (x0 =>
+                 cts.prod
+                   l?182
+                   l?182
+                   l?182
+                   cts.I
+                   x0
+                   (x1 => x0)))
+             (x0:(cts.Term
+                    (cts.succ (cts.succ l?182))
+                    (cts.univ (cts.succ l?182) (cts.succ (cts.succ l?182)) cts.I)) =>
+              x0)
+             (P:(cts.Term
+                   (cts.succ l?182)
+                   (cts.univ l?182 (cts.succ l?182) cts.I)) =>
+              DH:(cts.Term l?182 P) => DH)))
+       x)
+    y
+    Deq.
+

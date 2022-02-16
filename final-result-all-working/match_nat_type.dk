@@ -1,0 +1,38 @@
+match_nat_type :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (cts.prod
+       (cts.succ l?2)
+       l?2
+       (cts.succ l?2)
+       cts.I
+       (cts.univ l?2 (cts.succ l?2) cts.I)
+       (x =>
+        cts.prod
+          l?2
+          l?2
+          l?2
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             l?2
+             l?2
+             l?2
+             cts.I
+             (cts.prod
+                cts.zero
+                l?2
+                l?2
+                cts.I
+                nat.nat
+                (x1 => x))
+             (x1 =>
+              cts.prod
+                cts.zero
+                l?2
+                l?2
+                cts.I
+                nat.nat
+                (x2 => x))))).
+

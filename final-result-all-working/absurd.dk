@@ -1,0 +1,46 @@
+def absurd :  (l?27 : cts.Sort) -> (l?20 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?27) (cts.max l?27 (cts.max l?27 l?20)))
+    (cts.prod
+       (cts.succ l?27)
+       (cts.max l?27 (cts.max l?27 l?20))
+       (cts.max (cts.succ l?27) (cts.max l?27 (cts.max l?27 l?20)))
+       cts.I
+       (cts.univ l?27 (cts.succ l?27) cts.I)
+       (x =>
+        cts.prod
+          l?27
+          (cts.max l?27 l?20)
+          (cts.max l?27 (cts.max l?27 l?20))
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             l?27
+             l?20
+             (cts.max l?27 l?20)
+             cts.I
+             (Not.Not l?27 x)
+             (x1 => False.False l?20))))
+  := l?27 => l?20 =>
+  A:(cts.Term (cts.succ l?27) (cts.univ l?27 (cts.succ l?27) cts.I)) =>
+  H:(cts.Term l?27 A) =>
+  Hn:(cts.Term l?27 (Not.Not l?27 A)) =>
+  Not_ind.Not_ind
+    l?20
+    l?20
+    l?27
+    A
+    (False.False l?20)
+    (_x_80:(cts.Term
+              (cts.max l?27 l?20)
+              (cts.prod
+                 l?27
+                 l?20
+                 (cts.max l?27 l?20)
+                 cts.I
+                 A
+                 (x => False.False l?20))) =>
+     _x_80 H)
+    Hn.
+

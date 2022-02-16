@@ -1,0 +1,76 @@
+def let_clause_73 : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (lt.lt O.O x1)
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x4 =>
+                       cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x5 =>
+                          eq.eq
+                            cts.zero
+                            nat.nat
+                            (plus.plus x3 (plus.plus x4 x5))
+                            (plus.plus x4 (plus.plus x3 x5))))))))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  p:(cts.Term cts.zero nat.nat) =>
+  posp:(cts.Term cts.zero (lt.lt O.O p)) =>
+  x134:(cts.Term cts.zero nat.nat) =>
+  x135:(cts.Term cts.zero nat.nat) =>
+  x136:(cts.Term cts.zero nat.nat) =>
+  rewrite_l.rewrite_l
+    cts.zero
+    cts.zero
+    nat.nat
+    (plus.plus (plus.plus x135 x134) x136)
+    (__:(cts.Term cts.zero nat.nat) =>
+     eq.eq cts.zero nat.nat (plus.plus x134 (plus.plus x135 x136)) __)
+    (assoc_plus1.assoc_plus1 x136 x135 x134)
+    (plus.plus x135 (plus.plus x134 x136))
+    (associative_plus.associative_plus x135 x134 x136).
+

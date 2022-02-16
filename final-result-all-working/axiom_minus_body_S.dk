@@ -1,0 +1,28 @@
+axiom_minus_body_S : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        equal.equal
+          cts.zero
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat))
+          (minus_body.minus_body (S.S x))
+          (m:(cts.Term cts.zero nat.nat) =>
+           match_nat_type.match_nat_type
+             cts.zero
+             nat.nat
+             (S.S x)
+             (q:(cts.Term cts.zero nat.nat) => minus.minus x q)
+             m))).
+

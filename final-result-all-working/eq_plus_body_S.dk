@@ -1,0 +1,38 @@
+def eq_plus_body_S :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          cts.zero
+          l?5
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat))
+          (plus_body.plus_body (S.S x))
+          (m:(cts.Term cts.zero nat.nat) => S.S (plus.plus x m))))
+  := l?5 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  equal_leibniz.equal_leibniz
+    cts.zero
+    l?5
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => nat.nat))
+    (plus_body.plus_body (S.S n))
+    (m:(cts.Term cts.zero nat.nat) => S.S (plus.plus n m))
+    (axiom_plus_body_S.axiom_plus_body_S n).
+

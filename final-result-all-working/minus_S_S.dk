@@ -1,0 +1,79 @@
+def minus_S_S : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 => eq.eq cts.zero nat.nat (minus.minus (S.S x) (S.S x0)) (minus.minus x x0))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  eq_match_nat_type_S.eq_match_nat_type_S
+    cts.zero
+    cts.zero
+    nat.nat
+    (S.S n)
+    (q:(cts.Term cts.zero nat.nat) => minus.minus n q)
+    m
+    (y:(cts.Term cts.zero nat.nat) =>
+     eq.eq cts.zero nat.nat (minus.minus (S.S n) (S.S m)) y)
+    (eq_minus_body_S.eq_minus_body_S
+       cts.zero
+       n
+       (y:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x => nat.nat))) =>
+        eq.eq cts.zero nat.nat (minus.minus (S.S n) (S.S m)) (y (S.S m)))
+       (eq_filter_nat_type_S.eq_filter_nat_type_S
+          cts.zero
+          cts.zero
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x => nat.nat))
+          minus_body.minus_body
+          n
+          (y:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => nat.nat))) =>
+           eq.eq cts.zero nat.nat (minus.minus (S.S n) (S.S m)) (y (S.S m)))
+          (eq_minus.eq_minus
+             cts.zero
+             (S.S n)
+             (y:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => nat.nat))) =>
+              eq.eq cts.zero nat.nat (minus.minus (S.S n) (S.S m)) (y (S.S m)))
+             (refl.refl cts.zero nat.nat (minus.minus (S.S n) (S.S m)))))).
+

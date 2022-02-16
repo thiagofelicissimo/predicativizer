@@ -1,0 +1,87 @@
+def sym_eq_gcd_aux :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          cts.zero
+          l?5
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x1 => nat.nat)))
+          (filter_nat_type.filter_nat_type
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x0 =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x1 => nat.nat)))
+             gcd_aux_body.gcd_aux_body
+             x)
+          (gcd_aux.gcd_aux x)))
+  := l?5 =>
+  p:(cts.Term cts.zero nat.nat) =>
+  sym_leibniz.sym_leibniz
+    cts.zero
+    cts.zero
+    l?5
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 => nat.nat)))
+    (gcd_aux.gcd_aux p)
+    (filter_nat_type.filter_nat_type
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat)))
+       gcd_aux_body.gcd_aux_body
+       p)
+    (eq_gcd_aux.eq_gcd_aux cts.zero p).
+

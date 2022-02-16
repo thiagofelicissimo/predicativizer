@@ -1,0 +1,86 @@
+def trans_eq :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (cts.prod
+       (cts.succ l?2)
+       l?2
+       (cts.succ l?2)
+       cts.I
+       (cts.univ l?2 (cts.succ l?2) cts.I)
+       (x =>
+        cts.prod
+          l?2
+          l?2
+          l?2
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             l?2
+             l?2
+             l?2
+             cts.I
+             x
+             (x1 =>
+              cts.prod
+                l?2
+                l?2
+                l?2
+                cts.I
+                x
+                (x2 =>
+                 cts.prod
+                   l?2
+                   l?2
+                   l?2
+                   cts.I
+                   (eq.eq l?2 x x0 x1)
+                   (x3 =>
+                    cts.prod
+                      l?2
+                      l?2
+                      l?2
+                      cts.I
+                      (eq.eq l?2 x x1 x2)
+                      (x4 => eq.eq l?2 x x0 x2)))))))
+  := l?2 =>
+  A:(cts.Term (cts.succ l?2) (cts.univ l?2 (cts.succ l?2) cts.I)) =>
+  x:(cts.Term l?2 A) =>
+  y:(cts.Term l?2 A) =>
+  z:(cts.Term l?2 A) =>
+  H1:(cts.Term l?2 (eq.eq l?2 A x y)) =>
+  H2:(cts.Term l?2 (eq.eq l?2 A y z)) =>
+  eq_ind_r.eq_ind_r
+    l?2
+    l?2
+    A
+    y
+    (x0:(cts.Term l?2 A) => eq.eq l?2 A x0 z)
+    (rewrite_l.rewrite_l
+       l?2
+       l?2
+       A
+       x
+       (__:(cts.Term l?2 A) => eq.eq l?2 A __ z)
+       (rewrite_l.rewrite_l
+          l?2
+          l?2
+          A
+          x
+          (__:(cts.Term l?2 A) => eq.eq l?2 A x __)
+          (refl.refl l?2 A x)
+          z
+          (rewrite_r.rewrite_r
+             l?2
+             l?2
+             A
+             y
+             (__:(cts.Term l?2 A) => eq.eq l?2 A __ z)
+             H2
+             x
+             H1))
+       y
+       H1)
+    x
+    H1.
+

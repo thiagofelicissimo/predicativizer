@@ -1,0 +1,64 @@
+def not_eq_S : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (Not.Not cts.zero (eq.eq cts.zero nat.nat x x0))
+             (x1 => Not.Not cts.zero (eq.eq cts.zero nat.nat (S.S x) (S.S x0))))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  auto:(cts.Term
+          cts.zero
+          (Not.Not cts.zero (eq.eq cts.zero nat.nat n m))) =>
+  not_to_not.not_to_not
+    cts.zero
+    cts.zero
+    (eq.eq cts.zero nat.nat (S.S n) (S.S m))
+    (eq.eq cts.zero nat.nat n m)
+    (auto':(cts.Term cts.zero (eq.eq cts.zero nat.nat (S.S n) (S.S m))) =>
+     rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       m
+       (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat __ m)
+       (refl.refl cts.zero nat.nat m)
+       n
+       (rewrite_r.rewrite_r
+          cts.zero
+          cts.zero
+          nat.nat
+          (pred.pred (S.S n))
+          (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat m __)
+          (rewrite_r.rewrite_r
+             cts.zero
+             cts.zero
+             nat.nat
+             (S.S m)
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq cts.zero nat.nat m (pred.pred __))
+             (pred_Sn.pred_Sn m)
+             (S.S n)
+             auto')
+          n
+          (pred_Sn.pred_Sn n)))
+    auto.
+

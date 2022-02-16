@@ -1,0 +1,46 @@
+def eq_minus :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          cts.zero
+          l?5
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat))
+          (minus.minus x)
+          (filter_nat_type.filter_nat_type
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x0 => nat.nat))
+             minus_body.minus_body
+             x)))
+  := l?5 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  equal_leibniz.equal_leibniz
+    cts.zero
+    l?5
+    (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))
+    (minus.minus n)
+    (filter_nat_type.filter_nat_type
+       cts.zero
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))
+       minus_body.minus_body
+       n)
+    (axiom_minus.axiom_minus n).
+

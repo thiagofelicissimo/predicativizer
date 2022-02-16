@@ -1,0 +1,27 @@
+def sym_eq_exp_body_O :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          cts.zero
+          l?5
+          nat.nat
+          (S.S O.O)
+          (exp_body.exp_body x O.O)))
+  := l?5 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  sym_leibniz.sym_leibniz
+    cts.zero
+    cts.zero
+    l?5
+    nat.nat
+    (exp_body.exp_body n O.O)
+    (S.S O.O)
+    (eq_exp_body_O.eq_exp_body_O cts.zero n).
+

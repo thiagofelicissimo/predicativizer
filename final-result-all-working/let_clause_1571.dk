@@ -1,0 +1,62 @@
+def let_clause_1571 : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (lt.lt O.O x0)
+             (x1 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (eq.eq cts.zero nat.nat (gcd.gcd x x0) O.O)
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (eq.eq cts.zero nat.nat x O.O)
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (eq.eq cts.zero nat.nat x0 O.O)
+                      (x4 => eq.eq cts.zero nat.nat x x0)))))))
+  :=
+  m:(cts.Term cts.zero nat.nat) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  posn:(cts.Term cts.zero (lt.lt O.O n)) =>
+  H:(cts.Term cts.zero (eq.eq cts.zero nat.nat (gcd.gcd m n) O.O)) =>
+  auto:(cts.Term cts.zero (eq.eq cts.zero nat.nat m O.O)) =>
+  auto':(cts.Term cts.zero (eq.eq cts.zero nat.nat n O.O)) =>
+  rewrite_r.rewrite_r
+    cts.zero
+    cts.zero
+    nat.nat
+    O.O
+    (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat m __)
+    auto
+    n
+    auto'.
+

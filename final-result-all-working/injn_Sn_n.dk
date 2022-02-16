@@ -1,0 +1,56 @@
+def injn_Sn_n : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (injn.injn x (S.S x0))
+             (x1 => injn.injn x x0))))
+  :=
+  f:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  H:(cts.Term cts.zero (injn.injn f (S.S n))) =>
+  i:(cts.Term cts.zero nat.nat) =>
+  j:(cts.Term cts.zero nat.nat) =>
+  lei:(cts.Term cts.zero (le.le i n)) =>
+  lej:(cts.Term cts.zero (le.le j n)) =>
+  eqf:(cts.Term cts.zero (eq.eq cts.zero nat.nat (f i) (f j))) =>
+  H
+    i
+    j
+    (le_S.le_S i n lei)
+    (le_S.le_S j n lej)
+    (rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       (f i)
+       (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat (f i) __)
+       (refl.refl cts.zero nat.nat (f i))
+       (f j)
+       eqf).
+

@@ -1,0 +1,82 @@
+def lt_to_le_to_lt : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (lt.lt x x0)
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (le.le x0 x1)
+                   (x3 => lt.lt x x1))))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  p:(cts.Term cts.zero nat.nat) =>
+  H:(cts.Term cts.zero (lt.lt n m)) =>
+  H1:(cts.Term cts.zero (le.le m p)) =>
+  le_ind.le_ind
+    cts.zero
+    m
+    (x_417:(cts.Term cts.zero nat.nat) => lt.lt n x_417)
+    H
+    (m0:(cts.Term cts.zero nat.nat) =>
+     _x_419:(cts.Term cts.zero (le.le m m0)) =>
+     _x_421:(cts.Term cts.zero (lt.lt n m0)) =>
+     transitive_lt.transitive_lt
+       n
+       m0
+       (S.S m0)
+       _x_421
+       (eq_coerc.eq_coerc
+          cts.zero
+          (le.le (S.S m0) (plus.plus O.O (S.S m0)))
+          (le.le (S.S m0) (S.S m0))
+          (le_plus_n.le_plus_n O.O (S.S m0))
+          (rewrite_l.rewrite_l
+             (cts.succ cts.zero)
+             cts.zero
+             nat.nat
+             (S.S m0)
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                (cts.succ cts.zero)
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (le.le (S.S m0) __)
+                (le.le (S.S m0) (S.S m0)))
+             (refl.refl
+                (cts.succ cts.zero)
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (le.le (S.S m0) (S.S m0)))
+             (plus.plus O.O (S.S m0))
+             (plus_O_n.plus_O_n (S.S m0)))))
+    p
+    H1.
+

@@ -1,0 +1,48 @@
+def minus_n_n : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => eq.eq cts.zero nat.nat O.O (minus.minus x x)))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  nat_ind.nat_ind
+    cts.zero
+    (_x_365:(cts.Term cts.zero nat.nat) =>
+     eq.eq cts.zero nat.nat O.O (minus.minus _x_365 _x_365))
+    (rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       O.O
+       (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat O.O __)
+       (refl.refl cts.zero nat.nat O.O)
+       (minus.minus O.O O.O)
+       (minus_O_n.minus_O_n O.O))
+    (x_366:(cts.Term cts.zero nat.nat) =>
+     _x_368:(cts.Term
+               cts.zero
+               (eq.eq cts.zero nat.nat O.O (minus.minus x_366 x_366))) =>
+     rewrite_r.rewrite_r
+       cts.zero
+       cts.zero
+       nat.nat
+       (minus.minus x_366 x_366)
+       (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat O.O __)
+       (rewrite_l.rewrite_l
+          cts.zero
+          cts.zero
+          nat.nat
+          O.O
+          (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat O.O __)
+          (refl.refl cts.zero nat.nat O.O)
+          (minus.minus x_366 x_366)
+          _x_368)
+       (minus.minus (S.S x_366) (S.S x_366))
+       (minus_S_S.minus_S_S x_366 x_366))
+    n.
+

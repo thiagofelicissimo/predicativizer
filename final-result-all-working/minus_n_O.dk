@@ -1,0 +1,85 @@
+def minus_n_O : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => eq.eq cts.zero nat.nat x (minus.minus x O.O)))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  match_nat_prop.match_nat_prop
+    cts.zero
+    (__:(cts.Term cts.zero nat.nat) =>
+     eq.eq cts.zero nat.nat __ (minus.minus __ O.O))
+    (rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       O.O
+       (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat O.O __)
+       (refl.refl cts.zero nat.nat O.O)
+       (minus.minus O.O O.O)
+       (minus_O_n.minus_O_n O.O))
+    (auto:(cts.Term cts.zero nat.nat) =>
+     sym_eq_minus.sym_eq_minus
+       cts.zero
+       (S.S auto)
+       (y:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x => nat.nat))) =>
+        eq.eq cts.zero nat.nat (S.S auto) (y O.O))
+       (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+          cts.zero
+          cts.zero
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x => nat.nat))
+          minus_body.minus_body
+          auto
+          (y:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => nat.nat))) =>
+           eq.eq cts.zero nat.nat (S.S auto) (y O.O))
+          (sym_eq_minus_body_S.sym_eq_minus_body_S
+             cts.zero
+             auto
+             (y:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => nat.nat))) =>
+              eq.eq cts.zero nat.nat (S.S auto) (y O.O))
+             (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
+                cts.zero
+                cts.zero
+                nat.nat
+                (S.S auto)
+                (q:(cts.Term cts.zero nat.nat) => minus.minus auto q)
+                (y:(cts.Term cts.zero nat.nat) =>
+                 eq.eq cts.zero nat.nat (S.S auto) y)
+                (refl.refl cts.zero nat.nat (S.S auto))))))
+    n.
+

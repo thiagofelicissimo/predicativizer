@@ -1,0 +1,40 @@
+def assoc : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x1 =>
+              eq.eq
+                cts.zero
+                nat.nat
+                (times.times x (times.times x0 x1))
+                (times.times (times.times x x0) x1)))))
+  :=
+  a:(cts.Term cts.zero nat.nat) =>
+  b:(cts.Term cts.zero nat.nat) =>
+  c:(cts.Term cts.zero nat.nat) =>
+  sym_eq.sym_eq
+    cts.zero
+    nat.nat
+    (times.times (times.times a b) c)
+    (times.times a (times.times b c))
+    (associative_times.associative_times a b c).
+

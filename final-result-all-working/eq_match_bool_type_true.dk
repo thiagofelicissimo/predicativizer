@@ -1,0 +1,58 @@
+def eq_match_bool_type_true :  (l?13 : cts.Sort) -> (l?22 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?22) (cts.max l?22 (cts.max l?22 (cts.max (cts.max l?22 (cts.succ l?13)) l?13))))
+    (cts.prod
+       (cts.succ l?22)
+       (cts.max l?22 (cts.max l?22 (cts.max (cts.max l?22 (cts.succ l?13)) l?13)))
+       (cts.max (cts.succ l?22) (cts.max l?22 (cts.max l?22 (cts.max (cts.max l?22 (cts.succ l?13)) l?13))))
+       cts.I
+       (cts.univ l?22 (cts.succ l?22) cts.I)
+       (x =>
+        cts.prod
+          l?22
+          (cts.max l?22 (cts.max (cts.max l?22 (cts.succ l?13)) l?13))
+          (cts.max l?22 (cts.max l?22 (cts.max (cts.max l?22 (cts.succ l?13)) l?13)))
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             l?22
+             (cts.max (cts.max l?22 (cts.succ l?13)) l?13)
+             (cts.max l?22 (cts.max (cts.max l?22 (cts.succ l?13)) l?13))
+             cts.I
+             x
+             (x1 =>
+              leibniz.leibniz
+                l?22
+                l?13
+                x
+                (match_bool_type.match_bool_type
+                   l?22
+                   x
+                   x0
+                   x1
+                   true.true)
+                x0))))
+  := l?13 => l?22 =>
+  return:(cts.Term
+            (cts.succ l?22)
+            (cts.univ l?22 (cts.succ l?22) cts.I)) =>
+  case_true:(cts.Term l?22 return) =>
+  case_false:(cts.Term l?22 return) =>
+  equal_leibniz.equal_leibniz
+    l?22
+    l?13
+    return
+    (match_bool_type.match_bool_type
+       l?22
+       return
+       case_true
+       case_false
+       true.true)
+    case_true
+    (axiom_match_bool_type_true.axiom_match_bool_type_true
+       l?22
+       return
+       case_true
+       case_false).
+

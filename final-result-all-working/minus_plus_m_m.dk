@@ -1,0 +1,73 @@
+def minus_plus_m_m : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 => eq.eq cts.zero nat.nat x (minus.minus (plus.plus x x0) x0))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  eq_coerc.eq_coerc
+    cts.zero
+    (eq.eq
+       cts.zero
+       nat.nat
+       (plus.plus (minus.minus m m) n)
+       (minus.minus (plus.plus m n) m))
+    (eq.eq cts.zero nat.nat n (minus.minus (plus.plus n m) m))
+    (plus_minus.plus_minus m m n (le_n.le_n m))
+    (rewrite_l.rewrite_l
+       (cts.succ cts.zero)
+       cts.zero
+       nat.nat
+       O.O
+       (__:(cts.Term cts.zero nat.nat) =>
+        eq.eq
+          (cts.succ cts.zero)
+          (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+          (eq.eq cts.zero nat.nat (plus.plus __ n) (minus.minus (plus.plus m n) m))
+          (eq.eq cts.zero nat.nat n (minus.minus (plus.plus n m) m)))
+       (rewrite_l.rewrite_l
+          (cts.succ cts.zero)
+          cts.zero
+          nat.nat
+          n
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq
+             (cts.succ cts.zero)
+             (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+             (eq.eq cts.zero nat.nat __ (minus.minus (plus.plus m n) m))
+             (eq.eq cts.zero nat.nat n (minus.minus (plus.plus n m) m)))
+          (rewrite_r.rewrite_r
+             (cts.succ cts.zero)
+             cts.zero
+             nat.nat
+             (plus.plus n m)
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                (cts.succ cts.zero)
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (eq.eq cts.zero nat.nat n (minus.minus __ m))
+                (eq.eq cts.zero nat.nat n (minus.minus (plus.plus n m) m)))
+             (refl.refl
+                (cts.succ cts.zero)
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (eq.eq cts.zero nat.nat n (minus.minus (plus.plus n m) m)))
+             (plus.plus m n)
+             (commutative_plus.commutative_plus m n))
+          (plus.plus O.O n)
+          (plus_O_n.plus_O_n n))
+       (minus.minus m m)
+       (minus_n_n.minus_n_n m)).
+

@@ -1,0 +1,47 @@
+def le_plus_to_minus_r : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (le.le (plus.plus x x0) x1)
+                (x2 => le.le x (minus.minus x1 x0))))))
+  :=
+  a:(cts.Term cts.zero nat.nat) =>
+  b:(cts.Term cts.zero nat.nat) =>
+  c:(cts.Term cts.zero nat.nat) =>
+  H:(cts.Term cts.zero (le.le (plus.plus a b) c)) =>
+  le_plus_to_le_r.le_plus_to_le_r
+    b
+    a
+    (minus.minus c b)
+    (transitive_le.transitive_le
+       (plus.plus a b)
+       c
+       (plus.plus (minus.minus c b) b)
+       H
+       (le_plus_minus_m_m.le_plus_minus_m_m c b)).
+

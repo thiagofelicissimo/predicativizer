@@ -1,0 +1,43 @@
+def sym_eq_eqb_body_O :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (leibniz.leibniz
+       cts.zero
+       l?2
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => bool.bool))
+       (m:(cts.Term cts.zero nat.nat) =>
+        match_nat_type.match_nat_type
+          cts.zero
+          bool.bool
+          true.true
+          (q:(cts.Term cts.zero nat.nat) => false.false)
+          m)
+       (eqb_body.eqb_body O.O))
+  := l?2 =>
+  sym_leibniz.sym_leibniz
+    cts.zero
+    cts.zero
+    l?2
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => bool.bool))
+    (eqb_body.eqb_body O.O)
+    (m:(cts.Term cts.zero nat.nat) =>
+     match_nat_type.match_nat_type
+       cts.zero
+       bool.bool
+       true.true
+       (q:(cts.Term cts.zero nat.nat) => false.false)
+       m)
+    (eq_eqb_body_O.eq_eqb_body_O cts.zero).
+

@@ -1,0 +1,83 @@
+def decidable_divides :  (l?0 : cts.Sort) -> (l?7 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 =>
+           decidable.decidable
+             l?7
+             l?0
+             (divides.divides l?7 x x0))))
+  := l?0 => l?7 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  match_Or_prop.match_Or_prop
+    l?0
+    cts.zero
+    cts.zero
+    cts.zero
+    (eq.eq cts.zero bool.bool (dividesb.dividesb n m) true.true)
+    (eq.eq cts.zero bool.bool (dividesb.dividesb n m) false.false)
+    (decidable.decidable
+       l?7
+       l?0
+       (divides.divides l?7 n m))
+    (auto:(cts.Term
+             cts.zero
+             (eq.eq cts.zero bool.bool (dividesb.dividesb n m) true.true)) =>
+     or_introl.or_introl
+       l?7
+       l?7
+       l?0
+       (divides.divides l?7 n m)
+       (Not.Not l?7 (divides.divides l?7 n m))
+       (dividesb_true_to_divides.dividesb_true_to_divides
+          l?7
+          n
+          m
+          (rewrite_r.rewrite_r
+             cts.zero
+             cts.zero
+             bool.bool
+             true.true
+             (__:(cts.Term cts.zero bool.bool) =>
+              eq.eq cts.zero bool.bool __ true.true)
+             (refl.refl cts.zero bool.bool true.true)
+             (dividesb.dividesb n m)
+             auto)))
+    (auto:(cts.Term
+             cts.zero
+             (eq.eq cts.zero bool.bool (dividesb.dividesb n m) false.false)) =>
+     or_intror.or_intror
+       l?7
+       l?7
+       l?0
+       (divides.divides l?7 n m)
+       (Not.Not l?7 (divides.divides l?7 n m))
+       (dividesb_false_to_not_divides.dividesb_false_to_not_divides
+          l?7
+          n
+          m
+          (rewrite_r.rewrite_r
+             cts.zero
+             cts.zero
+             bool.bool
+             false.false
+             (__:(cts.Term cts.zero bool.bool) =>
+              eq.eq cts.zero bool.bool __ false.false)
+             (refl.refl cts.zero bool.bool false.false)
+             (dividesb.dividesb n m)
+             auto)))
+    (true_or_false.true_or_false cts.zero (dividesb.dividesb n m)).
+

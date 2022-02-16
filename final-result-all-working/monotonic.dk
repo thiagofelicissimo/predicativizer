@@ -1,0 +1,80 @@
+def monotonic :  (l?17 : cts.Sort) -> (l?45 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?17) (cts.max (cts.max l?17 (cts.max l?17 (cts.succ l?45))) (cts.max l?17 (cts.succ (cts.max l?17 (cts.max l?17 l?45))))))
+    (cts.prod
+       (cts.succ l?17)
+       (cts.max (cts.max l?17 (cts.max l?17 (cts.succ l?45))) (cts.max l?17 (cts.succ (cts.max l?17 (cts.max l?17 l?45)))))
+       (cts.max (cts.succ l?17) (cts.max (cts.max l?17 (cts.max l?17 (cts.succ l?45))) (cts.max l?17 (cts.succ (cts.max l?17 (cts.max l?17 l?45))))))
+       cts.I
+       (cts.univ l?17 (cts.succ l?17) cts.I)
+       (x =>
+        cts.prod
+          (cts.max l?17 (cts.max l?17 (cts.succ l?45)))
+          (cts.max l?17 (cts.succ (cts.max l?17 (cts.max l?17 l?45))))
+          (cts.max (cts.max l?17 (cts.max l?17 (cts.succ l?45))) (cts.max l?17 (cts.succ (cts.max l?17 (cts.max l?17 l?45)))))
+          cts.I
+          (cts.prod
+             l?17
+             (cts.max l?17 (cts.succ l?45))
+             (cts.max l?17 (cts.max l?17 (cts.succ l?45)))
+             cts.I
+             x
+             (x0 =>
+              cts.prod
+                l?17
+                (cts.succ l?45)
+                (cts.max l?17 (cts.succ l?45))
+                cts.I
+                x
+                (x1 => cts.univ l?45 (cts.succ l?45) cts.I)))
+          (x0 =>
+           cts.prod
+             l?17
+             (cts.succ (cts.max l?17 (cts.max l?17 l?45)))
+             (cts.max l?17 (cts.succ (cts.max l?17 (cts.max l?17 l?45))))
+             cts.I
+             (cts.prod l?17 l?17 l?17 cts.I x (x1 => x))
+             (x1 => cts.univ (cts.max l?17 (cts.max l?17 l?45)) (cts.succ (cts.max l?17 (cts.max l?17 l?45))) cts.I))))
+  := l?17 => l?45 =>
+  A:(cts.Term (cts.succ l?17) (cts.univ l?17 (cts.succ l?17) cts.I)) =>
+  R:(cts.Term
+       (cts.max l?17 (cts.max l?17 (cts.succ l?45)))
+       (cts.prod
+          l?17
+          (cts.max l?17 (cts.succ l?45))
+          (cts.max l?17 (cts.max l?17 (cts.succ l?45)))
+          cts.I
+          A
+          (x =>
+           cts.prod
+             l?17
+             (cts.succ l?45)
+             (cts.max l?17 (cts.succ l?45))
+             cts.I
+             A
+             (x0 => cts.univ l?45 (cts.succ l?45) cts.I)))) =>
+  f:(cts.Term
+       l?17
+       (cts.prod l?17 l?17 l?17 cts.I A (x => A))) =>
+  cts.prod
+    l?17
+    (cts.max l?17 l?45)
+    (cts.max l?17 (cts.max l?17 l?45))
+    cts.I
+    A
+    (x =>
+     cts.prod
+       l?17
+       l?45
+       (cts.max l?17 l?45)
+       cts.I
+       A
+       (x0 =>
+        cts.prod
+          l?45
+          l?45
+          l?45
+          cts.I
+          (R x x0)
+          (x1 => R (f x) (f x0)))).
+

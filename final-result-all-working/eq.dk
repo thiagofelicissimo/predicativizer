@@ -1,0 +1,25 @@
+eq :  (l?12 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?12)
+    (cts.prod
+       (cts.succ l?12)
+       (cts.succ l?12)
+       (cts.succ l?12)
+       cts.I
+       (cts.univ l?12 (cts.succ l?12) cts.I)
+       (x =>
+        cts.prod
+          l?12
+          (cts.succ l?12)
+          (cts.succ l?12)
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             l?12
+             (cts.succ l?12)
+             (cts.succ l?12)
+             cts.I
+             x
+             (x1 => cts.univ l?12 (cts.succ l?12) cts.I)))).
+

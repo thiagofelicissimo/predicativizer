@@ -1,0 +1,32 @@
+div_mod_spec :  (l?13 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?13)
+    (cts.prod
+       cts.zero
+       (cts.succ l?13)
+       (cts.succ l?13)
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.succ l?13)
+          (cts.succ l?13)
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             (cts.succ l?13)
+             (cts.succ l?13)
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                (cts.succ l?13)
+                (cts.succ l?13)
+                cts.I
+                nat.nat
+                (x2 => cts.univ l?13 (cts.succ l?13) cts.I))))).
+

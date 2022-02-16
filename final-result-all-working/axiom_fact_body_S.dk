@@ -1,0 +1,16 @@
+axiom_fact_body_S : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        equal.equal
+          cts.zero
+          nat.nat
+          (fact_body.fact_body (S.S x))
+          (times.times (fact.fact x) (S.S x)))).
+

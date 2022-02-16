@@ -1,0 +1,21 @@
+axiom_eqb_body_O : 
+  cts.Term
+    cts.zero
+    (equal.equal
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => bool.bool))
+       (eqb_body.eqb_body O.O)
+       (m:(cts.Term cts.zero nat.nat) =>
+        match_nat_type.match_nat_type
+          cts.zero
+          bool.bool
+          true.true
+          (q:(cts.Term cts.zero nat.nat) => false.false)
+          m)).
+

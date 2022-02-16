@@ -1,0 +1,175 @@
+def lt_O_n_elim :  (l?8 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?8)
+    (cts.prod
+       cts.zero
+       (cts.succ l?8)
+       (cts.succ l?8)
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.succ l?8)
+          (cts.succ l?8)
+          cts.I
+          (lt.lt O.O x)
+          (x0 =>
+           cts.prod
+             (cts.succ l?8)
+             l?8
+             (cts.succ l?8)
+             cts.I
+             (cts.prod
+                cts.zero
+                (cts.succ l?8)
+                (cts.succ l?8)
+                cts.I
+                nat.nat
+                (x1 => cts.univ l?8 (cts.succ l?8) cts.I))
+             (x1 =>
+              cts.prod
+                l?8
+                l?8
+                l?8
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?8
+                   l?8
+                   cts.I
+                   nat.nat
+                   (x2 => x1 (S.S x2)))
+                (x2 => x1 x)))))
+  := l?8 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  nat_ind.nat_ind
+    (cts.succ l?8)
+    (_x_365:(cts.Term cts.zero nat.nat) =>
+     cts.prod
+       cts.zero
+       (cts.succ l?8)
+       (cts.succ l?8)
+       cts.I
+       (lt.lt O.O _x_365)
+       (x =>
+        cts.prod
+          (cts.succ l?8)
+          l?8
+          (cts.succ l?8)
+          cts.I
+          (cts.prod
+             cts.zero
+             (cts.succ l?8)
+             (cts.succ l?8)
+             cts.I
+             nat.nat
+             (x0 => cts.univ l?8 (cts.succ l?8) cts.I))
+          (x0 =>
+           cts.prod
+             l?8
+             l?8
+             l?8
+             cts.I
+             (cts.prod
+                cts.zero
+                l?8
+                l?8
+                cts.I
+                nat.nat
+                (x1 => x0 (S.S x1)))
+             (x1 => x0 _x_365))))
+    (abs:(cts.Term cts.zero (lt.lt O.O O.O)) =>
+     falsity.falsity
+       (cts.succ l?8)
+       cts.zero
+       (cts.prod
+          (cts.succ l?8)
+          l?8
+          (cts.succ l?8)
+          cts.I
+          (cts.prod
+             cts.zero
+             (cts.succ l?8)
+             (cts.succ l?8)
+             cts.I
+             nat.nat
+             (x => cts.univ l?8 (cts.succ l?8) cts.I))
+          (x =>
+           cts.prod
+             l?8
+             l?8
+             l?8
+             cts.I
+             (cts.prod
+                cts.zero
+                l?8
+                l?8
+                cts.I
+                nat.nat
+                (x0 => x (S.S x0)))
+             (x0 => x O.O)))
+       (absurd.absurd
+          cts.zero
+          cts.zero
+          (le.le (S.S O.O) O.O)
+          abs
+          (not_le_Sn_O.not_le_Sn_O O.O)))
+    (x_366:(cts.Term cts.zero nat.nat) =>
+     _x_368:(cts.Term
+               (cts.succ l?8)
+               (cts.prod
+                  cts.zero
+                  (cts.succ l?8)
+                  (cts.succ l?8)
+                  cts.I
+                  (lt.lt O.O x_366)
+                  (x =>
+                   cts.prod
+                     (cts.succ l?8)
+                     l?8
+                     (cts.succ l?8)
+                     cts.I
+                     (cts.prod
+                        cts.zero
+                        (cts.succ l?8)
+                        (cts.succ l?8)
+                        cts.I
+                        nat.nat
+                        (x0 => cts.univ l?8 (cts.succ l?8) cts.I))
+                     (x0 =>
+                      cts.prod
+                        l?8
+                        l?8
+                        l?8
+                        cts.I
+                        (cts.prod
+                           cts.zero
+                           l?8
+                           l?8
+                           cts.I
+                           nat.nat
+                           (x1 => x0 (S.S x1)))
+                        (x1 => x0 x_366))))) =>
+     auto:(cts.Term cts.zero (lt.lt O.O (S.S x_366))) =>
+     P:(cts.Term
+          (cts.succ l?8)
+          (cts.prod
+             cts.zero
+             (cts.succ l?8)
+             (cts.succ l?8)
+             cts.I
+             nat.nat
+             (x => cts.univ l?8 (cts.succ l?8) cts.I))) =>
+     auto':(cts.Term
+              l?8
+              (cts.prod
+                 cts.zero
+                 l?8
+                 l?8
+                 cts.I
+                 nat.nat
+                 (x => P (S.S x)))) =>
+     auto' x_366)
+    n.
+

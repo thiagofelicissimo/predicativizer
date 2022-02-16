@@ -1,0 +1,116 @@
+def timesA :  (l?0 : cts.Sort) ->
+  cts.Term l?0 (Aop.Aop cts.zero l?0 nat.nat (S.S O.O))
+  := l?0 =>
+  mk_Aop.mk_Aop
+    cts.zero
+    l?0
+    nat.nat
+    (S.S O.O)
+    times.times
+    (a:(cts.Term cts.zero nat.nat) =>
+     sym_eq_times.sym_eq_times
+       cts.zero
+       (S.S O.O)
+       (y:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x => nat.nat))) =>
+        eq.eq cts.zero nat.nat (y a) a)
+       (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+          cts.zero
+          cts.zero
+          (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))
+          times_body.times_body
+          O.O
+          (y:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => nat.nat))) =>
+           eq.eq cts.zero nat.nat (y a) a)
+          (sym_eq_times_body_S.sym_eq_times_body_S
+             cts.zero
+             O.O
+             (y:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => nat.nat))) =>
+              eq.eq cts.zero nat.nat (y a) a)
+             (sym_eq_times.sym_eq_times
+                cts.zero
+                O.O
+                (y:(cts.Term
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x => nat.nat))) =>
+                 eq.eq cts.zero nat.nat (plus.plus a (y a)) a)
+                (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+                   cts.zero
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => nat.nat))
+                   times_body.times_body
+                   (y:(cts.Term
+                         cts.zero
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x => nat.nat))) =>
+                    eq.eq cts.zero nat.nat (plus.plus a (y a)) a)
+                   (sym_eq_times_body_O.sym_eq_times_body_O
+                      cts.zero
+                      (y:(cts.Term
+                            cts.zero
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x => nat.nat))) =>
+                       eq.eq cts.zero nat.nat (plus.plus a (y a)) a)
+                      (sym_eq.sym_eq
+                         cts.zero
+                         nat.nat
+                         a
+                         (plus.plus a O.O)
+                         (plus_n_O.plus_n_O a))))))))
+    (n:(cts.Term cts.zero nat.nat) =>
+     sym_eq.sym_eq cts.zero nat.nat n (times.times n (S.S O.O)) (times_n_1.times_n_1 n))
+    (a:(cts.Term cts.zero nat.nat) =>
+     b:(cts.Term cts.zero nat.nat) =>
+     c:(cts.Term cts.zero nat.nat) =>
+     sym_eq.sym_eq
+       cts.zero
+       nat.nat
+       (times.times (times.times a b) c)
+       (times.times a (times.times b c))
+       (associative_times.associative_times a b c)).
+

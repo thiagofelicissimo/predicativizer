@@ -1,0 +1,373 @@
+def divides_gcd_aux_mn :  (l?0 : cts.Sort) -> (l?167 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                l?0
+                l?0
+                cts.I
+                (lt.lt O.O x1)
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   l?0
+                   l?0
+                   cts.I
+                   (le.le x1 x0)
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      l?0
+                      l?0
+                      cts.I
+                      (le.le x1 x)
+                      (x4 =>
+                       And.And
+                         l?167
+                         l?167
+                         l?0
+                         (divides.divides
+                            l?167
+                            (gcd_aux.gcd_aux x x0 x1)
+                            x0)
+                         (divides.divides
+                            l?167
+                            (gcd_aux.gcd_aux x x0 x1)
+                            x1))))))))
+  := l?0 => l?167 =>
+  p:(cts.Term cts.zero nat.nat) =>
+  nat_ind.nat_ind
+    l?0
+    (_x_365:(cts.Term cts.zero nat.nat) =>
+     cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             (lt.lt O.O x0)
+             (x1 =>
+              cts.prod
+                cts.zero
+                l?0
+                l?0
+                cts.I
+                (le.le x0 x)
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   l?0
+                   l?0
+                   cts.I
+                   (le.le x0 _x_365)
+                   (x3 =>
+                    And.And
+                      l?167
+                      l?167
+                      l?0
+                      (divides.divides
+                         l?167
+                         (gcd_aux.gcd_aux _x_365 x x0)
+                         x)
+                      (divides.divides
+                         l?167
+                         (gcd_aux.gcd_aux _x_365 x x0)
+                         x0)))))))
+    (m:(cts.Term cts.zero nat.nat) =>
+     n:(cts.Term cts.zero nat.nat) =>
+     posn:(cts.Term cts.zero (lt.lt O.O n)) =>
+     lenm:(cts.Term cts.zero (le.le n m)) =>
+     lenO:(cts.Term cts.zero (le.le n O.O)) =>
+     falsity.falsity
+       l?0
+       cts.zero
+       (And.And
+          l?167
+          l?167
+          l?0
+          (divides.divides l?167 (gcd_aux.gcd_aux O.O m n) m)
+          (divides.divides l?167 (gcd_aux.gcd_aux O.O m n) n))
+       (absurd.absurd
+          cts.zero
+          cts.zero
+          (lt.lt O.O n)
+          posn
+          (le_to_not_lt.le_to_not_lt n O.O lenO)))
+    (q:(cts.Term cts.zero nat.nat) =>
+     Hind:(cts.Term
+             l?0
+             (cts.prod
+                cts.zero
+                l?0
+                l?0
+                cts.I
+                nat.nat
+                (x =>
+                 cts.prod
+                   cts.zero
+                   l?0
+                   l?0
+                   cts.I
+                   nat.nat
+                   (x0 =>
+                    cts.prod
+                      cts.zero
+                      l?0
+                      l?0
+                      cts.I
+                      (lt.lt O.O x0)
+                      (x1 =>
+                       cts.prod
+                         cts.zero
+                         l?0
+                         l?0
+                         cts.I
+                         (le.le x0 x)
+                         (x2 =>
+                          cts.prod
+                            cts.zero
+                            l?0
+                            l?0
+                            cts.I
+                            (le.le x0 q)
+                            (x3 =>
+                             And.And
+                               l?167
+                               l?167
+                               l?0
+                               (divides.divides
+                                  l?167
+                                  (gcd_aux.gcd_aux q x x0)
+                                  x)
+                               (divides.divides
+                                  l?167
+                                  (gcd_aux.gcd_aux q x x0)
+                                  x0)))))))) =>
+     m:(cts.Term cts.zero nat.nat) =>
+     n:(cts.Term cts.zero nat.nat) =>
+     posn:(cts.Term cts.zero (lt.lt O.O n)) =>
+     lenm:(cts.Term cts.zero (le.le n m)) =>
+     lenS:(cts.Term cts.zero (le.le n (S.S q))) =>
+     match_Or_prop.match_Or_prop
+       l?0
+       l?167
+       l?167
+       cts.zero
+       (divides.divides l?167 n m)
+       (Not.Not l?167 (divides.divides l?167 n m))
+       (And.And
+          l?167
+          l?167
+          l?0
+          (divides.divides l?167 (gcd_aux.gcd_aux (S.S q) m n) m)
+          (divides.divides l?167 (gcd_aux.gcd_aux (S.S q) m n) n))
+       (divnm:(cts.Term
+                 l?167
+                 (divides.divides l?167 n m)) =>
+        eq_ind_r.eq_ind_r
+          l?0
+          cts.zero
+          nat.nat
+          n
+          (x:(cts.Term cts.zero nat.nat) =>
+           And.And
+             l?167
+             l?167
+             l?0
+             (divides.divides l?167 x m)
+             (divides.divides l?167 x n))
+          (conj.conj
+             l?167
+             l?167
+             l?0
+             (divides.divides l?167 n m)
+             (divides.divides l?167 n n)
+             divnm
+             (divides_n_n.divides_n_n l?167 n))
+          (gcd_aux.gcd_aux (S.S q) m n)
+          (divides_to_gcd_aux.divides_to_gcd_aux
+             l?167
+             (S.S q)
+             m
+             n
+             (lt_O_S.lt_O_S q)
+             posn
+             divnm))
+       (ndivnm:(cts.Term
+                  l?167
+                  (Not.Not
+                     l?167
+                     (divides.divides l?167 n m))) =>
+        eq_ind_r.eq_ind_r
+          l?0
+          cts.zero
+          nat.nat
+          (gcd_aux.gcd_aux q n (mod.mod m n))
+          (x:(cts.Term cts.zero nat.nat) =>
+           And.And
+             l?167
+             l?167
+             l?0
+             (divides.divides l?167 x m)
+             (divides.divides l?167 x n))
+          (match_And_prop.match_And_prop
+             l?0
+             l?167
+             l?167
+             l?0
+             (divides.divides l?167 (gcd_aux.gcd_aux q n (mod.mod m n)) n)
+             (divides.divides
+                l?167
+                (gcd_aux.gcd_aux q n (mod.mod m n))
+                (mod.mod m n))
+             (And.And
+                l?167
+                l?167
+                l?0
+                (divides.divides
+                   l?167
+                   (gcd_aux.gcd_aux q n (mod.mod m n))
+                   m)
+                (divides.divides
+                   l?167
+                   (gcd_aux.gcd_aux q n (mod.mod m n))
+                   n))
+             (H:(cts.Term
+                   l?167
+                   (divides.divides
+                      l?167
+                      (gcd_aux.gcd_aux q n (mod.mod m n))
+                      n)) =>
+              H1:(cts.Term
+                    l?167
+                    (divides.divides
+                       l?167
+                       (gcd_aux.gcd_aux q n (mod.mod m n))
+                       (mod.mod m n))) =>
+              conj.conj
+                l?167
+                l?167
+                l?0
+                (divides.divides
+                   l?167
+                   (gcd_aux.gcd_aux q n (mod.mod m n))
+                   m)
+                (divides.divides
+                   l?167
+                   (gcd_aux.gcd_aux q n (mod.mod m n))
+                   n)
+                (divides_mod_to_divides.divides_mod_to_divides
+                   l?167
+                   l?167
+                   l?167
+                   (gcd_aux.gcd_aux q n (mod.mod m n))
+                   m
+                   n
+                   posn
+                   H1
+                   H)
+                H)
+             (Hind
+                n
+                (mod.mod m n)
+                (match_Or_prop.match_Or_prop
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   (lt.lt O.O (mod.mod m n))
+                   (eq.eq cts.zero nat.nat O.O (mod.mod m n))
+                   (lt.lt O.O (mod.mod m n))
+                   (auto:(cts.Term cts.zero (lt.lt O.O (mod.mod m n))) =>
+                    auto)
+                   (modO:(cts.Term
+                            cts.zero
+                            (eq.eq cts.zero nat.nat O.O (mod.mod m n))) =>
+                    falsity.falsity
+                      cts.zero
+                      cts.zero
+                      (lt.lt O.O (mod.mod m n))
+                      (absurd.absurd
+                         l?167
+                         cts.zero
+                         (divides.divides l?167 n m)
+                         (mod_O_to_divides.mod_O_to_divides
+                            l?167
+                            n
+                            m
+                            posn
+                            (rewrite_l.rewrite_l
+                               cts.zero
+                               cts.zero
+                               nat.nat
+                               O.O
+                               (__:(cts.Term cts.zero nat.nat) =>
+                                eq.eq cts.zero nat.nat __ O.O)
+                               (refl.refl cts.zero nat.nat O.O)
+                               (mod.mod m n)
+                               modO))
+                         ndivnm))
+                   (le_to_or_lt_eq.le_to_or_lt_eq
+                      cts.zero
+                      O.O
+                      (mod.mod m n)
+                      (le_O_n.le_O_n (mod.mod m n))))
+                (lt_to_le.lt_to_le (mod.mod m n) n (lt_mod_m_m.lt_mod_m_m m n posn))
+                (le_S_S_to_le.le_S_S_to_le
+                   (mod.mod m n)
+                   q
+                   (transitive_le.transitive_le
+                      (S.S (mod.mod m n))
+                      n
+                      (S.S q)
+                      (lt_mod_m_m.lt_mod_m_m m n posn)
+                      lenS))))
+          (gcd_aux.gcd_aux (S.S q) m n)
+          (not_divides_to_gcd_aux.not_divides_to_gcd_aux
+             l?167
+             q
+             m
+             n
+             posn
+             ndivnm))
+       (decidable_divides.decidable_divides
+          cts.zero
+          l?167
+          n
+          m))
+    p.
+

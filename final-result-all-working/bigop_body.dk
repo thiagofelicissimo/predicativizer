@@ -1,0 +1,71 @@
+bigop_body :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (cts.prod
+       (cts.succ l?2)
+       l?2
+       (cts.succ l?2)
+       cts.I
+       (cts.univ l?2 (cts.succ l?2) cts.I)
+       (x =>
+        cts.prod
+          cts.zero
+          l?2
+          l?2
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?2
+             l?2
+             cts.I
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x1 => bool.bool))
+             (x1 =>
+              cts.prod
+                l?2
+                l?2
+                l?2
+                cts.I
+                x
+                (x2 =>
+                 cts.prod
+                   l?2
+                   l?2
+                   l?2
+                   cts.I
+                   (cts.prod
+                      l?2
+                      l?2
+                      l?2
+                      cts.I
+                      x
+                      (x3 =>
+                       cts.prod
+                         l?2
+                         l?2
+                         l?2
+                         cts.I
+                         x
+                         (x4 => x)))
+                   (x3 =>
+                    cts.prod
+                      l?2
+                      l?2
+                      l?2
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?2
+                         l?2
+                         cts.I
+                         nat.nat
+                         (x4 => x))
+                      (x4 => x))))))).
+

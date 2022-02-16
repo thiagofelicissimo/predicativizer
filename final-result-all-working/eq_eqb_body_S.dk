@@ -1,0 +1,50 @@
+def eq_eqb_body_S :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          cts.zero
+          l?5
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => bool.bool))
+          (eqb_body.eqb_body (S.S x))
+          (m:(cts.Term cts.zero nat.nat) =>
+           match_nat_type.match_nat_type
+             cts.zero
+             bool.bool
+             false.false
+             (q:(cts.Term cts.zero nat.nat) => eqb.eqb x q)
+             m)))
+  := l?5 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  equal_leibniz.equal_leibniz
+    cts.zero
+    l?5
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => bool.bool))
+    (eqb_body.eqb_body (S.S n))
+    (m:(cts.Term cts.zero nat.nat) =>
+     match_nat_type.match_nat_type
+       cts.zero
+       bool.bool
+       false.false
+       (q:(cts.Term cts.zero nat.nat) => eqb.eqb n q)
+       m)
+    (axiom_eqb_body_S.axiom_eqb_body_S n).
+

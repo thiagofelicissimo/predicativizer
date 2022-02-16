@@ -1,0 +1,22 @@
+def decidable_lt :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 => decidable.decidable cts.zero l?0 (lt.lt x x0))))
+  := l?0 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  decidable_le.decidable_le l?0 (S.S n) m.
+

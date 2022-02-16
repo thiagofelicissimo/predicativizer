@@ -1,0 +1,419 @@
+def bigop_Sfalse :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (cts.prod
+       (cts.succ l?2)
+       l?2
+       (cts.succ l?2)
+       cts.I
+       (cts.univ l?2 (cts.succ l?2) cts.I)
+       (x =>
+        cts.prod
+          cts.zero
+          l?2
+          l?2
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?2
+             l?2
+             cts.I
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x1 => bool.bool))
+             (x1 =>
+              cts.prod
+                l?2
+                l?2
+                l?2
+                cts.I
+                x
+                (x2 =>
+                 cts.prod
+                   l?2
+                   l?2
+                   l?2
+                   cts.I
+                   (cts.prod
+                      l?2
+                      l?2
+                      l?2
+                      cts.I
+                      x
+                      (x3 =>
+                       cts.prod
+                         l?2
+                         l?2
+                         l?2
+                         cts.I
+                         x
+                         (x4 => x)))
+                   (x3 =>
+                    cts.prod
+                      l?2
+                      l?2
+                      l?2
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?2
+                         l?2
+                         cts.I
+                         nat.nat
+                         (x4 => x))
+                      (x4 =>
+                       cts.prod
+                         cts.zero
+                         l?2
+                         l?2
+                         cts.I
+                         (eq.eq cts.zero bool.bool (x1 x0) false.false)
+                         (x5 =>
+                          eq.eq
+                            l?2
+                            x
+                            (bigop.bigop
+                               l?2
+                               x
+                               (S.S x0)
+                               (i:(cts.Term cts.zero nat.nat) => x1 i)
+                               x2
+                               x3
+                               (i:(cts.Term cts.zero nat.nat) => x4 i))
+                            (bigop.bigop
+                               l?2
+                               x
+                               x0
+                               (i:(cts.Term cts.zero nat.nat) => x1 i)
+                               x2
+                               x3
+                               (i:(cts.Term cts.zero nat.nat) => x4 i))))))))))
+  := l?2 =>
+  B:(cts.Term (cts.succ l?2) (cts.univ l?2 (cts.succ l?2) cts.I)) =>
+  k:(cts.Term cts.zero nat.nat) =>
+  p:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => bool.bool))) =>
+  nil:(cts.Term l?2 B) =>
+  op:(cts.Term
+        l?2
+        (cts.prod
+           l?2
+           l?2
+           l?2
+           cts.I
+           B
+           (x =>
+            cts.prod
+              l?2
+              l?2
+              l?2
+              cts.I
+              B
+              (x0 => B)))) =>
+  f:(cts.Term
+       l?2
+       (cts.prod
+          cts.zero
+          l?2
+          l?2
+          cts.I
+          nat.nat
+          (x => B))) =>
+  sym_eq_bigop_S.sym_eq_bigop_S
+    l?2
+    l?2
+    B
+    k
+    (y:(cts.Term
+          l?2
+          (cts.prod
+             cts.zero
+             l?2
+             l?2
+             cts.I
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x => bool.bool))
+             (x =>
+              cts.prod
+                l?2
+                l?2
+                l?2
+                cts.I
+                B
+                (x0 =>
+                 cts.prod
+                   l?2
+                   l?2
+                   l?2
+                   cts.I
+                   (cts.prod
+                      l?2
+                      l?2
+                      l?2
+                      cts.I
+                      B
+                      (x1 =>
+                       cts.prod
+                         l?2
+                         l?2
+                         l?2
+                         cts.I
+                         B
+                         (x2 => B)))
+                   (x1 =>
+                    cts.prod
+                      l?2
+                      l?2
+                      l?2
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?2
+                         l?2
+                         cts.I
+                         nat.nat
+                         (x2 => B))
+                      (x2 => B)))))) =>
+     cts.prod
+       cts.zero
+       l?2
+       l?2
+       cts.I
+       (eq.eq cts.zero bool.bool (p k) false.false)
+       (x =>
+        eq.eq
+          l?2
+          B
+          (y
+             (i:(cts.Term cts.zero nat.nat) => p i)
+             nil
+             op
+             (i:(cts.Term cts.zero nat.nat) => f i))
+          (bigop.bigop
+             l?2
+             B
+             k
+             (i:(cts.Term cts.zero nat.nat) => p i)
+             nil
+             op
+             (i:(cts.Term cts.zero nat.nat) => f i))))
+    (sym_eq_bigop_body_S.sym_eq_bigop_body_S
+       l?2
+       l?2
+       B
+       k
+       (y:(cts.Term
+             l?2
+             (cts.prod
+                cts.zero
+                l?2
+                l?2
+                cts.I
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => bool.bool))
+                (x =>
+                 cts.prod
+                   l?2
+                   l?2
+                   l?2
+                   cts.I
+                   B
+                   (x0 =>
+                    cts.prod
+                      l?2
+                      l?2
+                      l?2
+                      cts.I
+                      (cts.prod
+                         l?2
+                         l?2
+                         l?2
+                         cts.I
+                         B
+                         (x1 =>
+                          cts.prod
+                            l?2
+                            l?2
+                            l?2
+                            cts.I
+                            B
+                            (x2 => B)))
+                      (x1 =>
+                       cts.prod
+                         l?2
+                         l?2
+                         l?2
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            l?2
+                            l?2
+                            cts.I
+                            nat.nat
+                            (x2 => B))
+                         (x2 => B)))))) =>
+        cts.prod
+          cts.zero
+          l?2
+          l?2
+          cts.I
+          (eq.eq cts.zero bool.bool (p k) false.false)
+          (x =>
+           eq.eq
+             l?2
+             B
+             (y
+                (i:(cts.Term cts.zero nat.nat) => p i)
+                nil
+                op
+                (i:(cts.Term cts.zero nat.nat) => f i))
+             (bigop.bigop
+                l?2
+                B
+                k
+                (i:(cts.Term cts.zero nat.nat) => p i)
+                nil
+                op
+                (i:(cts.Term cts.zero nat.nat) => f i))))
+       (H:(cts.Term
+             cts.zero
+             (eq.eq cts.zero bool.bool (p k) false.false)) =>
+        eq_ind_r.eq_ind_r
+          l?2
+          cts.zero
+          bool.bool
+          false.false
+          (x:(cts.Term cts.zero bool.bool) =>
+           eq.eq
+             l?2
+             B
+             (match_bool_type.match_bool_type
+                l?2
+                B
+                (op
+                   (f k)
+                   (bigop.bigop
+                      l?2
+                      B
+                      k
+                      (i:(cts.Term cts.zero nat.nat) => p i)
+                      nil
+                      op
+                      (i:(cts.Term cts.zero nat.nat) => f i)))
+                (bigop.bigop
+                   l?2
+                   B
+                   k
+                   (i:(cts.Term cts.zero nat.nat) => p i)
+                   nil
+                   op
+                   (i:(cts.Term cts.zero nat.nat) => f i))
+                x)
+             (bigop.bigop
+                l?2
+                B
+                k
+                (i:(cts.Term cts.zero nat.nat) => p i)
+                nil
+                op
+                (i:(cts.Term cts.zero nat.nat) => f i)))
+          (eq_match_bool_type_false.eq_match_bool_type_false
+             l?2
+             l?2
+             B
+             (op
+                (f k)
+                (bigop.bigop
+                   l?2
+                   B
+                   k
+                   (i:(cts.Term cts.zero nat.nat) => p i)
+                   nil
+                   op
+                   (i:(cts.Term cts.zero nat.nat) => f i)))
+             (bigop.bigop
+                l?2
+                B
+                k
+                (i:(cts.Term cts.zero nat.nat) => p i)
+                nil
+                op
+                (i:(cts.Term cts.zero nat.nat) => f i))
+             (y:(cts.Term l?2 B) =>
+              eq.eq
+                l?2
+                B
+                (match_bool_type.match_bool_type
+                   l?2
+                   B
+                   (op
+                      (f k)
+                      (bigop.bigop
+                         l?2
+                         B
+                         k
+                         (i:(cts.Term cts.zero nat.nat) => p i)
+                         nil
+                         op
+                         (i:(cts.Term cts.zero nat.nat) => f i)))
+                   (bigop.bigop
+                      l?2
+                      B
+                      k
+                      (i:(cts.Term cts.zero nat.nat) => p i)
+                      nil
+                      op
+                      (i:(cts.Term cts.zero nat.nat) => f i))
+                   false.false)
+                y)
+             (refl.refl
+                l?2
+                B
+                (match_bool_type.match_bool_type
+                   l?2
+                   B
+                   (op
+                      (f k)
+                      (bigop.bigop
+                         l?2
+                         B
+                         k
+                         (i:(cts.Term cts.zero nat.nat) => p i)
+                         nil
+                         op
+                         (i:(cts.Term cts.zero nat.nat) => f i)))
+                   (bigop.bigop
+                      l?2
+                      B
+                      k
+                      (i:(cts.Term cts.zero nat.nat) => p i)
+                      nil
+                      op
+                      (i:(cts.Term cts.zero nat.nat) => f i))
+                   false.false)))
+          (p k)
+          H)).
+

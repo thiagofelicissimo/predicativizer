@@ -1,0 +1,161 @@
+def let_clause_1078 :  (l?66 : cts.Sort) -> (l?20 : cts.Sort) ->
+  cts.Term
+    (cts.max l?66 l?20)
+    (cts.prod
+       cts.zero
+       (cts.max l?66 l?20)
+       (cts.max l?66 l?20)
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.max l?66 l?20)
+          (cts.max l?66 l?20)
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             (cts.max l?66 l?20)
+             (cts.max l?66 l?20)
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                (cts.max l?66 l?20)
+                (cts.max l?66 l?20)
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   (cts.max l?66 l?20)
+                   (cts.max l?66 l?20)
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      (cts.max l?66 l?20)
+                      (cts.max l?66 l?20)
+                      cts.I
+                      nat.nat
+                      (x4 =>
+                       cts.prod
+                         l?66
+                         l?20
+                         (cts.max l?66 l?20)
+                         cts.I
+                         (div_mod_spec.div_mod_spec l?66 x x0 x1 x2)
+                         (x5 =>
+                          cts.prod
+                            cts.zero
+                            l?20
+                            l?20
+                            cts.I
+                            (lt.lt x2 x0)
+                            (x6 =>
+                             cts.prod
+                               cts.zero
+                               l?20
+                               l?20
+                               cts.I
+                               (eq.eq
+                                  cts.zero
+                                  nat.nat
+                                  x
+                                  (plus.plus (times.times x1 x0) x2))
+                               (x7 =>
+                                cts.prod
+                                  l?20
+                                  cts.zero
+                                  l?20
+                                  cts.I
+                                  (div_mod_spec.div_mod_spec
+                                     l?20
+                                     x
+                                     x0
+                                     x3
+                                     x4)
+                                  (x8 =>
+                                   cts.prod
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
+                                     cts.I
+                                     (lt.lt x4 x0)
+                                     (x9 =>
+                                      cts.prod
+                                        cts.zero
+                                        cts.zero
+                                        cts.zero
+                                        cts.I
+                                        (eq.eq
+                                           cts.zero
+                                           nat.nat
+                                           x
+                                           (plus.plus (times.times x3 x0) x4))
+                                        (x10 =>
+                                         cts.prod
+                                           cts.zero
+                                           cts.zero
+                                           cts.zero
+                                           cts.I
+                                           (le.le x1 x3)
+                                           (x11 =>
+                                            cts.prod
+                                              cts.zero
+                                              cts.zero
+                                              cts.zero
+                                              cts.I
+                                              (lt.lt x1 x3)
+                                              (x12 =>
+                                               eq.eq
+                                                 cts.zero
+                                                 nat.nat
+                                                 x
+                                                 (plus.plus x2 (times.times x0 x1)))))))))))))))))
+  := l?66 => l?20 =>
+  a:(cts.Term cts.zero nat.nat) =>
+  b:(cts.Term cts.zero nat.nat) =>
+  q:(cts.Term cts.zero nat.nat) =>
+  r:(cts.Term cts.zero nat.nat) =>
+  q1:(cts.Term cts.zero nat.nat) =>
+  r1:(cts.Term cts.zero nat.nat) =>
+  _clearme:(cts.Term
+              l?66
+              (div_mod_spec.div_mod_spec l?66 a b q r)) =>
+  ltrb:(cts.Term cts.zero (lt.lt r b)) =>
+  spec:(cts.Term
+          cts.zero
+          (eq.eq cts.zero nat.nat a (plus.plus (times.times q b) r))) =>
+  _clearme0:(cts.Term
+               l?20
+               (div_mod_spec.div_mod_spec l?20 a b q1 r1)) =>
+  ltr1b:(cts.Term cts.zero (lt.lt r1 b)) =>
+  spec1:(cts.Term
+           cts.zero
+           (eq.eq cts.zero nat.nat a (plus.plus (times.times q1 b) r1))) =>
+  leqq1:(cts.Term cts.zero (le.le q q1)) =>
+  ltqq1:(cts.Term cts.zero (lt.lt q q1)) =>
+  rewrite_l.rewrite_l
+    cts.zero
+    cts.zero
+    nat.nat
+    (plus.plus (times.times b q) r)
+    (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat a __)
+    (rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       (times.times q b)
+       (__:(cts.Term cts.zero nat.nat) =>
+        eq.eq cts.zero nat.nat a (plus.plus __ r))
+       spec
+       (times.times b q)
+       (commutative_times.commutative_times q b))
+    (plus.plus r (times.times b q))
+    (commutative_plus.commutative_plus (times.times b q) r).
+

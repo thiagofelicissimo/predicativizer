@@ -1,0 +1,78 @@
+match_div_mod_spec_prop :  (l?18 : cts.Sort) -> (l?28 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?18) (cts.max l?18 (cts.max l?28 l?18)))
+    (cts.prod
+       cts.zero
+       (cts.max (cts.succ l?18) (cts.max l?18 (cts.max l?28 l?18)))
+       (cts.max (cts.succ l?18) (cts.max l?18 (cts.max l?28 l?18)))
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.max (cts.succ l?18) (cts.max l?18 (cts.max l?28 l?18)))
+          (cts.max (cts.succ l?18) (cts.max l?18 (cts.max l?28 l?18)))
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             (cts.max (cts.succ l?18) (cts.max l?18 (cts.max l?28 l?18)))
+             (cts.max (cts.succ l?18) (cts.max l?18 (cts.max l?28 l?18)))
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                (cts.max (cts.succ l?18) (cts.max l?18 (cts.max l?28 l?18)))
+                (cts.max (cts.succ l?18) (cts.max l?18 (cts.max l?28 l?18)))
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   (cts.succ l?18)
+                   (cts.max l?18 (cts.max l?28 l?18))
+                   (cts.max (cts.succ l?18) (cts.max l?18 (cts.max l?28 l?18)))
+                   cts.I
+                   (cts.univ
+                      l?18
+                      (cts.succ l?18)
+                      cts.I)
+                   (x3 =>
+                    cts.prod
+                      l?18
+                      (cts.max l?28 l?18)
+                      (cts.max l?18 (cts.max l?28 l?18))
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?18
+                         l?18
+                         cts.I
+                         (lt.lt x2 x0)
+                         (x4 =>
+                          cts.prod
+                            cts.zero
+                            l?18
+                            l?18
+                            cts.I
+                            (eq.eq
+                               cts.zero
+                               nat.nat
+                               x
+                               (plus.plus (times.times x1 x0) x2))
+                            (x5 => x3)))
+                      (x4 =>
+                       cts.prod
+                         l?28
+                         l?18
+                         (cts.max l?28 l?18)
+                         cts.I
+                         (div_mod_spec.div_mod_spec
+                            l?28
+                            x
+                            x0
+                            x1
+                            x2)
+                         (x5 => x3)))))))).
+

@@ -1,0 +1,50 @@
+axiom_invert_permut_body_S : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        equal.equal
+          cts.zero
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x0 => nat.nat))
+             (x0 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x1 => nat.nat)))
+          (invert_permut_body.invert_permut_body (S.S x))
+          (f:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 => nat.nat))) =>
+           m:(cts.Term cts.zero nat.nat) =>
+           match_bool_type.match_bool_type
+             cts.zero
+             nat.nat
+             (S.S x)
+             (invert_permut.invert_permut x f m)
+             (eqb.eqb m (f (S.S x)))))).
+

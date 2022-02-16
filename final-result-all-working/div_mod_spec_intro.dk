@@ -1,0 +1,50 @@
+div_mod_spec_intro :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                l?0
+                l?0
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   l?0
+                   l?0
+                   cts.I
+                   (lt.lt x2 x0)
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      l?0
+                      l?0
+                      cts.I
+                      (eq.eq
+                         cts.zero
+                         nat.nat
+                         x
+                         (plus.plus (times.times x1 x0) x2))
+                      (x4 => div_mod_spec.div_mod_spec l?0 x x0 x1 x2))))))).
+

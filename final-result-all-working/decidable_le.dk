@@ -1,0 +1,70 @@
+def decidable_le :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 => decidable.decidable cts.zero l?0 (le.le x x0))))
+  := l?0 =>
+  nat_elim2.nat_elim2
+    l?0
+    (__:(cts.Term cts.zero nat.nat) =>
+     _0:(cts.Term cts.zero nat.nat) =>
+     decidable.decidable cts.zero l?0 (le.le __ _0))
+    (n:(cts.Term cts.zero nat.nat) =>
+     or_introl.or_introl
+       cts.zero
+       cts.zero
+       l?0
+       (le.le O.O n)
+       (Not.Not cts.zero (le.le O.O n))
+       (le_O_n.le_O_n n))
+    (n:(cts.Term cts.zero nat.nat) =>
+     or_intror.or_intror
+       cts.zero
+       cts.zero
+       l?0
+       (le.le (S.S n) O.O)
+       (Not.Not cts.zero (le.le (S.S n) O.O))
+       (not_le_Sn_O.not_le_Sn_O n))
+    (n:(cts.Term cts.zero nat.nat) =>
+     m:(cts.Term cts.zero nat.nat) =>
+     _clearme:(cts.Term
+                 l?0
+                 (decidable.decidable cts.zero l?0 (le.le n m))) =>
+     match_Or_prop.match_Or_prop
+       l?0
+       cts.zero
+       cts.zero
+       l?0
+       (le.le n m)
+       (Not.Not cts.zero (le.le n m))
+       (decidable.decidable cts.zero l?0 (le.le (S.S n) (S.S m)))
+       (auto:(cts.Term cts.zero (le.le n m)) =>
+        or_introl.or_introl
+          cts.zero
+          cts.zero
+          l?0
+          (le.le (S.S n) (S.S m))
+          (Not.Not cts.zero (le.le (S.S n) (S.S m)))
+          (le_S_S.le_S_S n m auto))
+       (auto:(cts.Term cts.zero (Not.Not cts.zero (le.le n m))) =>
+        or_intror.or_intror
+          cts.zero
+          cts.zero
+          l?0
+          (le.le (S.S n) (S.S m))
+          (Not.Not cts.zero (le.le (S.S n) (S.S m)))
+          (not_le_to_not_le_S_S.not_le_to_not_le_S_S n m auto))
+       _clearme).
+

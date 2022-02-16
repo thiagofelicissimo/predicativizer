@@ -1,0 +1,50 @@
+def reflexive :  (l?32 : cts.Sort) -> (l?29 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?32) (cts.max (cts.max l?32 (cts.max l?32 (cts.succ l?29))) (cts.succ (cts.max l?32 l?29))))
+    (cts.prod
+       (cts.succ l?32)
+       (cts.max (cts.max l?32 (cts.max l?32 (cts.succ l?29))) (cts.succ (cts.max l?32 l?29)))
+       (cts.max (cts.succ l?32) (cts.max (cts.max l?32 (cts.max l?32 (cts.succ l?29))) (cts.succ (cts.max l?32 l?29))))
+       cts.I
+       (cts.univ l?32 (cts.succ l?32) cts.I)
+       (x =>
+        cts.prod
+          (cts.max l?32 (cts.max l?32 (cts.succ l?29)))
+          (cts.succ (cts.max l?32 l?29))
+          (cts.max (cts.max l?32 (cts.max l?32 (cts.succ l?29))) (cts.succ (cts.max l?32 l?29)))
+          cts.I
+          (cts.prod
+             l?32
+             (cts.max l?32 (cts.succ l?29))
+             (cts.max l?32 (cts.max l?32 (cts.succ l?29)))
+             cts.I
+             x
+             (x0 =>
+              cts.prod
+                l?32
+                (cts.succ l?29)
+                (cts.max l?32 (cts.succ l?29))
+                cts.I
+                x
+                (x1 => cts.univ l?29 (cts.succ l?29) cts.I)))
+          (x0 => cts.univ (cts.max l?32 l?29) (cts.succ (cts.max l?32 l?29)) cts.I)))
+  := l?32 => l?29 =>
+  A:(cts.Term (cts.succ l?32) (cts.univ l?32 (cts.succ l?32) cts.I)) =>
+  R:(cts.Term
+       (cts.max l?32 (cts.max l?32 (cts.succ l?29)))
+       (cts.prod
+          l?32
+          (cts.max l?32 (cts.succ l?29))
+          (cts.max l?32 (cts.max l?32 (cts.succ l?29)))
+          cts.I
+          A
+          (x =>
+           cts.prod
+             l?32
+             (cts.succ l?29)
+             (cts.max l?32 (cts.succ l?29))
+             cts.I
+             A
+             (x0 => cts.univ l?29 (cts.succ l?29) cts.I)))) =>
+  cts.prod l?32 l?29 (cts.max l?32 l?29) cts.I A (x => R x x).
+

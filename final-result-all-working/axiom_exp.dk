@@ -1,0 +1,23 @@
+axiom_exp : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           equal.equal
+             cts.zero
+             nat.nat
+             (exp.exp x x0)
+             (filter_nat_type.filter_nat_type cts.zero nat.nat (exp_body.exp_body x) x0)))).
+

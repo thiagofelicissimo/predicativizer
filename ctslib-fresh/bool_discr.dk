@@ -59,7 +59,7 @@ def bool_discr :
                       (x2 => cts.prod cts.star cts.star cts.star cts.I x2 (x3 => x2)))
                    x0)
                 x))))
-  :=
+:=
   x:(cts.Term cts.box bool.bool) =>
   y:(cts.Term cts.box bool.bool) =>
   Deq:(cts.Term cts.star (eq.eq bool.bool x y)) =>
@@ -246,4 +246,3 @@ def bool_discr :
        x)
     y
     Deq.
-

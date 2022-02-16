@@ -1,0 +1,20 @@
+def gcd : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x0 => nat.nat)))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  match_bool_type.match_bool_type
+    cts.zero
+    nat.nat
+    (gcd_aux.gcd_aux n m n)
+    (gcd_aux.gcd_aux m n m)
+    (leb.leb n m).
+

@@ -1,0 +1,133 @@
+def sym_eq_bigop_O :  (l?7 : cts.Sort) -> (l?6 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?6) (cts.max (cts.max l?6 (cts.succ l?7)) l?7))
+    (cts.prod
+       (cts.succ l?6)
+       (cts.max (cts.max l?6 (cts.succ l?7)) l?7)
+       (cts.max (cts.succ l?6) (cts.max (cts.max l?6 (cts.succ l?7)) l?7))
+       cts.I
+       (cts.univ l?6 (cts.succ l?6) cts.I)
+       (x =>
+        leibniz.leibniz
+          l?6
+          l?7
+          (cts.prod
+             cts.zero
+             l?6
+             l?6
+             cts.I
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x0 => bool.bool))
+             (x0 =>
+              cts.prod
+                l?6
+                l?6
+                l?6
+                cts.I
+                x
+                (x1 =>
+                 cts.prod
+                   l?6
+                   l?6
+                   l?6
+                   cts.I
+                   (cts.prod
+                      l?6
+                      l?6
+                      l?6
+                      cts.I
+                      x
+                      (x2 =>
+                       cts.prod
+                         l?6
+                         l?6
+                         l?6
+                         cts.I
+                         x
+                         (x3 => x)))
+                   (x2 =>
+                    cts.prod
+                      l?6
+                      l?6
+                      l?6
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?6
+                         l?6
+                         cts.I
+                         nat.nat
+                         (x3 => x))
+                      (x3 => x)))))
+          (bigop_body.bigop_body l?6 x O.O)
+          (bigop.bigop l?6 x O.O)))
+  := l?7 => l?6 =>
+  H:(cts.Term
+       (cts.succ l?6)
+       (cts.univ l?6 (cts.succ l?6) cts.I)) =>
+  sym_leibniz.sym_leibniz
+    cts.zero
+    l?6
+    l?7
+    (cts.prod
+       cts.zero
+       l?6
+       l?6
+       cts.I
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => bool.bool))
+       (x =>
+        cts.prod
+          l?6
+          l?6
+          l?6
+          cts.I
+          H
+          (x0 =>
+           cts.prod
+             l?6
+             l?6
+             l?6
+             cts.I
+             (cts.prod
+                l?6
+                l?6
+                l?6
+                cts.I
+                H
+                (x1 =>
+                 cts.prod
+                   l?6
+                   l?6
+                   l?6
+                   cts.I
+                   H
+                   (x2 => H)))
+             (x1 =>
+              cts.prod
+                l?6
+                l?6
+                l?6
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?6
+                   l?6
+                   cts.I
+                   nat.nat
+                   (x2 => H))
+                (x2 => H)))))
+    (bigop.bigop l?6 H O.O)
+    (bigop_body.bigop_body l?6 H O.O)
+    (eq_bigop_O.eq_bigop_O cts.zero l?6 H).
+

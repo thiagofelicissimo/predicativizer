@@ -1,0 +1,2 @@
+nat :  cts.Term (cts.succ cts.zero) (cts.univ cts.zero (cts.succ cts.zero) cts.I).
+

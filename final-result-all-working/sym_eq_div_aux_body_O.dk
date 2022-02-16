@@ -1,0 +1,47 @@
+def sym_eq_div_aux_body_O :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (leibniz.leibniz
+       cts.zero
+       l?2
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat)))
+       (m:(cts.Term cts.zero nat.nat) =>
+        n:(cts.Term cts.zero nat.nat) => O.O)
+       (div_aux_body.div_aux_body O.O))
+  := l?2 =>
+  sym_leibniz.sym_leibniz
+    cts.zero
+    cts.zero
+    l?2
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 => nat.nat)))
+    (div_aux_body.div_aux_body O.O)
+    (m:(cts.Term cts.zero nat.nat) =>
+     n:(cts.Term cts.zero nat.nat) => O.O)
+    (eq_div_aux_body_O.eq_div_aux_body_O cts.zero).
+

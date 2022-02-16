@@ -1,0 +1,32 @@
+conj :  (l?11 : cts.Sort) -> (l?14 : cts.Sort) -> (l?15 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?11) (cts.max (cts.succ l?14) (cts.max l?11 (cts.max l?14 l?15))))
+    (cts.prod
+       (cts.succ l?11)
+       (cts.max (cts.succ l?14) (cts.max l?11 (cts.max l?14 l?15)))
+       (cts.max (cts.succ l?11) (cts.max (cts.succ l?14) (cts.max l?11 (cts.max l?14 l?15))))
+       cts.I
+       (cts.univ l?11 (cts.succ l?11) cts.I)
+       (x =>
+        cts.prod
+          (cts.succ l?14)
+          (cts.max l?11 (cts.max l?14 l?15))
+          (cts.max (cts.succ l?14) (cts.max l?11 (cts.max l?14 l?15)))
+          cts.I
+          (cts.univ l?14 (cts.succ l?14) cts.I)
+          (x0 =>
+           cts.prod
+             l?11
+             (cts.max l?14 l?15)
+             (cts.max l?11 (cts.max l?14 l?15))
+             cts.I
+             x
+             (x1 =>
+              cts.prod
+                l?14
+                l?15
+                (cts.max l?14 l?15)
+                cts.I
+                x0
+                (x2 => And.And l?11 l?14 l?15 x x0))))).
+

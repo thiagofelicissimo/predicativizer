@@ -1,0 +1,79 @@
+def let_clause_1034 : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (lt.lt O.O x1)
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x4 =>
+                       eq.eq
+                         cts.zero
+                         nat.nat
+                         x3
+                         (plus.plus (mod.mod x3 x4) (times.times x4 (div.div x3 x4))))))))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  p:(cts.Term cts.zero nat.nat) =>
+  posp:(cts.Term cts.zero (lt.lt O.O p)) =>
+  x2515:(cts.Term cts.zero nat.nat) =>
+  x2516:(cts.Term cts.zero nat.nat) =>
+  rewrite_l.rewrite_l
+    cts.zero
+    cts.zero
+    nat.nat
+    (plus.plus (times.times x2516 (div.div x2515 x2516)) (mod.mod x2515 x2516))
+    (__:(cts.Term cts.zero nat.nat) =>
+     eq.eq cts.zero nat.nat x2515 __)
+    (rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       (times.times (div.div x2515 x2516) x2516)
+       (__:(cts.Term cts.zero nat.nat) =>
+        eq.eq cts.zero nat.nat x2515 (plus.plus __ (mod.mod x2515 x2516)))
+       (div_mod.div_mod x2515 x2516)
+       (times.times x2516 (div.div x2515 x2516))
+       (commutative_times.commutative_times (div.div x2515 x2516) x2516))
+    (plus.plus (mod.mod x2515 x2516) (times.times x2516 (div.div x2515 x2516)))
+    (commutative_plus.commutative_plus
+       (times.times x2516 (div.div x2515 x2516))
+       (mod.mod x2515 x2516)).
+

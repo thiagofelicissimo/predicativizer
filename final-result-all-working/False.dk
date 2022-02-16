@@ -1,0 +1,2 @@
+False :  (l?1 : cts.Sort) -> cts.Term (cts.succ l?1) (cts.univ l?1 (cts.succ l?1) cts.I).
+

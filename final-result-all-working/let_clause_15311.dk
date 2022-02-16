@@ -1,0 +1,77 @@
+def let_clause_15311 :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             (lt.lt O.O x0)
+             (x1 =>
+              cts.prod
+                l?0
+                cts.zero
+                l?0
+                cts.I
+                (divides.divides l?0 x x0)
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x4 =>
+                       cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         (eq.eq cts.zero nat.nat x0 (times.times x (S.S x4)))
+                         (x5 =>
+                          eq.eq
+                            cts.zero
+                            nat.nat
+                            x0
+                            (plus.plus x (times.times x x4))))))))))
+  := l?0 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  posm:(cts.Term cts.zero (lt.lt O.O m)) =>
+  _clearme:(cts.Term l?0 (divides.divides l?0 n m)) =>
+  d:(cts.Term cts.zero nat.nat) =>
+  p:(cts.Term cts.zero nat.nat) =>
+  eqm:(cts.Term
+         cts.zero
+         (eq.eq cts.zero nat.nat m (times.times n (S.S p)))) =>
+  rewrite_r.rewrite_r
+    cts.zero
+    cts.zero
+    nat.nat
+    (times.times n (S.S p))
+    (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat m __)
+    eqm
+    (plus.plus n (times.times n p))
+    (times_n_Sm.times_n_Sm n p).
+

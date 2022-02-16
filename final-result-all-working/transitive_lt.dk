@@ -1,0 +1,21 @@
+def transitive_lt : 
+  cts.Term
+    cts.zero
+    (transitive.transitive cts.zero cts.zero nat.nat lt.lt)
+  :=
+  a:(cts.Term cts.zero nat.nat) =>
+  b:(cts.Term cts.zero nat.nat) =>
+  c:(cts.Term cts.zero nat.nat) =>
+  ltab:(cts.Term cts.zero (lt.lt a b)) =>
+  ltbc:(cts.Term cts.zero (lt.lt b c)) =>
+  le_ind.le_ind
+    cts.zero
+    (S.S b)
+    (x_417:(cts.Term cts.zero nat.nat) => lt.lt a x_417)
+    (le_S.le_S (S.S a) b ltab)
+    (m:(cts.Term cts.zero nat.nat) =>
+     _x_419:(cts.Term cts.zero (le.le (S.S b) m)) =>
+     _x_421:(cts.Term cts.zero (lt.lt a m)) => le_S.le_S (S.S a) m _x_421)
+    c
+    ltbc.
+

@@ -1,0 +1,15 @@
+axiom_minus_body_O : 
+  cts.Term
+    cts.zero
+    (equal.equal
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))
+       (minus_body.minus_body O.O)
+       (m:(cts.Term cts.zero nat.nat) => O.O)).
+

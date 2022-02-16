@@ -1,0 +1,63 @@
+def lt_to_not_zero :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             (lt.lt x x0)
+             (x1 => not_zero.not_zero l?0 x0))))
+  := l?0 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  Hlt:(cts.Term cts.zero (lt.lt n m)) =>
+  le_ind.le_ind
+    l?0
+    (S.S n)
+    (x_417:(cts.Term cts.zero nat.nat) =>
+     not_zero.not_zero l?0 x_417)
+    (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+       l?0
+       (cts.succ l?0)
+       (cts.univ l?0 (cts.succ l?0) cts.I)
+       (False.False l?0)
+       (p:(cts.Term cts.zero nat.nat) => True.True l?0)
+       n
+       (y:(cts.Term
+             (cts.succ l?0)
+             (cts.univ l?0 (cts.succ l?0) cts.I)) =>
+        y)
+       (I.I l?0))
+    (m0:(cts.Term cts.zero nat.nat) =>
+     _x_419:(cts.Term cts.zero (le.le (S.S n) m0)) =>
+     _x_421:(cts.Term l?0 (not_zero.not_zero l?0 m0)) =>
+     sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+       l?0
+       (cts.succ l?0)
+       (cts.univ l?0 (cts.succ l?0) cts.I)
+       (False.False l?0)
+       (p:(cts.Term cts.zero nat.nat) => True.True l?0)
+       m0
+       (y:(cts.Term
+             (cts.succ l?0)
+             (cts.univ l?0 (cts.succ l?0) cts.I)) =>
+        y)
+       (I.I l?0))
+    m
+    Hlt.
+

@@ -1,0 +1,27 @@
+def sym_eq_fact :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          cts.zero
+          l?5
+          nat.nat
+          (filter_nat_type.filter_nat_type cts.zero nat.nat fact_body.fact_body x)
+          (fact.fact x)))
+  := l?5 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  sym_leibniz.sym_leibniz
+    cts.zero
+    cts.zero
+    l?5
+    nat.nat
+    (fact.fact n)
+    (filter_nat_type.filter_nat_type cts.zero nat.nat fact_body.fact_body n)
+    (eq_fact.eq_fact cts.zero n).
+

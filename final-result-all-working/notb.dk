@@ -1,0 +1,8 @@
+def notb : 
+  cts.Term
+    cts.zero
+    (cts.prod cts.zero cts.zero cts.zero cts.I bool.bool (x => bool.bool))
+  :=
+  b:(cts.Term cts.zero bool.bool) =>
+  match_bool_type.match_bool_type cts.zero bool.bool false.false true.true b.
+

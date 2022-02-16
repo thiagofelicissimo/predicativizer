@@ -1,0 +1,24 @@
+ex :  (l?9 : cts.Sort) -> (l?12 : cts.Sort) -> (l?14 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?9) (cts.max (cts.max l?9 (cts.succ l?12)) (cts.succ l?14)))
+    (cts.prod
+       (cts.succ l?9)
+       (cts.max (cts.max l?9 (cts.succ l?12)) (cts.succ l?14))
+       (cts.max (cts.succ l?9) (cts.max (cts.max l?9 (cts.succ l?12)) (cts.succ l?14)))
+       cts.I
+       (cts.univ l?9 (cts.succ l?9) cts.I)
+       (x =>
+        cts.prod
+          (cts.max l?9 (cts.succ l?12))
+          (cts.succ l?14)
+          (cts.max (cts.max l?9 (cts.succ l?12)) (cts.succ l?14))
+          cts.I
+          (cts.prod
+             l?9
+             (cts.succ l?12)
+             (cts.max l?9 (cts.succ l?12))
+             cts.I
+             x
+             (x0 => cts.univ l?12 (cts.succ l?12) cts.I))
+          (x0 => cts.univ l?14 (cts.succ l?14) cts.I))).
+

@@ -1,0 +1,75 @@
+def prime_to_lt_SO :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          l?0
+          cts.zero
+          l?0
+          cts.I
+          (prime.prime l?0 x)
+          (x0 => lt.lt (S.S O.O) x)))
+  := l?0 =>
+  p:(cts.Term cts.zero nat.nat) =>
+  _clearme:(cts.Term l?0 (prime.prime l?0 p)) =>
+  match_And_prop.match_And_prop
+    cts.zero
+    cts.zero
+    cts.zero
+    l?0
+    (lt.lt (S.S O.O) p)
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (divides.divides cts.zero x p)
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (lt.lt (S.S O.O) x)
+             (x1 => eq.eq cts.zero nat.nat x p))))
+    (lt.lt (S.S O.O) p)
+    (lt1p:(cts.Term cts.zero (lt.lt (S.S O.O) p)) =>
+     auto:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (divides.divides cts.zero x p)
+                   (x0 =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (lt.lt (S.S O.O) x)
+                      (x1 => eq.eq cts.zero nat.nat x p))))) =>
+     lt1p)
+    _clearme.
+

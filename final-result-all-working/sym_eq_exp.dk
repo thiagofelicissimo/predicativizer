@@ -1,0 +1,35 @@
+def sym_eq_exp :  (l?8 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?8)
+    (cts.prod
+       cts.zero
+       (cts.succ l?8)
+       (cts.succ l?8)
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.succ l?8)
+          (cts.succ l?8)
+          cts.I
+          nat.nat
+          (x0 =>
+           leibniz.leibniz
+             cts.zero
+             l?8
+             nat.nat
+             (filter_nat_type.filter_nat_type cts.zero nat.nat (exp_body.exp_body x) x0)
+             (exp.exp x x0))))
+  := l?8 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  sym_leibniz.sym_leibniz
+    cts.zero
+    cts.zero
+    l?8
+    nat.nat
+    (exp.exp n m)
+    (filter_nat_type.filter_nat_type cts.zero nat.nat (exp_body.exp_body n) m)
+    (eq_exp.eq_exp cts.zero n m).
+

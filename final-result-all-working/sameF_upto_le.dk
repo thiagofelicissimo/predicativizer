@@ -1,0 +1,92 @@
+def sameF_upto_le :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (cts.prod
+       (cts.succ l?2)
+       l?2
+       (cts.succ l?2)
+       cts.I
+       (cts.univ l?2 (cts.succ l?2) cts.I)
+       (x =>
+        cts.prod
+          l?2
+          l?2
+          l?2
+          cts.I
+          (cts.prod
+             cts.zero
+             l?2
+             l?2
+             cts.I
+             nat.nat
+             (x0 => x))
+          (x0 =>
+           cts.prod
+             l?2
+             l?2
+             l?2
+             cts.I
+             (cts.prod
+                cts.zero
+                l?2
+                l?2
+                cts.I
+                nat.nat
+                (x1 => x))
+             (x1 =>
+              cts.prod
+                cts.zero
+                l?2
+                l?2
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   l?2
+                   l?2
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      l?2
+                      l?2
+                      cts.I
+                      (le.le x2 x3)
+                      (x4 =>
+                       cts.prod
+                         l?2
+                         l?2
+                         l?2
+                         cts.I
+                         (sameF_upto.sameF_upto l?2 x x3 x0 x1)
+                         (x5 => sameF_upto.sameF_upto l?2 x x2 x0 x1))))))))
+  := l?2 =>
+  A:(cts.Term (cts.succ l?2) (cts.univ l?2 (cts.succ l?2) cts.I)) =>
+  f:(cts.Term
+       l?2
+       (cts.prod
+          cts.zero
+          l?2
+          l?2
+          cts.I
+          nat.nat
+          (x => A))) =>
+  g:(cts.Term
+       l?2
+       (cts.prod
+          cts.zero
+          l?2
+          l?2
+          cts.I
+          nat.nat
+          (x => A))) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  lenm:(cts.Term cts.zero (le.le n m)) =>
+  samef:(cts.Term l?2 (sameF_upto.sameF_upto l?2 A m f g)) =>
+  i:(cts.Term cts.zero nat.nat) =>
+  ltin:(cts.Term cts.zero (lt.lt i n)) =>
+  samef i (lt_to_le_to_lt.lt_to_le_to_lt i n m ltin lenm).
+

@@ -1,0 +1,58 @@
+match_le_prop :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          (cts.succ l?5)
+          l?5
+          (cts.succ l?5)
+          cts.I
+          (cts.prod
+             cts.zero
+             (cts.succ l?5)
+             (cts.succ l?5)
+             cts.I
+             nat.nat
+             (x0 => cts.univ l?5 (cts.succ l?5) cts.I))
+          (x0 =>
+           cts.prod
+             l?5
+             l?5
+             l?5
+             cts.I
+             (x0 x)
+             (x1 =>
+              cts.prod
+                l?5
+                l?5
+                l?5
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?5
+                   l?5
+                   cts.I
+                   nat.nat
+                   (x2 => x0 (S.S x2)))
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   l?5
+                   l?5
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      l?5
+                      l?5
+                      cts.I
+                      (le.le x x3)
+                      (x4 => x0 x3))))))).
+

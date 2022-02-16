@@ -1,0 +1,28 @@
+def divides_gcd_r :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 => divides.divides l?0 (gcd.gcd x x0) x0)))
+  := l?0 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  proj1.proj1
+    l?0
+    l?0
+    cts.zero
+    (divides.divides l?0 (gcd.gcd n m) m)
+    (divides.divides l?0 (gcd.gcd n m) n)
+    (divides_gcd_nm.divides_gcd_nm cts.zero l?0 n m).
+

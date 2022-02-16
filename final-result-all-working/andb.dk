@@ -1,0 +1,15 @@
+def andb : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       bool.bool
+       (x => cts.prod cts.zero cts.zero cts.zero cts.I bool.bool (x0 => bool.bool)))
+  :=
+  b1:(cts.Term cts.zero bool.bool) =>
+  b2:(cts.Term cts.zero bool.bool) =>
+  match_bool_type.match_bool_type cts.zero bool.bool b2 false.false b1.
+

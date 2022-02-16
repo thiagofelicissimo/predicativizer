@@ -1,0 +1,43 @@
+def transitive_congruent : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        transitive.transitive
+          cts.zero
+          cts.zero
+          nat.nat
+          (n:(cts.Term cts.zero nat.nat) =>
+           m:(cts.Term cts.zero nat.nat) => congruent.congruent n m x)))
+  :=
+  p:(cts.Term cts.zero nat.nat) =>
+  x:(cts.Term cts.zero nat.nat) =>
+  y:(cts.Term cts.zero nat.nat) =>
+  z:(cts.Term cts.zero nat.nat) =>
+  auto:(cts.Term cts.zero (congruent.congruent x y p)) =>
+  auto':(cts.Term cts.zero (congruent.congruent y z p)) =>
+  rewrite_l.rewrite_l
+    cts.zero
+    cts.zero
+    nat.nat
+    (mod.mod x p)
+    (__:(cts.Term cts.zero nat.nat) =>
+     eq.eq cts.zero nat.nat (mod.mod x p) __)
+    (refl.refl cts.zero nat.nat (mod.mod x p))
+    (mod.mod z p)
+    (rewrite_r.rewrite_r
+       cts.zero
+       cts.zero
+       nat.nat
+       (mod.mod y p)
+       (__:(cts.Term cts.zero nat.nat) =>
+        eq.eq cts.zero nat.nat __ (mod.mod z p))
+       auto'
+       (mod.mod x p)
+       auto).
+

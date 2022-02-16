@@ -1,0 +1,57 @@
+def monotonic_le_plus_l : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        monotonic.monotonic
+          cts.zero
+          cts.zero
+          nat.nat
+          le.le
+          (n:(cts.Term cts.zero nat.nat) => plus.plus n x)))
+  :=
+  m:(cts.Term cts.zero nat.nat) =>
+  x:(cts.Term cts.zero nat.nat) =>
+  y:(cts.Term cts.zero nat.nat) =>
+  auto:(cts.Term cts.zero (le.le x y)) =>
+  eq_coerc.eq_coerc
+    cts.zero
+    (le.le (plus.plus m x) (plus.plus m y))
+    (le.le (plus.plus x m) (plus.plus y m))
+    (monotonic_le_plus_r.monotonic_le_plus_r m x y auto)
+    (rewrite_r.rewrite_r
+       (cts.succ cts.zero)
+       cts.zero
+       nat.nat
+       (plus.plus m x)
+       (__:(cts.Term cts.zero nat.nat) =>
+        eq.eq
+          (cts.succ cts.zero)
+          (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+          (le.le (plus.plus m x) (plus.plus m y))
+          (le.le __ (plus.plus y m)))
+       (rewrite_r.rewrite_r
+          (cts.succ cts.zero)
+          cts.zero
+          nat.nat
+          (plus.plus m y)
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq
+             (cts.succ cts.zero)
+             (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+             (le.le (plus.plus m x) (plus.plus m y))
+             (le.le (plus.plus m x) __))
+          (refl.refl
+             (cts.succ cts.zero)
+             (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+             (le.le (plus.plus m x) (plus.plus m y)))
+          (plus.plus y m)
+          (commutative_plus.commutative_plus y m))
+       (plus.plus x m)
+       (commutative_plus.commutative_plus x m)).
+

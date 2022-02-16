@@ -1,0 +1,64 @@
+def let_clause_1531 :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             (lt.lt O.O x0)
+             (x1 =>
+              cts.prod
+                l?0
+                cts.zero
+                l?0
+                cts.I
+                (divides.divides l?0 x x0)
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (eq.eq cts.zero nat.nat x0 (times.times x O.O))
+                      (x4 => eq.eq cts.zero nat.nat x0 O.O)))))))
+  := l?0 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  posm:(cts.Term cts.zero (lt.lt O.O m)) =>
+  _clearme:(cts.Term l?0 (divides.divides l?0 n m)) =>
+  d:(cts.Term cts.zero nat.nat) =>
+  eqm:(cts.Term
+         cts.zero
+         (eq.eq cts.zero nat.nat m (times.times n O.O))) =>
+  rewrite_r.rewrite_r
+    cts.zero
+    cts.zero
+    nat.nat
+    (times.times n O.O)
+    (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat m __)
+    eqm
+    O.O
+    (times_n_O.times_n_O n).
+

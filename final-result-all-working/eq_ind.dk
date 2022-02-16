@@ -1,0 +1,52 @@
+eq_ind :  (l?17 : cts.Sort) -> (l?23 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?23) (cts.max l?23 (cts.max (cts.max l?23 (cts.succ l?17)) (cts.max l?17 (cts.max l?23 (cts.max l?23 l?17))))))
+    (cts.prod
+       (cts.succ l?23)
+       (cts.max l?23 (cts.max (cts.max l?23 (cts.succ l?17)) (cts.max l?17 (cts.max l?23 (cts.max l?23 l?17)))))
+       (cts.max (cts.succ l?23) (cts.max l?23 (cts.max (cts.max l?23 (cts.succ l?17)) (cts.max l?17 (cts.max l?23 (cts.max l?23 l?17))))))
+       cts.I
+       (cts.univ l?23 (cts.succ l?23) cts.I)
+       (x =>
+        cts.prod
+          l?23
+          (cts.max (cts.max l?23 (cts.succ l?17)) (cts.max l?17 (cts.max l?23 (cts.max l?23 l?17))))
+          (cts.max l?23 (cts.max (cts.max l?23 (cts.succ l?17)) (cts.max l?17 (cts.max l?23 (cts.max l?23 l?17)))))
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             (cts.max l?23 (cts.succ l?17))
+             (cts.max l?17 (cts.max l?23 (cts.max l?23 l?17)))
+             (cts.max (cts.max l?23 (cts.succ l?17)) (cts.max l?17 (cts.max l?23 (cts.max l?23 l?17))))
+             cts.I
+             (cts.prod
+                l?23
+                (cts.succ l?17)
+                (cts.max l?23 (cts.succ l?17))
+                cts.I
+                x
+                (x1 => cts.univ l?17 (cts.succ l?17) cts.I))
+             (x1 =>
+              cts.prod
+                l?17
+                (cts.max l?23 (cts.max l?23 l?17))
+                (cts.max l?17 (cts.max l?23 (cts.max l?23 l?17)))
+                cts.I
+                (x1 x0)
+                (x2 =>
+                 cts.prod
+                   l?23
+                   (cts.max l?23 l?17)
+                   (cts.max l?23 (cts.max l?23 l?17))
+                   cts.I
+                   x
+                   (x3 =>
+                    cts.prod
+                      l?23
+                      l?17
+                      (cts.max l?23 l?17)
+                      cts.I
+                      (eq.eq l?23 x x0 x3)
+                      (x4 => x1 x3))))))).
+

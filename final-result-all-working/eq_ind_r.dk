@@ -1,0 +1,76 @@
+def eq_ind_r :  (l?38 : cts.Sort) -> (l?42 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?42) (cts.max l?42 (cts.max (cts.max l?42 (cts.succ l?38)) (cts.max l?38 (cts.max l?42 (cts.max l?42 l?38))))))
+    (cts.prod
+       (cts.succ l?42)
+       (cts.max l?42 (cts.max (cts.max l?42 (cts.succ l?38)) (cts.max l?38 (cts.max l?42 (cts.max l?42 l?38)))))
+       (cts.max (cts.succ l?42) (cts.max l?42 (cts.max (cts.max l?42 (cts.succ l?38)) (cts.max l?38 (cts.max l?42 (cts.max l?42 l?38))))))
+       cts.I
+       (cts.univ l?42 (cts.succ l?42) cts.I)
+       (x =>
+        cts.prod
+          l?42
+          (cts.max (cts.max l?42 (cts.succ l?38)) (cts.max l?38 (cts.max l?42 (cts.max l?42 l?38))))
+          (cts.max l?42 (cts.max (cts.max l?42 (cts.succ l?38)) (cts.max l?38 (cts.max l?42 (cts.max l?42 l?38)))))
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             (cts.max l?42 (cts.succ l?38))
+             (cts.max l?38 (cts.max l?42 (cts.max l?42 l?38)))
+             (cts.max (cts.max l?42 (cts.succ l?38)) (cts.max l?38 (cts.max l?42 (cts.max l?42 l?38))))
+             cts.I
+             (cts.prod
+                l?42
+                (cts.succ l?38)
+                (cts.max l?42 (cts.succ l?38))
+                cts.I
+                x
+                (x1 => cts.univ l?38 (cts.succ l?38) cts.I))
+             (x1 =>
+              cts.prod
+                l?38
+                (cts.max l?42 (cts.max l?42 l?38))
+                (cts.max l?38 (cts.max l?42 (cts.max l?42 l?38)))
+                cts.I
+                (x1 x0)
+                (x2 =>
+                 cts.prod
+                   l?42
+                   (cts.max l?42 l?38)
+                   (cts.max l?42 (cts.max l?42 l?38))
+                   cts.I
+                   x
+                   (x3 =>
+                    cts.prod
+                      l?42
+                      l?38
+                      (cts.max l?42 l?38)
+                      cts.I
+                      (eq.eq l?42 x x3 x0)
+                      (x4 => x1 x3)))))))
+  := l?38 => l?42 =>
+  A:(cts.Term (cts.succ l?42) (cts.univ l?42 (cts.succ l?42) cts.I)) =>
+  a:(cts.Term l?42 A) =>
+  P:(cts.Term
+       (cts.max l?42 (cts.succ l?38))
+       (cts.prod
+          l?42
+          (cts.succ l?38)
+          (cts.max l?42 (cts.succ l?38))
+          cts.I
+          A
+          (x => cts.univ l?38 (cts.succ l?38) cts.I))) =>
+  p:(cts.Term l?38 (P a)) =>
+  x0:(cts.Term l?42 A) =>
+  p0:(cts.Term l?42 (eq.eq l?42 A x0 a)) =>
+  eq_rect_r.eq_rect_r
+    l?42
+    l?38
+    A
+    a
+    x0
+    p0
+    (x01:(cts.Term l?42 A) => P x01)
+    p.
+

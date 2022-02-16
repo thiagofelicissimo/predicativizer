@@ -1,0 +1,31 @@
+def sym_eq_times_body_O :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (leibniz.leibniz
+       cts.zero
+       l?2
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))
+       (m:(cts.Term cts.zero nat.nat) => O.O)
+       (times_body.times_body O.O))
+  := l?2 =>
+  sym_leibniz.sym_leibniz
+    cts.zero
+    cts.zero
+    l?2
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => nat.nat))
+    (times_body.times_body O.O)
+    (m:(cts.Term cts.zero nat.nat) => O.O)
+    (eq_times_body_O.eq_times_body_O cts.zero).
+

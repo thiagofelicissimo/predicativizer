@@ -1,0 +1,38 @@
+def not_le_S_S_to_not_le : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (Not.Not cts.zero (le.le (S.S x) (S.S x0)))
+             (x1 => Not.Not cts.zero (le.le x x0)))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  auto:(cts.Term
+          cts.zero
+          (Not.Not cts.zero (le.le (S.S n) (S.S m)))) =>
+  not_to_not.not_to_not
+    cts.zero
+    cts.zero
+    (le.le n m)
+    (le.le (S.S n) (S.S m))
+    (auto':(cts.Term cts.zero (le.le n m)) => le_S_S.le_S_S n m auto')
+    auto.
+

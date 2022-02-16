@@ -1,0 +1,56 @@
+def let_clause_1551 : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (eq.eq cts.zero nat.nat O.O x0)
+             (x1 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x2 => eq.eq cts.zero nat.nat x0 (times.times x2 x0))))))
+  :=
+  m:(cts.Term cts.zero nat.nat) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  eqn0:(cts.Term cts.zero (eq.eq cts.zero nat.nat O.O n)) =>
+  x347:(cts.Term cts.zero nat.nat) =>
+  rewrite_l.rewrite_l
+    cts.zero
+    cts.zero
+    nat.nat
+    O.O
+    (__:(cts.Term cts.zero nat.nat) =>
+     eq.eq cts.zero nat.nat n (times.times x347 __))
+    (rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       O.O
+       (__:(cts.Term cts.zero nat.nat) =>
+        eq.eq cts.zero nat.nat __ (times.times x347 O.O))
+       (times_n_O.times_n_O x347)
+       n
+       eqn0)
+    n
+    eqn0.
+

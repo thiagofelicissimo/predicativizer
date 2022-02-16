@@ -1,0 +1,50 @@
+def le_to_leb_true : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (le.le x x0)
+             (x1 => eq.eq cts.zero bool.bool (leb.leb x x0) true.true))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  leb_elim.leb_elim
+    cts.zero
+    n
+    m
+    (__:(cts.Term cts.zero bool.bool) =>
+     cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       (le.le n m)
+       (x => eq.eq cts.zero bool.bool __ true.true))
+    (auto:(cts.Term cts.zero (le.le n m)) =>
+     auto':(cts.Term cts.zero (le.le n m)) =>
+     refl.refl cts.zero bool.bool true.true)
+    (H:(cts.Term cts.zero (Not.Not cts.zero (le.le n m))) =>
+     H1:(cts.Term cts.zero (le.le n m)) =>
+     falsity.falsity
+       cts.zero
+       cts.zero
+       (eq.eq cts.zero bool.bool false.false true.true)
+       (absurd.absurd cts.zero cts.zero (le.le n m) H1 H)).
+

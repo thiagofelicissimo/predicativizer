@@ -1,0 +1,90 @@
+def sub_lt :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x0 => bool.bool))
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                l?0
+                l?0
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   l?0
+                   l?0
+                   cts.I
+                   (le.le x1 x2)
+                   (x3 =>
+                    sub_hk.sub_hk
+                      l?0
+                      (x4:(cts.Term cts.zero nat.nat) => x4)
+                      (x4:(cts.Term cts.zero nat.nat) => x4)
+                      x1
+                      x2
+                      x0
+                      x0
+                      x
+                      x))))))
+  := l?0 =>
+  e:(cts.Term
+       cts.zero
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
+  f:(cts.Term
+       cts.zero
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => bool.bool))) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  lenm:(cts.Term cts.zero (le.le n m)) =>
+  i:(cts.Term cts.zero nat.nat) =>
+  lti:(cts.Term cts.zero (lt.lt i n)) =>
+  fi:(cts.Term cts.zero (eq.eq cts.zero bool.bool (f i) true.true)) =>
+  conj.conj
+    cts.zero
+    cts.zero
+    l?0
+    (And.And
+       cts.zero
+       cts.zero
+       cts.zero
+       (lt.lt i m)
+       (eq.eq cts.zero bool.bool (f i) true.true))
+    (eq.eq cts.zero nat.nat i i)
+    (conj.conj
+       cts.zero
+       cts.zero
+       cts.zero
+       (lt.lt i m)
+       (eq.eq cts.zero bool.bool (f i) true.true)
+       (lt_to_le_to_lt.lt_to_le_to_lt i n m lti lenm)
+       (rewrite_r.rewrite_r
+          cts.zero
+          cts.zero
+          bool.bool
+          true.true
+          (__:(cts.Term cts.zero bool.bool) => eq.eq cts.zero bool.bool __ true.true)
+          (refl.refl cts.zero bool.bool true.true)
+          (f i)
+          fi))
+    (refl.refl cts.zero nat.nat i).
+

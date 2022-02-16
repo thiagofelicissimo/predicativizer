@@ -1,0 +1,44 @@
+def le_pred_n : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => le.le (pred.pred x) x))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  nat_ind.nat_ind
+    cts.zero
+    (_x_365:(cts.Term cts.zero nat.nat) => le.le (pred.pred _x_365) _x_365)
+    (eq_match_nat_type_O.eq_match_nat_type_O
+       cts.zero
+       cts.zero
+       nat.nat
+       O.O
+       (p:(cts.Term cts.zero nat.nat) => p)
+       (y:(cts.Term cts.zero nat.nat) =>
+        le.le
+          (match_nat_type.match_nat_type
+             cts.zero
+             nat.nat
+             O.O
+             (p:(cts.Term cts.zero nat.nat) => p)
+             O.O)
+          y)
+       (le_n.le_n (pred.pred O.O)))
+    (x_366:(cts.Term cts.zero nat.nat) =>
+     _x_368:(cts.Term cts.zero (le.le (pred.pred x_366) x_366)) =>
+     eq_match_nat_type_S.eq_match_nat_type_S
+       cts.zero
+       cts.zero
+       nat.nat
+       O.O
+       (p:(cts.Term cts.zero nat.nat) => p)
+       x_366
+       (y:(cts.Term cts.zero nat.nat) => le.le (pred.pred (S.S x_366)) (S.S y))
+       (le_n_Sn.le_n_Sn (pred.pred (S.S x_366))))
+    n.
+

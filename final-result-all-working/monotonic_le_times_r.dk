@@ -1,0 +1,271 @@
+def monotonic_le_times_r : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        monotonic.monotonic
+          cts.zero
+          cts.zero
+          nat.nat
+          le.le
+          (m:(cts.Term cts.zero nat.nat) => times.times x m)))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  x:(cts.Term cts.zero nat.nat) =>
+  y:(cts.Term cts.zero nat.nat) =>
+  lexy:(cts.Term cts.zero (le.le x y)) =>
+  nat_ind.nat_ind
+    cts.zero
+    (_x_365:(cts.Term cts.zero nat.nat) =>
+     le.le (times.times _x_365 x) (times.times _x_365 y))
+    (sym_eq_times.sym_eq_times
+       cts.zero
+       O.O
+       (z:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x0 => nat.nat))) =>
+        le.le (times.times O.O x) (z y))
+       (sym_eq_times.sym_eq_times
+          cts.zero
+          O.O
+          (z:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 => nat.nat))) =>
+           le.le
+             (z x)
+             (filter_nat_type.filter_nat_type
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 => nat.nat))
+                times_body.times_body
+                O.O
+                y))
+          (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+             cts.zero
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x0 => nat.nat))
+             times_body.times_body
+             (z:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x0 => nat.nat))) =>
+              le.le
+                (z x)
+                (filter_nat_type.filter_nat_type
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x0 => nat.nat))
+                   times_body.times_body
+                   O.O
+                   y))
+             (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+                cts.zero
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 => nat.nat))
+                times_body.times_body
+                (z:(cts.Term
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x0 => nat.nat))) =>
+                 le.le (times_body.times_body O.O x) (z y))
+                (sym_eq_times_body_O.sym_eq_times_body_O
+                   cts.zero
+                   (z:(cts.Term
+                         cts.zero
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x0 => nat.nat))) =>
+                    le.le (times_body.times_body O.O x) (z y))
+                   (sym_eq_times_body_O.sym_eq_times_body_O
+                      cts.zero
+                      (z:(cts.Term
+                            cts.zero
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x0 => nat.nat))) =>
+                       le.le (z x) O.O)
+                      (le_O_n.le_O_n O.O)))))))
+    (a:(cts.Term cts.zero nat.nat) =>
+     lea:(cts.Term cts.zero (le.le (times.times a x) (times.times a y))) =>
+     sym_eq_times.sym_eq_times
+       cts.zero
+       (S.S a)
+       (z:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x0 => nat.nat))) =>
+        le.le (times.times (S.S a) x) (z y))
+       (sym_eq_times.sym_eq_times
+          cts.zero
+          (S.S a)
+          (z:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 => nat.nat))) =>
+           le.le
+             (z x)
+             (filter_nat_type.filter_nat_type
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 => nat.nat))
+                times_body.times_body
+                (S.S a)
+                y))
+          (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+             cts.zero
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x0 => nat.nat))
+             times_body.times_body
+             a
+             (z:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x0 => nat.nat))) =>
+              le.le
+                (z x)
+                (filter_nat_type.filter_nat_type
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x0 => nat.nat))
+                   times_body.times_body
+                   (S.S a)
+                   y))
+             (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+                cts.zero
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 => nat.nat))
+                times_body.times_body
+                a
+                (z:(cts.Term
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x0 => nat.nat))) =>
+                 le.le (times_body.times_body (S.S a) x) (z y))
+                (sym_eq_times_body_S.sym_eq_times_body_S
+                   cts.zero
+                   a
+                   (z:(cts.Term
+                         cts.zero
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x0 => nat.nat))) =>
+                    le.le (times_body.times_body (S.S a) x) (z y))
+                   (sym_eq_times_body_S.sym_eq_times_body_S
+                      cts.zero
+                      a
+                      (z:(cts.Term
+                            cts.zero
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x0 => nat.nat))) =>
+                       le.le (z x) (plus.plus y (times.times a y)))
+                      (le_plus.le_plus x y (times.times a x) (times.times a y) lexy lea)))))))
+    n.
+

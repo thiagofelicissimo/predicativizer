@@ -1,0 +1,160 @@
+def divides_to_div_mod_spec :  (l?55 : cts.Sort) -> (l?11 : cts.Sort) ->
+  cts.Term
+    (cts.max l?55 l?11)
+    (cts.prod
+       cts.zero
+       (cts.max l?55 l?11)
+       (cts.max l?55 l?11)
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.max l?55 l?11)
+          (cts.max l?55 l?11)
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             (cts.max l?55 l?11)
+             (cts.max l?55 l?11)
+             cts.I
+             (lt.lt O.O x)
+             (x1 =>
+              cts.prod
+                l?55
+                l?11
+                (cts.max l?55 l?11)
+                cts.I
+                (divides.divides l?55 x x0)
+                (x2 =>
+                 div_mod_spec.div_mod_spec
+                   l?11
+                   x0
+                   x
+                   (div.div x0 x)
+                   O.O)))))
+  := l?55 => l?11 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  posn:(cts.Term cts.zero (lt.lt O.O n)) =>
+  _clearme:(cts.Term
+              l?55
+              (divides.divides l?55 n m)) =>
+  match_divides_prop.match_divides_prop
+    l?11
+    l?55
+    n
+    m
+    (div_mod_spec.div_mod_spec l?11 m n (div.div m n) O.O)
+    (q:(cts.Term cts.zero nat.nat) =>
+     eqm:(cts.Term
+            cts.zero
+            (eq.eq cts.zero nat.nat m (times.times n q))) =>
+     div_mod_spec_intro.div_mod_spec_intro
+       l?11
+       m
+       n
+       (div.div m n)
+       O.O
+       posn
+       (eq_ind_r.eq_ind_r
+          cts.zero
+          cts.zero
+          nat.nat
+          (times.times n q)
+          (x:(cts.Term cts.zero nat.nat) =>
+           eq.eq
+             cts.zero
+             nat.nat
+             x
+             (plus.plus (times.times (div.div x n) n) O.O))
+          (eq_ind_r.eq_ind_r
+             cts.zero
+             cts.zero
+             nat.nat
+             (times.times q n)
+             (x:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                cts.zero
+                nat.nat
+                x
+                (plus.plus (times.times (div.div x n) n) O.O))
+             (eq_ind_r.eq_ind_r
+                cts.zero
+                cts.zero
+                nat.nat
+                q
+                (x:(cts.Term cts.zero nat.nat) =>
+                 eq.eq
+                   cts.zero
+                   nat.nat
+                   (times.times q n)
+                   (plus.plus (times.times x n) O.O))
+                (rewrite_r.rewrite_r
+                   cts.zero
+                   cts.zero
+                   nat.nat
+                   (times.times n q)
+                   (__:(cts.Term cts.zero nat.nat) =>
+                    eq.eq
+                      cts.zero
+                      nat.nat
+                      __
+                      (plus.plus (times.times q n) O.O))
+                   (rewrite_l.rewrite_l
+                      cts.zero
+                      cts.zero
+                      nat.nat
+                      m
+                      (__:(cts.Term cts.zero nat.nat) =>
+                       eq.eq
+                         cts.zero
+                         nat.nat
+                         __
+                         (plus.plus (times.times q n) O.O))
+                      (rewrite_r.rewrite_r
+                         cts.zero
+                         cts.zero
+                         nat.nat
+                         (times.times n q)
+                         (__:(cts.Term cts.zero nat.nat) =>
+                          eq.eq cts.zero nat.nat m (plus.plus __ O.O))
+                         (rewrite_l.rewrite_l
+                            cts.zero
+                            cts.zero
+                            nat.nat
+                            m
+                            (__:(cts.Term cts.zero nat.nat) =>
+                             eq.eq
+                               cts.zero
+                               nat.nat
+                               m
+                               (plus.plus __ O.O))
+                            (rewrite_l.rewrite_l
+                               cts.zero
+                               cts.zero
+                               nat.nat
+                               m
+                               (__:(cts.Term cts.zero nat.nat) =>
+                                eq.eq cts.zero nat.nat m __)
+                               (refl.refl cts.zero nat.nat m)
+                               (plus.plus m O.O)
+                               (plus_n_O.plus_n_O m))
+                            (times.times n q)
+                            eqm)
+                         (times.times q n)
+                         (commutative_times.commutative_times q n))
+                      (times.times n q)
+                      eqm)
+                   (times.times q n)
+                   (commutative_times.commutative_times q n))
+                (div.div (times.times q n) n)
+                (div_times.div_times q n posn))
+             (times.times n q)
+             (commutative_times.commutative_times n q))
+          m
+          eqm))
+    _clearme.
+

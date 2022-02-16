@@ -1,0 +1,54 @@
+def not_le_to_leb_false : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (Not.Not cts.zero (le.le x x0))
+             (x1 => eq.eq cts.zero bool.bool (leb.leb x x0) false.false))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  leb_elim.leb_elim
+    cts.zero
+    n
+    m
+    (__:(cts.Term cts.zero bool.bool) =>
+     cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       (Not.Not cts.zero (le.le n m))
+       (x => eq.eq cts.zero bool.bool __ false.false))
+    (H:(cts.Term cts.zero (le.le n m)) =>
+     H1:(cts.Term cts.zero (Not.Not cts.zero (le.le n m))) =>
+     falsity.falsity
+       cts.zero
+       cts.zero
+       (eq.eq cts.zero bool.bool true.true false.false)
+       (absurd.absurd cts.zero cts.zero (le.le n m) H H1))
+    (auto:(cts.Term
+             cts.zero
+             (Not.Not cts.zero (le.le n m))) =>
+     auto':(cts.Term
+              cts.zero
+              (Not.Not cts.zero (le.le n m))) =>
+     refl.refl cts.zero bool.bool false.false).
+

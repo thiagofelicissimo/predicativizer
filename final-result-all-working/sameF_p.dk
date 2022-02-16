@@ -1,0 +1,90 @@
+def sameF_p :  (l?15 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?15)
+    (cts.prod
+       (cts.succ l?15)
+       (cts.succ l?15)
+       (cts.succ l?15)
+       cts.I
+       (cts.univ l?15 (cts.succ l?15) cts.I)
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.succ l?15)
+          (cts.succ l?15)
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             (cts.succ l?15)
+             (cts.succ l?15)
+             cts.I
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x1 => bool.bool))
+             (x1 =>
+              cts.prod
+                l?15
+                (cts.succ l?15)
+                (cts.succ l?15)
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?15
+                   l?15
+                   cts.I
+                   nat.nat
+                   (x2 => x))
+                (x2 =>
+                 cts.prod
+                   l?15
+                   (cts.succ l?15)
+                   (cts.succ l?15)
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      l?15
+                      l?15
+                      cts.I
+                      nat.nat
+                      (x3 => x))
+                   (x3 => cts.univ l?15 (cts.succ l?15) cts.I))))))
+  := l?15 =>
+  A:(cts.Term (cts.succ l?15) (cts.univ l?15 (cts.succ l?15) cts.I)) =>
+  k:(cts.Term cts.zero nat.nat) =>
+  p:(cts.Term
+       cts.zero
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => bool.bool))) =>
+  f:(cts.Term
+       l?15
+       (cts.prod cts.zero l?15 l?15 cts.I nat.nat (x => A))) =>
+  g:(cts.Term
+       l?15
+       (cts.prod cts.zero l?15 l?15 cts.I nat.nat (x => A))) =>
+  cts.prod
+    cts.zero
+    l?15
+    l?15
+    cts.I
+    nat.nat
+    (x =>
+     cts.prod
+       cts.zero
+       l?15
+       l?15
+       cts.I
+       (lt.lt x k)
+       (x0 =>
+        cts.prod
+          cts.zero
+          l?15
+          l?15
+          cts.I
+          (eq.eq cts.zero bool.bool (p x) true.true)
+          (x1 => eq.eq l?15 A (f x) (g x)))).
+

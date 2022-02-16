@@ -1,0 +1,44 @@
+Not_ind :  (l?18 : cts.Sort) -> (l?15 : cts.Sort) -> (l?17 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?17) (cts.max (cts.succ l?15) (cts.max (cts.max (cts.max l?17 l?18) l?15) (cts.max l?17 l?15))))
+    (cts.prod
+       (cts.succ l?17)
+       (cts.max (cts.succ l?15) (cts.max (cts.max (cts.max l?17 l?18) l?15) (cts.max l?17 l?15)))
+       (cts.max (cts.succ l?17) (cts.max (cts.succ l?15) (cts.max (cts.max (cts.max l?17 l?18) l?15) (cts.max l?17 l?15))))
+       cts.I
+       (cts.univ l?17 (cts.succ l?17) cts.I)
+       (x =>
+        cts.prod
+          (cts.succ l?15)
+          (cts.max (cts.max (cts.max l?17 l?18) l?15) (cts.max l?17 l?15))
+          (cts.max (cts.succ l?15) (cts.max (cts.max (cts.max l?17 l?18) l?15) (cts.max l?17 l?15)))
+          cts.I
+          (cts.univ l?15 (cts.succ l?15) cts.I)
+          (x0 =>
+           cts.prod
+             (cts.max (cts.max l?17 l?18) l?15)
+             (cts.max l?17 l?15)
+             (cts.max (cts.max (cts.max l?17 l?18) l?15) (cts.max l?17 l?15))
+             cts.I
+             (cts.prod
+                (cts.max l?17 l?18)
+                l?15
+                (cts.max (cts.max l?17 l?18) l?15)
+                cts.I
+                (cts.prod
+                   l?17
+                   l?18
+                   (cts.max l?17 l?18)
+                   cts.I
+                   x
+                   (x1 => False.False l?18))
+                (x1 => x0))
+             (x1 =>
+              cts.prod
+                l?17
+                l?15
+                (cts.max l?17 l?15)
+                cts.I
+                (Not.Not l?17 x)
+                (x2 => x0))))).
+

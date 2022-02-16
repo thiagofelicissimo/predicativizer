@@ -1,0 +1,19 @@
+def not_zero :  (l?4 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?4)
+    (cts.prod
+       cts.zero
+       (cts.succ l?4)
+       (cts.succ l?4)
+       cts.I
+       nat.nat
+       (x => cts.univ l?4 (cts.succ l?4) cts.I))
+  := l?4 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  match_nat_type.match_nat_type
+    (cts.succ l?4)
+    (cts.univ l?4 (cts.succ l?4) cts.I)
+    (False.False l?4)
+    (p:(cts.Term cts.zero nat.nat) => True.True l?4)
+    n.
+

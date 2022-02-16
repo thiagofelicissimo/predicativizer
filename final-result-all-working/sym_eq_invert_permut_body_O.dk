@@ -1,0 +1,87 @@
+def sym_eq_invert_permut_body_O :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (leibniz.leibniz
+       cts.zero
+       l?2
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x => nat.nat))
+          (x =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat)))
+       (f:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x => nat.nat))) =>
+        m:(cts.Term cts.zero nat.nat) =>
+        match_bool_type.match_bool_type
+          cts.zero
+          nat.nat
+          O.O
+          O.O
+          (eqb.eqb m (f O.O)))
+       (invert_permut_body.invert_permut_body O.O))
+  := l?2 =>
+  sym_leibniz.sym_leibniz
+    cts.zero
+    cts.zero
+    l?2
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 => nat.nat)))
+    (invert_permut_body.invert_permut_body O.O)
+    (f:(cts.Term
+          cts.zero
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x => nat.nat))) =>
+     m:(cts.Term cts.zero nat.nat) =>
+     match_bool_type.match_bool_type
+       cts.zero
+       nat.nat
+       O.O
+       O.O
+       (eqb.eqb m (f O.O)))
+    (eq_invert_permut_body_O.eq_invert_permut_body_O cts.zero).
+

@@ -1,0 +1,127 @@
+def sameF_p_le :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (cts.prod
+       (cts.succ l?2)
+       l?2
+       (cts.succ l?2)
+       cts.I
+       (cts.univ l?2 (cts.succ l?2) cts.I)
+       (x =>
+        cts.prod
+          cts.zero
+          l?2
+          l?2
+          cts.I
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => bool.bool))
+          (x0 =>
+           cts.prod
+             l?2
+             l?2
+             l?2
+             cts.I
+             (cts.prod
+                cts.zero
+                l?2
+                l?2
+                cts.I
+                nat.nat
+                (x1 => x))
+             (x1 =>
+              cts.prod
+                l?2
+                l?2
+                l?2
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?2
+                   l?2
+                   cts.I
+                   nat.nat
+                   (x2 => x))
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   l?2
+                   l?2
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      l?2
+                      l?2
+                      cts.I
+                      nat.nat
+                      (x4 =>
+                       cts.prod
+                         cts.zero
+                         l?2
+                         l?2
+                         cts.I
+                         (le.le x3 x4)
+                         (x5 =>
+                          cts.prod
+                            l?2
+                            l?2
+                            l?2
+                            cts.I
+                            (sameF_p.sameF_p l?2 x x4 x0 x1 x2)
+                            (x6 => sameF_p.sameF_p l?2 x x3 x0 x1 x2)))))))))
+  := l?2 =>
+  A:(cts.Term (cts.succ l?2) (cts.univ l?2 (cts.succ l?2) cts.I)) =>
+  p:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => bool.bool))) =>
+  f:(cts.Term
+       l?2
+       (cts.prod
+          cts.zero
+          l?2
+          l?2
+          cts.I
+          nat.nat
+          (x => A))) =>
+  g:(cts.Term
+       l?2
+       (cts.prod
+          cts.zero
+          l?2
+          l?2
+          cts.I
+          nat.nat
+          (x => A))) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  lenm:(cts.Term cts.zero (le.le n m)) =>
+  samef:(cts.Term l?2 (sameF_p.sameF_p l?2 A m p f g)) =>
+  i:(cts.Term cts.zero nat.nat) =>
+  ltin:(cts.Term cts.zero (lt.lt i n)) =>
+  pi:(cts.Term cts.zero (eq.eq cts.zero bool.bool (p i) true.true)) =>
+  samef
+    i
+    (lt_to_le_to_lt.lt_to_le_to_lt i n m ltin lenm)
+    (rewrite_r.rewrite_r
+       cts.zero
+       cts.zero
+       bool.bool
+       true.true
+       (__:(cts.Term cts.zero bool.bool) =>
+        eq.eq cts.zero bool.bool __ true.true)
+       (refl.refl cts.zero bool.bool true.true)
+       (p i)
+       pi).
+

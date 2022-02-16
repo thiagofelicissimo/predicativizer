@@ -1,0 +1,162 @@
+def f_invert_permut :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                l?0
+                l?0
+                cts.I
+                (le.le x1 x0)
+                (x2 =>
+                 cts.prod
+                   l?0
+                   cts.zero
+                   l?0
+                   cts.I
+                   (permut.permut l?0 x x0)
+                   (x3 =>
+                    eq.eq
+                      cts.zero
+                      nat.nat
+                      (x (invert_permut.invert_permut x0 x x1))
+                      x1))))))
+  := l?0 =>
+  f:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  lemn:(cts.Term cts.zero (le.le m n)) =>
+  permf:(cts.Term l?0 (permut.permut l?0 f n)) =>
+  match_And_prop.match_And_prop
+    cts.zero
+    cts.zero
+    cts.zero
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (le.le x n)
+          (x0 => le.le (invert_permut.invert_permut n f x) n)))
+    (injn.injn (invert_permut.invert_permut n f) n)
+    (eq.eq cts.zero nat.nat (f (invert_permut.invert_permut n f m)) m)
+    (Hle:(cts.Term
+            cts.zero
+            (cts.prod
+               cts.zero
+               cts.zero
+               cts.zero
+               cts.I
+               nat.nat
+               (x =>
+                cts.prod
+                  cts.zero
+                  cts.zero
+                  cts.zero
+                  cts.I
+                  (le.le x n)
+                  (x0 => le.le (invert_permut.invert_permut n f x) n)))) =>
+     Hinj:(cts.Term cts.zero (injn.injn (invert_permut.invert_permut n f) n)) =>
+     match_And_prop.match_And_prop
+       cts.zero
+       cts.zero
+       cts.zero
+       l?0
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (le.le x n)
+             (x0 => le.le (f x) n)))
+       (injn.injn f n)
+       (eq.eq cts.zero nat.nat (f (invert_permut.invert_permut n f m)) m)
+       (lef:(cts.Term
+               cts.zero
+               (cts.prod
+                  cts.zero
+                  cts.zero
+                  cts.zero
+                  cts.I
+                  nat.nat
+                  (x =>
+                   cts.prod
+                     cts.zero
+                     cts.zero
+                     cts.zero
+                     cts.I
+                     (le.le x n)
+                     (x0 => le.le (f x) n)))) =>
+        injf:(cts.Term cts.zero (injn.injn f n)) =>
+        injective_invert_permut.injective_invert_permut
+          l?0
+          f
+          n
+          permf
+          (f (invert_permut.invert_permut n f m))
+          m
+          (lef (invert_permut.invert_permut n f m) (Hle m lemn))
+          lemn
+          (invert_permut_f.invert_permut_f
+             f
+             n
+             (invert_permut.invert_permut n f m)
+             (Hle m lemn)
+             injf))
+       permf)
+    (permut_invert_permut.permut_invert_permut
+       l?0
+       cts.zero
+       f
+       n
+       permf).
+

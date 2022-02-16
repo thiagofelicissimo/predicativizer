@@ -1,0 +1,39 @@
+def proj1 :  (l?31 : cts.Sort) -> (l?28 : cts.Sort) -> (l?23 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?31) (cts.max (cts.succ l?28) (cts.max l?23 l?31)))
+    (cts.prod
+       (cts.succ l?31)
+       (cts.max (cts.succ l?28) (cts.max l?23 l?31))
+       (cts.max (cts.succ l?31) (cts.max (cts.succ l?28) (cts.max l?23 l?31)))
+       cts.I
+       (cts.univ l?31 (cts.succ l?31) cts.I)
+       (x =>
+        cts.prod
+          (cts.succ l?28)
+          (cts.max l?23 l?31)
+          (cts.max (cts.succ l?28) (cts.max l?23 l?31))
+          cts.I
+          (cts.univ l?28 (cts.succ l?28) cts.I)
+          (x0 =>
+           cts.prod
+             l?23
+             l?31
+             (cts.max l?23 l?31)
+             cts.I
+             (And.And l?31 l?28 l?23 x x0)
+             (x1 => x))))
+  := l?31 => l?28 => l?23 =>
+  A:(cts.Term (cts.succ l?31) (cts.univ l?31 (cts.succ l?31) cts.I)) =>
+  B:(cts.Term (cts.succ l?28) (cts.univ l?28 (cts.succ l?28) cts.I)) =>
+  AB:(cts.Term l?23 (And.And l?31 l?28 l?23 A B)) =>
+  match_And_prop.match_And_prop
+    l?31
+    l?31
+    l?28
+    l?23
+    A
+    B
+    A
+    (_x_120:(cts.Term l?31 A) => _x_119:(cts.Term l?28 B) => _x_120)
+    AB.
+

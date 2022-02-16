@@ -1,0 +1,104 @@
+def not_eq_true_false : 
+  cts.Term
+    cts.zero
+    (Not.Not
+       cts.zero
+       (eq.eq cts.zero bool.bool true.true false.false))
+  :=
+  nmk.nmk
+    cts.zero
+    cts.zero
+    (eq.eq cts.zero bool.bool true.true false.false)
+    (Heq:(cts.Term
+            cts.zero
+            (eq.eq cts.zero bool.bool true.true false.false)) =>
+     eq_match_bool_type_false.eq_match_bool_type_false
+       (cts.succ cts.zero)
+       (cts.succ (cts.succ cts.zero))
+       (cts.univ (cts.succ cts.zero) (cts.succ (cts.succ cts.zero)) cts.I)
+       (cts.prod
+          (cts.succ cts.zero)
+          cts.zero
+          (cts.succ cts.zero)
+          cts.I
+          (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+          (x =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             x
+             (x0 => x)))
+       (cts.prod
+          (cts.succ cts.zero)
+          cts.zero
+          (cts.succ cts.zero)
+          cts.I
+          (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+          (x => x))
+       (x:(cts.Term
+             (cts.succ (cts.succ cts.zero))
+             (cts.univ (cts.succ cts.zero) (cts.succ (cts.succ cts.zero)) cts.I)) =>
+        x)
+       (eq_match_bool_type_true.eq_match_bool_type_true
+          (cts.succ cts.zero)
+          (cts.succ (cts.succ cts.zero))
+          (cts.univ (cts.succ cts.zero) (cts.succ (cts.succ cts.zero)) cts.I)
+          (match_bool_type.match_bool_type
+             (cts.succ (cts.succ cts.zero))
+             (cts.univ (cts.succ cts.zero) (cts.succ (cts.succ cts.zero)) cts.I)
+             (cts.prod
+                (cts.succ cts.zero)
+                cts.zero
+                (cts.succ cts.zero)
+                cts.I
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (x =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   x
+                   (x0 => x)))
+             (cts.prod
+                (cts.succ cts.zero)
+                cts.zero
+                (cts.succ cts.zero)
+                cts.I
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (x => x))
+             false.false)
+          (match_bool_type.match_bool_type
+             (cts.succ (cts.succ cts.zero))
+             (cts.univ (cts.succ cts.zero) (cts.succ (cts.succ cts.zero)) cts.I)
+             (cts.prod
+                (cts.succ cts.zero)
+                cts.zero
+                (cts.succ cts.zero)
+                cts.I
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (x => x))
+             (cts.prod
+                (cts.succ cts.zero)
+                cts.zero
+                (cts.succ cts.zero)
+                cts.I
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (x =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   x
+                   (x0 => x)))
+             false.false)
+          (x:(cts.Term
+                (cts.succ (cts.succ cts.zero))
+                (cts.univ (cts.succ cts.zero) (cts.succ (cts.succ cts.zero)) cts.I)) =>
+           x)
+          (bool_discr.bool_discr cts.zero true.true false.false Heq))
+       (False.False cts.zero)).
+

@@ -1,0 +1,62 @@
+def RC_reflexive :  (l?35 : cts.Sort) -> (l?38 : cts.Sort) -> (l?18 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?38) (cts.max (cts.max l?38 (cts.max l?38 (cts.succ l?35))) (cts.max l?38 l?18)))
+    (cts.prod
+       (cts.succ l?38)
+       (cts.max (cts.max l?38 (cts.max l?38 (cts.succ l?35))) (cts.max l?38 l?18))
+       (cts.max (cts.succ l?38) (cts.max (cts.max l?38 (cts.max l?38 (cts.succ l?35))) (cts.max l?38 l?18)))
+       cts.I
+       (cts.univ l?38 (cts.succ l?38) cts.I)
+       (x =>
+        cts.prod
+          (cts.max l?38 (cts.max l?38 (cts.succ l?35)))
+          (cts.max l?38 l?18)
+          (cts.max (cts.max l?38 (cts.max l?38 (cts.succ l?35))) (cts.max l?38 l?18))
+          cts.I
+          (cts.prod
+             l?38
+             (cts.max l?38 (cts.succ l?35))
+             (cts.max l?38 (cts.max l?38 (cts.succ l?35)))
+             cts.I
+             x
+             (x0 =>
+              cts.prod
+                l?38
+                (cts.succ l?35)
+                (cts.max l?38 (cts.succ l?35))
+                cts.I
+                x
+                (x1 => cts.univ l?35 (cts.succ l?35) cts.I)))
+          (x0 =>
+           reflexive.reflexive
+             l?38
+             l?18
+             x
+             (RC.RC l?35 l?38 l?18 x x0))))
+  := l?35 => l?38 => l?18 =>
+  A:(cts.Term (cts.succ l?38) (cts.univ l?38 (cts.succ l?38) cts.I)) =>
+  R:(cts.Term
+       (cts.max l?38 (cts.max l?38 (cts.succ l?35)))
+       (cts.prod
+          l?38
+          (cts.max l?38 (cts.succ l?35))
+          (cts.max l?38 (cts.max l?38 (cts.succ l?35)))
+          cts.I
+          A
+          (x =>
+           cts.prod
+             l?38
+             (cts.succ l?35)
+             (cts.max l?38 (cts.succ l?35))
+             cts.I
+             A
+             (x0 => cts.univ l?35 (cts.succ l?35) cts.I)))) =>
+  x:(cts.Term l?38 A) =>
+  or_intror.or_intror
+    l?35
+    l?38
+    l?18
+    (R x x)
+    (eq.eq l?38 A x x)
+    (refl.refl l?38 A x).
+

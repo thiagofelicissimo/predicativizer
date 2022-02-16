@@ -1,0 +1,57 @@
+def times_n_O : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x => eq.eq cts.zero nat.nat O.O (times.times x O.O)))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  nat_ind.nat_ind
+    cts.zero
+    (_x_365:(cts.Term cts.zero nat.nat) =>
+     eq.eq cts.zero nat.nat O.O (times.times _x_365 O.O))
+    (rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       O.O
+       (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat O.O __)
+       (refl.refl cts.zero nat.nat O.O)
+       (times.times O.O O.O)
+       (times_O_n.times_O_n O.O))
+    (x_366:(cts.Term cts.zero nat.nat) =>
+     _x_368:(cts.Term
+               cts.zero
+               (eq.eq cts.zero nat.nat O.O (times.times x_366 O.O))) =>
+     rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       (plus.plus O.O (times.times x_366 O.O))
+       (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat O.O __)
+       (rewrite_l.rewrite_l
+          cts.zero
+          cts.zero
+          nat.nat
+          O.O
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq cts.zero nat.nat O.O (plus.plus O.O __))
+          (rewrite_l.rewrite_l
+             cts.zero
+             cts.zero
+             nat.nat
+             O.O
+             (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat O.O __)
+             (refl.refl cts.zero nat.nat O.O)
+             (plus.plus O.O O.O)
+             (plus_O_n.plus_O_n O.O))
+          (times.times x_366 O.O)
+          _x_368)
+       (times.times (S.S x_366) O.O)
+       (times_Sn_m.times_Sn_m x_366 O.O))
+    n.
+

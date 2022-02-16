@@ -1,0 +1,35 @@
+def transpose : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x1 => nat.nat))))
+  :=
+  i:(cts.Term cts.zero nat.nat) =>
+  j:(cts.Term cts.zero nat.nat) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  match_bool_type.match_bool_type
+    cts.zero
+    nat.nat
+    j
+    (match_bool_type.match_bool_type cts.zero nat.nat i n (eqb.eqb n j))
+    (eqb.eqb n i).
+

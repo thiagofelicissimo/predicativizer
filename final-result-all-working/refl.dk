@@ -1,0 +1,12 @@
+refl :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (cts.prod
+       (cts.succ l?2)
+       l?2
+       (cts.succ l?2)
+       cts.I
+       (cts.univ l?2 (cts.succ l?2) cts.I)
+       (x =>
+        cts.prod l?2 l?2 l?2 cts.I x (x0 => eq.eq l?2 x x0 x0))).
+

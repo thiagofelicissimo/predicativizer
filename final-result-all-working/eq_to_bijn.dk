@@ -1,0 +1,190 @@
+def eq_to_bijn :  (l?26 : cts.Sort) -> (l?27 : cts.Sort) ->
+  cts.Term
+    (cts.max l?26 l?27)
+    (cts.prod
+       cts.zero
+       (cts.max l?26 l?27)
+       (cts.max l?26 l?27)
+       cts.I
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.max l?26 l?27)
+          (cts.max l?26 l?27)
+          cts.I
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat))
+          (x0 =>
+           cts.prod
+             cts.zero
+             (cts.max l?26 l?27)
+             (cts.max l?26 l?27)
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                (cts.max l?26 l?27)
+                (cts.max l?26 l?27)
+                cts.I
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x2 =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (le.le x2 x1)
+                      (x3 => eq.eq cts.zero nat.nat (x x2) (x0 x2))))
+                (x2 =>
+                 cts.prod
+                   l?26
+                   l?27
+                   (cts.max l?26 l?27)
+                   cts.I
+                   (bijn.bijn l?26 x x1)
+                   (x3 => bijn.bijn l?27 x0 x1))))))
+  := l?26 => l?27 =>
+  f:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))) =>
+  g:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  H:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (le.le x n)
+             (x0 => eq.eq cts.zero nat.nat (f x) (g x))))) =>
+  bijf:(cts.Term l?26 (bijn.bijn l?26 f n)) =>
+  i:(cts.Term cts.zero nat.nat) =>
+  lein:(cts.Term cts.zero (le.le i n)) =>
+  match_ex_prop.match_ex_prop
+    l?27
+    cts.zero
+    cts.zero
+    l?26
+    nat.nat
+    (p:(cts.Term cts.zero nat.nat) =>
+     And.And
+       cts.zero
+       cts.zero
+       cts.zero
+       (le.le p n)
+       (eq.eq cts.zero nat.nat (f p) i))
+    (ex.ex
+       cts.zero
+       cts.zero
+       l?27
+       nat.nat
+       (p:(cts.Term cts.zero nat.nat) =>
+        And.And
+          cts.zero
+          cts.zero
+          cts.zero
+          (le.le p n)
+          (eq.eq cts.zero nat.nat (g p) i)))
+    (a:(cts.Term cts.zero nat.nat) =>
+     _clearme:(cts.Term
+                 cts.zero
+                 (And.And
+                    cts.zero
+                    cts.zero
+                    cts.zero
+                    (le.le a n)
+                    (eq.eq cts.zero nat.nat (f a) i))) =>
+     match_And_prop.match_And_prop
+       l?27
+       cts.zero
+       cts.zero
+       cts.zero
+       (le.le a n)
+       (eq.eq cts.zero nat.nat (f a) i)
+       (ex.ex
+          cts.zero
+          cts.zero
+          l?27
+          nat.nat
+          (p:(cts.Term cts.zero nat.nat) =>
+           And.And
+             cts.zero
+             cts.zero
+             cts.zero
+             (le.le p n)
+             (eq.eq cts.zero nat.nat (g p) i)))
+       (lean:(cts.Term cts.zero (le.le a n)) =>
+        fa:(cts.Term cts.zero (eq.eq cts.zero nat.nat (f a) i)) =>
+        ex_intro.ex_intro
+          cts.zero
+          cts.zero
+          l?27
+          nat.nat
+          (x:(cts.Term cts.zero nat.nat) =>
+           And.And
+             cts.zero
+             cts.zero
+             cts.zero
+             (le.le x n)
+             (eq.eq cts.zero nat.nat (g x) i))
+          a
+          (conj.conj
+             cts.zero
+             cts.zero
+             cts.zero
+             (le.le a n)
+             (eq.eq cts.zero nat.nat (g a) i)
+             lean
+             (eq_ind.eq_ind
+                cts.zero
+                cts.zero
+                nat.nat
+                (f a)
+                (x_1:(cts.Term cts.zero nat.nat) =>
+                 eq.eq cts.zero nat.nat (g a) x_1)
+                (sym_eq.sym_eq cts.zero nat.nat (f a) (g a) (H a lean))
+                i
+                fa)))
+       _clearme)
+    (bijf i lein).
+

@@ -1,0 +1,72 @@
+def le_gen :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (cts.prod
+       (cts.succ l?2)
+       l?2
+       (cts.succ l?2)
+       cts.I
+       (cts.prod
+          cts.zero
+          (cts.succ l?2)
+          (cts.succ l?2)
+          cts.I
+          nat.nat
+          (x => cts.univ l?2 (cts.succ l?2) cts.I))
+       (x =>
+        cts.prod
+          cts.zero
+          l?2
+          l?2
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             l?2
+             l?2
+             l?2
+             cts.I
+             (cts.prod
+                cts.zero
+                l?2
+                l?2
+                cts.I
+                nat.nat
+                (x1 =>
+                 cts.prod
+                   cts.zero
+                   l?2
+                   l?2
+                   cts.I
+                   (le.le x1 x0)
+                   (x2 => x x1)))
+             (x1 => x x0))))
+  := l?2 =>
+  P:(cts.Term
+       (cts.succ l?2)
+       (cts.prod
+          cts.zero
+          (cts.succ l?2)
+          (cts.succ l?2)
+          cts.I
+          nat.nat
+          (x => cts.univ l?2 (cts.succ l?2) cts.I))) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  auto:(cts.Term
+          l?2
+          (cts.prod
+             cts.zero
+             l?2
+             l?2
+             cts.I
+             nat.nat
+             (x =>
+              cts.prod
+                cts.zero
+                l?2
+                l?2
+                cts.I
+                (le.le x n)
+                (x0 => P x)))) =>
+  auto n (le_n.le_n n).
+

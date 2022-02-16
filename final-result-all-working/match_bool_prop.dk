@@ -1,0 +1,38 @@
+match_bool_prop :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (cts.prod
+       (cts.succ l?2)
+       l?2
+       (cts.succ l?2)
+       cts.I
+       (cts.prod
+          cts.zero
+          (cts.succ l?2)
+          (cts.succ l?2)
+          cts.I
+          bool.bool
+          (x => cts.univ l?2 (cts.succ l?2) cts.I))
+       (x =>
+        cts.prod
+          l?2
+          l?2
+          l?2
+          cts.I
+          (x true.true)
+          (x0 =>
+           cts.prod
+             l?2
+             l?2
+             l?2
+             cts.I
+             (x false.false)
+             (x1 =>
+              cts.prod
+                cts.zero
+                l?2
+                l?2
+                cts.I
+                bool.bool
+                (x2 => x x2))))).
+

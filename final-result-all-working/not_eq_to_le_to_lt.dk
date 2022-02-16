@@ -1,0 +1,70 @@
+def not_eq_to_le_to_lt : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (Not.Not cts.zero (eq.eq cts.zero nat.nat x x0))
+             (x1 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (le.le x x0)
+                (x2 => lt.lt x x0)))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  Hneq:(cts.Term
+          cts.zero
+          (Not.Not cts.zero (eq.eq cts.zero nat.nat n m))) =>
+  Hle:(cts.Term cts.zero (le.le n m)) =>
+  match_Or_prop.match_Or_prop
+    cts.zero
+    cts.zero
+    cts.zero
+    cts.zero
+    (lt.lt n m)
+    (eq.eq cts.zero nat.nat n m)
+    (lt.lt n m)
+    (auto:(cts.Term cts.zero (lt.lt n m)) => auto)
+    (Heq:(cts.Term cts.zero (eq.eq cts.zero nat.nat n m)) =>
+     not_le_to_lt.not_le_to_lt
+       m
+       n
+       (not_to_not.not_to_not
+          cts.zero
+          cts.zero
+          (le.le m n)
+          (eq.eq cts.zero nat.nat n m)
+          (auto:(cts.Term cts.zero (le.le m n)) =>
+           rewrite_l.rewrite_l
+             cts.zero
+             cts.zero
+             nat.nat
+             n
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq cts.zero nat.nat n __)
+             (refl.refl cts.zero nat.nat n)
+             m
+             Heq)
+          Hneq))
+    (le_to_or_lt_eq.le_to_or_lt_eq cts.zero n m Hle).
+

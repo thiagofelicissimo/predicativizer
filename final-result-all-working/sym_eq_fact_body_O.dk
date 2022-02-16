@@ -1,0 +1,19 @@
+def sym_eq_fact_body_O :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (leibniz.leibniz
+       cts.zero
+       l?2
+       nat.nat
+       (S.S O.O)
+       (fact_body.fact_body O.O))
+  := l?2 =>
+  sym_leibniz.sym_leibniz
+    cts.zero
+    cts.zero
+    l?2
+    nat.nat
+    (fact_body.fact_body O.O)
+    (S.S O.O)
+    (eq_fact_body_O.eq_fact_body_O cts.zero).
+

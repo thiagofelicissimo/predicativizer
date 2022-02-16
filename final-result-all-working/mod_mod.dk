@@ -1,0 +1,87 @@
+def mod_mod : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (lt.lt O.O x0)
+             (x1 => eq.eq cts.zero nat.nat (mod.mod x x0) (mod.mod (mod.mod x x0) x0)))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  p:(cts.Term cts.zero nat.nat) =>
+  posp:(cts.Term cts.zero (lt.lt O.O p)) =>
+  eq_ind_r.eq_ind_r
+    cts.zero
+    cts.zero
+    nat.nat
+    (plus.plus (times.times (div.div (mod.mod n p) p) p) (mod.mod (mod.mod n p) p))
+    (x:(cts.Term cts.zero nat.nat) =>
+     eq.eq cts.zero nat.nat x (mod.mod (mod.mod n p) p))
+    (eq_ind_r.eq_ind_r
+       cts.zero
+       cts.zero
+       nat.nat
+       O.O
+       (x:(cts.Term cts.zero nat.nat) =>
+        eq.eq
+          cts.zero
+          nat.nat
+          (plus.plus (times.times x p) (mod.mod (mod.mod n p) p))
+          (mod.mod (mod.mod n p) p))
+       (rewrite_r.rewrite_r
+          cts.zero
+          cts.zero
+          nat.nat
+          (times.times p O.O)
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq
+             cts.zero
+             nat.nat
+             (plus.plus __ (mod.mod (mod.mod n p) p))
+             (mod.mod (mod.mod n p) p))
+          (rewrite_l.rewrite_l
+             cts.zero
+             cts.zero
+             nat.nat
+             O.O
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                cts.zero
+                nat.nat
+                (plus.plus __ (mod.mod (mod.mod n p) p))
+                (mod.mod (mod.mod n p) p))
+             (rewrite_l.rewrite_l
+                cts.zero
+                cts.zero
+                nat.nat
+                (mod.mod (mod.mod n p) p)
+                (__:(cts.Term cts.zero nat.nat) =>
+                 eq.eq cts.zero nat.nat __ (mod.mod (mod.mod n p) p))
+                (refl.refl cts.zero nat.nat (mod.mod (mod.mod n p) p))
+                (plus.plus O.O (mod.mod (mod.mod n p) p))
+                (plus_O_n.plus_O_n (mod.mod (mod.mod n p) p)))
+             (times.times p O.O)
+             (times_n_O.times_n_O p))
+          (times.times O.O p)
+          (commutative_times.commutative_times O.O p))
+       (div.div (mod.mod n p) p)
+       (eq_div_O.eq_div_O (mod.mod n p) p (lt_mod_m_m.lt_mod_m_m n p posp)))
+    (mod.mod n p)
+    (div_mod.div_mod (mod.mod n p) p).
+

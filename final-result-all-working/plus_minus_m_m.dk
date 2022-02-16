@@ -1,0 +1,90 @@
+def plus_minus_m_m : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (le.le x0 x)
+             (x1 => eq.eq cts.zero nat.nat x (plus.plus (minus.minus x x0) x0)))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  lemn:(cts.Term cts.zero (le.le m n)) =>
+  sym_eq.sym_eq
+    cts.zero
+    nat.nat
+    (plus.plus (minus.minus n m) m)
+    n
+    (eq_coerc.eq_coerc
+       cts.zero
+       (eq.eq
+          cts.zero
+          nat.nat
+          (plus.plus (minus.minus n m) m)
+          (minus.minus (plus.plus n m) m))
+       (eq.eq cts.zero nat.nat (plus.plus (minus.minus n m) m) n)
+       (plus_minus.plus_minus m n m lemn)
+       (rewrite_r.rewrite_r
+          (cts.succ cts.zero)
+          cts.zero
+          nat.nat
+          (plus.plus m (minus.minus n m))
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq
+             (cts.succ cts.zero)
+             (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+             (eq.eq
+                cts.zero
+                nat.nat
+                (plus.plus (minus.minus n m) m)
+                (minus.minus (plus.plus n m) m))
+             (eq.eq cts.zero nat.nat __ n))
+          (rewrite_r.rewrite_r
+             (cts.succ cts.zero)
+             cts.zero
+             nat.nat
+             (plus.plus m (minus.minus n m))
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                (cts.succ cts.zero)
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (eq.eq cts.zero nat.nat __ (minus.minus (plus.plus n m) m))
+                (eq.eq cts.zero nat.nat (plus.plus m (minus.minus n m)) n))
+             (rewrite_l.rewrite_l
+                (cts.succ cts.zero)
+                cts.zero
+                nat.nat
+                n
+                (__:(cts.Term cts.zero nat.nat) =>
+                 eq.eq
+                   (cts.succ cts.zero)
+                   (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                   (eq.eq cts.zero nat.nat (plus.plus m (minus.minus n m)) __)
+                   (eq.eq cts.zero nat.nat (plus.plus m (minus.minus n m)) n))
+                (refl.refl
+                   (cts.succ cts.zero)
+                   (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                   (eq.eq cts.zero nat.nat (plus.plus m (minus.minus n m)) n))
+                (minus.minus (plus.plus n m) m)
+                (minus_plus_m_m.minus_plus_m_m n m))
+             (plus.plus (minus.minus n m) m)
+             (commutative_plus.commutative_plus (minus.minus n m) m))
+          (plus.plus (minus.minus n m) m)
+          (commutative_plus.commutative_plus (minus.minus n m) m))).
+

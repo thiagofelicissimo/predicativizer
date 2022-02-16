@@ -1,0 +1,106 @@
+def dividesb_true_to_divides :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             (eq.eq cts.zero bool.bool (dividesb.dividesb x x0) true.true)
+             (x1 => divides.divides l?0 x x0))))
+  := l?0 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  match_Or_prop.match_Or_prop
+    l?0
+    cts.zero
+    cts.zero
+    cts.zero
+    (lt.lt O.O n)
+    (eq.eq cts.zero nat.nat O.O n)
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       (eq.eq cts.zero bool.bool (dividesb.dividesb n m) true.true)
+       (x => divides.divides l?0 n m))
+    (posn:(cts.Term cts.zero (lt.lt O.O n)) =>
+     divbnm:(cts.Term
+               cts.zero
+               (eq.eq
+                  cts.zero
+                  bool.bool
+                  (dividesb.dividesb n m)
+                  true.true)) =>
+     mod_O_to_divides.mod_O_to_divides
+       l?0
+       n
+       m
+       posn
+       (eqb_true_to_eq.eqb_true_to_eq (mod.mod m n) O.O divbnm))
+    (eqnO:(cts.Term
+             cts.zero
+             (eq.eq cts.zero nat.nat O.O n)) =>
+     eq_ind.eq_ind
+       l?0
+       cts.zero
+       nat.nat
+       O.O
+       (x_1:(cts.Term cts.zero nat.nat) =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          (eq.eq cts.zero bool.bool (dividesb.dividesb x_1 m) true.true)
+          (x => divides.divides l?0 x_1 m))
+       (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
+          l?0
+          cts.zero
+          nat.nat
+          m
+          (p:(cts.Term cts.zero nat.nat) => mod_aux.mod_aux m m p)
+          (y:(cts.Term cts.zero nat.nat) =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             (eq.eq cts.zero bool.bool (eqb.eqb y O.O) true.true)
+             (x => divides.divides l?0 O.O m))
+          (eqbmO:(cts.Term
+                    cts.zero
+                    (eq.eq
+                       cts.zero
+                       bool.bool
+                       (eqb.eqb m O.O)
+                       true.true)) =>
+           eq_ind_r.eq_ind_r
+             l?0
+             cts.zero
+             nat.nat
+             O.O
+             (x:(cts.Term cts.zero nat.nat) =>
+              divides.divides l?0 O.O x)
+             (divides_n_n.divides_n_n l?0 O.O)
+             m
+             (eqb_true_to_eq.eqb_true_to_eq m O.O eqbmO)))
+       n
+       eqnO)
+    (le_to_or_lt_eq.le_to_or_lt_eq cts.zero O.O n (le_O_n.le_O_n n)).
+

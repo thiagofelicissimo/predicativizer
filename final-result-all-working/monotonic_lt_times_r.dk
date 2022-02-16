@@ -1,0 +1,128 @@
+def monotonic_lt_times_r : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (lt.lt O.O x)
+          (x0 =>
+           monotonic.monotonic
+             cts.zero
+             cts.zero
+             nat.nat
+             lt.lt
+             (t:(cts.Term cts.zero nat.nat) => times.times x t))))
+  :=
+  c:(cts.Term cts.zero nat.nat) =>
+  posc:(cts.Term cts.zero (lt.lt O.O c)) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  ltnm:(cts.Term cts.zero (lt.lt n m)) =>
+  le_ind.le_ind
+    cts.zero
+    (S.S n)
+    (x_417:(cts.Term cts.zero nat.nat) =>
+     lt.lt (times.times c n) (times.times c x_417))
+    (eq_coerc.eq_coerc
+       cts.zero
+       (le.le (S.S (plus.plus O.O (times.times c n))) (plus.plus c (times.times c n)))
+       (le.le (S.S (times.times c n)) (times.times c (S.S n)))
+       (monotonic_lt_plus_l.monotonic_lt_plus_l (times.times c n) O.O c posc)
+       (rewrite_r.rewrite_r
+          (cts.succ cts.zero)
+          cts.zero
+          nat.nat
+          (plus.plus O.O (S.S (times.times c n)))
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq
+             (cts.succ cts.zero)
+             (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+             (le.le __ (plus.plus c (times.times c n)))
+             (le.le (S.S (times.times c n)) (times.times c (S.S n))))
+          (rewrite_l.rewrite_l
+             (cts.succ cts.zero)
+             cts.zero
+             nat.nat
+             (plus.plus c (times.times c n))
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                (cts.succ cts.zero)
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (le.le (plus.plus O.O (S.S (times.times c n))) (plus.plus c (times.times c n)))
+                (le.le (S.S (times.times c n)) __))
+             (rewrite_l.rewrite_l
+                (cts.succ cts.zero)
+                cts.zero
+                nat.nat
+                (S.S (times.times c n))
+                (__:(cts.Term cts.zero nat.nat) =>
+                 eq.eq
+                   (cts.succ cts.zero)
+                   (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                   (le.le __ (plus.plus c (times.times c n)))
+                   (le.le (S.S (times.times c n)) (plus.plus c (times.times c n))))
+                (refl.refl
+                   (cts.succ cts.zero)
+                   (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                   (le.le (S.S (times.times c n)) (plus.plus c (times.times c n))))
+                (plus.plus O.O (S.S (times.times c n)))
+                (plus_O_n.plus_O_n (S.S (times.times c n))))
+             (times.times c (S.S n))
+             (times_n_Sm.times_n_Sm c n))
+          (S.S (plus.plus O.O (times.times c n)))
+          (plus_n_Sm.plus_n_Sm O.O (times.times c n))))
+    (a:(cts.Term cts.zero nat.nat) =>
+     __:(cts.Term cts.zero (le.le (S.S n) a)) =>
+     lt1:(cts.Term cts.zero (le.le (S.S (times.times c n)) (times.times c a))) =>
+     transitive_le.transitive_le
+       (S.S (times.times c n))
+       (times.times c a)
+       (times.times c (S.S a))
+       lt1
+       (eq_coerc.eq_coerc
+          cts.zero
+          (le.le (times.times c a) (plus.plus (times.times c a) c))
+          (le.le (times.times c a) (times.times c (S.S a)))
+          (le_plus_n_r.le_plus_n_r c (times.times c a))
+          (rewrite_l.rewrite_l
+             (cts.succ cts.zero)
+             cts.zero
+             nat.nat
+             (plus.plus c (times.times c a))
+             (__1:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                (cts.succ cts.zero)
+                (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                (le.le (times.times c a) (plus.plus (times.times c a) c))
+                (le.le (times.times c a) __1))
+             (rewrite_r.rewrite_r
+                (cts.succ cts.zero)
+                cts.zero
+                nat.nat
+                (plus.plus c (times.times c a))
+                (__1:(cts.Term cts.zero nat.nat) =>
+                 eq.eq
+                   (cts.succ cts.zero)
+                   (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                   (le.le (times.times c a) __1)
+                   (le.le (times.times c a) (plus.plus c (times.times c a))))
+                (refl.refl
+                   (cts.succ cts.zero)
+                   (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                   (le.le (times.times c a) (plus.plus c (times.times c a))))
+                (plus.plus (times.times c a) c)
+                (commutative_plus.commutative_plus (times.times c a) c))
+             (times.times c (S.S a))
+             (times_n_Sm.times_n_Sm c a))))
+    m
+    ltnm.
+

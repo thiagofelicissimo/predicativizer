@@ -1,0 +1,89 @@
+mk_Aop :  (l?9 : cts.Sort) -> (l?33 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?9) (cts.max l?9 (cts.max l?9 (cts.max l?9 (cts.max l?9 (cts.max l?9 l?33))))))
+    (cts.prod
+       (cts.succ l?9)
+       (cts.max l?9 (cts.max l?9 (cts.max l?9 (cts.max l?9 (cts.max l?9 l?33)))))
+       (cts.max (cts.succ l?9) (cts.max l?9 (cts.max l?9 (cts.max l?9 (cts.max l?9 (cts.max l?9 l?33))))))
+       cts.I
+       (cts.univ l?9 (cts.succ l?9) cts.I)
+       (x =>
+        cts.prod
+          l?9
+          (cts.max l?9 (cts.max l?9 (cts.max l?9 (cts.max l?9 l?33))))
+          (cts.max l?9 (cts.max l?9 (cts.max l?9 (cts.max l?9 (cts.max l?9 l?33)))))
+          cts.I
+          x
+          (x0 =>
+           cts.prod
+             l?9
+             (cts.max l?9 (cts.max l?9 (cts.max l?9 l?33)))
+             (cts.max l?9 (cts.max l?9 (cts.max l?9 (cts.max l?9 l?33))))
+             cts.I
+             (cts.prod
+                l?9
+                l?9
+                l?9
+                cts.I
+                x
+                (x1 => cts.prod l?9 l?9 l?9 cts.I x (x2 => x)))
+             (x1 =>
+              cts.prod
+                l?9
+                (cts.max l?9 (cts.max l?9 l?33))
+                (cts.max l?9 (cts.max l?9 (cts.max l?9 l?33)))
+                cts.I
+                (cts.prod
+                   l?9
+                   l?9
+                   l?9
+                   cts.I
+                   x
+                   (x2 => eq.eq l?9 x (x1 x0 x2) x2))
+                (x2 =>
+                 cts.prod
+                   l?9
+                   (cts.max l?9 l?33)
+                   (cts.max l?9 (cts.max l?9 l?33))
+                   cts.I
+                   (cts.prod
+                      l?9
+                      l?9
+                      l?9
+                      cts.I
+                      x
+                      (x3 => eq.eq l?9 x (x1 x3 x0) x3))
+                   (x3 =>
+                    cts.prod
+                      l?9
+                      l?33
+                      (cts.max l?9 l?33)
+                      cts.I
+                      (cts.prod
+                         l?9
+                         l?9
+                         l?9
+                         cts.I
+                         x
+                         (x4 =>
+                          cts.prod
+                            l?9
+                            l?9
+                            l?9
+                            cts.I
+                            x
+                            (x5 =>
+                             cts.prod
+                               l?9
+                               l?9
+                               l?9
+                               cts.I
+                               x
+                               (x6 =>
+                                eq.eq
+                                  l?9
+                                  x
+                                  (x1 x4 (x1 x5 x6))
+                                  (x1 (x1 x4 x5) x6)))))
+                      (x4 => Aop.Aop l?9 l?33 x x0))))))).
+

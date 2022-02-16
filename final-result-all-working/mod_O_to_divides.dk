@@ -1,0 +1,85 @@
+def mod_O_to_divides :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             (lt.lt O.O x)
+             (x1 =>
+              cts.prod
+                cts.zero
+                l?0
+                l?0
+                cts.I
+                (eq.eq cts.zero nat.nat (mod.mod x0 x) O.O)
+                (x2 => divides.divides l?0 x x0)))))
+  := l?0 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  auto:(cts.Term cts.zero (lt.lt O.O n)) =>
+  auto':(cts.Term
+           cts.zero
+           (eq.eq cts.zero nat.nat (mod.mod m n) O.O)) =>
+  quotient.quotient
+    l?0
+    n
+    m
+    (div.div m n)
+    (rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       (times.times n (div.div m n))
+       (__:(cts.Term cts.zero nat.nat) =>
+        eq.eq cts.zero nat.nat __ (times.times n (div.div m n)))
+       (refl.refl cts.zero nat.nat (times.times n (div.div m n)))
+       m
+       (rewrite_r.rewrite_r
+          cts.zero
+          cts.zero
+          nat.nat
+          (minus.minus m O.O)
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq cts.zero nat.nat (times.times n (div.div m n)) __)
+          (rewrite_l.rewrite_l
+             cts.zero
+             cts.zero
+             nat.nat
+             (mod.mod m n)
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq
+                cts.zero
+                nat.nat
+                (times.times n (div.div m n))
+                (minus.minus m __))
+             (rewrite_l.rewrite_l
+                cts.zero
+                cts.zero
+                nat.nat
+                (times.times (div.div m n) n)
+                (__:(cts.Term cts.zero nat.nat) =>
+                 eq.eq cts.zero nat.nat __ (minus.minus m (mod.mod m n)))
+                (eq_times_div_minus_mod.eq_times_div_minus_mod m n)
+                (times.times n (div.div m n))
+                (commutative_times.commutative_times (div.div m n) n))
+             O.O
+             auto')
+          m
+          (minus_n_O.minus_n_O m))).
+

@@ -1,0 +1,193 @@
+def nat_case :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          (cts.succ l?5)
+          l?5
+          (cts.succ l?5)
+          cts.I
+          (cts.prod
+             cts.zero
+             (cts.succ l?5)
+             (cts.succ l?5)
+             cts.I
+             nat.nat
+             (x0 => cts.univ l?5 (cts.succ l?5) cts.I))
+          (x0 =>
+           cts.prod
+             l?5
+             l?5
+             l?5
+             cts.I
+             (cts.prod
+                cts.zero
+                l?5
+                l?5
+                cts.I
+                (eq.eq cts.zero nat.nat x O.O)
+                (x1 => x0 O.O))
+             (x1 =>
+              cts.prod
+                l?5
+                l?5
+                l?5
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?5
+                   l?5
+                   cts.I
+                   nat.nat
+                   (x2 =>
+                    cts.prod
+                      cts.zero
+                      l?5
+                      l?5
+                      cts.I
+                      (eq.eq cts.zero nat.nat x (S.S x2))
+                      (x3 => x0 (S.S x2))))
+                (x2 => x0 x)))))
+  := l?5 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  P:(cts.Term
+       (cts.succ l?5)
+       (cts.prod
+          cts.zero
+          (cts.succ l?5)
+          (cts.succ l?5)
+          cts.I
+          nat.nat
+          (x => cts.univ l?5 (cts.succ l?5) cts.I))) =>
+  nat_ind.nat_ind
+    l?5
+    (_x_365:(cts.Term cts.zero nat.nat) =>
+     cts.prod
+       l?5
+       l?5
+       l?5
+       cts.I
+       (cts.prod
+          cts.zero
+          l?5
+          l?5
+          cts.I
+          (eq.eq cts.zero nat.nat _x_365 O.O)
+          (x => P O.O))
+       (x =>
+        cts.prod
+          l?5
+          l?5
+          l?5
+          cts.I
+          (cts.prod
+             cts.zero
+             l?5
+             l?5
+             cts.I
+             nat.nat
+             (x0 =>
+              cts.prod
+                cts.zero
+                l?5
+                l?5
+                cts.I
+                (eq.eq cts.zero nat.nat _x_365 (S.S x0))
+                (x1 => P (S.S x0))))
+          (x0 => P _x_365)))
+    (auto:(cts.Term
+             l?5
+             (cts.prod
+                cts.zero
+                l?5
+                l?5
+                cts.I
+                (eq.eq cts.zero nat.nat O.O O.O)
+                (x => P O.O))) =>
+     auto':(cts.Term
+              l?5
+              (cts.prod
+                 cts.zero
+                 l?5
+                 l?5
+                 cts.I
+                 nat.nat
+                 (x =>
+                  cts.prod
+                    cts.zero
+                    l?5
+                    l?5
+                    cts.I
+                    (eq.eq cts.zero nat.nat O.O (S.S x))
+                    (x0 => P (S.S x))))) =>
+     auto (refl.refl cts.zero nat.nat O.O))
+    (x_366:(cts.Term cts.zero nat.nat) =>
+     _x_368:(cts.Term
+               l?5
+               (cts.prod
+                  l?5
+                  l?5
+                  l?5
+                  cts.I
+                  (cts.prod
+                     cts.zero
+                     l?5
+                     l?5
+                     cts.I
+                     (eq.eq cts.zero nat.nat x_366 O.O)
+                     (x => P O.O))
+                  (x =>
+                   cts.prod
+                     l?5
+                     l?5
+                     l?5
+                     cts.I
+                     (cts.prod
+                        cts.zero
+                        l?5
+                        l?5
+                        cts.I
+                        nat.nat
+                        (x0 =>
+                         cts.prod
+                           cts.zero
+                           l?5
+                           l?5
+                           cts.I
+                           (eq.eq cts.zero nat.nat x_366 (S.S x0))
+                           (x1 => P (S.S x0))))
+                     (x0 => P x_366)))) =>
+     auto:(cts.Term
+             l?5
+             (cts.prod
+                cts.zero
+                l?5
+                l?5
+                cts.I
+                (eq.eq cts.zero nat.nat (S.S x_366) O.O)
+                (x => P O.O))) =>
+     auto':(cts.Term
+              l?5
+              (cts.prod
+                 cts.zero
+                 l?5
+                 l?5
+                 cts.I
+                 nat.nat
+                 (x =>
+                  cts.prod
+                    cts.zero
+                    l?5
+                    l?5
+                    cts.I
+                    (eq.eq cts.zero nat.nat (S.S x_366) (S.S x))
+                    (x0 => P (S.S x))))) =>
+     auto' x_366 (refl.refl cts.zero nat.nat (S.S x_366)))
+    n.
+

@@ -1,0 +1,219 @@
+def sub_hkO :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 => nat.nat))
+          (x0 =>
+           cts.prod
+             cts.zero
+             l?0
+             l?0
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                l?0
+                l?0
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   l?0
+                   l?0
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x3 => bool.bool))
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      l?0
+                      l?0
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x4 => bool.bool))
+                      (x4 =>
+                       cts.prod
+                         cts.zero
+                         l?0
+                         l?0
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x5 => nat.nat))
+                         (x5 =>
+                          cts.prod
+                            cts.zero
+                            l?0
+                            l?0
+                            cts.I
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x6 => nat.nat))
+                            (x6 =>
+                             cts.prod
+                               cts.zero
+                               l?0
+                               l?0
+                               cts.I
+                               (eq.eq cts.zero nat.nat x1 O.O)
+                               (x7 => sub_hk.sub_hk l?0 x x0 x1 x2 x3 x4 x5 x6))))))))))
+  := l?0 =>
+  h:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))) =>
+  k:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))) =>
+  n1:(cts.Term cts.zero nat.nat) =>
+  n2:(cts.Term cts.zero nat.nat) =>
+  p1:(cts.Term
+        cts.zero
+        (cts.prod
+           cts.zero
+           cts.zero
+           cts.zero
+           cts.I
+           nat.nat
+           (x => bool.bool))) =>
+  p2:(cts.Term
+        cts.zero
+        (cts.prod
+           cts.zero
+           cts.zero
+           cts.zero
+           cts.I
+           nat.nat
+           (x => bool.bool))) =>
+  f1:(cts.Term
+        cts.zero
+        (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
+  f2:(cts.Term
+        cts.zero
+        (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
+  up0:(cts.Term cts.zero (eq.eq cts.zero nat.nat n1 O.O)) =>
+  i:(cts.Term cts.zero nat.nat) =>
+  lti:(cts.Term cts.zero (lt.lt i n1)) =>
+  eq_ind_r.eq_ind_r
+    l?0
+    cts.zero
+    nat.nat
+    O.O
+    (x:(cts.Term cts.zero nat.nat) =>
+     cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       (eq.eq cts.zero bool.bool (p1 i) true.true)
+       (x0 =>
+        And.And
+          cts.zero
+          cts.zero
+          l?0
+          (And.And
+             cts.zero
+             cts.zero
+             cts.zero
+             (lt.lt (h i) n2)
+             (eq.eq cts.zero bool.bool (p2 (h i)) true.true))
+          (eq.eq cts.zero nat.nat (k (h i)) i)))
+    (falsity.falsity
+       l?0
+       cts.zero
+       (cts.prod
+          cts.zero
+          l?0
+          l?0
+          cts.I
+          (eq.eq cts.zero bool.bool (p1 i) true.true)
+          (x =>
+           And.And
+             cts.zero
+             cts.zero
+             l?0
+             (And.And
+                cts.zero
+                cts.zero
+                cts.zero
+                (lt.lt (h i) n2)
+                (eq.eq cts.zero bool.bool (p2 (h i)) true.true))
+             (eq.eq cts.zero nat.nat (k (h i)) i)))
+       (absurd.absurd
+          cts.zero
+          cts.zero
+          (le.le (S.S i) O.O)
+          (eq_coerc.eq_coerc
+             cts.zero
+             (le.le (S.S i) n1)
+             (le.le (S.S i) O.O)
+             lti
+             (rewrite_r.rewrite_r
+                (cts.succ cts.zero)
+                cts.zero
+                nat.nat
+                O.O
+                (__:(cts.Term cts.zero nat.nat) =>
+                 eq.eq
+                   (cts.succ cts.zero)
+                   (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                   (le.le (S.S i) __)
+                   (le.le (S.S i) O.O))
+                (refl.refl
+                   (cts.succ cts.zero)
+                   (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                   (le.le (S.S i) O.O))
+                n1
+                up0))
+          (not_le_Sn_O.not_le_Sn_O i)))
+    n1
+    up0.
+

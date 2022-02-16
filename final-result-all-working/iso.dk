@@ -1,0 +1,120 @@
+def iso :  (l?31 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?31)
+    (cts.prod
+       cts.zero
+       (cts.succ l?31)
+       (cts.succ l?31)
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.succ l?31)
+          (cts.succ l?31)
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             (cts.succ l?31)
+             (cts.succ l?31)
+             cts.I
+             (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x1 => bool.bool))
+             (x1 =>
+              cts.prod
+                cts.zero
+                (cts.succ l?31)
+                (cts.succ l?31)
+                cts.I
+                (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x2 => bool.bool))
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   (cts.succ l?31)
+                   (cts.succ l?31)
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x3 => nat.nat))
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      (cts.succ l?31)
+                      (cts.succ l?31)
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x4 => nat.nat))
+                      (x4 => cts.univ l?31 (cts.succ l?31) cts.I)))))))
+  := l?31 =>
+  n1:(cts.Term cts.zero nat.nat) =>
+  n2:(cts.Term cts.zero nat.nat) =>
+  p1:(cts.Term
+        cts.zero
+        (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => bool.bool))) =>
+  p2:(cts.Term
+        cts.zero
+        (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => bool.bool))) =>
+  f1:(cts.Term
+        cts.zero
+        (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
+  f2:(cts.Term
+        cts.zero
+        (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
+  ex.ex
+    cts.zero
+    cts.zero
+    l?31
+    (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))
+    (h:(cts.Term
+          cts.zero
+          (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
+     ex.ex
+       cts.zero
+       cts.zero
+       cts.zero
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))
+       (k:(cts.Term
+             cts.zero
+             (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
+        And.And
+          cts.zero
+          cts.zero
+          cts.zero
+          (And.And
+             cts.zero
+             cts.zero
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (lt.lt x n1)
+                   (x0 =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (eq.eq cts.zero bool.bool (p1 x) true.true)
+                      (x1 => eq.eq cts.zero nat.nat (f1 x) (f2 (h x))))))
+             (sub_hk.sub_hk cts.zero h k n1 n2 p1 p2 f1 f2))
+          (sub_hk.sub_hk cts.zero k h n2 n1 p2 p1 f2 f1))).
+

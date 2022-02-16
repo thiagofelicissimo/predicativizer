@@ -1,0 +1,77 @@
+def exp_pi_bc : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x2 => nat.nat))
+                (x2 =>
+                 eq.eq
+                   cts.zero
+                   nat.nat
+                   (times.times
+                      (exp.exp x (minus.minus x1 x0))
+                      (bigop.bigop
+                         cts.zero
+                         nat.nat
+                         (minus.minus x1 x0)
+                         (i:(cts.Term cts.zero nat.nat) => true.true)
+                         (S.S O.O)
+                         times.times
+                         (i:(cts.Term cts.zero nat.nat) => x2 (plus.plus i x0))))
+                   (bigop.bigop
+                      cts.zero
+                      nat.nat
+                      (minus.minus x1 x0)
+                      (i:(cts.Term cts.zero nat.nat) => true.true)
+                      (S.S O.O)
+                      times.times
+                      (i:(cts.Term cts.zero nat.nat) =>
+                       times.times x (x2 (plus.plus i x0)))))))))
+  :=
+  a:(cts.Term cts.zero nat.nat) =>
+  b:(cts.Term cts.zero nat.nat) =>
+  c:(cts.Term cts.zero nat.nat) =>
+  f:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))) =>
+  exp_pi_l.exp_pi_l
+    (minus.minus c b)
+    a
+    (__:(cts.Term cts.zero nat.nat) => f (plus.plus __ b)).
+

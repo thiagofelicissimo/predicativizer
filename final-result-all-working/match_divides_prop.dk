@@ -1,0 +1,52 @@
+match_divides_prop :  (l?12 : cts.Sort) -> (l?22 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?12) (cts.max l?12 (cts.max l?22 l?12)))
+    (cts.prod
+       cts.zero
+       (cts.max (cts.succ l?12) (cts.max l?12 (cts.max l?22 l?12)))
+       (cts.max (cts.succ l?12) (cts.max l?12 (cts.max l?22 l?12)))
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.max (cts.succ l?12) (cts.max l?12 (cts.max l?22 l?12)))
+          (cts.max (cts.succ l?12) (cts.max l?12 (cts.max l?22 l?12)))
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             (cts.succ l?12)
+             (cts.max l?12 (cts.max l?22 l?12))
+             (cts.max (cts.succ l?12) (cts.max l?12 (cts.max l?22 l?12)))
+             cts.I
+             (cts.univ l?12 (cts.succ l?12) cts.I)
+             (x1 =>
+              cts.prod
+                l?12
+                (cts.max l?22 l?12)
+                (cts.max l?12 (cts.max l?22 l?12))
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?12
+                   l?12
+                   cts.I
+                   nat.nat
+                   (x2 =>
+                    cts.prod
+                      cts.zero
+                      l?12
+                      l?12
+                      cts.I
+                      (eq.eq cts.zero nat.nat x0 (times.times x x2))
+                      (x3 => x1)))
+                (x2 =>
+                 cts.prod
+                   l?22
+                   l?12
+                   (cts.max l?22 l?12)
+                   cts.I
+                   (divides.divides l?22 x x0)
+                   (x3 => x1)))))).
+

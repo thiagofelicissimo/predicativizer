@@ -1,0 +1,42 @@
+def not_lt_to_le : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (Not.Not cts.zero (lt.lt x x0))
+             (x1 => le.le x0 x))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  H:(cts.Term cts.zero (Not.Not cts.zero (lt.lt n m))) =>
+  le_S_S_to_le.le_S_S_to_le
+    m
+    n
+    (not_le_to_lt.not_le_to_lt
+       (S.S n)
+       m
+       (not_to_not.not_to_not
+          cts.zero
+          cts.zero
+          (le.le (S.S n) m)
+          (lt.lt n m)
+          (auto:(cts.Term cts.zero (le.le (S.S n) m)) => auto)
+          H)).
+

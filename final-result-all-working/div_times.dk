@@ -1,0 +1,65 @@
+def div_times : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (lt.lt O.O x0)
+             (x1 => eq.eq cts.zero nat.nat (div.div (times.times x x0) x0) x))))
+  :=
+  a:(cts.Term cts.zero nat.nat) =>
+  b:(cts.Term cts.zero nat.nat) =>
+  posb:(cts.Term cts.zero (lt.lt O.O b)) =>
+  div_mod_spec_to_eq.div_mod_spec_to_eq
+    cts.zero
+    cts.zero
+    (times.times a b)
+    b
+    (div.div (times.times a b) b)
+    (mod.mod (times.times a b) b)
+    a
+    O.O
+    (div_mod_spec_div_mod.div_mod_spec_div_mod cts.zero (times.times a b) b posb)
+    (div_mod_spec_intro.div_mod_spec_intro
+       cts.zero
+       (times.times a b)
+       b
+       a
+       O.O
+       posb
+       (rewrite_r.rewrite_r
+          cts.zero
+          cts.zero
+          nat.nat
+          (plus.plus O.O (times.times a b))
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq cts.zero nat.nat (times.times a b) __)
+          (rewrite_l.rewrite_l
+             cts.zero
+             cts.zero
+             nat.nat
+             (times.times a b)
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq cts.zero nat.nat (times.times a b) __)
+             (refl.refl cts.zero nat.nat (times.times a b))
+             (plus.plus O.O (times.times a b))
+             (plus_O_n.plus_O_n (times.times a b)))
+          (plus.plus (times.times a b) O.O)
+          (commutative_plus.commutative_plus (times.times a b) O.O))).
+

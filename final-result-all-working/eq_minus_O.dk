@@ -1,0 +1,56 @@
+def eq_minus_O : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (le.le x x0)
+             (x1 => eq.eq cts.zero nat.nat (minus.minus x x0) O.O))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  lenm:(cts.Term cts.zero (le.le n m)) =>
+  le_n_O_elim.le_n_O_elim
+    cts.zero
+    (minus.minus n m)
+    (eq_coerc.eq_coerc
+       cts.zero
+       (le.le (minus.minus n m) (minus.minus n n))
+       (le.le (minus.minus n m) O.O)
+       (monotonic_le_minus_r.monotonic_le_minus_r m n n lenm)
+       (rewrite_l.rewrite_l
+          (cts.succ cts.zero)
+          cts.zero
+          nat.nat
+          O.O
+          (__:(cts.Term cts.zero nat.nat) =>
+           eq.eq
+             (cts.succ cts.zero)
+             (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+             (le.le (minus.minus n m) __)
+             (le.le (minus.minus n m) O.O))
+          (refl.refl
+             (cts.succ cts.zero)
+             (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+             (le.le (minus.minus n m) O.O))
+          (minus.minus n n)
+          (minus_n_n.minus_n_n n)))
+    (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat __ O.O)
+    (refl.refl cts.zero nat.nat O.O).
+

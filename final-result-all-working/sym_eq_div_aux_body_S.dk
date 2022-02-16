@@ -1,0 +1,67 @@
+def sym_eq_div_aux_body_S :  (l?5 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?5)
+    (cts.prod
+       cts.zero
+       (cts.succ l?5)
+       (cts.succ l?5)
+       cts.I
+       nat.nat
+       (x =>
+        leibniz.leibniz
+          cts.zero
+          l?5
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x1 => nat.nat)))
+          (m:(cts.Term cts.zero nat.nat) =>
+           n:(cts.Term cts.zero nat.nat) =>
+           match_bool_type.match_bool_type
+             cts.zero
+             nat.nat
+             O.O
+             (S.S (div_aux.div_aux x (minus.minus m (S.S n)) n))
+             (leb.leb m n))
+          (div_aux_body.div_aux_body (S.S x))))
+  := l?5 =>
+  p:(cts.Term cts.zero nat.nat) =>
+  sym_leibniz.sym_leibniz
+    cts.zero
+    cts.zero
+    l?5
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 => nat.nat)))
+    (div_aux_body.div_aux_body (S.S p))
+    (m:(cts.Term cts.zero nat.nat) =>
+     n:(cts.Term cts.zero nat.nat) =>
+     match_bool_type.match_bool_type
+       cts.zero
+       nat.nat
+       O.O
+       (S.S (div_aux.div_aux p (minus.minus m (S.S n)) n))
+       (leb.leb m n))
+    (eq_div_aux_body_S.eq_div_aux_body_S cts.zero p).
+

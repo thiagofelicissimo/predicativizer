@@ -1,0 +1,79 @@
+def sameF_upto :  (l?9 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?9)
+    (cts.prod
+       (cts.succ l?9)
+       (cts.succ l?9)
+       (cts.succ l?9)
+       cts.I
+       (cts.univ l?9 (cts.succ l?9) cts.I)
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.succ l?9)
+          (cts.succ l?9)
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             l?9
+             (cts.succ l?9)
+             (cts.succ l?9)
+             cts.I
+             (cts.prod
+                cts.zero
+                l?9
+                l?9
+                cts.I
+                nat.nat
+                (x1 => x))
+             (x1 =>
+              cts.prod
+                l?9
+                (cts.succ l?9)
+                (cts.succ l?9)
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?9
+                   l?9
+                   cts.I
+                   nat.nat
+                   (x2 => x))
+                (x2 => cts.univ l?9 (cts.succ l?9) cts.I)))))
+  := l?9 =>
+  A:(cts.Term (cts.succ l?9) (cts.univ l?9 (cts.succ l?9) cts.I)) =>
+  k:(cts.Term cts.zero nat.nat) =>
+  f:(cts.Term
+       l?9
+       (cts.prod
+          cts.zero
+          l?9
+          l?9
+          cts.I
+          nat.nat
+          (x => A))) =>
+  g:(cts.Term
+       l?9
+       (cts.prod
+          cts.zero
+          l?9
+          l?9
+          cts.I
+          nat.nat
+          (x => A))) =>
+  cts.prod
+    cts.zero
+    l?9
+    l?9
+    cts.I
+    nat.nat
+    (x =>
+     cts.prod
+       cts.zero
+       l?9
+       l?9
+       cts.I
+       (lt.lt x k)
+       (x0 => eq.eq l?9 A (f x) (g x))).
+

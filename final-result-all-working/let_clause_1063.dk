@@ -1,0 +1,242 @@
+def let_clause_1063 :  (l?113 : cts.Sort) -> (l?103 : cts.Sort) -> (l?30 : cts.Sort) ->
+  cts.Term
+    (cts.max l?113 (cts.max l?103 l?30))
+    (cts.prod
+       cts.zero
+       (cts.max l?113 (cts.max l?103 l?30))
+       (cts.max l?113 (cts.max l?103 l?30))
+       cts.I
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.max l?113 (cts.max l?103 l?30))
+          (cts.max l?113 (cts.max l?103 l?30))
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             l?113
+             (cts.max l?103 l?30)
+             (cts.max l?113 (cts.max l?103 l?30))
+             cts.I
+             (permut.permut l?113 x x0)
+             (x1 =>
+              cts.prod
+                cts.zero
+                (cts.max l?103 l?30)
+                (cts.max l?103 l?30)
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   (cts.max l?103 l?30)
+                   (cts.max l?103 l?30)
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      (cts.max l?103 l?30)
+                      (cts.max l?103 l?30)
+                      cts.I
+                      (le.le x2 x0)
+                      (x4 =>
+                       cts.prod
+                         cts.zero
+                         (cts.max l?103 l?30)
+                         (cts.max l?103 l?30)
+                         cts.I
+                         (le.le x3 x0)
+                         (x5 =>
+                          cts.prod
+                            cts.zero
+                            (cts.max l?103 l?30)
+                            (cts.max l?103 l?30)
+                            cts.I
+                            nat.nat
+                            (x6 =>
+                             cts.prod
+                               l?103
+                               l?30
+                               (cts.max l?103 l?30)
+                               cts.I
+                               (And.And
+                                  cts.zero
+                                  cts.zero
+                                  l?103
+                                  (le.le x6 x0)
+                                  (eq.eq cts.zero nat.nat (x x6) x2))
+                               (x7 =>
+                                cts.prod
+                                  cts.zero
+                                  l?30
+                                  l?30
+                                  cts.I
+                                  (le.le x6 x0)
+                                  (x8 =>
+                                   cts.prod
+                                     cts.zero
+                                     l?30
+                                     l?30
+                                     cts.I
+                                     (eq.eq cts.zero nat.nat (x x6) x2)
+                                     (x9 =>
+                                      cts.prod
+                                        cts.zero
+                                        l?30
+                                        l?30
+                                        cts.I
+                                        nat.nat
+                                        (x10 =>
+                                         cts.prod
+                                           l?30
+                                           cts.zero
+                                           l?30
+                                           cts.I
+                                           (And.And
+                                              cts.zero
+                                              cts.zero
+                                              l?30
+                                              (le.le x10 x0)
+                                              (eq.eq
+                                                 cts.zero
+                                                 nat.nat
+                                                 (x x10)
+                                                 x3))
+                                           (x11 =>
+                                            cts.prod
+                                              cts.zero
+                                              cts.zero
+                                              cts.zero
+                                              cts.I
+                                              (le.le x10 x0)
+                                              (x12 =>
+                                               cts.prod
+                                                 cts.zero
+                                                 cts.zero
+                                                 cts.zero
+                                                 cts.I
+                                                 (eq.eq
+                                                    cts.zero
+                                                    nat.nat
+                                                    (x x10)
+                                                    x3)
+                                                 (x13 =>
+                                                  cts.prod
+                                                    cts.zero
+                                                    cts.zero
+                                                    cts.zero
+                                                    cts.I
+                                                    (cts.prod
+                                                       cts.zero
+                                                       cts.zero
+                                                       cts.zero
+                                                       cts.I
+                                                       nat.nat
+                                                       (x14 =>
+                                                        cts.prod
+                                                          cts.zero
+                                                          cts.zero
+                                                          cts.zero
+                                                          cts.I
+                                                          (le.le x14 x0)
+                                                          (x15 => le.le (x x14) x0)))
+                                                    (x14 =>
+                                                     cts.prod
+                                                       cts.zero
+                                                       cts.zero
+                                                       cts.zero
+                                                       cts.I
+                                                       (injn.injn x x0)
+                                                       (x15 =>
+                                                        cts.prod
+                                                          cts.zero
+                                                          cts.zero
+                                                          cts.zero
+                                                          cts.I
+                                                          (eq.eq
+                                                             cts.zero
+                                                             nat.nat
+                                                             x6
+                                                             x10)
+                                                          (x16 =>
+                                                           eq.eq
+                                                             cts.zero
+                                                             nat.nat
+                                                             (x x6)
+                                                             x3)))))))))))))))))))
+  := l?113 => l?103 => l?30 =>
+  f:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  permf:(cts.Term l?113 (permut.permut l?113 f n)) =>
+  i:(cts.Term cts.zero nat.nat) =>
+  j:(cts.Term cts.zero nat.nat) =>
+  lein:(cts.Term cts.zero (le.le i n)) =>
+  lejn:(cts.Term cts.zero (le.le j n)) =>
+  a:(cts.Term cts.zero nat.nat) =>
+  _clearme:(cts.Term
+              l?103
+              (And.And
+                 cts.zero
+                 cts.zero
+                 l?103
+                 (le.le a n)
+                 (eq.eq cts.zero nat.nat (f a) i))) =>
+  lean:(cts.Term cts.zero (le.le a n)) =>
+  fa:(cts.Term cts.zero (eq.eq cts.zero nat.nat (f a) i)) =>
+  b:(cts.Term cts.zero nat.nat) =>
+  _clearme0:(cts.Term
+               l?30
+               (And.And
+                  cts.zero
+                  cts.zero
+                  l?30
+                  (le.le b n)
+                  (eq.eq cts.zero nat.nat (f b) j))) =>
+  lebn:(cts.Term cts.zero (le.le b n)) =>
+  fb:(cts.Term cts.zero (eq.eq cts.zero nat.nat (f b) j)) =>
+  __:(cts.Term
+        cts.zero
+        (cts.prod
+           cts.zero
+           cts.zero
+           cts.zero
+           cts.I
+           nat.nat
+           (x =>
+            cts.prod
+              cts.zero
+              cts.zero
+              cts.zero
+              cts.I
+              (le.le x n)
+              (x0 => le.le (f x) n)))) =>
+  injf:(cts.Term cts.zero (injn.injn f n)) =>
+  auto:(cts.Term cts.zero (eq.eq cts.zero nat.nat a b)) =>
+  rewrite_r.rewrite_r
+    cts.zero
+    cts.zero
+    nat.nat
+    b
+    (__1:(cts.Term cts.zero nat.nat) =>
+     eq.eq cts.zero nat.nat (f __1) j)
+    fb
+    a
+    auto.
+

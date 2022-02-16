@@ -1,0 +1,15 @@
+def dividesb : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x0 => bool.bool)))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) => eqb.eqb (mod.mod m n) O.O.
+

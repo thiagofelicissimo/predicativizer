@@ -1,0 +1,137 @@
+def sub_hk :  (l?43 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?43)
+    (cts.prod
+       cts.zero
+       (cts.succ l?43)
+       (cts.succ l?43)
+       cts.I
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.succ l?43)
+          (cts.succ l?43)
+          cts.I
+          (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x0 => nat.nat))
+          (x0 =>
+           cts.prod
+             cts.zero
+             (cts.succ l?43)
+             (cts.succ l?43)
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                (cts.succ l?43)
+                (cts.succ l?43)
+                cts.I
+                nat.nat
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   (cts.succ l?43)
+                   (cts.succ l?43)
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x3 => bool.bool))
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      (cts.succ l?43)
+                      (cts.succ l?43)
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x4 => bool.bool))
+                      (x4 =>
+                       cts.prod
+                         cts.zero
+                         (cts.succ l?43)
+                         (cts.succ l?43)
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x5 => nat.nat))
+                         (x5 =>
+                          cts.prod
+                            cts.zero
+                            (cts.succ l?43)
+                            (cts.succ l?43)
+                            cts.I
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x6 => nat.nat))
+                            (x6 => cts.univ l?43 (cts.succ l?43) cts.I)))))))))
+  := l?43 =>
+  h:(cts.Term
+       cts.zero
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
+  k:(cts.Term
+       cts.zero
+       (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
+  n1:(cts.Term cts.zero nat.nat) =>
+  n2:(cts.Term cts.zero nat.nat) =>
+  p1:(cts.Term
+        cts.zero
+        (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => bool.bool))) =>
+  p2:(cts.Term
+        cts.zero
+        (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => bool.bool))) =>
+  f1:(cts.Term
+        cts.zero
+        (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
+  f2:(cts.Term
+        cts.zero
+        (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
+  cts.prod
+    cts.zero
+    l?43
+    l?43
+    cts.I
+    nat.nat
+    (x =>
+     cts.prod
+       cts.zero
+       l?43
+       l?43
+       cts.I
+       (lt.lt x n1)
+       (x0 =>
+        cts.prod
+          cts.zero
+          l?43
+          l?43
+          cts.I
+          (eq.eq cts.zero bool.bool (p1 x) true.true)
+          (x1 =>
+           And.And
+             cts.zero
+             cts.zero
+             l?43
+             (And.And
+                cts.zero
+                cts.zero
+                cts.zero
+                (lt.lt (h x) n2)
+                (eq.eq cts.zero bool.bool (p2 (h x)) true.true))
+             (eq.eq cts.zero nat.nat (k (h x)) x)))).
+

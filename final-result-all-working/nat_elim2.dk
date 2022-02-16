@@ -1,0 +1,179 @@
+def nat_elim2 :  (l?2 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?2)
+    (cts.prod
+       (cts.succ l?2)
+       l?2
+       (cts.succ l?2)
+       cts.I
+       (cts.prod
+          cts.zero
+          (cts.succ l?2)
+          (cts.succ l?2)
+          cts.I
+          nat.nat
+          (x =>
+           cts.prod
+             cts.zero
+             (cts.succ l?2)
+             (cts.succ l?2)
+             cts.I
+             nat.nat
+             (x0 => cts.univ l?2 (cts.succ l?2) cts.I)))
+       (x =>
+        cts.prod
+          l?2
+          l?2
+          l?2
+          cts.I
+          (cts.prod
+             cts.zero
+             l?2
+             l?2
+             cts.I
+             nat.nat
+             (x0 => x O.O x0))
+          (x0 =>
+           cts.prod
+             l?2
+             l?2
+             l?2
+             cts.I
+             (cts.prod
+                cts.zero
+                l?2
+                l?2
+                cts.I
+                nat.nat
+                (x1 => x (S.S x1) O.O))
+             (x1 =>
+              cts.prod
+                l?2
+                l?2
+                l?2
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?2
+                   l?2
+                   cts.I
+                   nat.nat
+                   (x2 =>
+                    cts.prod
+                      cts.zero
+                      l?2
+                      l?2
+                      cts.I
+                      nat.nat
+                      (x3 =>
+                       cts.prod
+                         l?2
+                         l?2
+                         l?2
+                         cts.I
+                         (x x2 x3)
+                         (x4 => x (S.S x2) (S.S x3)))))
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   l?2
+                   l?2
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      l?2
+                      l?2
+                      cts.I
+                      nat.nat
+                      (x4 => x x3 x4)))))))
+  := l?2 =>
+  R:(cts.Term
+       (cts.succ l?2)
+       (cts.prod
+          cts.zero
+          (cts.succ l?2)
+          (cts.succ l?2)
+          cts.I
+          nat.nat
+          (x =>
+           cts.prod
+             cts.zero
+             (cts.succ l?2)
+             (cts.succ l?2)
+             cts.I
+             nat.nat
+             (x0 => cts.univ l?2 (cts.succ l?2) cts.I)))) =>
+  ROn:(cts.Term
+         l?2
+         (cts.prod
+            cts.zero
+            l?2
+            l?2
+            cts.I
+            nat.nat
+            (x => R O.O x))) =>
+  RSO:(cts.Term
+         l?2
+         (cts.prod
+            cts.zero
+            l?2
+            l?2
+            cts.I
+            nat.nat
+            (x => R (S.S x) O.O))) =>
+  RSS:(cts.Term
+         l?2
+         (cts.prod
+            cts.zero
+            l?2
+            l?2
+            cts.I
+            nat.nat
+            (x =>
+             cts.prod
+               cts.zero
+               l?2
+               l?2
+               cts.I
+               nat.nat
+               (x0 =>
+                cts.prod
+                  l?2
+                  l?2
+                  l?2
+                  cts.I
+                  (R x x0)
+                  (x1 => R (S.S x) (S.S x0)))))) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  nat_ind.nat_ind
+    l?2
+    (_x_365:(cts.Term cts.zero nat.nat) =>
+     cts.prod
+       cts.zero
+       l?2
+       l?2
+       cts.I
+       nat.nat
+       (x => R _x_365 x))
+    (m:(cts.Term cts.zero nat.nat) => ROn m)
+    (n0:(cts.Term cts.zero nat.nat) =>
+     Rn0m:(cts.Term
+             l?2
+             (cts.prod
+                cts.zero
+                l?2
+                l?2
+                cts.I
+                nat.nat
+                (x => R n0 x))) =>
+     m:(cts.Term cts.zero nat.nat) =>
+     match_nat_prop.match_nat_prop
+       l?2
+       (__:(cts.Term cts.zero nat.nat) => R (S.S n0) __)
+       (RSO n0)
+       (auto:(cts.Term cts.zero nat.nat) => RSS n0 auto (Rn0m auto))
+       m)
+    n.
+

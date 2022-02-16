@@ -1,0 +1,933 @@
+def distributive_times_plus : 
+  cts.Term
+    cts.zero
+    (distributive.distributive cts.zero nat.nat times.times plus.plus)
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  nat_ind.nat_ind
+    cts.zero
+    (_x_365:(cts.Term cts.zero nat.nat) =>
+     cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           eq.eq
+             cts.zero
+             nat.nat
+             (times.times _x_365 (plus.plus x x0))
+             (plus.plus (times.times _x_365 x) (times.times _x_365 x0)))))
+    (sym_eq_times.sym_eq_times
+       cts.zero
+       O.O
+       (x:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x => nat.nat))) =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x1 =>
+              eq.eq
+                cts.zero
+                nat.nat
+                (times.times O.O (plus.plus x0 x1))
+                (plus.plus (times.times O.O x0) (x x1)))))
+       (sym_eq_times.sym_eq_times
+          cts.zero
+          O.O
+          (x:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => nat.nat))) =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x0 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x1 =>
+                 eq.eq
+                   cts.zero
+                   nat.nat
+                   (times.times O.O (plus.plus x0 x1))
+                   (plus.plus
+                      (x x0)
+                      (filter_nat_type.filter_nat_type
+                         cts.zero
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x2 => nat.nat))
+                         times_body.times_body
+                         O.O
+                         x1)))))
+          (sym_eq_times.sym_eq_times
+             cts.zero
+             O.O
+             (x:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => nat.nat))) =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x0 =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x1 =>
+                    eq.eq
+                      cts.zero
+                      nat.nat
+                      (x (plus.plus x0 x1))
+                      (plus.plus
+                         (filter_nat_type.filter_nat_type
+                            cts.zero
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x2 => nat.nat))
+                            times_body.times_body
+                            O.O
+                            x0)
+                         (filter_nat_type.filter_nat_type
+                            cts.zero
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x2 => nat.nat))
+                            times_body.times_body
+                            O.O
+                            x1)))))
+             (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+                cts.zero
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => nat.nat))
+                times_body.times_body
+                (x:(cts.Term
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x => nat.nat))) =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x1 =>
+                       eq.eq
+                         cts.zero
+                         nat.nat
+                         (x (plus.plus x0 x1))
+                         (plus.plus
+                            (filter_nat_type.filter_nat_type
+                               cts.zero
+                               (cts.prod
+                                  cts.zero
+                                  cts.zero
+                                  cts.zero
+                                  cts.I
+                                  nat.nat
+                                  (x2 => nat.nat))
+                               times_body.times_body
+                               O.O
+                               x0)
+                            (filter_nat_type.filter_nat_type
+                               cts.zero
+                               (cts.prod
+                                  cts.zero
+                                  cts.zero
+                                  cts.zero
+                                  cts.I
+                                  nat.nat
+                                  (x2 => nat.nat))
+                               times_body.times_body
+                               O.O
+                               x1)))))
+                (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+                   cts.zero
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => nat.nat))
+                   times_body.times_body
+                   (x:(cts.Term
+                         cts.zero
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x => nat.nat))) =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x0 =>
+                       cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x1 =>
+                          eq.eq
+                            cts.zero
+                            nat.nat
+                            (times_body.times_body O.O (plus.plus x0 x1))
+                            (plus.plus
+                               (x x0)
+                               (filter_nat_type.filter_nat_type
+                                  cts.zero
+                                  (cts.prod
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
+                                     cts.I
+                                     nat.nat
+                                     (x2 => nat.nat))
+                                  times_body.times_body
+                                  O.O
+                                  x1)))))
+                   (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+                      cts.zero
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x => nat.nat))
+                      times_body.times_body
+                      (x:(cts.Term
+                            cts.zero
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x => nat.nat))) =>
+                       cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x0 =>
+                          cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x1 =>
+                             eq.eq
+                               cts.zero
+                               nat.nat
+                               (times_body.times_body O.O (plus.plus x0 x1))
+                               (plus.plus (times_body.times_body O.O x0) (x x1)))))
+                      (sym_eq_times_body_O.sym_eq_times_body_O
+                         cts.zero
+                         (x:(cts.Term
+                               cts.zero
+                               (cts.prod
+                                  cts.zero
+                                  cts.zero
+                                  cts.zero
+                                  cts.I
+                                  nat.nat
+                                  (x => nat.nat))) =>
+                          cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x0 =>
+                             cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x1 =>
+                                eq.eq
+                                  cts.zero
+                                  nat.nat
+                                  (times_body.times_body O.O (plus.plus x0 x1))
+                                  (plus.plus (times_body.times_body O.O x0) (x x1)))))
+                         (sym_eq_times_body_O.sym_eq_times_body_O
+                            cts.zero
+                            (x:(cts.Term
+                                  cts.zero
+                                  (cts.prod
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
+                                     cts.I
+                                     nat.nat
+                                     (x => nat.nat))) =>
+                             cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x0 =>
+                                cts.prod
+                                  cts.zero
+                                  cts.zero
+                                  cts.zero
+                                  cts.I
+                                  nat.nat
+                                  (x1 =>
+                                   eq.eq
+                                     cts.zero
+                                     nat.nat
+                                     (times_body.times_body O.O (plus.plus x0 x1))
+                                     (plus.plus (x x0) O.O))))
+                            (sym_eq_times_body_O.sym_eq_times_body_O
+                               cts.zero
+                               (x:(cts.Term
+                                     cts.zero
+                                     (cts.prod
+                                        cts.zero
+                                        cts.zero
+                                        cts.zero
+                                        cts.I
+                                        nat.nat
+                                        (x => nat.nat))) =>
+                                cts.prod
+                                  cts.zero
+                                  cts.zero
+                                  cts.zero
+                                  cts.I
+                                  nat.nat
+                                  (x0 =>
+                                   cts.prod
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
+                                     cts.I
+                                     nat.nat
+                                     (x1 =>
+                                      eq.eq
+                                        cts.zero
+                                        nat.nat
+                                        (x (plus.plus x0 x1))
+                                        (plus.plus O.O O.O))))
+                               (sym_eq_plus.sym_eq_plus
+                                  cts.zero
+                                  O.O
+                                  (x:(cts.Term
+                                        cts.zero
+                                        (cts.prod
+                                           cts.zero
+                                           cts.zero
+                                           cts.zero
+                                           cts.I
+                                           nat.nat
+                                           (x => nat.nat))) =>
+                                   cts.prod
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
+                                     cts.I
+                                     nat.nat
+                                     (x0 =>
+                                      cts.prod
+                                        cts.zero
+                                        cts.zero
+                                        cts.zero
+                                        cts.I
+                                        nat.nat
+                                        (x1 =>
+                                         eq.eq
+                                           cts.zero
+                                           nat.nat
+                                           O.O
+                                           (x O.O))))
+                                  (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+                                     cts.zero
+                                     cts.zero
+                                     (cts.prod
+                                        cts.zero
+                                        cts.zero
+                                        cts.zero
+                                        cts.I
+                                        nat.nat
+                                        (x => nat.nat))
+                                     plus_body.plus_body
+                                     (x:(cts.Term
+                                           cts.zero
+                                           (cts.prod
+                                              cts.zero
+                                              cts.zero
+                                              cts.zero
+                                              cts.I
+                                              nat.nat
+                                              (x => nat.nat))) =>
+                                      cts.prod
+                                        cts.zero
+                                        cts.zero
+                                        cts.zero
+                                        cts.I
+                                        nat.nat
+                                        (x0 =>
+                                         cts.prod
+                                           cts.zero
+                                           cts.zero
+                                           cts.zero
+                                           cts.I
+                                           nat.nat
+                                           (x1 =>
+                                            eq.eq
+                                              cts.zero
+                                              nat.nat
+                                              O.O
+                                              (x O.O))))
+                                     (sym_eq_plus_body_O.sym_eq_plus_body_O
+                                        cts.zero
+                                        (x:(cts.Term
+                                              cts.zero
+                                              (cts.prod
+                                                 cts.zero
+                                                 cts.zero
+                                                 cts.zero
+                                                 cts.I
+                                                 nat.nat
+                                                 (x => nat.nat))) =>
+                                         cts.prod
+                                           cts.zero
+                                           cts.zero
+                                           cts.zero
+                                           cts.I
+                                           nat.nat
+                                           (x0 =>
+                                            cts.prod
+                                              cts.zero
+                                              cts.zero
+                                              cts.zero
+                                              cts.I
+                                              nat.nat
+                                              (x1 =>
+                                               eq.eq
+                                                 cts.zero
+                                                 nat.nat
+                                                 O.O
+                                                 (x O.O))))
+                                        (_y:(cts.Term
+                                               cts.zero
+                                               nat.nat) =>
+                                         _z:(cts.Term
+                                               cts.zero
+                                               nat.nat) =>
+                                         refl.refl
+                                           cts.zero
+                                           nat.nat
+                                           O.O)))))))))))))
+    (x_366:(cts.Term cts.zero nat.nat) =>
+     _x_368:(cts.Term
+               cts.zero
+               (cts.prod
+                  cts.zero
+                  cts.zero
+                  cts.zero
+                  cts.I
+                  nat.nat
+                  (x =>
+                   cts.prod
+                     cts.zero
+                     cts.zero
+                     cts.zero
+                     cts.I
+                     nat.nat
+                     (x0 =>
+                      eq.eq
+                        cts.zero
+                        nat.nat
+                        (times.times x_366 (plus.plus x x0))
+                        (plus.plus (times.times x_366 x) (times.times x_366 x0)))))) =>
+     y:(cts.Term cts.zero nat.nat) =>
+     z:(cts.Term cts.zero nat.nat) =>
+     sym_eq_times.sym_eq_times
+       cts.zero
+       (S.S x_366)
+       (x:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x => nat.nat))) =>
+        eq.eq
+          cts.zero
+          nat.nat
+          (times.times (S.S x_366) (plus.plus y z))
+          (plus.plus (times.times (S.S x_366) y) (x z)))
+       (sym_eq_times.sym_eq_times
+          cts.zero
+          (S.S x_366)
+          (x:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => nat.nat))) =>
+           eq.eq
+             cts.zero
+             nat.nat
+             (times.times (S.S x_366) (plus.plus y z))
+             (plus.plus
+                (x y)
+                (filter_nat_type.filter_nat_type
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x0 => nat.nat))
+                   times_body.times_body
+                   (S.S x_366)
+                   z)))
+          (sym_eq_times.sym_eq_times
+             cts.zero
+             (S.S x_366)
+             (x:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => nat.nat))) =>
+              eq.eq
+                cts.zero
+                nat.nat
+                (x (plus.plus y z))
+                (plus.plus
+                   (filter_nat_type.filter_nat_type
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x0 => nat.nat))
+                      times_body.times_body
+                      (S.S x_366)
+                      y)
+                   (filter_nat_type.filter_nat_type
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x0 => nat.nat))
+                      times_body.times_body
+                      (S.S x_366)
+                      z)))
+             (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+                cts.zero
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => nat.nat))
+                times_body.times_body
+                x_366
+                (x:(cts.Term
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x => nat.nat))) =>
+                 eq.eq
+                   cts.zero
+                   nat.nat
+                   (x (plus.plus y z))
+                   (plus.plus
+                      (filter_nat_type.filter_nat_type
+                         cts.zero
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x0 => nat.nat))
+                         times_body.times_body
+                         (S.S x_366)
+                         y)
+                      (filter_nat_type.filter_nat_type
+                         cts.zero
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x0 => nat.nat))
+                         times_body.times_body
+                         (S.S x_366)
+                         z)))
+                (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+                   cts.zero
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => nat.nat))
+                   times_body.times_body
+                   x_366
+                   (x:(cts.Term
+                         cts.zero
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x => nat.nat))) =>
+                    eq.eq
+                      cts.zero
+                      nat.nat
+                      (times_body.times_body (S.S x_366) (plus.plus y z))
+                      (plus.plus
+                         (x y)
+                         (filter_nat_type.filter_nat_type
+                            cts.zero
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x0 => nat.nat))
+                            times_body.times_body
+                            (S.S x_366)
+                            z)))
+                   (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+                      cts.zero
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x => nat.nat))
+                      times_body.times_body
+                      x_366
+                      (x:(cts.Term
+                            cts.zero
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x => nat.nat))) =>
+                       eq.eq
+                         cts.zero
+                         nat.nat
+                         (times_body.times_body (S.S x_366) (plus.plus y z))
+                         (plus.plus (times_body.times_body (S.S x_366) y) (x z)))
+                      (sym_eq_times_body_S.sym_eq_times_body_S
+                         cts.zero
+                         x_366
+                         (x:(cts.Term
+                               cts.zero
+                               (cts.prod
+                                  cts.zero
+                                  cts.zero
+                                  cts.zero
+                                  cts.I
+                                  nat.nat
+                                  (x => nat.nat))) =>
+                          eq.eq
+                            cts.zero
+                            nat.nat
+                            (times_body.times_body (S.S x_366) (plus.plus y z))
+                            (plus.plus (times_body.times_body (S.S x_366) y) (x z)))
+                         (sym_eq_times_body_S.sym_eq_times_body_S
+                            cts.zero
+                            x_366
+                            (x:(cts.Term
+                                  cts.zero
+                                  (cts.prod
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
+                                     cts.I
+                                     nat.nat
+                                     (x => nat.nat))) =>
+                             eq.eq
+                               cts.zero
+                               nat.nat
+                               (times_body.times_body (S.S x_366) (plus.plus y z))
+                               (plus.plus (x y) (plus.plus z (times.times x_366 z))))
+                            (sym_eq_times_body_S.sym_eq_times_body_S
+                               cts.zero
+                               x_366
+                               (x:(cts.Term
+                                     cts.zero
+                                     (cts.prod
+                                        cts.zero
+                                        cts.zero
+                                        cts.zero
+                                        cts.I
+                                        nat.nat
+                                        (x => nat.nat))) =>
+                                eq.eq
+                                  cts.zero
+                                  nat.nat
+                                  (x (plus.plus y z))
+                                  (plus.plus
+                                     (plus.plus y (times.times x_366 y))
+                                     (plus.plus z (times.times x_366 z))))
+                               (rewrite_r.rewrite_r
+                                  cts.zero
+                                  cts.zero
+                                  nat.nat
+                                  (plus.plus
+                                     y
+                                     (plus.plus z (times.times x_366 (plus.plus y z))))
+                                  (__:(cts.Term
+                                         cts.zero
+                                         nat.nat) =>
+                                   eq.eq
+                                     cts.zero
+                                     nat.nat
+                                     __
+                                     (plus.plus
+                                        (plus.plus y (times.times x_366 y))
+                                        (plus.plus z (times.times x_366 z))))
+                                  (rewrite_r.rewrite_r
+                                     cts.zero
+                                     cts.zero
+                                     nat.nat
+                                     (plus.plus
+                                        y
+                                        (plus.plus
+                                           (times.times x_366 y)
+                                           (plus.plus z (times.times x_366 z))))
+                                     (__:(cts.Term
+                                            cts.zero
+                                            nat.nat) =>
+                                      eq.eq
+                                        cts.zero
+                                        nat.nat
+                                        (plus.plus
+                                           y
+                                           (plus.plus
+                                              z
+                                              (times.times x_366 (plus.plus y z))))
+                                        __)
+                                     (rewrite_r.rewrite_r
+                                        cts.zero
+                                        cts.zero
+                                        nat.nat
+                                        (plus.plus
+                                           z
+                                           (plus.plus
+                                              (times.times x_366 y)
+                                              (times.times x_366 z)))
+                                        (__:(cts.Term
+                                               cts.zero
+                                               nat.nat) =>
+                                         eq.eq
+                                           cts.zero
+                                           nat.nat
+                                           (plus.plus
+                                              y
+                                              (plus.plus
+                                                 z
+                                                 (times.times x_366 (plus.plus y z))))
+                                           (plus.plus y __))
+                                        (rewrite_l.rewrite_l
+                                           cts.zero
+                                           cts.zero
+                                           nat.nat
+                                           (times.times x_366 (plus.plus y z))
+                                           (__:(cts.Term
+                                                  cts.zero
+                                                  nat.nat) =>
+                                            eq.eq
+                                              cts.zero
+                                              nat.nat
+                                              (plus.plus
+                                                 y
+                                                 (plus.plus
+                                                    z
+                                                    (times.times
+                                                       x_366
+                                                       (plus.plus y z))))
+                                              (plus.plus y (plus.plus z __)))
+                                           (refl.refl
+                                              cts.zero
+                                              nat.nat
+                                              (plus.plus
+                                                 y
+                                                 (plus.plus
+                                                    z
+                                                    (times.times
+                                                       x_366
+                                                       (plus.plus y z)))))
+                                           (plus.plus
+                                              (times.times x_366 y)
+                                              (times.times x_366 z))
+                                           (_x_368 y z))
+                                        (plus.plus
+                                           (times.times x_366 y)
+                                           (plus.plus z (times.times x_366 z)))
+                                        (rewrite_l.rewrite_l
+                                           cts.zero
+                                           cts.zero
+                                           nat.nat
+                                           (plus.plus
+                                              (plus.plus z (times.times x_366 y))
+                                              (times.times x_366 z))
+                                           (__:(cts.Term
+                                                  cts.zero
+                                                  nat.nat) =>
+                                            eq.eq
+                                              cts.zero
+                                              nat.nat
+                                              (plus.plus
+                                                 (times.times x_366 y)
+                                                 (plus.plus z (times.times x_366 z)))
+                                              __)
+                                           (assoc_plus1.assoc_plus1
+                                              (times.times x_366 z)
+                                              z
+                                              (times.times x_366 y))
+                                           (plus.plus
+                                              z
+                                              (plus.plus
+                                                 (times.times x_366 y)
+                                                 (times.times x_366 z)))
+                                           (associative_plus.associative_plus
+                                              z
+                                              (times.times x_366 y)
+                                              (times.times x_366 z))))
+                                     (plus.plus
+                                        (plus.plus y (times.times x_366 y))
+                                        (plus.plus z (times.times x_366 z)))
+                                     (associative_plus.associative_plus
+                                        y
+                                        (times.times x_366 y)
+                                        (plus.plus z (times.times x_366 z))))
+                                  (plus.plus
+                                     (plus.plus y z)
+                                     (times.times x_366 (plus.plus y z)))
+                                  (associative_plus.associative_plus
+                                     y
+                                     z
+                                     (times.times x_366 (plus.plus y z)))))))))))))
+    n.
+

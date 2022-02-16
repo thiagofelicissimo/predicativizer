@@ -1,0 +1,179 @@
+def prime_to_gcd_1 :  (l?102 : cts.Sort) -> (l?8 : cts.Sort) ->
+  cts.Term
+    (cts.max l?102 l?8)
+    (cts.prod
+       cts.zero
+       (cts.max l?102 l?8)
+       (cts.max l?102 l?8)
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.max l?102 l?8)
+          (cts.max l?102 l?8)
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             l?102
+             l?8
+             (cts.max l?102 l?8)
+             cts.I
+             (prime.prime l?102 x)
+             (x1 =>
+              cts.prod
+                l?8
+                cts.zero
+                l?8
+                cts.I
+                (Not.Not l?8 (divides.divides l?8 x x0))
+                (x2 => eq.eq cts.zero nat.nat (gcd.gcd x x0) (S.S O.O))))))
+  := l?102 => l?8 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  _clearme:(cts.Term l?102 (prime.prime l?102 n)) =>
+  match_And_prop.match_And_prop
+    l?8
+    cts.zero
+    cts.zero
+    l?102
+    (lt.lt (S.S O.O) n)
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (divides.divides cts.zero x n)
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (lt.lt (S.S O.O) x)
+             (x1 => eq.eq cts.zero nat.nat x n))))
+    (cts.prod
+       l?8
+       cts.zero
+       l?8
+       cts.I
+       (Not.Not l?8 (divides.divides l?8 n m))
+       (x => eq.eq cts.zero nat.nat (gcd.gcd n m) (S.S O.O)))
+    (lt1n:(cts.Term cts.zero (lt.lt (S.S O.O) n)) =>
+     primen:(cts.Term
+               cts.zero
+               (cts.prod
+                  cts.zero
+                  cts.zero
+                  cts.zero
+                  cts.I
+                  nat.nat
+                  (x =>
+                   cts.prod
+                     cts.zero
+                     cts.zero
+                     cts.zero
+                     cts.I
+                     (divides.divides cts.zero x n)
+                     (x0 =>
+                      cts.prod
+                        cts.zero
+                        cts.zero
+                        cts.zero
+                        cts.I
+                        (lt.lt (S.S O.O) x)
+                        (x1 => eq.eq cts.zero nat.nat x n))))) =>
+     ndivnm:(cts.Term
+               l?8
+               (Not.Not l?8 (divides.divides l?8 n m))) =>
+     le_to_le_to_eq.le_to_le_to_eq
+       (gcd.gcd n m)
+       (S.S O.O)
+       (not_lt_to_le.not_lt_to_le
+          (S.S O.O)
+          (gcd.gcd n m)
+          (not_to_not.not_to_not
+             cts.zero
+             cts.zero
+             (lt.lt (S.S O.O) (gcd.gcd n m))
+             (eq.eq cts.zero nat.nat (gcd.gcd n m) n)
+             (primen (gcd.gcd n m) (divides_gcd_l.divides_gcd_l cts.zero n m))
+             (not_to_not.not_to_not
+                l?8
+                cts.zero
+                (eq.eq cts.zero nat.nat (gcd.gcd n m) n)
+                (divides.divides l?8 n m)
+                (auto:(cts.Term
+                         cts.zero
+                         (eq.eq cts.zero nat.nat (gcd.gcd n m) n)) =>
+                 eq_coerc.eq_coerc
+                   l?8
+                   (divides.divides l?8 (gcd.gcd n m) m)
+                   (divides.divides l?8 n m)
+                   (divides_gcd_r.divides_gcd_r l?8 n m)
+                   (rewrite_r.rewrite_r
+                      (cts.succ l?8)
+                      cts.zero
+                      nat.nat
+                      n
+                      (__:(cts.Term cts.zero nat.nat) =>
+                       eq.eq
+                         (cts.succ l?8)
+                         (cts.univ l?8 (cts.succ l?8) cts.I)
+                         (divides.divides l?8 __ m)
+                         (divides.divides l?8 n m))
+                      (refl.refl
+                         (cts.succ l?8)
+                         (cts.univ l?8 (cts.succ l?8) cts.I)
+                         (divides.divides l?8 n m))
+                      (gcd.gcd n m)
+                      auto))
+                ndivnm)))
+       (lt_O_gcd.lt_O_gcd
+          n
+          m
+          (not_eq_to_le_to_lt.not_eq_to_le_to_lt
+             O.O
+             m
+             (not_to_not.not_to_not
+                l?8
+                cts.zero
+                (eq.eq cts.zero nat.nat O.O m)
+                (divides.divides l?8 n m)
+                (auto:(cts.Term
+                         cts.zero
+                         (eq.eq cts.zero nat.nat O.O m)) =>
+                 eq_coerc.eq_coerc
+                   l?8
+                   (divides.divides l?8 n O.O)
+                   (divides.divides l?8 n m)
+                   (divides_n_O.divides_n_O l?8 n)
+                   (rewrite_r.rewrite_r
+                      (cts.succ l?8)
+                      cts.zero
+                      nat.nat
+                      m
+                      (__:(cts.Term cts.zero nat.nat) =>
+                       eq.eq
+                         (cts.succ l?8)
+                         (cts.univ l?8 (cts.succ l?8) cts.I)
+                         (divides.divides l?8 n __)
+                         (divides.divides l?8 n m))
+                      (refl.refl
+                         (cts.succ l?8)
+                         (cts.univ l?8 (cts.succ l?8) cts.I)
+                         (divides.divides l?8 n m))
+                      O.O
+                      auto))
+                ndivnm)
+             (le_O_n.le_O_n m))))
+    _clearme.
+

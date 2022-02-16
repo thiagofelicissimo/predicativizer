@@ -1,0 +1,65 @@
+def not_eq_to_eqb_false : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (Not.Not
+                cts.zero
+                (eq.eq cts.zero nat.nat x x0))
+             (x1 => eq.eq cts.zero bool.bool (eqb.eqb x x0) false.false))))
+  :=
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  noteq:(cts.Term
+           cts.zero
+           (Not.Not cts.zero (eq.eq cts.zero nat.nat n m))) =>
+  eqb_elim.eqb_elim
+    cts.zero
+    n
+    m
+    (__:(cts.Term cts.zero bool.bool) =>
+     eq.eq cts.zero bool.bool __ false.false)
+    (Heq:(cts.Term cts.zero (eq.eq cts.zero nat.nat n m)) =>
+     falsity.falsity
+       cts.zero
+       cts.zero
+       (eq.eq cts.zero bool.bool true.true false.false)
+       (absurd.absurd
+          cts.zero
+          cts.zero
+          (eq.eq cts.zero nat.nat n m)
+          (rewrite_l.rewrite_l
+             cts.zero
+             cts.zero
+             nat.nat
+             n
+             (__:(cts.Term cts.zero nat.nat) =>
+              eq.eq cts.zero nat.nat n __)
+             (refl.refl cts.zero nat.nat n)
+             m
+             Heq)
+          noteq))
+    (auto:(cts.Term
+             cts.zero
+             (Not.Not
+                cts.zero
+                (eq.eq cts.zero nat.nat n m))) =>
+     refl.refl cts.zero bool.bool false.false).
+

@@ -1,0 +1,103 @@
+def let_clause_1545 :  (l?50 : cts.Sort) -> (l?12 : cts.Sort) ->
+  cts.Term
+    (cts.max l?50 l?12)
+    (cts.prod
+       cts.zero
+       (cts.max l?50 l?12)
+       (cts.max l?50 l?12)
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.max l?50 l?12)
+          (cts.max l?50 l?12)
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             (cts.max l?50 l?12)
+             (cts.max l?50 l?12)
+             cts.I
+             (eq.eq cts.zero nat.nat (gcd.gcd x x0) O.O)
+             (x1 =>
+              cts.prod
+                l?50
+                l?12
+                (cts.max l?50 l?12)
+                cts.I
+                (divides.divides l?50 O.O x0)
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   l?12
+                   l?12
+                   cts.I
+                   nat.nat
+                   (x3 =>
+                    cts.prod
+                      cts.zero
+                      l?12
+                      l?12
+                      cts.I
+                      (eq.eq cts.zero nat.nat x0 (times.times O.O x3))
+                      (x4 =>
+                       cts.prod
+                         l?12
+                         cts.zero
+                         l?12
+                         cts.I
+                         (divides.divides l?12 O.O x)
+                         (x5 =>
+                          cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x6 =>
+                             cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               (eq.eq
+                                  cts.zero
+                                  nat.nat
+                                  x
+                                  (times.times O.O x6))
+                               (x7 => eq.eq cts.zero nat.nat x O.O))))))))))
+  := l?50 => l?12 =>
+  m:(cts.Term cts.zero nat.nat) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  H:(cts.Term cts.zero (eq.eq cts.zero nat.nat (gcd.gcd m n) O.O)) =>
+  _clearme:(cts.Term l?50 (divides.divides l?50 O.O n)) =>
+  q1:(cts.Term cts.zero nat.nat) =>
+  H1:(cts.Term
+        cts.zero
+        (eq.eq cts.zero nat.nat n (times.times O.O q1))) =>
+  _clearme0:(cts.Term l?12 (divides.divides l?12 O.O m)) =>
+  q2:(cts.Term cts.zero nat.nat) =>
+  H2:(cts.Term
+        cts.zero
+        (eq.eq cts.zero nat.nat m (times.times O.O q2))) =>
+  rewrite_r.rewrite_r
+    cts.zero
+    cts.zero
+    nat.nat
+    (times.times q2 O.O)
+    (__:(cts.Term cts.zero nat.nat) => eq.eq cts.zero nat.nat m __)
+    (rewrite_l.rewrite_l
+       cts.zero
+       cts.zero
+       nat.nat
+       (times.times O.O q2)
+       (__:(cts.Term cts.zero nat.nat) =>
+        eq.eq cts.zero nat.nat m __)
+       H2
+       (times.times q2 O.O)
+       (commutative_times.commutative_times O.O q2))
+    O.O
+    (times_n_O.times_n_O q2).
+

@@ -1,0 +1,858 @@
+def invert_permut_f : 
+  cts.Term
+    cts.zero
+    (cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))
+       (x =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x1 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (le.le x1 x0)
+                (x2 =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (injn.injn x x0)
+                   (x3 =>
+                    eq.eq
+                      cts.zero
+                      nat.nat
+                      (invert_permut.invert_permut x0 x (x x1))
+                      x1))))))
+  :=
+  f:(cts.Term
+       cts.zero
+       (cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          nat.nat
+          (x => nat.nat))) =>
+  n:(cts.Term cts.zero nat.nat) =>
+  m:(cts.Term cts.zero nat.nat) =>
+  lenm:(cts.Term cts.zero (le.le m n)) =>
+  le_ind.le_ind
+    cts.zero
+    m
+    (x_417:(cts.Term cts.zero nat.nat) =>
+     cts.prod
+       cts.zero
+       cts.zero
+       cts.zero
+       cts.I
+       (injn.injn f x_417)
+       (x => eq.eq cts.zero nat.nat (invert_permut.invert_permut x_417 f (f m)) m))
+    (match_nat_prop.match_nat_prop
+       cts.zero
+       (__:(cts.Term cts.zero nat.nat) =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (injn.injn f __)
+          (x => eq.eq cts.zero nat.nat (invert_permut.invert_permut __ f (f __)) __))
+       (sym_eq_invert_permut.sym_eq_invert_permut
+          cts.zero
+          O.O
+          (y:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => nat.nat))
+                   (x =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x0 => nat.nat)))) =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (injn.injn f O.O)
+             (x => eq.eq cts.zero nat.nat (y f (f O.O)) O.O))
+          (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+             cts.zero
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => nat.nat))
+                (x =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 => nat.nat)))
+             invert_permut_body.invert_permut_body
+             (y:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x => nat.nat))
+                      (x =>
+                       cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x0 => nat.nat)))) =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (injn.injn f O.O)
+                (x => eq.eq cts.zero nat.nat (y f (f O.O)) O.O))
+             (sym_eq_invert_permut_body_O.sym_eq_invert_permut_body_O
+                cts.zero
+                (y:(cts.Term
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x => nat.nat))
+                         (x =>
+                          cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x0 => nat.nat)))) =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (injn.injn f O.O)
+                   (x => eq.eq cts.zero nat.nat (y f (f O.O)) O.O))
+                (eq_ind_r.eq_ind_r
+                   cts.zero
+                   cts.zero
+                   bool.bool
+                   true.true
+                   (x:(cts.Term cts.zero bool.bool) =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x0 =>
+                          cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x1 =>
+                             cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               (le.le x0 O.O)
+                               (x2 =>
+                                cts.prod
+                                  cts.zero
+                                  cts.zero
+                                  cts.zero
+                                  cts.I
+                                  (le.le x1 O.O)
+                                  (x3 =>
+                                   cts.prod
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
+                                     cts.I
+                                     (eq.eq
+                                        cts.zero
+                                        nat.nat
+                                        (f x0)
+                                        (f x1))
+                                     (x4 => eq.eq cts.zero nat.nat x0 x1))))))
+                      (x0 =>
+                       eq.eq
+                         cts.zero
+                         nat.nat
+                         (match_bool_type.match_bool_type
+                            cts.zero
+                            nat.nat
+                            O.O
+                            O.O
+                            x)
+                         O.O))
+                   (auto:(cts.Term
+                            cts.zero
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x =>
+                                cts.prod
+                                  cts.zero
+                                  cts.zero
+                                  cts.zero
+                                  cts.I
+                                  nat.nat
+                                  (x0 =>
+                                   cts.prod
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
+                                     cts.I
+                                     (le.le x O.O)
+                                     (x1 =>
+                                      cts.prod
+                                        cts.zero
+                                        cts.zero
+                                        cts.zero
+                                        cts.I
+                                        (le.le x0 O.O)
+                                        (x2 =>
+                                         cts.prod
+                                           cts.zero
+                                           cts.zero
+                                           cts.zero
+                                           cts.I
+                                           (eq.eq
+                                              cts.zero
+                                              nat.nat
+                                              (f x)
+                                              (f x0))
+                                           (x3 =>
+                                            eq.eq
+                                              cts.zero
+                                              nat.nat
+                                              x
+                                              x0))))))) =>
+                    eq_match_bool_type_true.eq_match_bool_type_true
+                      cts.zero
+                      cts.zero
+                      nat.nat
+                      O.O
+                      O.O
+                      (y:(cts.Term cts.zero nat.nat) =>
+                       eq.eq
+                         cts.zero
+                         nat.nat
+                         (match_bool_type.match_bool_type
+                            cts.zero
+                            nat.nat
+                            O.O
+                            O.O
+                            true.true)
+                         y)
+                      (refl.refl
+                         cts.zero
+                         nat.nat
+                         (match_bool_type.match_bool_type
+                            cts.zero
+                            nat.nat
+                            O.O
+                            O.O
+                            true.true)))
+                   (eqb.eqb (f O.O) (f O.O))
+                   (eqb_n_n.eqb_n_n (f O.O))))))
+       (a:(cts.Term cts.zero nat.nat) =>
+        sym_eq_invert_permut.sym_eq_invert_permut
+          cts.zero
+          (S.S a)
+          (y:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => nat.nat))
+                   (x =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x0 => nat.nat)))) =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (injn.injn f (S.S a))
+             (x => eq.eq cts.zero nat.nat (y f (f (S.S a))) (S.S a)))
+          (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+             cts.zero
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => nat.nat))
+                (x =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 => nat.nat)))
+             invert_permut_body.invert_permut_body
+             a
+             (y:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x => nat.nat))
+                      (x =>
+                       cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x0 => nat.nat)))) =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (injn.injn f (S.S a))
+                (x => eq.eq cts.zero nat.nat (y f (f (S.S a))) (S.S a)))
+             (sym_eq_invert_permut_body_S.sym_eq_invert_permut_body_S
+                cts.zero
+                a
+                (y:(cts.Term
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x => nat.nat))
+                         (x =>
+                          cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x0 => nat.nat)))) =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (injn.injn f (S.S a))
+                   (x => eq.eq cts.zero nat.nat (y f (f (S.S a))) (S.S a)))
+                (eq_ind_r.eq_ind_r
+                   cts.zero
+                   cts.zero
+                   bool.bool
+                   true.true
+                   (x:(cts.Term cts.zero bool.bool) =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x0 =>
+                          cts.prod
+                            cts.zero
+                            cts.zero
+                            cts.zero
+                            cts.I
+                            nat.nat
+                            (x1 =>
+                             cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               (le.le x0 (S.S a))
+                               (x2 =>
+                                cts.prod
+                                  cts.zero
+                                  cts.zero
+                                  cts.zero
+                                  cts.I
+                                  (le.le x1 (S.S a))
+                                  (x3 =>
+                                   cts.prod
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
+                                     cts.I
+                                     (eq.eq
+                                        cts.zero
+                                        nat.nat
+                                        (f x0)
+                                        (f x1))
+                                     (x4 => eq.eq cts.zero nat.nat x0 x1))))))
+                      (x0 =>
+                       eq.eq
+                         cts.zero
+                         nat.nat
+                         (match_bool_type.match_bool_type
+                            cts.zero
+                            nat.nat
+                            (S.S a)
+                            (invert_permut.invert_permut a f (f (S.S a)))
+                            x)
+                         (S.S a)))
+                   (auto:(cts.Term
+                            cts.zero
+                            (cts.prod
+                               cts.zero
+                               cts.zero
+                               cts.zero
+                               cts.I
+                               nat.nat
+                               (x =>
+                                cts.prod
+                                  cts.zero
+                                  cts.zero
+                                  cts.zero
+                                  cts.I
+                                  nat.nat
+                                  (x0 =>
+                                   cts.prod
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
+                                     cts.I
+                                     (le.le x (S.S a))
+                                     (x1 =>
+                                      cts.prod
+                                        cts.zero
+                                        cts.zero
+                                        cts.zero
+                                        cts.I
+                                        (le.le x0 (S.S a))
+                                        (x2 =>
+                                         cts.prod
+                                           cts.zero
+                                           cts.zero
+                                           cts.zero
+                                           cts.I
+                                           (eq.eq
+                                              cts.zero
+                                              nat.nat
+                                              (f x)
+                                              (f x0))
+                                           (x3 =>
+                                            eq.eq
+                                              cts.zero
+                                              nat.nat
+                                              x
+                                              x0))))))) =>
+                    eq_match_bool_type_true.eq_match_bool_type_true
+                      cts.zero
+                      cts.zero
+                      nat.nat
+                      (S.S a)
+                      (invert_permut.invert_permut a f (f (S.S a)))
+                      (y:(cts.Term cts.zero nat.nat) =>
+                       eq.eq
+                         cts.zero
+                         nat.nat
+                         (match_bool_type.match_bool_type
+                            cts.zero
+                            nat.nat
+                            (S.S a)
+                            (invert_permut.invert_permut a f (f (S.S a)))
+                            true.true)
+                         y)
+                      (refl.refl
+                         cts.zero
+                         nat.nat
+                         (match_bool_type.match_bool_type
+                            cts.zero
+                            nat.nat
+                            (S.S a)
+                            (invert_permut.invert_permut a f (f (S.S a)))
+                            true.true)))
+                   (eqb.eqb (f (S.S a)) (f (S.S a)))
+                   (eqb_n_n.eqb_n_n (f (S.S a)))))))
+       m)
+    (m0:(cts.Term cts.zero nat.nat) =>
+     sym_eq_invert_permut.sym_eq_invert_permut
+       cts.zero
+       (S.S m0)
+       (y:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => nat.nat))
+                (x =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x0 => nat.nat)))) =>
+        cts.prod
+          cts.zero
+          cts.zero
+          cts.zero
+          cts.I
+          (le.le m m0)
+          (x =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (injn.injn f m0)
+                (x0 =>
+                 eq.eq
+                   cts.zero
+                   nat.nat
+                   (invert_permut.invert_permut m0 f (f m))
+                   m))
+             (x0 =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (injn.injn f (S.S m0))
+                (x1 => eq.eq cts.zero nat.nat (y f (f m)) m))))
+       (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+          cts.zero
+          cts.zero
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x => nat.nat))
+             (x =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x0 => nat.nat)))
+          invert_permut_body.invert_permut_body
+          m0
+          (y:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => nat.nat))
+                   (x =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x0 => nat.nat)))) =>
+           cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             (le.le m m0)
+             (x =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (injn.injn f m0)
+                   (x0 =>
+                    eq.eq
+                      cts.zero
+                      nat.nat
+                      (invert_permut.invert_permut m0 f (f m))
+                      m))
+                (x0 =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (injn.injn f (S.S m0))
+                   (x1 => eq.eq cts.zero nat.nat (y f (f m)) m))))
+          (sym_eq_invert_permut_body_S.sym_eq_invert_permut_body_S
+             cts.zero
+             m0
+             (y:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x => nat.nat))
+                      (x =>
+                       cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x0 => nat.nat)))) =>
+              cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                (le.le m m0)
+                (x =>
+                 cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (injn.injn f m0)
+                      (x0 =>
+                       eq.eq
+                         cts.zero
+                         nat.nat
+                         (invert_permut.invert_permut m0 f (f m))
+                         m))
+                   (x0 =>
+                    cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (injn.injn f (S.S m0))
+                      (x1 => eq.eq cts.zero nat.nat (y f (f m)) m))))
+             (lem:(cts.Term cts.zero (le.le m m0)) =>
+              H:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      (injn.injn f m0)
+                      (x =>
+                       eq.eq
+                         cts.zero
+                         nat.nat
+                         (invert_permut.invert_permut m0 f (f m))
+                         m))) =>
+              H1:(cts.Term cts.zero (injn.injn f (S.S m0))) =>
+              eq_ind_r.eq_ind_r
+                cts.zero
+                cts.zero
+                bool.bool
+                false.false
+                (x:(cts.Term cts.zero bool.bool) =>
+                 eq.eq
+                   cts.zero
+                   nat.nat
+                   (match_bool_type.match_bool_type
+                      cts.zero
+                      nat.nat
+                      (S.S m0)
+                      (invert_permut.invert_permut m0 f (f m))
+                      x)
+                   m)
+                (sym_eq_match_bool_type_false.sym_eq_match_bool_type_false
+                   cts.zero
+                   cts.zero
+                   nat.nat
+                   (S.S m0)
+                   (invert_permut.invert_permut m0 f (f m))
+                   (y:(cts.Term cts.zero nat.nat) =>
+                    eq.eq cts.zero nat.nat y m)
+                   (H (injn_Sn_n.injn_Sn_n f m0 H1)))
+                (eqb.eqb (f m) (f (S.S m0)))
+                (not_eq_to_eqb_false.not_eq_to_eqb_false
+                   (f m)
+                   (f (S.S m0))
+                   (nmk.nmk
+                      cts.zero
+                      cts.zero
+                      (eq.eq cts.zero nat.nat (f m) (f (S.S m0)))
+                      (eqf:(cts.Term
+                              cts.zero
+                              (eq.eq cts.zero nat.nat (f m) (f (S.S m0)))) =>
+                       absurd.absurd
+                         cts.zero
+                         cts.zero
+                         (eq.eq cts.zero nat.nat m (S.S m0))
+                         (H1
+                            m
+                            (S.S m0)
+                            (le_S.le_S m m0 lem)
+                            (le_n.le_n (S.S m0))
+                            (rewrite_l.rewrite_l
+                               cts.zero
+                               cts.zero
+                               nat.nat
+                               (f m)
+                               (__:(cts.Term cts.zero nat.nat) =>
+                                eq.eq cts.zero nat.nat (f m) __)
+                               (refl.refl cts.zero nat.nat (f m))
+                               (f (S.S m0))
+                               eqf))
+                         (lt_to_not_eq.lt_to_not_eq m (S.S m0) (le_S_S.le_S_S m m0 lem)))))))))
+    n
+    lenm.
+

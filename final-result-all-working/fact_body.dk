@@ -1,0 +1,5 @@
+fact_body : 
+  cts.Term
+    cts.zero
+    (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat)).
+

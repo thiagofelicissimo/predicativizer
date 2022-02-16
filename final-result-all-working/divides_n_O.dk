@@ -1,0 +1,28 @@
+def divides_n_O :  (l?0 : cts.Sort) ->
+  cts.Term
+    l?0
+    (cts.prod
+       cts.zero
+       l?0
+       l?0
+       cts.I
+       nat.nat
+       (x => divides.divides l?0 x O.O))
+  := l?0 =>
+  n:(cts.Term cts.zero nat.nat) =>
+  quotient.quotient
+    l?0
+    n
+    O.O
+    O.O
+    (rewrite_r.rewrite_r
+       cts.zero
+       cts.zero
+       nat.nat
+       (times.times n O.O)
+       (__:(cts.Term cts.zero nat.nat) =>
+        eq.eq cts.zero nat.nat __ (times.times n O.O))
+       (refl.refl cts.zero nat.nat (times.times n O.O))
+       O.O
+       (times_n_O.times_n_O n)).
+

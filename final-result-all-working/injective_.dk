@@ -1,0 +1,58 @@
+def injective_ :  (l?35 : cts.Sort) -> (l?38 : cts.Sort) ->
+  cts.Term
+    (cts.max (cts.succ l?38) (cts.max (cts.succ l?35) (cts.max (cts.max l?38 l?35) (cts.succ (cts.max l?38 (cts.max l?38 (cts.max l?35 l?38)))))))
+    (cts.prod
+       (cts.succ l?38)
+       (cts.max (cts.succ l?35) (cts.max (cts.max l?38 l?35) (cts.succ (cts.max l?38 (cts.max l?38 (cts.max l?35 l?38))))))
+       (cts.max (cts.succ l?38) (cts.max (cts.succ l?35) (cts.max (cts.max l?38 l?35) (cts.succ (cts.max l?38 (cts.max l?38 (cts.max l?35 l?38)))))))
+       cts.I
+       (cts.univ l?38 (cts.succ l?38) cts.I)
+       (x =>
+        cts.prod
+          (cts.succ l?35)
+          (cts.max (cts.max l?38 l?35) (cts.succ (cts.max l?38 (cts.max l?38 (cts.max l?35 l?38)))))
+          (cts.max (cts.succ l?35) (cts.max (cts.max l?38 l?35) (cts.succ (cts.max l?38 (cts.max l?38 (cts.max l?35 l?38))))))
+          cts.I
+          (cts.univ l?35 (cts.succ l?35) cts.I)
+          (x0 =>
+           cts.prod
+             (cts.max l?38 l?35)
+             (cts.succ (cts.max l?38 (cts.max l?38 (cts.max l?35 l?38))))
+             (cts.max (cts.max l?38 l?35) (cts.succ (cts.max l?38 (cts.max l?38 (cts.max l?35 l?38)))))
+             cts.I
+             (cts.prod
+                l?38
+                l?35
+                (cts.max l?38 l?35)
+                cts.I
+                x
+                (x1 => x0))
+             (x1 => cts.univ (cts.max l?38 (cts.max l?38 (cts.max l?35 l?38))) (cts.succ (cts.max l?38 (cts.max l?38 (cts.max l?35 l?38)))) cts.I))))
+  := l?35 => l?38 =>
+  A:(cts.Term (cts.succ l?38) (cts.univ l?38 (cts.succ l?38) cts.I)) =>
+  B:(cts.Term (cts.succ l?35) (cts.univ l?35 (cts.succ l?35) cts.I)) =>
+  f:(cts.Term
+       (cts.max l?38 l?35)
+       (cts.prod l?38 l?35 (cts.max l?38 l?35) cts.I A (x => B))) =>
+  cts.prod
+    l?38
+    (cts.max l?38 (cts.max l?35 l?38))
+    (cts.max l?38 (cts.max l?38 (cts.max l?35 l?38)))
+    cts.I
+    A
+    (x =>
+     cts.prod
+       l?38
+       (cts.max l?35 l?38)
+       (cts.max l?38 (cts.max l?35 l?38))
+       cts.I
+       A
+       (x0 =>
+        cts.prod
+          l?35
+          l?38
+          (cts.max l?35 l?38)
+          cts.I
+          (eq.eq l?35 B (f x) (f x0))
+          (x1 => eq.eq l?38 A x x0))).
+

@@ -1,0 +1,1381 @@
+def eqb_elim :  (l?8 : cts.Sort) ->
+  cts.Term
+    (cts.succ l?8)
+    (cts.prod
+       cts.zero
+       (cts.succ l?8)
+       (cts.succ l?8)
+       cts.I
+       nat.nat
+       (x =>
+        cts.prod
+          cts.zero
+          (cts.succ l?8)
+          (cts.succ l?8)
+          cts.I
+          nat.nat
+          (x0 =>
+           cts.prod
+             (cts.succ l?8)
+             l?8
+             (cts.succ l?8)
+             cts.I
+             (cts.prod
+                cts.zero
+                (cts.succ l?8)
+                (cts.succ l?8)
+                cts.I
+                bool.bool
+                (x1 => cts.univ l?8 (cts.succ l?8) cts.I))
+             (x1 =>
+              cts.prod
+                l?8
+                l?8
+                l?8
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?8
+                   l?8
+                   cts.I
+                   (eq.eq cts.zero nat.nat x x0)
+                   (x2 => x1 true.true))
+                (x2 =>
+                 cts.prod
+                   l?8
+                   l?8
+                   l?8
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      l?8
+                      l?8
+                      cts.I
+                      (Not.Not cts.zero (eq.eq cts.zero nat.nat x x0))
+                      (x3 => x1 false.false))
+                   (x3 => x1 (eqb.eqb x x0)))))))
+  := l?8 =>
+  nat_elim2.nat_elim2
+    (cts.succ l?8)
+    (__:(cts.Term cts.zero nat.nat) =>
+     _0:(cts.Term cts.zero nat.nat) =>
+     cts.prod
+       (cts.succ l?8)
+       l?8
+       (cts.succ l?8)
+       cts.I
+       (cts.prod
+          cts.zero
+          (cts.succ l?8)
+          (cts.succ l?8)
+          cts.I
+          bool.bool
+          (x => cts.univ l?8 (cts.succ l?8) cts.I))
+       (x =>
+        cts.prod
+          l?8
+          l?8
+          l?8
+          cts.I
+          (cts.prod
+             cts.zero
+             l?8
+             l?8
+             cts.I
+             (eq.eq cts.zero nat.nat __ _0)
+             (x0 => x true.true))
+          (x0 =>
+           cts.prod
+             l?8
+             l?8
+             l?8
+             cts.I
+             (cts.prod
+                cts.zero
+                l?8
+                l?8
+                cts.I
+                (Not.Not cts.zero (eq.eq cts.zero nat.nat __ _0))
+                (x1 => x false.false))
+             (x1 => x (eqb.eqb __ _0)))))
+    (n:(cts.Term cts.zero nat.nat) =>
+     match_nat_prop.match_nat_prop
+       (cts.succ l?8)
+       (__:(cts.Term cts.zero nat.nat) =>
+        cts.prod
+          (cts.succ l?8)
+          l?8
+          (cts.succ l?8)
+          cts.I
+          (cts.prod
+             cts.zero
+             (cts.succ l?8)
+             (cts.succ l?8)
+             cts.I
+             bool.bool
+             (x => cts.univ l?8 (cts.succ l?8) cts.I))
+          (x =>
+           cts.prod
+             l?8
+             l?8
+             l?8
+             cts.I
+             (cts.prod
+                cts.zero
+                l?8
+                l?8
+                cts.I
+                (eq.eq cts.zero nat.nat O.O __)
+                (x0 => x true.true))
+             (x0 =>
+              cts.prod
+                l?8
+                l?8
+                l?8
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?8
+                   l?8
+                   cts.I
+                   (Not.Not cts.zero (eq.eq cts.zero nat.nat O.O __))
+                   (x1 => x false.false))
+                (x1 => x (eqb.eqb O.O __)))))
+       (sym_eq_eqb.sym_eq_eqb
+          (cts.succ l?8)
+          O.O
+          (y:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => bool.bool))) =>
+           cts.prod
+             (cts.succ l?8)
+             l?8
+             (cts.succ l?8)
+             cts.I
+             (cts.prod
+                cts.zero
+                (cts.succ l?8)
+                (cts.succ l?8)
+                cts.I
+                bool.bool
+                (x => cts.univ l?8 (cts.succ l?8) cts.I))
+             (x =>
+              cts.prod
+                l?8
+                l?8
+                l?8
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?8
+                   l?8
+                   cts.I
+                   (eq.eq cts.zero nat.nat O.O O.O)
+                   (x0 => x true.true))
+                (x0 =>
+                 cts.prod
+                   l?8
+                   l?8
+                   l?8
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      l?8
+                      l?8
+                      cts.I
+                      (Not.Not cts.zero (eq.eq cts.zero nat.nat O.O O.O))
+                      (x1 => x false.false))
+                   (x1 => x (y O.O)))))
+          (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+             (cts.succ l?8)
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x => bool.bool))
+             eqb_body.eqb_body
+             (y:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => bool.bool))) =>
+              cts.prod
+                (cts.succ l?8)
+                l?8
+                (cts.succ l?8)
+                cts.I
+                (cts.prod
+                   cts.zero
+                   (cts.succ l?8)
+                   (cts.succ l?8)
+                   cts.I
+                   bool.bool
+                   (x => cts.univ l?8 (cts.succ l?8) cts.I))
+                (x =>
+                 cts.prod
+                   l?8
+                   l?8
+                   l?8
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      l?8
+                      l?8
+                      cts.I
+                      (eq.eq cts.zero nat.nat O.O O.O)
+                      (x0 => x true.true))
+                   (x0 =>
+                    cts.prod
+                      l?8
+                      l?8
+                      l?8
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?8
+                         l?8
+                         cts.I
+                         (Not.Not
+                            cts.zero
+                            (eq.eq cts.zero nat.nat O.O O.O))
+                         (x1 => x false.false))
+                      (x1 => x (y O.O)))))
+             (sym_eq_eqb_body_O.sym_eq_eqb_body_O
+                (cts.succ l?8)
+                (y:(cts.Term
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x => bool.bool))) =>
+                 cts.prod
+                   (cts.succ l?8)
+                   l?8
+                   (cts.succ l?8)
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      (cts.succ l?8)
+                      (cts.succ l?8)
+                      cts.I
+                      bool.bool
+                      (x => cts.univ l?8 (cts.succ l?8) cts.I))
+                   (x =>
+                    cts.prod
+                      l?8
+                      l?8
+                      l?8
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?8
+                         l?8
+                         cts.I
+                         (eq.eq cts.zero nat.nat O.O O.O)
+                         (x0 => x true.true))
+                      (x0 =>
+                       cts.prod
+                         l?8
+                         l?8
+                         l?8
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            l?8
+                            l?8
+                            cts.I
+                            (Not.Not
+                               cts.zero
+                               (eq.eq cts.zero nat.nat O.O O.O))
+                            (x1 => x false.false))
+                         (x1 => x (y O.O)))))
+                (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
+                   (cts.succ l?8)
+                   cts.zero
+                   bool.bool
+                   true.true
+                   (q:(cts.Term cts.zero nat.nat) => false.false)
+                   (y:(cts.Term cts.zero bool.bool) =>
+                    cts.prod
+                      (cts.succ l?8)
+                      l?8
+                      (cts.succ l?8)
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         (cts.succ l?8)
+                         (cts.succ l?8)
+                         cts.I
+                         bool.bool
+                         (x => cts.univ l?8 (cts.succ l?8) cts.I))
+                      (x =>
+                       cts.prod
+                         l?8
+                         l?8
+                         l?8
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            l?8
+                            l?8
+                            cts.I
+                            (eq.eq cts.zero nat.nat O.O O.O)
+                            (x0 => x true.true))
+                         (x0 =>
+                          cts.prod
+                            l?8
+                            l?8
+                            l?8
+                            cts.I
+                            (cts.prod
+                               cts.zero
+                               l?8
+                               l?8
+                               cts.I
+                               (Not.Not
+                                  cts.zero
+                                  (eq.eq cts.zero nat.nat O.O O.O))
+                               (x1 => x false.false))
+                            (x1 => x y))))
+                   (P:(cts.Term
+                         (cts.succ l?8)
+                         (cts.prod
+                            cts.zero
+                            (cts.succ l?8)
+                            (cts.succ l?8)
+                            cts.I
+                            bool.bool
+                            (x => cts.univ l?8 (cts.succ l?8) cts.I))) =>
+                    auto:(cts.Term
+                            l?8
+                            (cts.prod
+                               cts.zero
+                               l?8
+                               l?8
+                               cts.I
+                               (eq.eq cts.zero nat.nat O.O O.O)
+                               (x => P true.true))) =>
+                    auto':(cts.Term
+                             l?8
+                             (cts.prod
+                                cts.zero
+                                l?8
+                                l?8
+                                cts.I
+                                (Not.Not
+                                   cts.zero
+                                   (eq.eq cts.zero nat.nat O.O O.O))
+                                (x => P false.false))) =>
+                    auto (refl.refl cts.zero nat.nat O.O))))))
+       (auto:(cts.Term cts.zero nat.nat) =>
+        sym_eq_eqb.sym_eq_eqb
+          (cts.succ l?8)
+          O.O
+          (y:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => bool.bool))) =>
+           cts.prod
+             (cts.succ l?8)
+             l?8
+             (cts.succ l?8)
+             cts.I
+             (cts.prod
+                cts.zero
+                (cts.succ l?8)
+                (cts.succ l?8)
+                cts.I
+                bool.bool
+                (x => cts.univ l?8 (cts.succ l?8) cts.I))
+             (x =>
+              cts.prod
+                l?8
+                l?8
+                l?8
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?8
+                   l?8
+                   cts.I
+                   (eq.eq cts.zero nat.nat O.O (S.S auto))
+                   (x0 => x true.true))
+                (x0 =>
+                 cts.prod
+                   l?8
+                   l?8
+                   l?8
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      l?8
+                      l?8
+                      cts.I
+                      (Not.Not
+                         cts.zero
+                         (eq.eq cts.zero nat.nat O.O (S.S auto)))
+                      (x1 => x false.false))
+                   (x1 => x (y (S.S auto))))))
+          (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
+             (cts.succ l?8)
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x => bool.bool))
+             eqb_body.eqb_body
+             (y:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => bool.bool))) =>
+              cts.prod
+                (cts.succ l?8)
+                l?8
+                (cts.succ l?8)
+                cts.I
+                (cts.prod
+                   cts.zero
+                   (cts.succ l?8)
+                   (cts.succ l?8)
+                   cts.I
+                   bool.bool
+                   (x => cts.univ l?8 (cts.succ l?8) cts.I))
+                (x =>
+                 cts.prod
+                   l?8
+                   l?8
+                   l?8
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      l?8
+                      l?8
+                      cts.I
+                      (eq.eq cts.zero nat.nat O.O (S.S auto))
+                      (x0 => x true.true))
+                   (x0 =>
+                    cts.prod
+                      l?8
+                      l?8
+                      l?8
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?8
+                         l?8
+                         cts.I
+                         (Not.Not
+                            cts.zero
+                            (eq.eq cts.zero nat.nat O.O (S.S auto)))
+                         (x1 => x false.false))
+                      (x1 => x (y (S.S auto))))))
+             (sym_eq_eqb_body_O.sym_eq_eqb_body_O
+                (cts.succ l?8)
+                (y:(cts.Term
+                      cts.zero
+                      (cts.prod
+                         cts.zero
+                         cts.zero
+                         cts.zero
+                         cts.I
+                         nat.nat
+                         (x => bool.bool))) =>
+                 cts.prod
+                   (cts.succ l?8)
+                   l?8
+                   (cts.succ l?8)
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      (cts.succ l?8)
+                      (cts.succ l?8)
+                      cts.I
+                      bool.bool
+                      (x => cts.univ l?8 (cts.succ l?8) cts.I))
+                   (x =>
+                    cts.prod
+                      l?8
+                      l?8
+                      l?8
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?8
+                         l?8
+                         cts.I
+                         (eq.eq cts.zero nat.nat O.O (S.S auto))
+                         (x0 => x true.true))
+                      (x0 =>
+                       cts.prod
+                         l?8
+                         l?8
+                         l?8
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            l?8
+                            l?8
+                            cts.I
+                            (Not.Not
+                               cts.zero
+                               (eq.eq cts.zero nat.nat O.O (S.S auto)))
+                            (x1 => x false.false))
+                         (x1 => x (y (S.S auto))))))
+                (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+                   (cts.succ l?8)
+                   cts.zero
+                   bool.bool
+                   true.true
+                   (q:(cts.Term cts.zero nat.nat) => false.false)
+                   auto
+                   (y:(cts.Term cts.zero bool.bool) =>
+                    cts.prod
+                      (cts.succ l?8)
+                      l?8
+                      (cts.succ l?8)
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         (cts.succ l?8)
+                         (cts.succ l?8)
+                         cts.I
+                         bool.bool
+                         (x => cts.univ l?8 (cts.succ l?8) cts.I))
+                      (x =>
+                       cts.prod
+                         l?8
+                         l?8
+                         l?8
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            l?8
+                            l?8
+                            cts.I
+                            (eq.eq cts.zero nat.nat O.O (S.S auto))
+                            (x0 => x true.true))
+                         (x0 =>
+                          cts.prod
+                            l?8
+                            l?8
+                            l?8
+                            cts.I
+                            (cts.prod
+                               cts.zero
+                               l?8
+                               l?8
+                               cts.I
+                               (Not.Not
+                                  cts.zero
+                                  (eq.eq cts.zero nat.nat O.O (S.S auto)))
+                               (x1 => x false.false))
+                            (x1 => x y))))
+                   (P:(cts.Term
+                         (cts.succ l?8)
+                         (cts.prod
+                            cts.zero
+                            (cts.succ l?8)
+                            (cts.succ l?8)
+                            cts.I
+                            bool.bool
+                            (x => cts.univ l?8 (cts.succ l?8) cts.I))) =>
+                    auto':(cts.Term
+                             l?8
+                             (cts.prod
+                                cts.zero
+                                l?8
+                                l?8
+                                cts.I
+                                (eq.eq cts.zero nat.nat O.O (S.S auto))
+                                (x => P true.true))) =>
+                    auto'':(cts.Term
+                              l?8
+                              (cts.prod
+                                 cts.zero
+                                 l?8
+                                 l?8
+                                 cts.I
+                                 (Not.Not
+                                    cts.zero
+                                    (eq.eq cts.zero nat.nat O.O (S.S auto)))
+                                 (x => P false.false))) =>
+                    auto'' (not_eq_O_S.not_eq_O_S auto))))))
+       n)
+    (n:(cts.Term cts.zero nat.nat) =>
+     sym_eq_eqb.sym_eq_eqb
+       (cts.succ l?8)
+       (S.S n)
+       (y:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x => bool.bool))) =>
+        cts.prod
+          (cts.succ l?8)
+          l?8
+          (cts.succ l?8)
+          cts.I
+          (cts.prod
+             cts.zero
+             (cts.succ l?8)
+             (cts.succ l?8)
+             cts.I
+             bool.bool
+             (x => cts.univ l?8 (cts.succ l?8) cts.I))
+          (x =>
+           cts.prod
+             l?8
+             l?8
+             l?8
+             cts.I
+             (cts.prod
+                cts.zero
+                l?8
+                l?8
+                cts.I
+                (eq.eq cts.zero nat.nat (S.S n) O.O)
+                (x0 => x true.true))
+             (x0 =>
+              cts.prod
+                l?8
+                l?8
+                l?8
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?8
+                   l?8
+                   cts.I
+                   (Not.Not cts.zero (eq.eq cts.zero nat.nat (S.S n) O.O))
+                   (x1 => x false.false))
+                (x1 => x (y O.O)))))
+       (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+          (cts.succ l?8)
+          cts.zero
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x => bool.bool))
+          eqb_body.eqb_body
+          n
+          (y:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => bool.bool))) =>
+           cts.prod
+             (cts.succ l?8)
+             l?8
+             (cts.succ l?8)
+             cts.I
+             (cts.prod
+                cts.zero
+                (cts.succ l?8)
+                (cts.succ l?8)
+                cts.I
+                bool.bool
+                (x => cts.univ l?8 (cts.succ l?8) cts.I))
+             (x =>
+              cts.prod
+                l?8
+                l?8
+                l?8
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?8
+                   l?8
+                   cts.I
+                   (eq.eq cts.zero nat.nat (S.S n) O.O)
+                   (x0 => x true.true))
+                (x0 =>
+                 cts.prod
+                   l?8
+                   l?8
+                   l?8
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      l?8
+                      l?8
+                      cts.I
+                      (Not.Not
+                         cts.zero
+                         (eq.eq cts.zero nat.nat (S.S n) O.O))
+                      (x1 => x false.false))
+                   (x1 => x (y O.O)))))
+          (sym_eq_eqb_body_S.sym_eq_eqb_body_S
+             (cts.succ l?8)
+             n
+             (y:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => bool.bool))) =>
+              cts.prod
+                (cts.succ l?8)
+                l?8
+                (cts.succ l?8)
+                cts.I
+                (cts.prod
+                   cts.zero
+                   (cts.succ l?8)
+                   (cts.succ l?8)
+                   cts.I
+                   bool.bool
+                   (x => cts.univ l?8 (cts.succ l?8) cts.I))
+                (x =>
+                 cts.prod
+                   l?8
+                   l?8
+                   l?8
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      l?8
+                      l?8
+                      cts.I
+                      (eq.eq cts.zero nat.nat (S.S n) O.O)
+                      (x0 => x true.true))
+                   (x0 =>
+                    cts.prod
+                      l?8
+                      l?8
+                      l?8
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?8
+                         l?8
+                         cts.I
+                         (Not.Not
+                            cts.zero
+                            (eq.eq cts.zero nat.nat (S.S n) O.O))
+                         (x1 => x false.false))
+                      (x1 => x (y O.O)))))
+             (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
+                (cts.succ l?8)
+                cts.zero
+                bool.bool
+                false.false
+                (q:(cts.Term cts.zero nat.nat) => eqb.eqb n q)
+                (y:(cts.Term cts.zero bool.bool) =>
+                 cts.prod
+                   (cts.succ l?8)
+                   l?8
+                   (cts.succ l?8)
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      (cts.succ l?8)
+                      (cts.succ l?8)
+                      cts.I
+                      bool.bool
+                      (x => cts.univ l?8 (cts.succ l?8) cts.I))
+                   (x =>
+                    cts.prod
+                      l?8
+                      l?8
+                      l?8
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?8
+                         l?8
+                         cts.I
+                         (eq.eq cts.zero nat.nat (S.S n) O.O)
+                         (x0 => x true.true))
+                      (x0 =>
+                       cts.prod
+                         l?8
+                         l?8
+                         l?8
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            l?8
+                            l?8
+                            cts.I
+                            (Not.Not
+                               cts.zero
+                               (eq.eq cts.zero nat.nat (S.S n) O.O))
+                            (x1 => x false.false))
+                         (x1 => x y))))
+                (P:(cts.Term
+                      (cts.succ l?8)
+                      (cts.prod
+                         cts.zero
+                         (cts.succ l?8)
+                         (cts.succ l?8)
+                         cts.I
+                         bool.bool
+                         (x => cts.univ l?8 (cts.succ l?8) cts.I))) =>
+                 auto:(cts.Term
+                         l?8
+                         (cts.prod
+                            cts.zero
+                            l?8
+                            l?8
+                            cts.I
+                            (eq.eq cts.zero nat.nat (S.S n) O.O)
+                            (x => P true.true))) =>
+                 auto':(cts.Term
+                          l?8
+                          (cts.prod
+                             cts.zero
+                             l?8
+                             l?8
+                             cts.I
+                             (Not.Not
+                                cts.zero
+                                (eq.eq cts.zero nat.nat (S.S n) O.O))
+                             (x => P false.false))) =>
+                 auto'
+                   (sym_not_eq.sym_not_eq
+                      cts.zero
+                      nat.nat
+                      O.O
+                      (S.S n)
+                      (not_eq_O_S.not_eq_O_S n)))))))
+    (n:(cts.Term cts.zero nat.nat) =>
+     m:(cts.Term cts.zero nat.nat) =>
+     sym_eq_eqb.sym_eq_eqb
+       (cts.succ l?8)
+       (S.S n)
+       (y:(cts.Term
+             cts.zero
+             (cts.prod
+                cts.zero
+                cts.zero
+                cts.zero
+                cts.I
+                nat.nat
+                (x => bool.bool))) =>
+        cts.prod
+          (cts.succ l?8)
+          (cts.succ l?8)
+          (cts.succ l?8)
+          cts.I
+          (cts.prod
+             (cts.succ l?8)
+             l?8
+             (cts.succ l?8)
+             cts.I
+             (cts.prod
+                cts.zero
+                (cts.succ l?8)
+                (cts.succ l?8)
+                cts.I
+                bool.bool
+                (x => cts.univ l?8 (cts.succ l?8) cts.I))
+             (x =>
+              cts.prod
+                l?8
+                l?8
+                l?8
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?8
+                   l?8
+                   cts.I
+                   (eq.eq cts.zero nat.nat n m)
+                   (x0 => x true.true))
+                (x0 =>
+                 cts.prod
+                   l?8
+                   l?8
+                   l?8
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      l?8
+                      l?8
+                      cts.I
+                      (Not.Not cts.zero (eq.eq cts.zero nat.nat n m))
+                      (x1 => x false.false))
+                   (x1 => x (eqb.eqb n m)))))
+          (x =>
+           cts.prod
+             (cts.succ l?8)
+             l?8
+             (cts.succ l?8)
+             cts.I
+             (cts.prod
+                cts.zero
+                (cts.succ l?8)
+                (cts.succ l?8)
+                cts.I
+                bool.bool
+                (x0 => cts.univ l?8 (cts.succ l?8) cts.I))
+             (x0 =>
+              cts.prod
+                l?8
+                l?8
+                l?8
+                cts.I
+                (cts.prod
+                   cts.zero
+                   l?8
+                   l?8
+                   cts.I
+                   (eq.eq cts.zero nat.nat (S.S n) (S.S m))
+                   (x1 => x0 true.true))
+                (x1 =>
+                 cts.prod
+                   l?8
+                   l?8
+                   l?8
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      l?8
+                      l?8
+                      cts.I
+                      (Not.Not
+                         cts.zero
+                         (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
+                      (x2 => x0 false.false))
+                   (x2 => x0 (y (S.S m)))))))
+       (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
+          (cts.succ l?8)
+          cts.zero
+          (cts.prod
+             cts.zero
+             cts.zero
+             cts.zero
+             cts.I
+             nat.nat
+             (x => bool.bool))
+          eqb_body.eqb_body
+          n
+          (y:(cts.Term
+                cts.zero
+                (cts.prod
+                   cts.zero
+                   cts.zero
+                   cts.zero
+                   cts.I
+                   nat.nat
+                   (x => bool.bool))) =>
+           cts.prod
+             (cts.succ l?8)
+             (cts.succ l?8)
+             (cts.succ l?8)
+             cts.I
+             (cts.prod
+                (cts.succ l?8)
+                l?8
+                (cts.succ l?8)
+                cts.I
+                (cts.prod
+                   cts.zero
+                   (cts.succ l?8)
+                   (cts.succ l?8)
+                   cts.I
+                   bool.bool
+                   (x => cts.univ l?8 (cts.succ l?8) cts.I))
+                (x =>
+                 cts.prod
+                   l?8
+                   l?8
+                   l?8
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      l?8
+                      l?8
+                      cts.I
+                      (eq.eq cts.zero nat.nat n m)
+                      (x0 => x true.true))
+                   (x0 =>
+                    cts.prod
+                      l?8
+                      l?8
+                      l?8
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?8
+                         l?8
+                         cts.I
+                         (Not.Not cts.zero (eq.eq cts.zero nat.nat n m))
+                         (x1 => x false.false))
+                      (x1 => x (eqb.eqb n m)))))
+             (x =>
+              cts.prod
+                (cts.succ l?8)
+                l?8
+                (cts.succ l?8)
+                cts.I
+                (cts.prod
+                   cts.zero
+                   (cts.succ l?8)
+                   (cts.succ l?8)
+                   cts.I
+                   bool.bool
+                   (x0 => cts.univ l?8 (cts.succ l?8) cts.I))
+                (x0 =>
+                 cts.prod
+                   l?8
+                   l?8
+                   l?8
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      l?8
+                      l?8
+                      cts.I
+                      (eq.eq cts.zero nat.nat (S.S n) (S.S m))
+                      (x1 => x0 true.true))
+                   (x1 =>
+                    cts.prod
+                      l?8
+                      l?8
+                      l?8
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?8
+                         l?8
+                         cts.I
+                         (Not.Not
+                            cts.zero
+                            (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
+                         (x2 => x0 false.false))
+                      (x2 => x0 (y (S.S m)))))))
+          (sym_eq_eqb_body_S.sym_eq_eqb_body_S
+             (cts.succ l?8)
+             n
+             (y:(cts.Term
+                   cts.zero
+                   (cts.prod
+                      cts.zero
+                      cts.zero
+                      cts.zero
+                      cts.I
+                      nat.nat
+                      (x => bool.bool))) =>
+              cts.prod
+                (cts.succ l?8)
+                (cts.succ l?8)
+                (cts.succ l?8)
+                cts.I
+                (cts.prod
+                   (cts.succ l?8)
+                   l?8
+                   (cts.succ l?8)
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      (cts.succ l?8)
+                      (cts.succ l?8)
+                      cts.I
+                      bool.bool
+                      (x => cts.univ l?8 (cts.succ l?8) cts.I))
+                   (x =>
+                    cts.prod
+                      l?8
+                      l?8
+                      l?8
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?8
+                         l?8
+                         cts.I
+                         (eq.eq cts.zero nat.nat n m)
+                         (x0 => x true.true))
+                      (x0 =>
+                       cts.prod
+                         l?8
+                         l?8
+                         l?8
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            l?8
+                            l?8
+                            cts.I
+                            (Not.Not
+                               cts.zero
+                               (eq.eq cts.zero nat.nat n m))
+                            (x1 => x false.false))
+                         (x1 => x (eqb.eqb n m)))))
+                (x =>
+                 cts.prod
+                   (cts.succ l?8)
+                   l?8
+                   (cts.succ l?8)
+                   cts.I
+                   (cts.prod
+                      cts.zero
+                      (cts.succ l?8)
+                      (cts.succ l?8)
+                      cts.I
+                      bool.bool
+                      (x0 => cts.univ l?8 (cts.succ l?8) cts.I))
+                   (x0 =>
+                    cts.prod
+                      l?8
+                      l?8
+                      l?8
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         l?8
+                         l?8
+                         cts.I
+                         (eq.eq cts.zero nat.nat (S.S n) (S.S m))
+                         (x1 => x0 true.true))
+                      (x1 =>
+                       cts.prod
+                         l?8
+                         l?8
+                         l?8
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            l?8
+                            l?8
+                            cts.I
+                            (Not.Not
+                               cts.zero
+                               (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
+                            (x2 => x0 false.false))
+                         (x2 => x0 (y (S.S m)))))))
+             (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
+                (cts.succ l?8)
+                cts.zero
+                bool.bool
+                false.false
+                (q:(cts.Term cts.zero nat.nat) => eqb.eqb n q)
+                m
+                (y:(cts.Term cts.zero bool.bool) =>
+                 cts.prod
+                   (cts.succ l?8)
+                   (cts.succ l?8)
+                   (cts.succ l?8)
+                   cts.I
+                   (cts.prod
+                      (cts.succ l?8)
+                      l?8
+                      (cts.succ l?8)
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         (cts.succ l?8)
+                         (cts.succ l?8)
+                         cts.I
+                         bool.bool
+                         (x => cts.univ l?8 (cts.succ l?8) cts.I))
+                      (x =>
+                       cts.prod
+                         l?8
+                         l?8
+                         l?8
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            l?8
+                            l?8
+                            cts.I
+                            (eq.eq cts.zero nat.nat n m)
+                            (x0 => x true.true))
+                         (x0 =>
+                          cts.prod
+                            l?8
+                            l?8
+                            l?8
+                            cts.I
+                            (cts.prod
+                               cts.zero
+                               l?8
+                               l?8
+                               cts.I
+                               (Not.Not
+                                  cts.zero
+                                  (eq.eq cts.zero nat.nat n m))
+                               (x1 => x false.false))
+                            (x1 => x (eqb.eqb n m)))))
+                   (x =>
+                    cts.prod
+                      (cts.succ l?8)
+                      l?8
+                      (cts.succ l?8)
+                      cts.I
+                      (cts.prod
+                         cts.zero
+                         (cts.succ l?8)
+                         (cts.succ l?8)
+                         cts.I
+                         bool.bool
+                         (x0 => cts.univ l?8 (cts.succ l?8) cts.I))
+                      (x0 =>
+                       cts.prod
+                         l?8
+                         l?8
+                         l?8
+                         cts.I
+                         (cts.prod
+                            cts.zero
+                            l?8
+                            l?8
+                            cts.I
+                            (eq.eq cts.zero nat.nat (S.S n) (S.S m))
+                            (x1 => x0 true.true))
+                         (x1 =>
+                          cts.prod
+                            l?8
+                            l?8
+                            l?8
+                            cts.I
+                            (cts.prod
+                               cts.zero
+                               l?8
+                               l?8
+                               cts.I
+                               (Not.Not
+                                  cts.zero
+                                  (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
+                               (x2 => x0 false.false))
+                            (x2 => x0 y)))))
+                (auto:(cts.Term
+                         (cts.succ l?8)
+                         (cts.prod
+                            (cts.succ l?8)
+                            l?8
+                            (cts.succ l?8)
+                            cts.I
+                            (cts.prod
+                               cts.zero
+                               (cts.succ l?8)
+                               (cts.succ l?8)
+                               cts.I
+                               bool.bool
+                               (x => cts.univ l?8 (cts.succ l?8) cts.I))
+                            (x =>
+                             cts.prod
+                               l?8
+                               l?8
+                               l?8
+                               cts.I
+                               (cts.prod
+                                  cts.zero
+                                  l?8
+                                  l?8
+                                  cts.I
+                                  (eq.eq cts.zero nat.nat n m)
+                                  (x0 => x true.true))
+                               (x0 =>
+                                cts.prod
+                                  l?8
+                                  l?8
+                                  l?8
+                                  cts.I
+                                  (cts.prod
+                                     cts.zero
+                                     l?8
+                                     l?8
+                                     cts.I
+                                     (Not.Not
+                                        cts.zero
+                                        (eq.eq cts.zero nat.nat n m))
+                                     (x1 => x false.false))
+                                  (x1 => x (eqb.eqb n m)))))) =>
+                 P:(cts.Term
+                      (cts.succ l?8)
+                      (cts.prod
+                         cts.zero
+                         (cts.succ l?8)
+                         (cts.succ l?8)
+                         cts.I
+                         bool.bool
+                         (x => cts.univ l?8 (cts.succ l?8) cts.I))) =>
+                 auto':(cts.Term
+                          l?8
+                          (cts.prod
+                             cts.zero
+                             l?8
+                             l?8
+                             cts.I
+                             (eq.eq cts.zero nat.nat (S.S n) (S.S m))
+                             (x => P true.true))) =>
+                 auto'':(cts.Term
+                           l?8
+                           (cts.prod
+                              cts.zero
+                              l?8
+                              l?8
+                              cts.I
+                              (Not.Not
+                                 cts.zero
+                                 (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
+                              (x => P false.false))) =>
+                 auto
+                   P
+                   (auto''':(cts.Term
+                               cts.zero
+                               (eq.eq cts.zero nat.nat n m)) =>
+                    auto'
+                      (rewrite_l.rewrite_l
+                         cts.zero
+                         cts.zero
+                         nat.nat
+                         n
+                         (__:(cts.Term cts.zero nat.nat) =>
+                          eq.eq cts.zero nat.nat (S.S n) (S.S __))
+                         (refl.refl cts.zero nat.nat (S.S n))
+                         m
+                         auto'''))
+                   (auto''':(cts.Term
+                               cts.zero
+                               (Not.Not
+                                  cts.zero
+                                  (eq.eq cts.zero nat.nat n m))) =>
+                    auto'' (not_eq_S.not_eq_S n m auto'''))))))).
+
