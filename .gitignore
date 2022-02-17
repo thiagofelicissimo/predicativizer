@@ -6,7 +6,7 @@ ctslib
 #*#
 *program
 *.cm*
-!example/*.dk
+!config/*.dk
+!theory/*.dk
 !ctslib-fresh/*.dk
 !final-result-all-working/*.dk
-example/test
