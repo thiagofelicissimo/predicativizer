@@ -32,10 +32,6 @@ def lt_O_gcd :
     (lt.lt O.O)
     (H:(cts.Term cts.zero (eq.eq cts.zero nat.nat (gcd.gcd m n) O.O)) =>
      match_And_prop.match_And_prop
-       cts.zero
-       cts.zero
-       cts.zero
-       cts.zero
        (eq.eq cts.zero nat.nat m O.O)
        (eq.eq cts.zero nat.nat n O.O)
        (lt.lt O.O O.O)
@@ -102,7 +98,7 @@ def lt_O_gcd :
                 (let_clause_1571.let_clause_1571 m n posn H auto auto'))
              O.O
              (let_clause_1572.let_clause_1572 m n posn H auto auto')))
-       (gcd_O_to_eq_O.gcd_O_to_eq_O cts.zero m n H))
+       (gcd_O_to_eq_O.gcd_O_to_eq_O m n H))
     (m0:(cts.Term cts.zero nat.nat) =>
      auto:(cts.Term cts.zero (eq.eq cts.zero nat.nat (gcd.gcd m n) (S.S m0))) =>
      lt_O_S.lt_O_S m0).

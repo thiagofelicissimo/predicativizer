@@ -1,44 +1,44 @@
-Not_ind :  (l?18 : cts.Sort) -> (l?15 : cts.Sort) -> (l?17 : cts.Sort) ->
+Not_ind :  (l?7 : cts.Sort) ->
   cts.Term
-    (cts.max (cts.succ l?17) (cts.max (cts.succ l?15) (cts.max (cts.max (cts.max l?17 l?18) l?15) (cts.max l?17 l?15))))
+    (cts.max (cts.succ cts.zero) (cts.succ l?7))
     (cts.prod
-       (cts.succ l?17)
-       (cts.max (cts.succ l?15) (cts.max (cts.max (cts.max l?17 l?18) l?15) (cts.max l?17 l?15)))
-       (cts.max (cts.succ l?17) (cts.max (cts.succ l?15) (cts.max (cts.max (cts.max l?17 l?18) l?15) (cts.max l?17 l?15))))
+       (cts.succ cts.zero)
+       (cts.succ l?7)
+       (cts.max (cts.succ cts.zero) (cts.succ l?7))
        cts.I
-       (cts.univ l?17 (cts.succ l?17) cts.I)
+       (cts.univ cts.zero (cts.succ cts.zero) cts.I)
        (x =>
         cts.prod
-          (cts.succ l?15)
-          (cts.max (cts.max (cts.max l?17 l?18) l?15) (cts.max l?17 l?15))
-          (cts.max (cts.succ l?15) (cts.max (cts.max (cts.max l?17 l?18) l?15) (cts.max l?17 l?15)))
+          (cts.succ l?7)
+          l?7
+          (cts.succ l?7)
           cts.I
-          (cts.univ l?15 (cts.succ l?15) cts.I)
+          (cts.univ l?7 (cts.succ l?7) cts.I)
           (x0 =>
            cts.prod
-             (cts.max (cts.max l?17 l?18) l?15)
-             (cts.max l?17 l?15)
-             (cts.max (cts.max (cts.max l?17 l?18) l?15) (cts.max l?17 l?15))
+             l?7
+             l?7
+             l?7
              cts.I
              (cts.prod
-                (cts.max l?17 l?18)
-                l?15
-                (cts.max (cts.max l?17 l?18) l?15)
+                cts.zero
+                l?7
+                l?7
                 cts.I
                 (cts.prod
-                   l?17
-                   l?18
-                   (cts.max l?17 l?18)
+                   cts.zero
+                   cts.zero
+                   cts.zero
                    cts.I
                    x
-                   (x1 => False.False l?18))
+                   (x1 => False.False))
                 (x1 => x0))
              (x1 =>
               cts.prod
-                l?17
-                l?15
-                (cts.max l?17 l?15)
+                cts.zero
+                l?7
+                l?7
                 cts.I
-                (Not.Not l?17 x)
+                (Not.Not x)
                 (x2 => x0))))).
 

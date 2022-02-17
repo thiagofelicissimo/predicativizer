@@ -1,24 +1,24 @@
-def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts.Sort) -> (l?291 : cts.Sort) -> (l?295 : cts.Sort) -> (l?292 : cts.Sort) -> (l?260 : cts.Sort) -> (l?261 : cts.Sort) -> (l?265 : cts.Sort) -> (l?262 : cts.Sort) -> (l?244 : cts.Sort) -> (l?246 : cts.Sort) -> (l?151 : cts.Sort) -> (l?152 : cts.Sort) -> (l?175 : cts.Sort) -> (l?176 : cts.Sort) ->
+def let_clause_10471 :  (l?270 : cts.Sort) -> (l?32 : cts.Sort) ->
   cts.Term
-    (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
+    (cts.max l?270 l?32)
     (cts.prod
        cts.zero
-       (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
-       (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
+       (cts.max l?270 l?32)
+       (cts.max l?270 l?32)
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
-          (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
+          (cts.max l?270 l?32)
+          (cts.max l?270 l?32)
           cts.I
           nat.nat
           (x0 =>
            cts.prod
              cts.zero
-             (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
-             (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
+             (cts.max l?270 l?32)
+             (cts.max l?270 l?32)
              cts.I
              (cts.prod
                 cts.zero
@@ -30,8 +30,8 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
              (x1 =>
               cts.prod
                 cts.zero
-                (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
-                (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
+                (cts.max l?270 l?32)
+                (cts.max l?270 l?32)
                 cts.I
                 (cts.prod
                    cts.zero
@@ -43,8 +43,8 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                 (x2 =>
                  cts.prod
                    cts.zero
-                   (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
-                   (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
+                   (cts.max l?270 l?32)
+                   (cts.max l?270 l?32)
                    cts.I
                    (cts.prod
                       cts.zero
@@ -56,8 +56,8 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                    (x3 =>
                     cts.prod
                       cts.zero
-                      (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
-                      (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
+                      (cts.max l?270 l?32)
+                      (cts.max l?270 l?32)
                       cts.I
                       (cts.prod
                          cts.zero
@@ -68,16 +68,16 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                          (x4 => nat.nat))
                       (x4 =>
                        cts.prod
-                         l?318
-                         (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176)))))
-                         (cts.max l?318 (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))))
+                         l?270
+                         l?32
+                         (cts.max l?270 l?32)
                          cts.I
-                         (iso.iso l?318 x x0 x1 x2 x3 x4)
+                         (iso.iso l?270 x x0 x1 x2 x3 x4)
                          (x5 =>
                           cts.prod
                             cts.zero
-                            (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176)))))
-                            (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176)))))
+                            l?32
+                            l?32
                             cts.I
                             (cts.prod
                                cts.zero
@@ -88,14 +88,14 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                (x6 => nat.nat))
                             (x6 =>
                              cts.prod
-                               l?284
-                               (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))
-                               (cts.max l?284 (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176)))))
+                               l?32
+                               cts.zero
+                               l?32
                                cts.I
                                (ex.ex
                                   cts.zero
-                                  l?286
-                                  l?284
+                                  cts.zero
+                                  l?32
                                   (cts.prod
                                      cts.zero
                                      cts.zero
@@ -113,13 +113,7 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                            nat.nat
                                            (x7 => nat.nat))) =>
                                    And.And
-                                     l?291
-                                     l?292
-                                     l?286
                                      (And.And
-                                        cts.zero
-                                        l?295
-                                        l?291
                                         (cts.prod
                                            cts.zero
                                            cts.zero
@@ -150,31 +144,13 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                                     nat.nat
                                                     (x3 x7)
                                                     (x4 (x6 x7))))))
-                                        (sub_hk.sub_hk
-                                           l?295
-                                           x6
-                                           k
-                                           x
-                                           x0
-                                           x1
-                                           x2
-                                           x3
-                                           x4))
-                                     (sub_hk.sub_hk
-                                        l?292
-                                        k
-                                        x6
-                                        x0
-                                        x
-                                        x2
-                                        x1
-                                        x4
-                                        x3)))
+                                        (sub_hk.sub_hk x6 k x x0 x1 x2 x3 x4))
+                                     (sub_hk.sub_hk k x6 x0 x x2 x1 x4 x3)))
                                (x7 =>
                                 cts.prod
                                   cts.zero
-                                  (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))
-                                  (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))
+                                  cts.zero
+                                  cts.zero
                                   cts.I
                                   (cts.prod
                                      cts.zero
@@ -185,18 +161,12 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                      (x8 => nat.nat))
                                   (x8 =>
                                    cts.prod
-                                     l?260
-                                     (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176)))
-                                     (cts.max l?260 (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))))
+                                     cts.zero
+                                     cts.zero
+                                     cts.zero
                                      cts.I
                                      (And.And
-                                        l?261
-                                        l?262
-                                        l?260
                                         (And.And
-                                           cts.zero
-                                           l?265
-                                           l?261
                                            (cts.prod
                                               cts.zero
                                               cts.zero
@@ -227,36 +197,15 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                                        nat.nat
                                                        (x3 x9)
                                                        (x4 (x6 x9))))))
-                                           (sub_hk.sub_hk
-                                              l?265
-                                              x6
-                                              x8
-                                              x
-                                              x0
-                                              x1
-                                              x2
-                                              x3
-                                              x4))
-                                        (sub_hk.sub_hk
-                                           l?262
-                                           x8
-                                           x6
-                                           x0
-                                           x
-                                           x2
-                                           x1
-                                           x4
-                                           x3))
+                                           (sub_hk.sub_hk x6 x8 x x0 x1 x2 x3 x4))
+                                        (sub_hk.sub_hk x8 x6 x0 x x2 x1 x4 x3))
                                      (x9 =>
                                       cts.prod
-                                        l?244
-                                        (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))
-                                        (cts.max l?244 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176)))
+                                        cts.zero
+                                        cts.zero
+                                        cts.zero
                                         cts.I
                                         (And.And
-                                           cts.zero
-                                           l?246
-                                           l?244
                                            (cts.prod
                                               cts.zero
                                               cts.zero
@@ -287,21 +236,12 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                                        nat.nat
                                                        (x3 x10)
                                                        (x4 (x6 x10))))))
-                                           (sub_hk.sub_hk
-                                              l?246
-                                              x6
-                                              x8
-                                              x
-                                              x0
-                                              x1
-                                              x2
-                                              x3
-                                              x4))
+                                           (sub_hk.sub_hk x6 x8 x x0 x1 x2 x3 x4))
                                         (x10 =>
                                          cts.prod
                                            cts.zero
-                                           (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))
-                                           (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))
+                                           cts.zero
+                                           cts.zero
                                            cts.I
                                            (cts.prod
                                               cts.zero
@@ -336,27 +276,27 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                            (x11 =>
                                             cts.prod
                                               cts.zero
-                                              (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))
-                                              (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))
+                                              cts.zero
+                                              cts.zero
                                               cts.I
                                               nat.nat
                                               (x12 =>
                                                cts.prod
                                                  cts.zero
-                                                 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))
-                                                 (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))
+                                                 cts.zero
+                                                 cts.zero
                                                  cts.I
                                                  nat.nat
                                                  (x13 =>
                                                   cts.prod
-                                                    (cts.max l?151 l?152)
-                                                    (cts.max l?175 l?176)
-                                                    (cts.max (cts.max l?151 l?152) (cts.max l?175 l?176))
+                                                    cts.zero
+                                                    cts.zero
+                                                    cts.zero
                                                     cts.I
                                                     (cts.prod
                                                        cts.zero
-                                                       (cts.max l?151 l?152)
-                                                       (cts.max l?151 l?152)
+                                                       cts.zero
+                                                       cts.zero
                                                        cts.I
                                                        (cts.prod
                                                           cts.zero
@@ -368,18 +308,17 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                                        (x14 =>
                                                         cts.prod
                                                           cts.zero
-                                                          (cts.max l?151 l?152)
-                                                          (cts.max l?151 l?152)
+                                                          cts.zero
+                                                          cts.zero
                                                           cts.I
                                                           (le.le O.O x)
                                                           (x15 =>
                                                            cts.prod
-                                                             l?151
-                                                             l?152
-                                                             (cts.max l?151 l?152)
+                                                             cts.zero
+                                                             cts.zero
+                                                             cts.zero
                                                              cts.I
                                                              (sub_hk.sub_hk
-                                                                l?151
                                                                 x6
                                                                 x8
                                                                 O.O
@@ -390,12 +329,11 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                                                 x4)
                                                              (x16 =>
                                                               cts.prod
-                                                                l?152
                                                                 cts.zero
-                                                                l?152
+                                                                cts.zero
+                                                                cts.zero
                                                                 cts.I
                                                                 (sub_hk.sub_hk
-                                                                   l?152
                                                                    x8
                                                                    x6
                                                                    x13
@@ -443,8 +381,8 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                                     (x14 =>
                                                      cts.prod
                                                        cts.zero
-                                                       (cts.max l?175 l?176)
-                                                       (cts.max l?175 l?176)
+                                                       cts.zero
+                                                       cts.zero
                                                        cts.I
                                                        (cts.prod
                                                           cts.zero
@@ -456,18 +394,17 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                                        (x15 =>
                                                         cts.prod
                                                           cts.zero
-                                                          (cts.max l?175 l?176)
-                                                          (cts.max l?175 l?176)
+                                                          cts.zero
+                                                          cts.zero
                                                           cts.I
                                                           (le.le O.O x)
                                                           (x16 =>
                                                            cts.prod
-                                                             l?175
-                                                             l?176
-                                                             (cts.max l?175 l?176)
+                                                             cts.zero
+                                                             cts.zero
+                                                             cts.zero
                                                              cts.I
                                                              (sub_hk.sub_hk
-                                                                l?175
                                                                 x6
                                                                 x8
                                                                 O.O
@@ -478,12 +415,11 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                                                 x4)
                                                              (x17 =>
                                                               cts.prod
-                                                                l?176
                                                                 cts.zero
-                                                                l?176
+                                                                cts.zero
+                                                                cts.zero
                                                                 cts.I
                                                                 (sub_hk.sub_hk
-                                                                   l?176
                                                                    x8
                                                                    x6
                                                                    (S.S x13)
@@ -520,7 +456,7 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                                                     (mod.mod
                                                                     x19
                                                                     x20)))))))))))))))))))))))))
-  := l?318 => l?284 => l?286 => l?291 => l?295 => l?292 => l?260 => l?261 => l?265 => l?262 => l?244 => l?246 => l?151 => l?152 => l?175 => l?176 =>
+  := l?270 => l?32 =>
   n1:(cts.Term cts.zero nat.nat) =>
   n2:(cts.Term cts.zero nat.nat) =>
   p1:(cts.Term
@@ -560,8 +496,8 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
            nat.nat
            (x => nat.nat))) =>
   _clearme:(cts.Term
-              l?318
-              (iso.iso l?318 n1 n2 p1 p2 f1 f2)) =>
+              l?270
+              (iso.iso l?270 n1 n2 p1 p2 f1 f2)) =>
   h:(cts.Term
        cts.zero
        (cts.prod
@@ -572,11 +508,11 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
           nat.nat
           (x => nat.nat))) =>
   _clearme0:(cts.Term
-               l?284
+               l?32
                (ex.ex
                   cts.zero
-                  l?286
-                  l?284
+                  cts.zero
+                  l?32
                   (cts.prod
                      cts.zero
                      cts.zero
@@ -594,13 +530,7 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                            nat.nat
                            (x => nat.nat))) =>
                    And.And
-                     l?291
-                     l?292
-                     l?286
                      (And.And
-                        cts.zero
-                        l?295
-                        l?291
                         (cts.prod
                            cts.zero
                            cts.zero
@@ -627,8 +557,8 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                                     true.true)
                                  (x1 =>
                                   eq.eq cts.zero nat.nat (f1 x) (f2 (h x))))))
-                        (sub_hk.sub_hk l?295 h k n1 n2 p1 p2 f1 f2))
-                     (sub_hk.sub_hk l?292 k h n2 n1 p2 p1 f2 f1)))) =>
+                        (sub_hk.sub_hk h k n1 n2 p1 p2 f1 f2))
+                     (sub_hk.sub_hk k h n2 n1 p2 p1 f2 f1)))) =>
   k:(cts.Term
        cts.zero
        (cts.prod
@@ -639,15 +569,9 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
           nat.nat
           (x => nat.nat))) =>
   _clearme1:(cts.Term
-               l?260
+               cts.zero
                (And.And
-                  l?261
-                  l?262
-                  l?260
                   (And.And
-                     cts.zero
-                     l?265
-                     l?261
                      (cts.prod
                         cts.zero
                         cts.zero
@@ -670,14 +594,11 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                               (eq.eq cts.zero bool.bool (p1 x) true.true)
                               (x1 =>
                                eq.eq cts.zero nat.nat (f1 x) (f2 (h x))))))
-                     (sub_hk.sub_hk l?265 h k n1 n2 p1 p2 f1 f2))
-                  (sub_hk.sub_hk l?262 k h n2 n1 p2 p1 f2 f1))) =>
+                     (sub_hk.sub_hk h k n1 n2 p1 p2 f1 f2))
+                  (sub_hk.sub_hk k h n2 n1 p2 p1 f2 f1))) =>
   _clearme2:(cts.Term
-               l?244
+               cts.zero
                (And.And
-                  cts.zero
-                  l?246
-                  l?244
                   (cts.prod
                      cts.zero
                      cts.zero
@@ -699,7 +620,7 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
                            cts.I
                            (eq.eq cts.zero bool.bool (p1 x) true.true)
                            (x1 => eq.eq cts.zero nat.nat (f1 x) (f2 (h x))))))
-                  (sub_hk.sub_hk l?246 h k n1 n2 p1 p2 f1 f2))) =>
+                  (sub_hk.sub_hk h k n1 n2 p1 p2 f1 f2))) =>
   same:(cts.Term
           cts.zero
           (cts.prod
@@ -726,11 +647,11 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
   i:(cts.Term cts.zero nat.nat) =>
   m:(cts.Term cts.zero nat.nat) =>
   Hind:(cts.Term
-          (cts.max l?151 l?152)
+          cts.zero
           (cts.prod
              cts.zero
-             (cts.max l?151 l?152)
-             (cts.max l?151 l?152)
+             cts.zero
+             cts.zero
              cts.I
              (cts.prod
                 cts.zero
@@ -742,24 +663,24 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
              (x =>
               cts.prod
                 cts.zero
-                (cts.max l?151 l?152)
-                (cts.max l?151 l?152)
+                cts.zero
+                cts.zero
                 cts.I
                 (le.le O.O n1)
                 (x0 =>
                  cts.prod
-                   l?151
-                   l?152
-                   (cts.max l?151 l?152)
+                   cts.zero
+                   cts.zero
+                   cts.zero
                    cts.I
-                   (sub_hk.sub_hk l?151 h k O.O m p1 x f1 f2)
+                   (sub_hk.sub_hk h k O.O m p1 x f1 f2)
                    (x1 =>
                     cts.prod
-                      l?152
                       cts.zero
-                      l?152
+                      cts.zero
+                      cts.zero
                       cts.I
-                      (sub_hk.sub_hk l?152 k h m O.O x p1 f2 f1)
+                      (sub_hk.sub_hk k h m O.O x p1 f2 f1)
                       (x2 =>
                        eq.eq
                          cts.zero
@@ -790,12 +711,8 @@ def let_clause_10471 :  (l?318 : cts.Sort) -> (l?284 : cts.Sort) -> (l?286 : cts
             nat.nat
             (x => bool.bool))) =>
   __:(cts.Term cts.zero (le.le O.O n1)) =>
-  sub1:(cts.Term
-          l?175
-          (sub_hk.sub_hk l?175 h k O.O (S.S m) p1 p20 f1 f2)) =>
-  sub2:(cts.Term
-          l?176
-          (sub_hk.sub_hk l?176 k h (S.S m) O.O p20 p1 f2 f1)) =>
+  sub1:(cts.Term cts.zero (sub_hk.sub_hk h k O.O (S.S m) p1 p20 f1 f2)) =>
+  sub2:(cts.Term cts.zero (sub_hk.sub_hk k h (S.S m) O.O p20 p1 f2 f1)) =>
   x2571:(cts.Term cts.zero nat.nat) =>
   x2572:(cts.Term cts.zero nat.nat) =>
   rewrite_l.rewrite_l

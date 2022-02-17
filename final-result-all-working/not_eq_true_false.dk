@@ -1,13 +1,9 @@
 def not_eq_true_false : 
   cts.Term
     cts.zero
-    (Not.Not
-       cts.zero
-       (eq.eq cts.zero bool.bool true.true false.false))
+    (Not.Not (eq.eq cts.zero bool.bool true.true false.false))
   :=
   nmk.nmk
-    cts.zero
-    cts.zero
     (eq.eq cts.zero bool.bool true.true false.false)
     (Heq:(cts.Term
             cts.zero
@@ -100,5 +96,5 @@ def not_eq_true_false :
                 (cts.univ (cts.succ cts.zero) (cts.succ (cts.succ cts.zero)) cts.I)) =>
            x)
           (bool_discr.bool_discr cts.zero true.true false.false Heq))
-       (False.False cts.zero)).
+       False.False).
 

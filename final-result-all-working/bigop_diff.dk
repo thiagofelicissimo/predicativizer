@@ -140,7 +140,6 @@ def bigop_diff :
     (ltO:(cts.Term cts.zero (lt.lt i O.O)) =>
      falsity.falsity
        cts.zero
-       cts.zero
        (cts.prod
           cts.zero
           cts.zero
@@ -170,12 +169,7 @@ def bigop_diff :
                    (S.S O.O)
                    times.times
                    (x0:(cts.Term cts.zero nat.nat) => f x0)))))
-       (absurd.absurd
-          cts.zero
-          cts.zero
-          (le.le (S.S i) O.O)
-          ltO
-          (not_le_Sn_O.not_le_Sn_O i)))
+       (absurd.absurd (le.le (S.S i) O.O) ltO (not_le_Sn_O.not_le_Sn_O i)))
     (n0:(cts.Term cts.zero nat.nat) =>
      Hind:(cts.Term
              cts.zero
@@ -218,10 +212,6 @@ def bigop_diff :
      lein:(cts.Term cts.zero (lt.lt i (S.S n0))) =>
      pi:(cts.Term cts.zero (eq.eq cts.zero bool.bool (p i) true.true)) =>
      match_Or_prop.match_Or_prop
-       cts.zero
-       cts.zero
-       cts.zero
-       cts.zero
        (lt.lt i n0)
        (eq.eq cts.zero nat.nat i n0)
        (eq.eq
@@ -248,10 +238,6 @@ def bigop_diff :
                 (x:(cts.Term cts.zero nat.nat) => f x))))
        (Hi:(cts.Term cts.zero (lt.lt i n0)) =>
         match_Or_prop.match_Or_prop
-          cts.zero
-          cts.zero
-          cts.zero
-          cts.zero
           (eq.eq cts.zero bool.bool (p n0) true.true)
           (eq.eq cts.zero bool.bool (p n0) false.false)
           (eq.eq
@@ -1155,7 +1141,7 @@ def bigop_diff :
                    (refl.refl cts.zero bool.bool false.false)
                    (p n0)
                    pn)))
-          (true_or_false.true_or_false cts.zero (p n0)))
+          (true_or_false.true_or_false (p n0)))
        (Hi:(cts.Term cts.zero (eq.eq cts.zero nat.nat i n0)) =>
         eq_ind.eq_ind
           cts.zero
@@ -1265,7 +1251,6 @@ def bigop_diff :
                          (i0:(cts.Term cts.zero nat.nat) => f i0))
                       x)
                    (same_bigop.same_bigop
-                      cts.zero
                       nat.nat
                       i
                       p
@@ -1319,8 +1304,6 @@ def bigop_diff :
                             i
                             k
                             (not_to_not.not_to_not
-                               cts.zero
-                               cts.zero
                                (eq.eq cts.zero nat.nat i k)
                                (le.le (S.S i) i)
                                (auto:(cts.Term
@@ -1476,10 +1459,6 @@ def bigop_diff :
                    pi)))
           n0
           Hi)
-       (le_to_or_lt_eq.le_to_or_lt_eq
-          cts.zero
-          i
-          n0
-          (le_S_S_to_le.le_S_S_to_le i n0 lein)))
+       (le_to_or_lt_eq.le_to_or_lt_eq i n0 (le_S_S_to_le.le_S_S_to_le i n0 lein)))
     n.
 

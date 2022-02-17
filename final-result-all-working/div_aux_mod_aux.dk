@@ -1135,7 +1135,7 @@ def div_aux_mod_aux :
                                      cts.zero
                                      cts.zero
                                      cts.I
-                                     (Not.Not cts.zero (le.le n m))
+                                     (Not.Not (le.le n m))
                                      (x0 =>
                                       eq.eq
                                         cts.zero
@@ -1167,7 +1167,7 @@ def div_aux_mod_aux :
                                         cts.zero
                                         cts.zero
                                         cts.I
-                                        (Not.Not cts.zero (le.le n m))
+                                        (Not.Not (le.le n m))
                                         (x =>
                                          eq.eq
                                            cts.zero
@@ -1197,9 +1197,7 @@ def div_aux_mod_aux :
                                            cts.zero
                                            cts.zero
                                            cts.I
-                                           (Not.Not
-                                              cts.zero
-                                              (le.le n m))
+                                           (Not.Not (le.le n m))
                                            (x =>
                                             eq.eq
                                               cts.zero
@@ -1237,9 +1235,7 @@ def div_aux_mod_aux :
                                               cts.zero
                                               cts.zero
                                               cts.I
-                                              (Not.Not
-                                                 cts.zero
-                                                 (le.le n m))
+                                              (Not.Not (le.le n m))
                                               (x =>
                                                eq.eq
                                                  cts.zero
@@ -1271,9 +1267,7 @@ def div_aux_mod_aux :
                                                  cts.zero
                                                  cts.zero
                                                  cts.I
-                                                 (Not.Not
-                                                    cts.zero
-                                                    (le.le n m))
+                                                 (Not.Not (le.le n m))
                                                  (x =>
                                                   eq.eq
                                                     cts.zero
@@ -1302,9 +1296,7 @@ def div_aux_mod_aux :
                                                     cts.zero
                                                     cts.zero
                                                     cts.I
-                                                    (Not.Not
-                                                       cts.zero
-                                                       (le.le n m))
+                                                    (Not.Not (le.le n m))
                                                     (x =>
                                                      eq.eq
                                                        cts.zero
@@ -1352,9 +1344,7 @@ def div_aux_mod_aux :
                                                        cts.zero
                                                        cts.zero
                                                        cts.I
-                                                       (Not.Not
-                                                          cts.zero
-                                                          (le.le n m))
+                                                       (Not.Not (le.le n m))
                                                        (x =>
                                                         eq.eq
                                                           cts.zero
@@ -1394,9 +1384,7 @@ def div_aux_mod_aux :
                                                           cts.zero
                                                           cts.zero
                                                           cts.I
-                                                          (Not.Not
-                                                             cts.zero
-                                                             (le.le n m))
+                                                          (Not.Not (le.le n m))
                                                           (x =>
                                                            eq.eq
                                                              cts.zero
@@ -1448,9 +1436,7 @@ def div_aux_mod_aux :
                                                              cts.zero
                                                              cts.zero
                                                              cts.I
-                                                             (Not.Not
-                                                                cts.zero
-                                                                (le.le n m))
+                                                             (Not.Not (le.le n m))
                                                              (x =>
                                                               eq.eq
                                                                 cts.zero
@@ -1502,7 +1488,6 @@ def div_aux_mod_aux :
                                                                 cts.zero
                                                                 cts.I
                                                                 (Not.Not
-                                                                   cts.zero
                                                                    (le.le n m))
                                                                 (x =>
                                                                  eq.eq
@@ -1546,7 +1531,6 @@ def div_aux_mod_aux :
                                                                    cts.zero
                                                                    cts.I
                                                                    (Not.Not
-                                                                    cts.zero
                                                                     (le.le
                                                                     n
                                                                     m))
@@ -1567,7 +1551,6 @@ def div_aux_mod_aux :
                                                                  cts.Term
                                                                    cts.zero
                                                                    (Not.Not
-                                                                    cts.zero
                                                                     (le.le
                                                                     n
                                                                     m))) =>

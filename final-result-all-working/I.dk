@@ -1,2 +1,2 @@
-I :  (l?0 : cts.Sort) -> cts.Term l?0 (True.True l?0).
+I :  cts.Term cts.zero True.True.
 

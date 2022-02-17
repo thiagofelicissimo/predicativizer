@@ -56,11 +56,8 @@ def divides_to_le :  (l?0 : cts.Sort) ->
                (eq.eq cts.zero nat.nat m (times.times n O.O))) =>
         falsity.falsity
           cts.zero
-          cts.zero
           (le.le n m)
           (absurd.absurd
-             cts.zero
-             cts.zero
              (le.le (S.S m) O.O)
              (eq_coerc.eq_coerc
                 cts.zero

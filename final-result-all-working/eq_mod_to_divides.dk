@@ -120,7 +120,7 @@ def eq_mod_to_divides :  (l?0 : cts.Sort) ->
                       (plus_O_n.plus_O_n n))
                    (minus.minus O.O (minus.minus m n))
                    (minus_O_n.minus_O_n (minus.minus m n)))))))
-    (nm:(cts.Term cts.zero (Not.Not cts.zero (le.le n m))) =>
+    (nm:(cts.Term cts.zero (Not.Not (le.le n m))) =>
      quotient.quotient
        l?0
        q

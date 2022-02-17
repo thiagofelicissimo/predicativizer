@@ -20,7 +20,7 @@ def not_le_to_lt :
              cts.zero
              cts.zero
              cts.I
-             (Not.Not cts.zero (le.le x x0))
+             (Not.Not (le.le x x0))
              (x1 => lt.lt x0 x))))
   :=
   nat_elim2.nat_elim2
@@ -32,17 +32,14 @@ def not_le_to_lt :
        cts.zero
        cts.zero
        cts.I
-       (Not.Not cts.zero (le.le __ _0))
+       (Not.Not (le.le __ _0))
        (x => lt.lt _0 __))
     (n:(cts.Term cts.zero nat.nat) =>
-     abs:(cts.Term cts.zero (Not.Not cts.zero (le.le O.O n))) =>
+     abs:(cts.Term cts.zero (Not.Not (le.le O.O n))) =>
      falsity.falsity
-       cts.zero
        cts.zero
        (lt.lt n O.O)
        (absurd.absurd
-          cts.zero
-          cts.zero
           (le.le O.O n)
           (eq_coerc.eq_coerc
              cts.zero
@@ -68,8 +65,7 @@ def not_le_to_lt :
                 (plus_n_O.plus_n_O n)))
           abs))
     (n:(cts.Term cts.zero nat.nat) =>
-     auto:(cts.Term cts.zero (Not.Not cts.zero (le.le (S.S n) O.O))) =>
-     lt_O_S.lt_O_S n)
+     auto:(cts.Term cts.zero (Not.Not (le.le (S.S n) O.O))) => lt_O_S.lt_O_S n)
     (n:(cts.Term cts.zero nat.nat) =>
      m:(cts.Term cts.zero nat.nat) =>
      Hind:(cts.Term
@@ -79,10 +75,8 @@ def not_le_to_lt :
                 cts.zero
                 cts.zero
                 cts.I
-                (Not.Not cts.zero (le.le n m))
+                (Not.Not (le.le n m))
                 (x => lt.lt m n))) =>
-     HnotleSS:(cts.Term
-                 cts.zero
-                 (Not.Not cts.zero (le.le (S.S n) (S.S m)))) =>
+     HnotleSS:(cts.Term cts.zero (Not.Not (le.le (S.S n) (S.S m)))) =>
      le_S_S.le_S_S (S.S m) n (Hind (not_le_S_S_to_not_le.not_le_S_S_to_not_le n m HnotleSS))).
 

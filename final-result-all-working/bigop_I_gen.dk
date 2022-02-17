@@ -692,10 +692,6 @@ def bigop_I_gen :
              (x => nat.nat))) =>
      lea:(cts.Term cts.zero (le.le a (S.S b0))) =>
      match_Or_prop.match_Or_prop
-       cts.zero
-       cts.zero
-       cts.zero
-       cts.zero
        (lt.lt a (S.S b0))
        (eq.eq cts.zero nat.nat a (S.S b0))
        (eq.eq
@@ -719,10 +715,6 @@ def bigop_I_gen :
              (i:(cts.Term cts.zero nat.nat) => f i)))
        (Ha:(cts.Term cts.zero (lt.lt a (S.S b0))) =>
         match_Or_prop.match_Or_prop
-          cts.zero
-          cts.zero
-          cts.zero
-          cts.zero
           (eq.eq cts.zero bool.bool (p b0) true.true)
           (eq.eq cts.zero bool.bool (p b0) false.false)
           (eq.eq
@@ -1649,7 +1641,7 @@ def bigop_I_gen :
                       (leb.leb a b0))
                    (p b0)
                    Hcase)))
-          (true_or_false.true_or_false cts.zero (p b0)))
+          (true_or_false.true_or_false (p b0)))
        (Ha:(cts.Term cts.zero (eq.eq cts.zero nat.nat a (S.S b0))) =>
         eq_ind.eq_ind
           cts.zero
@@ -1880,7 +1872,6 @@ def bigop_I_gen :
                             times.times
                             (i:(cts.Term cts.zero nat.nat) => f i)))
                       (same_bigop.same_bigop
-                         cts.zero
                          nat.nat
                          a
                          (__:(cts.Term cts.zero nat.nat) => false.false)
@@ -1939,6 +1930,6 @@ def bigop_I_gen :
              (minus_n_n.minus_n_n a))
           (S.S b0)
           Ha)
-       (le_to_or_lt_eq.le_to_or_lt_eq cts.zero a (S.S b0) lea))
+       (le_to_or_lt_eq.le_to_or_lt_eq a (S.S b0) lea))
     b.
 

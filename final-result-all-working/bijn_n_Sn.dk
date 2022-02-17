@@ -1,35 +1,35 @@
-def bijn_n_Sn :  (l?10 : cts.Sort) -> (l?11 : cts.Sort) ->
+def bijn_n_Sn :  (l?0 : cts.Sort) ->
   cts.Term
-    (cts.max l?10 l?11)
+    l?0
     (cts.prod
        cts.zero
-       (cts.max l?10 l?11)
-       (cts.max l?10 l?11)
+       l?0
+       l?0
        cts.I
        (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))
        (x =>
         cts.prod
           cts.zero
-          (cts.max l?10 l?11)
-          (cts.max l?10 l?11)
+          l?0
+          l?0
           cts.I
           nat.nat
           (x0 =>
            cts.prod
-             l?10
-             l?11
-             (cts.max l?10 l?11)
+             l?0
+             cts.zero
+             l?0
              cts.I
-             (bijn.bijn l?10 x x0)
+             (bijn.bijn l?0 x x0)
              (x1 =>
               cts.prod
                 cts.zero
-                l?11
-                l?11
+                cts.zero
+                cts.zero
                 cts.I
                 (eq.eq cts.zero nat.nat (x (S.S x0)) (S.S x0))
-                (x2 => bijn.bijn l?11 x (S.S x0))))))
-  := l?10 => l?11 =>
+                (x2 => bijn.bijn cts.zero x (S.S x0))))))
+  := l?0 =>
   f:(cts.Term
        cts.zero
        (cts.prod
@@ -40,102 +40,61 @@ def bijn_n_Sn :  (l?10 : cts.Sort) -> (l?11 : cts.Sort) ->
           nat.nat
           (x => nat.nat))) =>
   n:(cts.Term cts.zero nat.nat) =>
-  bijf:(cts.Term l?10 (bijn.bijn l?10 f n)) =>
+  bijf:(cts.Term l?0 (bijn.bijn l?0 f n)) =>
   fS:(cts.Term cts.zero (eq.eq cts.zero nat.nat (f (S.S n)) (S.S n))) =>
   i:(cts.Term cts.zero nat.nat) =>
   lein:(cts.Term cts.zero (le.le i (S.S n))) =>
   match_Or_prop.match_Or_prop
-    l?11
-    cts.zero
-    cts.zero
-    cts.zero
     (lt.lt i (S.S n))
     (eq.eq cts.zero nat.nat i (S.S n))
     (ex.ex
        cts.zero
        cts.zero
-       l?11
+       cts.zero
        nat.nat
        (p:(cts.Term cts.zero nat.nat) =>
-        And.And
-          cts.zero
-          cts.zero
-          cts.zero
-          (le.le p (S.S n))
-          (eq.eq cts.zero nat.nat (f p) i)))
+        And.And (le.le p (S.S n)) (eq.eq cts.zero nat.nat (f p) i)))
     (Hi:(cts.Term cts.zero (lt.lt i (S.S n))) =>
      match_ex_prop.match_ex_prop
-       l?11
        cts.zero
        cts.zero
-       l?10
+       cts.zero
+       l?0
        nat.nat
        (p:(cts.Term cts.zero nat.nat) =>
-        And.And
-          cts.zero
-          cts.zero
-          cts.zero
-          (le.le p n)
-          (eq.eq cts.zero nat.nat (f p) i))
+        And.And (le.le p n) (eq.eq cts.zero nat.nat (f p) i))
        (ex.ex
           cts.zero
           cts.zero
-          l?11
+          cts.zero
           nat.nat
           (p:(cts.Term cts.zero nat.nat) =>
-           And.And
-             cts.zero
-             cts.zero
-             cts.zero
-             (le.le p (S.S n))
-             (eq.eq cts.zero nat.nat (f p) i)))
+           And.And (le.le p (S.S n)) (eq.eq cts.zero nat.nat (f p) i)))
        (a:(cts.Term cts.zero nat.nat) =>
         _clearme:(cts.Term
                     cts.zero
-                    (And.And
-                       cts.zero
-                       cts.zero
-                       cts.zero
-                       (le.le a n)
-                       (eq.eq cts.zero nat.nat (f a) i))) =>
+                    (And.And (le.le a n) (eq.eq cts.zero nat.nat (f a) i))) =>
         match_And_prop.match_And_prop
-          l?11
-          cts.zero
-          cts.zero
-          cts.zero
           (le.le a n)
           (eq.eq cts.zero nat.nat (f a) i)
           (ex.ex
              cts.zero
              cts.zero
-             l?11
+             cts.zero
              nat.nat
              (p:(cts.Term cts.zero nat.nat) =>
-              And.And
-                cts.zero
-                cts.zero
-                cts.zero
-                (le.le p (S.S n))
-                (eq.eq cts.zero nat.nat (f p) i)))
+              And.And (le.le p (S.S n)) (eq.eq cts.zero nat.nat (f p) i)))
           (lean:(cts.Term cts.zero (le.le a n)) =>
            fa:(cts.Term cts.zero (eq.eq cts.zero nat.nat (f a) i)) =>
            ex_intro.ex_intro
              cts.zero
              cts.zero
-             l?11
+             cts.zero
              nat.nat
              (x:(cts.Term cts.zero nat.nat) =>
-              And.And
-                cts.zero
-                cts.zero
-                cts.zero
-                (le.le x (S.S n))
-                (eq.eq cts.zero nat.nat (f x) i))
+              And.And (le.le x (S.S n)) (eq.eq cts.zero nat.nat (f x) i))
              a
              (conj.conj
-                cts.zero
-                cts.zero
-                cts.zero
                 (le.le a (S.S n))
                 (eq.eq cts.zero nat.nat (f a) i)
                 (le_S.le_S a n lean)
@@ -155,20 +114,12 @@ def bijn_n_Sn :  (l?10 : cts.Sort) -> (l?11 : cts.Sort) ->
      ex_intro.ex_intro
        cts.zero
        cts.zero
-       l?11
+       cts.zero
        nat.nat
        (x:(cts.Term cts.zero nat.nat) =>
-        And.And
-          cts.zero
-          cts.zero
-          cts.zero
-          (le.le x (S.S n))
-          (eq.eq cts.zero nat.nat (f x) i))
+        And.And (le.le x (S.S n)) (eq.eq cts.zero nat.nat (f x) i))
        i
        (conj.conj
-          cts.zero
-          cts.zero
-          cts.zero
           (le.le i (S.S n))
           (eq.eq cts.zero nat.nat (f i) i)
           (eq_coerc.eq_coerc
@@ -220,5 +171,5 @@ def bijn_n_Sn :  (l?10 : cts.Sort) -> (l?11 : cts.Sort) ->
                    Hi)
                 i
                 Hi))))
-    (le_to_or_lt_eq.le_to_or_lt_eq cts.zero i (S.S n) lein).
+    (le_to_or_lt_eq.le_to_or_lt_eq i (S.S n) lein).
 

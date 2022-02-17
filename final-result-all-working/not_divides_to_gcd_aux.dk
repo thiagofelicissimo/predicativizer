@@ -1,54 +1,52 @@
-def not_divides_to_gcd_aux :  (l?0 : cts.Sort) ->
+def not_divides_to_gcd_aux : 
   cts.Term
-    l?0
+    cts.zero
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            cts.prod
              cts.zero
-             l?0
-             l?0
+             cts.zero
+             cts.zero
              cts.I
              nat.nat
              (x1 =>
               cts.prod
                 cts.zero
-                l?0
-                l?0
+                cts.zero
+                cts.zero
                 cts.I
                 (lt.lt O.O x1)
                 (x2 =>
                  cts.prod
-                   l?0
                    cts.zero
-                   l?0
+                   cts.zero
+                   cts.zero
                    cts.I
-                   (Not.Not
-                      l?0
-                      (divides.divides l?0 x1 x0))
+                   (Not.Not (divides.divides cts.zero x1 x0))
                    (x3 =>
                     eq.eq
                       cts.zero
                       nat.nat
                       (gcd_aux.gcd_aux (S.S x) x0 x1)
                       (gcd_aux.gcd_aux x x1 (mod.mod x0 x1))))))))
-  := l?0 =>
+  :=
   p:(cts.Term cts.zero nat.nat) =>
   m:(cts.Term cts.zero nat.nat) =>
   n:(cts.Term cts.zero nat.nat) =>
   sym_eq_gcd_aux.sym_eq_gcd_aux
-    l?0
+    cts.zero
     (S.S p)
     (y:(cts.Term
           cts.zero
@@ -68,19 +66,17 @@ def not_divides_to_gcd_aux :  (l?0 : cts.Sort) ->
                 (x0 => nat.nat)))) =>
      cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        (lt.lt O.O n)
        (x =>
         cts.prod
-          l?0
           cts.zero
-          l?0
+          cts.zero
+          cts.zero
           cts.I
-          (Not.Not
-             l?0
-             (divides.divides l?0 n m))
+          (Not.Not (divides.divides cts.zero n m))
           (x0 =>
            eq.eq
              cts.zero
@@ -88,7 +84,7 @@ def not_divides_to_gcd_aux :  (l?0 : cts.Sort) ->
              (y m n)
              (gcd_aux.gcd_aux p n (mod.mod m n)))))
     (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
-       l?0
+       cts.zero
        cts.zero
        (cts.prod
           cts.zero
@@ -124,19 +120,17 @@ def not_divides_to_gcd_aux :  (l?0 : cts.Sort) ->
                    (x0 => nat.nat)))) =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           (lt.lt O.O n)
           (x =>
            cts.prod
-             l?0
              cts.zero
-             l?0
+             cts.zero
+             cts.zero
              cts.I
-             (Not.Not
-                l?0
-                (divides.divides l?0 n m))
+             (Not.Not (divides.divides cts.zero n m))
              (x0 =>
               eq.eq
                 cts.zero
@@ -144,7 +138,7 @@ def not_divides_to_gcd_aux :  (l?0 : cts.Sort) ->
                 (y m n)
                 (gcd_aux.gcd_aux p n (mod.mod m n)))))
        (sym_eq_gcd_aux_body_S.sym_eq_gcd_aux_body_S
-          l?0
+          cts.zero
           p
           (y:(cts.Term
                 cts.zero
@@ -164,19 +158,17 @@ def not_divides_to_gcd_aux :  (l?0 : cts.Sort) ->
                       (x0 => nat.nat)))) =>
            cts.prod
              cts.zero
-             l?0
-             l?0
+             cts.zero
+             cts.zero
              cts.I
              (lt.lt O.O n)
              (x =>
               cts.prod
-                l?0
                 cts.zero
-                l?0
+                cts.zero
+                cts.zero
                 cts.I
-                (Not.Not
-                   l?0
-                   (divides.divides l?0 n m))
+                (Not.Not (divides.divides cts.zero n m))
                 (x0 =>
                  eq.eq
                    cts.zero
@@ -185,10 +177,8 @@ def not_divides_to_gcd_aux :  (l?0 : cts.Sort) ->
                    (gcd_aux.gcd_aux p n (mod.mod m n)))))
           (lenm:(cts.Term cts.zero (lt.lt O.O n)) =>
            divnm:(cts.Term
-                    l?0
-                    (Not.Not
-                       l?0
-                       (divides.divides l?0 n m))) =>
+                    cts.zero
+                    (Not.Not (divides.divides cts.zero n m))) =>
            eq_ind_r.eq_ind_r
              cts.zero
              cts.zero
@@ -249,10 +239,5 @@ def not_divides_to_gcd_aux :  (l?0 : cts.Sort) ->
                           mod_aux.mod_aux m m p0)
                          n))))
              (dividesb.dividesb n m)
-             (not_divides_to_dividesb_false.not_divides_to_dividesb_false
-                l?0
-                n
-                m
-                lenm
-                divnm)))).
+             (not_divides_to_dividesb_false.not_divides_to_dividesb_false n m lenm divnm)))).
 

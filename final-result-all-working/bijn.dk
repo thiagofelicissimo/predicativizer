@@ -40,10 +40,5 @@ def bijn :  (l?10 : cts.Sort) ->
           l?10
           nat.nat
           (p:(cts.Term cts.zero nat.nat) =>
-           And.And
-             cts.zero
-             cts.zero
-             cts.zero
-             (le.le p n)
-             (eq.eq cts.zero nat.nat (f p) x)))).
+           And.And (le.le p n) (eq.eq cts.zero nat.nat (f p) x)))).
 

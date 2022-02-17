@@ -20,7 +20,7 @@ def not_eq_to_le_to_lt :
              cts.zero
              cts.zero
              cts.I
-             (Not.Not cts.zero (eq.eq cts.zero nat.nat x x0))
+             (Not.Not (eq.eq cts.zero nat.nat x x0))
              (x1 =>
               cts.prod
                 cts.zero
@@ -34,13 +34,9 @@ def not_eq_to_le_to_lt :
   m:(cts.Term cts.zero nat.nat) =>
   Hneq:(cts.Term
           cts.zero
-          (Not.Not cts.zero (eq.eq cts.zero nat.nat n m))) =>
+          (Not.Not (eq.eq cts.zero nat.nat n m))) =>
   Hle:(cts.Term cts.zero (le.le n m)) =>
   match_Or_prop.match_Or_prop
-    cts.zero
-    cts.zero
-    cts.zero
-    cts.zero
     (lt.lt n m)
     (eq.eq cts.zero nat.nat n m)
     (lt.lt n m)
@@ -50,8 +46,6 @@ def not_eq_to_le_to_lt :
        m
        n
        (not_to_not.not_to_not
-          cts.zero
-          cts.zero
           (le.le m n)
           (eq.eq cts.zero nat.nat n m)
           (auto:(cts.Term cts.zero (le.le m n)) =>
@@ -66,5 +60,5 @@ def not_eq_to_le_to_lt :
              m
              Heq)
           Hneq))
-    (le_to_or_lt_eq.le_to_or_lt_eq cts.zero n m Hle).
+    (le_to_or_lt_eq.le_to_or_lt_eq n m Hle).
 

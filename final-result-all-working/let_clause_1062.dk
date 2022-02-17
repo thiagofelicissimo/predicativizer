@@ -1,54 +1,54 @@
-def let_clause_1062 :  (l?64 : cts.Sort) -> (l?20 : cts.Sort) ->
+def let_clause_1062 :  (l?62 : cts.Sort) -> (l?20 : cts.Sort) ->
   cts.Term
-    (cts.max l?64 l?20)
+    (cts.max l?62 l?20)
     (cts.prod
        cts.zero
-       (cts.max l?64 l?20)
-       (cts.max l?64 l?20)
+       (cts.max l?62 l?20)
+       (cts.max l?62 l?20)
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          (cts.max l?64 l?20)
-          (cts.max l?64 l?20)
+          (cts.max l?62 l?20)
+          (cts.max l?62 l?20)
           cts.I
           nat.nat
           (x0 =>
            cts.prod
              cts.zero
-             (cts.max l?64 l?20)
-             (cts.max l?64 l?20)
+             (cts.max l?62 l?20)
+             (cts.max l?62 l?20)
              cts.I
              nat.nat
              (x1 =>
               cts.prod
                 cts.zero
-                (cts.max l?64 l?20)
-                (cts.max l?64 l?20)
+                (cts.max l?62 l?20)
+                (cts.max l?62 l?20)
                 cts.I
                 nat.nat
                 (x2 =>
                  cts.prod
                    cts.zero
-                   (cts.max l?64 l?20)
-                   (cts.max l?64 l?20)
+                   (cts.max l?62 l?20)
+                   (cts.max l?62 l?20)
                    cts.I
                    nat.nat
                    (x3 =>
                     cts.prod
                       cts.zero
-                      (cts.max l?64 l?20)
-                      (cts.max l?64 l?20)
+                      (cts.max l?62 l?20)
+                      (cts.max l?62 l?20)
                       cts.I
                       nat.nat
                       (x4 =>
                        cts.prod
-                         l?64
+                         l?62
                          l?20
-                         (cts.max l?64 l?20)
+                         (cts.max l?62 l?20)
                          cts.I
-                         (div_mod_spec.div_mod_spec l?64 x x0 x1 x2)
+                         (div_mod_spec.div_mod_spec l?62 x x0 x1 x2)
                          (x5 =>
                           cts.prod
                             cts.zero
@@ -103,16 +103,14 @@ def let_clause_1062 :  (l?64 : cts.Sort) -> (l?20 : cts.Sort) ->
                                            cts.zero
                                            cts.zero
                                            cts.I
-                                           (Not.Not
-                                              cts.zero
-                                              (le.le x1 x3))
+                                           (Not.Not (le.le x1 x3))
                                            (x11 =>
                                             eq.eq
                                               cts.zero
                                               nat.nat
                                               x
                                               (plus.plus x4 (times.times x0 x3))))))))))))))))
-  := l?64 => l?20 =>
+  := l?62 => l?20 =>
   a:(cts.Term cts.zero nat.nat) =>
   b:(cts.Term cts.zero nat.nat) =>
   q:(cts.Term cts.zero nat.nat) =>
@@ -120,8 +118,8 @@ def let_clause_1062 :  (l?64 : cts.Sort) -> (l?20 : cts.Sort) ->
   q1:(cts.Term cts.zero nat.nat) =>
   r1:(cts.Term cts.zero nat.nat) =>
   _clearme:(cts.Term
-              l?64
-              (div_mod_spec.div_mod_spec l?64 a b q r)) =>
+              l?62
+              (div_mod_spec.div_mod_spec l?62 a b q r)) =>
   ltrb:(cts.Term cts.zero (lt.lt r b)) =>
   spec:(cts.Term
           cts.zero
@@ -133,7 +131,7 @@ def let_clause_1062 :  (l?64 : cts.Sort) -> (l?20 : cts.Sort) ->
   spec1:(cts.Term
            cts.zero
            (eq.eq cts.zero nat.nat a (plus.plus (times.times q1 b) r1))) =>
-  leqq1:(cts.Term cts.zero (Not.Not cts.zero (le.le q q1))) =>
+  leqq1:(cts.Term cts.zero (Not.Not (le.le q q1))) =>
   rewrite_l.rewrite_l
     cts.zero
     cts.zero

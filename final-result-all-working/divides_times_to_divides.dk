@@ -1,110 +1,85 @@
-def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?15 : cts.Sort) -> (l?47 : cts.Sort) -> (l?19 : cts.Sort) ->
+def divides_times_to_divides :  (l?0 : cts.Sort) ->
   cts.Term
-    (cts.max l?280 (cts.max l?278 l?15))
+    l?0
     (cts.prod
        cts.zero
-       (cts.max l?280 (cts.max l?278 l?15))
-       (cts.max l?280 (cts.max l?278 l?15))
+       l?0
+       l?0
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          (cts.max l?280 (cts.max l?278 l?15))
-          (cts.max l?280 (cts.max l?278 l?15))
+          l?0
+          l?0
           cts.I
           nat.nat
           (x0 =>
            cts.prod
              cts.zero
-             (cts.max l?280 (cts.max l?278 l?15))
-             (cts.max l?280 (cts.max l?278 l?15))
+             l?0
+             l?0
              cts.I
              nat.nat
              (x1 =>
               cts.prod
-                l?280
-                (cts.max l?278 l?15)
-                (cts.max l?280 (cts.max l?278 l?15))
+                cts.zero
+                l?0
+                l?0
                 cts.I
-                (prime.prime l?280 x)
+                (prime.prime x)
                 (x2 =>
                  cts.prod
-                   l?278
-                   l?15
-                   (cts.max l?278 l?15)
+                   l?0
+                   cts.zero
+                   l?0
                    cts.I
-                   (divides.divides l?278 x (times.times x0 x1))
+                   (divides.divides l?0 x (times.times x0 x1))
                    (x3 =>
                     Or.Or
-                      l?47
-                      l?19
-                      l?15
-                      (divides.divides l?47 x x0)
-                      (divides.divides l?19 x x1)))))))
-  := l?280 => l?278 => l?15 => l?47 => l?19 =>
+                      (divides.divides cts.zero x x0)
+                      (divides.divides cts.zero x x1)))))))
+  := l?0 =>
   p:(cts.Term cts.zero nat.nat) =>
   n:(cts.Term cts.zero nat.nat) =>
   m:(cts.Term cts.zero nat.nat) =>
-  primp:(cts.Term
-           l?280
-           (prime.prime l?280 p)) =>
+  primp:(cts.Term cts.zero (prime.prime p)) =>
   _clearme:(cts.Term
-              l?278
-              (divides.divides l?278 p (times.times n m))) =>
+              l?0
+              (divides.divides l?0 p (times.times n m))) =>
   match_divides_prop.match_divides_prop
-    l?15
-    l?278
+    cts.zero
+    l?0
     p
     (times.times n m)
     (Or.Or
-       l?47
-       l?19
-       l?15
-       (divides.divides l?47 p n)
-       (divides.divides l?19 p m))
+       (divides.divides cts.zero p n)
+       (divides.divides cts.zero p m))
     (c:(cts.Term cts.zero nat.nat) =>
      nm:(cts.Term
            cts.zero
            (eq.eq cts.zero nat.nat (times.times n m) (times.times p c))) =>
      match_Or_prop.match_Or_prop
-       l?15
-       l?47
-       l?47
-       cts.zero
-       (divides.divides l?47 p n)
-       (Not.Not
-          l?47
-          (divides.divides l?47 p n))
+       (divides.divides cts.zero p n)
+       (Not.Not (divides.divides cts.zero p n))
        (Or.Or
-          l?47
-          l?19
-          l?15
-          (divides.divides l?47 p n)
-          (divides.divides l?19 p m))
+          (divides.divides cts.zero p n)
+          (divides.divides cts.zero p m))
        (auto:(cts.Term
-                l?47
-                (divides.divides l?47 p n)) =>
+                cts.zero
+                (divides.divides cts.zero p n)) =>
         or_introl.or_introl
-          l?47
-          l?19
-          l?15
-          (divides.divides l?47 p n)
-          (divides.divides l?19 p m)
+          (divides.divides cts.zero p n)
+          (divides.divides cts.zero p m)
           auto)
        (ndivpn:(cts.Term
-                  l?47
-                  (Not.Not
-                     l?47
-                     (divides.divides l?47 p n))) =>
+                  cts.zero
+                  (Not.Not (divides.divides cts.zero p n))) =>
         or_intror.or_intror
-          l?47
-          l?19
-          l?15
-          (divides.divides l?47 p n)
-          (divides.divides l?19 p m)
+          (divides.divides cts.zero p n)
+          (divides.divides cts.zero p m)
           (match_ex_prop.match_ex_prop
-             l?19
+             cts.zero
              cts.zero
              cts.zero
              cts.zero
@@ -117,9 +92,6 @@ def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?1
                 nat.nat
                 (b:(cts.Term cts.zero nat.nat) =>
                  Or.Or
-                   cts.zero
-                   cts.zero
-                   cts.zero
                    (eq.eq
                       cts.zero
                       nat.nat
@@ -130,7 +102,7 @@ def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?1
                       nat.nat
                       (minus.minus (times.times b p) (times.times a n))
                       (S.S O.O))))
-             (divides.divides l?19 p m)
+             (divides.divides cts.zero p m)
              (a:(cts.Term cts.zero nat.nat) =>
               _clearme0:(cts.Term
                            cts.zero
@@ -141,9 +113,6 @@ def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?1
                               nat.nat
                               (b:(cts.Term cts.zero nat.nat) =>
                                Or.Or
-                                 cts.zero
-                                 cts.zero
-                                 cts.zero
                                  (eq.eq
                                     cts.zero
                                     nat.nat
@@ -155,16 +124,13 @@ def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?1
                                     (minus.minus (times.times b p) (times.times a n))
                                     (S.S O.O))))) =>
               match_ex_prop.match_ex_prop
-                l?19
+                cts.zero
                 cts.zero
                 cts.zero
                 cts.zero
                 nat.nat
                 (b:(cts.Term cts.zero nat.nat) =>
                  Or.Or
-                   cts.zero
-                   cts.zero
-                   cts.zero
                    (eq.eq
                       cts.zero
                       nat.nat
@@ -175,14 +141,11 @@ def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?1
                       nat.nat
                       (minus.minus (times.times b p) (times.times a n))
                       (S.S O.O)))
-                (divides.divides l?19 p m)
+                (divides.divides cts.zero p m)
                 (b:(cts.Term cts.zero nat.nat) =>
                  _clearme1:(cts.Term
                               cts.zero
                               (Or.Or
-                                 cts.zero
-                                 cts.zero
-                                 cts.zero
                                  (eq.eq
                                     cts.zero
                                     nat.nat
@@ -194,10 +157,6 @@ def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?1
                                     (minus.minus (times.times b p) (times.times a n))
                                     (S.S O.O)))) =>
                  match_Or_prop.match_Or_prop
-                   l?19
-                   cts.zero
-                   cts.zero
-                   cts.zero
                    (eq.eq
                       cts.zero
                       nat.nat
@@ -208,7 +167,7 @@ def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?1
                       nat.nat
                       (minus.minus (times.times b p) (times.times a n))
                       (S.S O.O))
-                   (divides.divides l?19 p m)
+                   (divides.divides cts.zero p m)
                    (H:(cts.Term
                          cts.zero
                          (eq.eq
@@ -217,7 +176,7 @@ def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?1
                             (minus.minus (times.times a n) (times.times b p))
                             (S.S O.O))) =>
                     quotient.quotient
-                      l?19
+                      cts.zero
                       p
                       m
                       (minus.minus (times.times a c) (times.times b m))
@@ -259,9 +218,7 @@ def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?1
                                   cts.zero
                                   nat.nat
                                   (times.times a (times.times p c))
-                                  (x:(cts.Term
-                                        cts.zero
-                                        nat.nat) =>
+                                  (x:(cts.Term cts.zero nat.nat) =>
                                    eq.eq
                                      cts.zero
                                      nat.nat
@@ -515,7 +472,7 @@ def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?1
                             (minus.minus (times.times b p) (times.times a n))
                             (S.S O.O))) =>
                     quotient.quotient
-                      l?19
+                      cts.zero
                       p
                       m
                       (minus.minus (times.times b m) (times.times a c))
@@ -824,9 +781,6 @@ def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?1
                       nat.nat
                       (b:(cts.Term cts.zero nat.nat) =>
                        Or.Or
-                         cts.zero
-                         cts.zero
-                         cts.zero
                          (eq.eq
                             cts.zero
                             nat.nat
@@ -856,9 +810,6 @@ def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?1
                          nat.nat
                          (b:(cts.Term cts.zero nat.nat) =>
                           Or.Or
-                            cts.zero
-                            cts.zero
-                            cts.zero
                             (eq.eq
                                cts.zero
                                nat.nat
@@ -869,26 +820,11 @@ def divides_times_to_divides :  (l?280 : cts.Sort) -> (l?278 : cts.Sort) -> (l?1
                                nat.nat
                                (minus.minus (times.times b p) (times.times a n))
                                x))))
-                   (eq_minus_gcd.eq_minus_gcd
-                      cts.zero
-                      cts.zero
-                      cts.zero
-                      p
-                      n)
+                   (eq_minus_gcd.eq_minus_gcd cts.zero p n)
                    (gcd.gcd p n)
                    (commutative_gcd.commutative_gcd p n))
                 (S.S O.O)
-                (prime_to_gcd_1.prime_to_gcd_1
-                   l?280
-                   l?47
-                   p
-                   n
-                   primp
-                   ndivpn))))
-       (decidable_divides.decidable_divides
-          cts.zero
-          l?47
-          p
-          n))
+                (prime_to_gcd_1.prime_to_gcd_1 p n primp ndivpn))))
+       (decidable_divides.decidable_divides p n))
     _clearme.
 

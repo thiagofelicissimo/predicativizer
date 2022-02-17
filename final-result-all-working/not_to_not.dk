@@ -1,51 +1,46 @@
-def not_to_not :  (l?34 : cts.Sort) -> (l?37 : cts.Sort) ->
+def not_to_not : 
   cts.Term
-    (cts.max (cts.succ l?37) (cts.max (cts.succ l?34) (cts.max (cts.max l?37 l?34) (cts.max l?34 l?37))))
+    (cts.succ cts.zero)
     (cts.prod
-       (cts.succ l?37)
-       (cts.max (cts.succ l?34) (cts.max (cts.max l?37 l?34) (cts.max l?34 l?37)))
-       (cts.max (cts.succ l?37) (cts.max (cts.succ l?34) (cts.max (cts.max l?37 l?34) (cts.max l?34 l?37))))
+       (cts.succ cts.zero)
+       (cts.succ cts.zero)
+       (cts.succ cts.zero)
        cts.I
-       (cts.univ l?37 (cts.succ l?37) cts.I)
+       (cts.univ cts.zero (cts.succ cts.zero) cts.I)
        (x =>
         cts.prod
-          (cts.succ l?34)
-          (cts.max (cts.max l?37 l?34) (cts.max l?34 l?37))
-          (cts.max (cts.succ l?34) (cts.max (cts.max l?37 l?34) (cts.max l?34 l?37)))
+          (cts.succ cts.zero)
+          cts.zero
+          (cts.succ cts.zero)
           cts.I
-          (cts.univ l?34 (cts.succ l?34) cts.I)
+          (cts.univ cts.zero (cts.succ cts.zero) cts.I)
           (x0 =>
            cts.prod
-             (cts.max l?37 l?34)
-             (cts.max l?34 l?37)
-             (cts.max (cts.max l?37 l?34) (cts.max l?34 l?37))
+             cts.zero
+             cts.zero
+             cts.zero
              cts.I
              (cts.prod
-                l?37
-                l?34
-                (cts.max l?37 l?34)
+                cts.zero
+                cts.zero
+                cts.zero
                 cts.I
                 x
                 (x1 => x0))
              (x1 =>
               cts.prod
-                l?34
-                l?37
-                (cts.max l?34 l?37)
+                cts.zero
+                cts.zero
+                cts.zero
                 cts.I
-                (Not.Not l?34 x0)
-                (x2 => Not.Not l?37 x)))))
-  := l?34 => l?37 =>
-  A:(cts.Term (cts.succ l?37) (cts.univ l?37 (cts.succ l?37) cts.I)) =>
-  B:(cts.Term (cts.succ l?34) (cts.univ l?34 (cts.succ l?34) cts.I)) =>
+                (Not.Not x0)
+                (x2 => Not.Not x)))))
+  :=
+  A:(cts.Term (cts.succ cts.zero) (cts.univ cts.zero (cts.succ cts.zero) cts.I)) =>
+  B:(cts.Term (cts.succ cts.zero) (cts.univ cts.zero (cts.succ cts.zero) cts.I)) =>
   auto:(cts.Term
-          (cts.max l?37 l?34)
-          (cts.prod l?37 l?34 (cts.max l?37 l?34) cts.I A (x => B))) =>
-  auto':(cts.Term l?34 (Not.Not l?34 B)) =>
-  nmk.nmk
-    cts.zero
-    l?37
-    A
-    (auto'':(cts.Term l?37 A) =>
-     absurd.absurd l?34 cts.zero B (auto auto'') auto').
+          cts.zero
+          (cts.prod cts.zero cts.zero cts.zero cts.I A (x => B))) =>
+  auto':(cts.Term cts.zero (Not.Not B)) =>
+  nmk.nmk A (auto'':(cts.Term cts.zero A) => absurd.absurd B (auto auto'') auto').
 

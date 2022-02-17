@@ -1,10 +1,10 @@
-def sub0_to_false :  (l?0 : cts.Sort) ->
+def sub0_to_false : 
   cts.Term
-    l?0
+    cts.zero
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        (cts.prod
           cts.zero
@@ -16,8 +16,8 @@ def sub0_to_false :  (l?0 : cts.Sort) ->
        (x =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           (cts.prod
              cts.zero
@@ -29,22 +29,22 @@ def sub0_to_false :  (l?0 : cts.Sort) ->
           (x0 =>
            cts.prod
              cts.zero
-             l?0
-             l?0
+             cts.zero
+             cts.zero
              cts.I
              nat.nat
              (x1 =>
               cts.prod
                 cts.zero
-                l?0
-                l?0
+                cts.zero
+                cts.zero
                 cts.I
                 nat.nat
                 (x2 =>
                  cts.prod
                    cts.zero
-                   l?0
-                   l?0
+                   cts.zero
+                   cts.zero
                    cts.I
                    (cts.prod
                       cts.zero
@@ -56,8 +56,8 @@ def sub0_to_false :  (l?0 : cts.Sort) ->
                    (x3 =>
                     cts.prod
                       cts.zero
-                      l?0
-                      l?0
+                      cts.zero
+                      cts.zero
                       cts.I
                       (cts.prod
                          cts.zero
@@ -69,8 +69,8 @@ def sub0_to_false :  (l?0 : cts.Sort) ->
                       (x4 =>
                        cts.prod
                          cts.zero
-                         l?0
-                         l?0
+                         cts.zero
+                         cts.zero
                          cts.I
                          (cts.prod
                             cts.zero
@@ -82,8 +82,8 @@ def sub0_to_false :  (l?0 : cts.Sort) ->
                          (x5 =>
                           cts.prod
                             cts.zero
-                            l?0
-                            l?0
+                            cts.zero
+                            cts.zero
                             cts.I
                             (cts.prod
                                cts.zero
@@ -95,26 +95,17 @@ def sub0_to_false :  (l?0 : cts.Sort) ->
                             (x6 =>
                              cts.prod
                                cts.zero
-                               l?0
-                               l?0
+                               cts.zero
+                               cts.zero
                                cts.I
                                (eq.eq cts.zero nat.nat x1 O.O)
                                (x7 =>
                                 cts.prod
-                                  l?0
                                   cts.zero
-                                  l?0
+                                  cts.zero
+                                  cts.zero
                                   cts.I
-                                  (sub_hk.sub_hk
-                                     l?0
-                                     x
-                                     x0
-                                     x2
-                                     x1
-                                     x4
-                                     x3
-                                     x6
-                                     x5)
+                                  (sub_hk.sub_hk x x0 x2 x1 x4 x3 x6 x5)
                                   (x8 =>
                                    cts.prod
                                      cts.zero
@@ -135,7 +126,7 @@ def sub0_to_false :  (l?0 : cts.Sort) ->
                                            bool.bool
                                            (x4 x9)
                                            false.false)))))))))))))
-  := l?0 =>
+  :=
   h:(cts.Term
        cts.zero
        (cts.prod
@@ -193,16 +184,10 @@ def sub0_to_false :  (l?0 : cts.Sort) ->
            nat.nat
            (x => nat.nat))) =>
   up0:(cts.Term cts.zero (eq.eq cts.zero nat.nat n1 O.O)) =>
-  sub:(cts.Term
-         l?0
-         (sub_hk.sub_hk l?0 h k n2 n1 p2 p1 f2 f1)) =>
+  sub:(cts.Term cts.zero (sub_hk.sub_hk h k n2 n1 p2 p1 f2 f1)) =>
   i:(cts.Term cts.zero nat.nat) =>
   lti:(cts.Term cts.zero (lt.lt i n2)) =>
   match_Or_prop.match_Or_prop
-    cts.zero
-    cts.zero
-    cts.zero
-    cts.zero
     (eq.eq cts.zero bool.bool (p2 i) true.true)
     (eq.eq cts.zero bool.bool (p2 i) false.false)
     (eq.eq cts.zero bool.bool (p2 i) false.false)
@@ -210,31 +195,15 @@ def sub0_to_false :  (l?0 : cts.Sort) ->
               cts.zero
               (eq.eq cts.zero bool.bool (p2 i) true.true)) =>
      match_And_prop.match_And_prop
-       cts.zero
-       cts.zero
-       cts.zero
-       l?0
-       (And.And
-          cts.zero
-          cts.zero
-          cts.zero
-          (lt.lt (h i) n1)
-          (eq.eq cts.zero bool.bool (p1 (h i)) true.true))
+       (And.And (lt.lt (h i) n1) (eq.eq cts.zero bool.bool (p1 (h i)) true.true))
        (eq.eq cts.zero nat.nat (k (h i)) i)
        (eq.eq cts.zero bool.bool (p2 i) false.false)
        (_clearme:(cts.Term
                     cts.zero
                     (And.And
-                       cts.zero
-                       cts.zero
-                       cts.zero
                        (lt.lt (h i) n1)
                        (eq.eq cts.zero bool.bool (p1 (h i)) true.true))) =>
         match_And_prop.match_And_prop
-          cts.zero
-          cts.zero
-          cts.zero
-          cts.zero
           (lt.lt (h i) n1)
           (eq.eq cts.zero bool.bool (p1 (h i)) true.true)
           (cts.prod
@@ -246,7 +215,6 @@ def sub0_to_false :  (l?0 : cts.Sort) ->
              (x => eq.eq cts.zero bool.bool (p2 i) false.false))
           (hi:(cts.Term cts.zero (lt.lt (h i) n1)) =>
            falsity.falsity
-             cts.zero
              cts.zero
              (cts.prod
                 cts.zero
@@ -263,8 +231,6 @@ def sub0_to_false :  (l?0 : cts.Sort) ->
                    (eq.eq cts.zero nat.nat (k (h i)) i)
                    (x0 => eq.eq cts.zero bool.bool (p2 i) false.false)))
              (absurd.absurd
-                cts.zero
-                cts.zero
                 (le.le (S.S (h i)) O.O)
                 (eq_coerc.eq_coerc
                    cts.zero
@@ -304,5 +270,5 @@ def sub0_to_false :  (l?0 : cts.Sort) ->
        (refl.refl cts.zero bool.bool false.false)
        (p2 i)
        auto)
-    (true_or_false.true_or_false cts.zero (p2 i)).
+    (true_or_false.true_or_false (p2 i)).
 

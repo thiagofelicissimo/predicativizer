@@ -1,10 +1,10 @@
-def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort) ->
+def transitive_sub : 
   cts.Term
-    (cts.max l?70 (cts.max l?74 l?75))
+    cts.zero
     (cts.prod
        cts.zero
-       (cts.max l?70 (cts.max l?74 l?75))
-       (cts.max l?70 (cts.max l?74 l?75))
+       cts.zero
+       cts.zero
        cts.I
        (cts.prod
           cts.zero
@@ -16,8 +16,8 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
        (x =>
         cts.prod
           cts.zero
-          (cts.max l?70 (cts.max l?74 l?75))
-          (cts.max l?70 (cts.max l?74 l?75))
+          cts.zero
+          cts.zero
           cts.I
           (cts.prod
              cts.zero
@@ -29,8 +29,8 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
           (x0 =>
            cts.prod
              cts.zero
-             (cts.max l?70 (cts.max l?74 l?75))
-             (cts.max l?70 (cts.max l?74 l?75))
+             cts.zero
+             cts.zero
              cts.I
              (cts.prod
                 cts.zero
@@ -42,8 +42,8 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
              (x1 =>
               cts.prod
                 cts.zero
-                (cts.max l?70 (cts.max l?74 l?75))
-                (cts.max l?70 (cts.max l?74 l?75))
+                cts.zero
+                cts.zero
                 cts.I
                 (cts.prod
                    cts.zero
@@ -55,29 +55,29 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
                 (x2 =>
                  cts.prod
                    cts.zero
-                   (cts.max l?70 (cts.max l?74 l?75))
-                   (cts.max l?70 (cts.max l?74 l?75))
+                   cts.zero
+                   cts.zero
                    cts.I
                    nat.nat
                    (x3 =>
                     cts.prod
                       cts.zero
-                      (cts.max l?70 (cts.max l?74 l?75))
-                      (cts.max l?70 (cts.max l?74 l?75))
+                      cts.zero
+                      cts.zero
                       cts.I
                       nat.nat
                       (x4 =>
                        cts.prod
                          cts.zero
-                         (cts.max l?70 (cts.max l?74 l?75))
-                         (cts.max l?70 (cts.max l?74 l?75))
+                         cts.zero
+                         cts.zero
                          cts.I
                          nat.nat
                          (x5 =>
                           cts.prod
                             cts.zero
-                            (cts.max l?70 (cts.max l?74 l?75))
-                            (cts.max l?70 (cts.max l?74 l?75))
+                            cts.zero
+                            cts.zero
                             cts.I
                             (cts.prod
                                cts.zero
@@ -89,8 +89,8 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
                             (x6 =>
                              cts.prod
                                cts.zero
-                               (cts.max l?70 (cts.max l?74 l?75))
-                               (cts.max l?70 (cts.max l?74 l?75))
+                               cts.zero
+                               cts.zero
                                cts.I
                                (cts.prod
                                   cts.zero
@@ -102,8 +102,8 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
                                (x7 =>
                                 cts.prod
                                   cts.zero
-                                  (cts.max l?70 (cts.max l?74 l?75))
-                                  (cts.max l?70 (cts.max l?74 l?75))
+                                  cts.zero
+                                  cts.zero
                                   cts.I
                                   (cts.prod
                                      cts.zero
@@ -115,8 +115,8 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
                                   (x8 =>
                                    cts.prod
                                      cts.zero
-                                     (cts.max l?70 (cts.max l?74 l?75))
-                                     (cts.max l?70 (cts.max l?74 l?75))
+                                     cts.zero
+                                     cts.zero
                                      cts.I
                                      (cts.prod
                                         cts.zero
@@ -128,8 +128,8 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
                                      (x9 =>
                                       cts.prod
                                         cts.zero
-                                        (cts.max l?70 (cts.max l?74 l?75))
-                                        (cts.max l?70 (cts.max l?74 l?75))
+                                        cts.zero
+                                        cts.zero
                                         cts.I
                                         (cts.prod
                                            cts.zero
@@ -141,8 +141,8 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
                                         (x10 =>
                                          cts.prod
                                            cts.zero
-                                           (cts.max l?70 (cts.max l?74 l?75))
-                                           (cts.max l?70 (cts.max l?74 l?75))
+                                           cts.zero
+                                           cts.zero
                                            cts.I
                                            (cts.prod
                                               cts.zero
@@ -153,28 +153,18 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
                                               (x11 => nat.nat))
                                            (x11 =>
                                             cts.prod
-                                              l?70
-                                              (cts.max l?74 l?75)
-                                              (cts.max l?70 (cts.max l?74 l?75))
+                                              cts.zero
+                                              cts.zero
+                                              cts.zero
                                               cts.I
-                                              (sub_hk.sub_hk
-                                                 l?70
-                                                 x
-                                                 x0
-                                                 x3
-                                                 x4
-                                                 x6
-                                                 x7
-                                                 x9
-                                                 x10)
+                                              (sub_hk.sub_hk x x0 x3 x4 x6 x7 x9 x10)
                                               (x12 =>
                                                cts.prod
-                                                 l?74
-                                                 l?75
-                                                 (cts.max l?74 l?75)
+                                                 cts.zero
+                                                 cts.zero
+                                                 cts.zero
                                                  cts.I
                                                  (sub_hk.sub_hk
-                                                    l?74
                                                     x1
                                                     x2
                                                     x4
@@ -185,7 +175,6 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
                                                     x11)
                                                  (x13 =>
                                                   sub_hk.sub_hk
-                                                    l?75
                                                     (x14:(cts.Term
                                                             cts.zero
                                                             nat.nat) =>
@@ -200,7 +189,7 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
                                                     x8
                                                     x9
                                                     x11))))))))))))))))
-  := l?70 => l?74 => l?75 =>
+  :=
   h1:(cts.Term
         cts.zero
         (cts.prod
@@ -294,68 +283,36 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
            cts.I
            nat.nat
            (x => nat.nat))) =>
-  sub1:(cts.Term
-          l?70
-          (sub_hk.sub_hk l?70 h1 k1 n1 n2 p1 p2 f1 f2)) =>
-  sub2:(cts.Term
-          l?74
-          (sub_hk.sub_hk l?74 h2 k2 n2 n3 p2 p3 f2 f3)) =>
+  sub1:(cts.Term cts.zero (sub_hk.sub_hk h1 k1 n1 n2 p1 p2 f1 f2)) =>
+  sub2:(cts.Term cts.zero (sub_hk.sub_hk h2 k2 n2 n3 p2 p3 f2 f3)) =>
   i:(cts.Term cts.zero nat.nat) =>
   lti:(cts.Term cts.zero (lt.lt i n1)) =>
   fi:(cts.Term cts.zero (eq.eq cts.zero bool.bool (p1 i) true.true)) =>
   match_And_prop.match_And_prop
-    l?75
-    cts.zero
-    cts.zero
-    l?70
-    (And.And
-       cts.zero
-       cts.zero
-       cts.zero
-       (lt.lt (h1 i) n2)
-       (eq.eq cts.zero bool.bool (p2 (h1 i)) true.true))
+    (And.And (lt.lt (h1 i) n2) (eq.eq cts.zero bool.bool (p2 (h1 i)) true.true))
     (eq.eq cts.zero nat.nat (k1 (h1 i)) i)
     (And.And
-       cts.zero
-       cts.zero
-       l?75
        (And.And
-          cts.zero
-          cts.zero
-          cts.zero
           (lt.lt (h2 (h1 i)) n3)
           (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true))
        (eq.eq cts.zero nat.nat (k1 (k2 (h2 (h1 i)))) i))
     (_clearme:(cts.Term
                  cts.zero
                  (And.And
-                    cts.zero
-                    cts.zero
-                    cts.zero
                     (lt.lt (h1 i) n2)
                     (eq.eq cts.zero bool.bool (p2 (h1 i)) true.true))) =>
      match_And_prop.match_And_prop
-       l?75
-       cts.zero
-       cts.zero
-       cts.zero
        (lt.lt (h1 i) n2)
        (eq.eq cts.zero bool.bool (p2 (h1 i)) true.true)
        (cts.prod
           cts.zero
-          l?75
-          l?75
+          cts.zero
+          cts.zero
           cts.I
           (eq.eq cts.zero nat.nat (k1 (h1 i)) i)
           (x =>
            And.And
-             cts.zero
-             cts.zero
-             l?75
              (And.And
-                cts.zero
-                cts.zero
-                cts.zero
                 (lt.lt (h2 (h1 i)) n3)
                 (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true))
              (eq.eq cts.zero nat.nat (k1 (k2 (h2 (h1 i)))) i)))
@@ -367,34 +324,18 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
               cts.zero
               (eq.eq cts.zero nat.nat (k1 (h1 i)) i)) =>
         match_And_prop.match_And_prop
-          l?75
-          cts.zero
-          cts.zero
-          l?74
           (And.And
-             cts.zero
-             cts.zero
-             cts.zero
              (lt.lt (h2 (h1 i)) n3)
              (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true))
           (eq.eq cts.zero nat.nat (k2 (h2 (h1 i))) (h1 i))
           (And.And
-             cts.zero
-             cts.zero
-             l?75
              (And.And
-                cts.zero
-                cts.zero
-                cts.zero
                 (lt.lt (h2 (h1 i)) n3)
                 (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true))
              (eq.eq cts.zero nat.nat (k1 (k2 (h2 (h1 i)))) i))
           (_clearme0:(cts.Term
                         cts.zero
                         (And.And
-                           cts.zero
-                           cts.zero
-                           cts.zero
                            (lt.lt (h2 (h1 i)) n3)
                            (eq.eq
                               cts.zero
@@ -402,27 +343,17 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
                               (p3 (h2 (h1 i)))
                               true.true))) =>
            match_And_prop.match_And_prop
-             l?75
-             cts.zero
-             cts.zero
-             cts.zero
              (lt.lt (h2 (h1 i)) n3)
              (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true)
              (cts.prod
                 cts.zero
-                l?75
-                l?75
+                cts.zero
+                cts.zero
                 cts.I
                 (eq.eq cts.zero nat.nat (k2 (h2 (h1 i))) (h1 i))
                 (x =>
                  And.And
-                   cts.zero
-                   cts.zero
-                   l?75
                    (And.And
-                      cts.zero
-                      cts.zero
-                      cts.zero
                       (lt.lt (h2 (h1 i)) n3)
                       (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true))
                    (eq.eq cts.zero nat.nat (k1 (k2 (h2 (h1 i)))) i)))
@@ -434,20 +365,11 @@ def transitive_sub :  (l?70 : cts.Sort) -> (l?74 : cts.Sort) -> (l?75 : cts.Sort
                     cts.zero
                     (eq.eq cts.zero nat.nat (k2 (h2 (h1 i))) (h1 i))) =>
               conj.conj
-                cts.zero
-                cts.zero
-                l?75
                 (And.And
-                   cts.zero
-                   cts.zero
-                   cts.zero
                    (lt.lt (h2 (h1 i)) n3)
                    (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true))
                 (eq.eq cts.zero nat.nat (k1 (k2 (h2 (h1 i)))) i)
                 (conj.conj
-                   cts.zero
-                   cts.zero
-                   cts.zero
                    (lt.lt (h2 (h1 i)) n3)
                    (eq.eq cts.zero bool.bool (p3 (h2 (h1 i))) true.true)
                    H1

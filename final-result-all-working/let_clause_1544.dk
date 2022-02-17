@@ -1,24 +1,24 @@
-def let_clause_1544 :  (l?7 : cts.Sort) -> (l?138 : cts.Sort) -> (l?141 : cts.Sort) -> (l?113 : cts.Sort) -> (l?102 : cts.Sort) -> (l?104 : cts.Sort) -> (l?62 : cts.Sort) ->
+def let_clause_1544 :  (l?7 : cts.Sort) -> (l?121 : cts.Sort) -> (l?8 : cts.Sort) ->
   cts.Term
-    (cts.max l?7 (cts.max l?113 (cts.max l?102 l?62)))
+    (cts.max l?7 l?8)
     (cts.prod
        cts.zero
-       (cts.max l?7 (cts.max l?113 (cts.max l?102 l?62)))
-       (cts.max l?7 (cts.max l?113 (cts.max l?102 l?62)))
+       (cts.max l?7 l?8)
+       (cts.max l?7 l?8)
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          (cts.max l?7 (cts.max l?113 (cts.max l?102 l?62)))
-          (cts.max l?7 (cts.max l?113 (cts.max l?102 l?62)))
+          (cts.max l?7 l?8)
+          (cts.max l?7 l?8)
           cts.I
           nat.nat
           (x0 =>
            cts.prod
              l?7
-             (cts.max l?113 (cts.max l?102 l?62))
-             (cts.max l?7 (cts.max l?113 (cts.max l?102 l?62)))
+             l?8
+             (cts.max l?7 l?8)
              cts.I
              (cts.prod
                 cts.zero
@@ -57,20 +57,17 @@ def let_clause_1544 :  (l?7 : cts.Sort) -> (l?138 : cts.Sort) -> (l?141 : cts.So
                             (x5 =>
                              ex.ex
                                cts.zero
-                               l?138
+                               l?121
                                l?7
                                nat.nat
                                (a:(cts.Term cts.zero nat.nat) =>
                                 ex.ex
                                   cts.zero
-                                  l?141
-                                  l?138
+                                  cts.zero
+                                  l?121
                                   nat.nat
                                   (b:(cts.Term cts.zero nat.nat) =>
                                    Or.Or
-                                     cts.zero
-                                     cts.zero
-                                     l?141
                                      (eq.eq
                                         cts.zero
                                         nat.nat
@@ -88,70 +85,65 @@ def let_clause_1544 :  (l?7 : cts.Sort) -> (l?138 : cts.Sort) -> (l?141 : cts.So
              (x1 =>
               cts.prod
                 cts.zero
-                (cts.max l?113 (cts.max l?102 l?62))
-                (cts.max l?113 (cts.max l?102 l?62))
+                l?8
+                l?8
                 cts.I
                 nat.nat
                 (x2 =>
                  cts.prod
                    cts.zero
-                   (cts.max l?113 (cts.max l?102 l?62))
-                   (cts.max l?113 (cts.max l?102 l?62))
+                   l?8
+                   l?8
                    cts.I
                    nat.nat
                    (x3 =>
                     cts.prod
                       cts.zero
-                      (cts.max l?113 (cts.max l?102 l?62))
-                      (cts.max l?113 (cts.max l?102 l?62))
+                      l?8
+                      l?8
                       cts.I
                       (lt.lt O.O x3)
                       (x4 =>
                        cts.prod
                          cts.zero
-                         (cts.max l?113 (cts.max l?102 l?62))
-                         (cts.max l?113 (cts.max l?102 l?62))
+                         l?8
+                         l?8
                          cts.I
                          (le.le x3 x2)
                          (x5 =>
                           cts.prod
                             cts.zero
-                            (cts.max l?113 (cts.max l?102 l?62))
-                            (cts.max l?113 (cts.max l?102 l?62))
+                            l?8
+                            l?8
                             cts.I
                             (le.le x3 (S.S x0))
                             (x6 =>
                              cts.prod
-                               l?113
-                               (cts.max l?102 l?62)
-                               (cts.max l?113 (cts.max l?102 l?62))
+                               cts.zero
+                               l?8
+                               l?8
                                cts.I
-                               (Not.Not
-                                  l?113
-                                  (divides.divides l?113 x3 x2))
+                               (Not.Not (divides.divides cts.zero x3 x2))
                                (x7 =>
                                 cts.prod
                                   cts.zero
-                                  (cts.max l?102 l?62)
-                                  (cts.max l?102 l?62)
+                                  l?8
+                                  l?8
                                   cts.I
                                   nat.nat
                                   (x8 =>
                                    cts.prod
-                                     l?102
-                                     l?62
-                                     (cts.max l?102 l?62)
+                                     l?8
+                                     cts.zero
+                                     l?8
                                      cts.I
                                      (ex.ex
                                         cts.zero
-                                        l?104
-                                        l?102
+                                        cts.zero
+                                        l?8
                                         nat.nat
                                         (b:(cts.Term cts.zero nat.nat) =>
                                          Or.Or
-                                           cts.zero
-                                           cts.zero
-                                           l?104
                                            (eq.eq
                                               cts.zero
                                               nat.nat
@@ -169,20 +161,17 @@ def let_clause_1544 :  (l?7 : cts.Sort) -> (l?138 : cts.Sort) -> (l?141 : cts.So
                                      (x9 =>
                                       cts.prod
                                         cts.zero
-                                        l?62
-                                        l?62
+                                        cts.zero
+                                        cts.zero
                                         cts.I
                                         nat.nat
                                         (x10 =>
                                          cts.prod
-                                           l?62
                                            cts.zero
-                                           l?62
+                                           cts.zero
+                                           cts.zero
                                            cts.I
                                            (Or.Or
-                                              cts.zero
-                                              cts.zero
-                                              l?62
                                               (eq.eq
                                                  cts.zero
                                                  nat.nat
@@ -230,7 +219,7 @@ def let_clause_1544 :  (l?7 : cts.Sort) -> (l?138 : cts.Sort) -> (l?141 : cts.So
                                                     x0
                                                     x3
                                                     (mod.mod x2 x3)))))))))))))))))
-  := l?7 => l?138 => l?141 => l?113 => l?102 => l?104 => l?62 =>
+  := l?7 => l?121 => l?8 =>
   p:(cts.Term cts.zero nat.nat) =>
   q:(cts.Term cts.zero nat.nat) =>
   Hind:(cts.Term
@@ -272,20 +261,17 @@ def let_clause_1544 :  (l?7 : cts.Sort) -> (l?138 : cts.Sort) -> (l?141 : cts.So
                          (x3 =>
                           ex.ex
                             cts.zero
-                            l?138
+                            l?121
                             l?7
                             nat.nat
                             (a:(cts.Term cts.zero nat.nat) =>
                              ex.ex
                                cts.zero
-                               l?141
-                               l?138
+                               cts.zero
+                               l?121
                                nat.nat
                                (b:(cts.Term cts.zero nat.nat) =>
                                 Or.Or
-                                  cts.zero
-                                  cts.zero
-                                  l?141
                                   (eq.eq
                                      cts.zero
                                      nat.nat
@@ -302,21 +288,18 @@ def let_clause_1544 :  (l?7 : cts.Sort) -> (l?138 : cts.Sort) -> (l?141 : cts.So
   lenm:(cts.Term cts.zero (le.le n m)) =>
   lenS:(cts.Term cts.zero (le.le n (S.S q))) =>
   ndivnm:(cts.Term
-            l?113
-            (Not.Not l?113 (divides.divides l?113 n m))) =>
+            cts.zero
+            (Not.Not (divides.divides cts.zero n m))) =>
   a:(cts.Term cts.zero nat.nat) =>
   _clearme:(cts.Term
-              l?102
+              l?8
               (ex.ex
                  cts.zero
-                 l?104
-                 l?102
+                 cts.zero
+                 l?8
                  nat.nat
                  (b:(cts.Term cts.zero nat.nat) =>
                   Or.Or
-                    cts.zero
-                    cts.zero
-                    l?104
                     (eq.eq
                        cts.zero
                        nat.nat
@@ -329,11 +312,8 @@ def let_clause_1544 :  (l?7 : cts.Sort) -> (l?138 : cts.Sort) -> (l?141 : cts.So
                        (gcd_aux.gcd_aux q n (mod.mod m n)))))) =>
   b:(cts.Term cts.zero nat.nat) =>
   _clearme0:(cts.Term
-               l?62
+               cts.zero
                (Or.Or
-                  cts.zero
-                  cts.zero
-                  l?62
                   (eq.eq
                      cts.zero
                      nat.nat

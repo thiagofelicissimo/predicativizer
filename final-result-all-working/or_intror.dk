@@ -1,25 +1,25 @@
-or_intror :  (l?14 : cts.Sort) -> (l?11 : cts.Sort) -> (l?12 : cts.Sort) ->
+or_intror : 
   cts.Term
-    (cts.max (cts.succ l?14) (cts.max (cts.succ l?11) (cts.max l?11 l?12)))
+    (cts.succ cts.zero)
     (cts.prod
-       (cts.succ l?14)
-       (cts.max (cts.succ l?11) (cts.max l?11 l?12))
-       (cts.max (cts.succ l?14) (cts.max (cts.succ l?11) (cts.max l?11 l?12)))
+       (cts.succ cts.zero)
+       (cts.succ cts.zero)
+       (cts.succ cts.zero)
        cts.I
-       (cts.univ l?14 (cts.succ l?14) cts.I)
+       (cts.univ cts.zero (cts.succ cts.zero) cts.I)
        (x =>
         cts.prod
-          (cts.succ l?11)
-          (cts.max l?11 l?12)
-          (cts.max (cts.succ l?11) (cts.max l?11 l?12))
+          (cts.succ cts.zero)
+          cts.zero
+          (cts.succ cts.zero)
           cts.I
-          (cts.univ l?11 (cts.succ l?11) cts.I)
+          (cts.univ cts.zero (cts.succ cts.zero) cts.I)
           (x0 =>
            cts.prod
-             l?11
-             l?12
-             (cts.max l?11 l?12)
+             cts.zero
+             cts.zero
+             cts.zero
              cts.I
              x0
-             (x1 => Or.Or l?14 l?11 l?12 x x0)))).
+             (x1 => Or.Or x x0)))).
 

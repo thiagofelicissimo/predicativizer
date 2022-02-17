@@ -51,7 +51,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                       l?8
                       l?8
                       cts.I
-                      (Not.Not cts.zero (eq.eq cts.zero nat.nat x x0))
+                      (Not.Not (eq.eq cts.zero nat.nat x x0))
                       (x3 => x1 false.false))
                    (x3 => x1 (eqb.eqb x x0)))))))
   := l?8 =>
@@ -95,7 +95,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                 l?8
                 l?8
                 cts.I
-                (Not.Not cts.zero (eq.eq cts.zero nat.nat __ _0))
+                (Not.Not (eq.eq cts.zero nat.nat __ _0))
                 (x1 => x false.false))
              (x1 => x (eqb.eqb __ _0)))))
     (n:(cts.Term cts.zero nat.nat) =>
@@ -138,7 +138,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                    l?8
                    l?8
                    cts.I
-                   (Not.Not cts.zero (eq.eq cts.zero nat.nat O.O __))
+                   (Not.Not (eq.eq cts.zero nat.nat O.O __))
                    (x1 => x false.false))
                 (x1 => x (eqb.eqb O.O __)))))
        (sym_eq_eqb.sym_eq_eqb
@@ -189,7 +189,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                       l?8
                       l?8
                       cts.I
-                      (Not.Not cts.zero (eq.eq cts.zero nat.nat O.O O.O))
+                      (Not.Not (eq.eq cts.zero nat.nat O.O O.O))
                       (x1 => x false.false))
                    (x1 => x (y O.O)))))
           (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
@@ -248,9 +248,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                          l?8
                          l?8
                          cts.I
-                         (Not.Not
-                            cts.zero
-                            (eq.eq cts.zero nat.nat O.O O.O))
+                         (Not.Not (eq.eq cts.zero nat.nat O.O O.O))
                          (x1 => x false.false))
                       (x1 => x (y O.O)))))
              (sym_eq_eqb_body_O.sym_eq_eqb_body_O
@@ -300,9 +298,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                             l?8
                             l?8
                             cts.I
-                            (Not.Not
-                               cts.zero
-                               (eq.eq cts.zero nat.nat O.O O.O))
+                            (Not.Not (eq.eq cts.zero nat.nat O.O O.O))
                             (x1 => x false.false))
                          (x1 => x (y O.O)))))
                 (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
@@ -348,9 +344,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                                l?8
                                l?8
                                cts.I
-                               (Not.Not
-                                  cts.zero
-                                  (eq.eq cts.zero nat.nat O.O O.O))
+                               (Not.Not (eq.eq cts.zero nat.nat O.O O.O))
                                (x1 => x false.false))
                             (x1 => x y))))
                    (P:(cts.Term
@@ -378,9 +372,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                                 l?8
                                 l?8
                                 cts.I
-                                (Not.Not
-                                   cts.zero
-                                   (eq.eq cts.zero nat.nat O.O O.O))
+                                (Not.Not (eq.eq cts.zero nat.nat O.O O.O))
                                 (x => P false.false))) =>
                     auto (refl.refl cts.zero nat.nat O.O))))))
        (auto:(cts.Term cts.zero nat.nat) =>
@@ -432,9 +424,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                       l?8
                       l?8
                       cts.I
-                      (Not.Not
-                         cts.zero
-                         (eq.eq cts.zero nat.nat O.O (S.S auto)))
+                      (Not.Not (eq.eq cts.zero nat.nat O.O (S.S auto)))
                       (x1 => x false.false))
                    (x1 => x (y (S.S auto))))))
           (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
@@ -493,9 +483,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                          l?8
                          l?8
                          cts.I
-                         (Not.Not
-                            cts.zero
-                            (eq.eq cts.zero nat.nat O.O (S.S auto)))
+                         (Not.Not (eq.eq cts.zero nat.nat O.O (S.S auto)))
                          (x1 => x false.false))
                       (x1 => x (y (S.S auto))))))
              (sym_eq_eqb_body_O.sym_eq_eqb_body_O
@@ -545,9 +533,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                             l?8
                             l?8
                             cts.I
-                            (Not.Not
-                               cts.zero
-                               (eq.eq cts.zero nat.nat O.O (S.S auto)))
+                            (Not.Not (eq.eq cts.zero nat.nat O.O (S.S auto)))
                             (x1 => x false.false))
                          (x1 => x (y (S.S auto))))))
                 (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
@@ -594,9 +580,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                                l?8
                                l?8
                                cts.I
-                               (Not.Not
-                                  cts.zero
-                                  (eq.eq cts.zero nat.nat O.O (S.S auto)))
+                               (Not.Not (eq.eq cts.zero nat.nat O.O (S.S auto)))
                                (x1 => x false.false))
                             (x1 => x y))))
                    (P:(cts.Term
@@ -624,9 +608,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                                  l?8
                                  l?8
                                  cts.I
-                                 (Not.Not
-                                    cts.zero
-                                    (eq.eq cts.zero nat.nat O.O (S.S auto)))
+                                 (Not.Not (eq.eq cts.zero nat.nat O.O (S.S auto)))
                                  (x => P false.false))) =>
                     auto'' (not_eq_O_S.not_eq_O_S auto))))))
        n)
@@ -679,7 +661,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                    l?8
                    l?8
                    cts.I
-                   (Not.Not cts.zero (eq.eq cts.zero nat.nat (S.S n) O.O))
+                   (Not.Not (eq.eq cts.zero nat.nat (S.S n) O.O))
                    (x1 => x false.false))
                 (x1 => x (y O.O)))))
        (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
@@ -739,9 +721,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                       l?8
                       l?8
                       cts.I
-                      (Not.Not
-                         cts.zero
-                         (eq.eq cts.zero nat.nat (S.S n) O.O))
+                      (Not.Not (eq.eq cts.zero nat.nat (S.S n) O.O))
                       (x1 => x false.false))
                    (x1 => x (y O.O)))))
           (sym_eq_eqb_body_S.sym_eq_eqb_body_S
@@ -792,9 +772,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                          l?8
                          l?8
                          cts.I
-                         (Not.Not
-                            cts.zero
-                            (eq.eq cts.zero nat.nat (S.S n) O.O))
+                         (Not.Not (eq.eq cts.zero nat.nat (S.S n) O.O))
                          (x1 => x false.false))
                       (x1 => x (y O.O)))))
              (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
@@ -840,9 +818,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                             l?8
                             l?8
                             cts.I
-                            (Not.Not
-                               cts.zero
-                               (eq.eq cts.zero nat.nat (S.S n) O.O))
+                            (Not.Not (eq.eq cts.zero nat.nat (S.S n) O.O))
                             (x1 => x false.false))
                          (x1 => x y))))
                 (P:(cts.Term
@@ -870,17 +846,9 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                              l?8
                              l?8
                              cts.I
-                             (Not.Not
-                                cts.zero
-                                (eq.eq cts.zero nat.nat (S.S n) O.O))
+                             (Not.Not (eq.eq cts.zero nat.nat (S.S n) O.O))
                              (x => P false.false))) =>
-                 auto'
-                   (sym_not_eq.sym_not_eq
-                      cts.zero
-                      nat.nat
-                      O.O
-                      (S.S n)
-                      (not_eq_O_S.not_eq_O_S n)))))))
+                 auto' (sym_not_eq.sym_not_eq nat.nat O.O (S.S n) (not_eq_O_S.not_eq_O_S n)))))))
     (n:(cts.Term cts.zero nat.nat) =>
      m:(cts.Term cts.zero nat.nat) =>
      sym_eq_eqb.sym_eq_eqb
@@ -936,7 +904,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                       l?8
                       l?8
                       cts.I
-                      (Not.Not cts.zero (eq.eq cts.zero nat.nat n m))
+                      (Not.Not (eq.eq cts.zero nat.nat n m))
                       (x1 => x false.false))
                    (x1 => x (eqb.eqb n m)))))
           (x =>
@@ -976,9 +944,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                       l?8
                       l?8
                       cts.I
-                      (Not.Not
-                         cts.zero
-                         (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
+                      (Not.Not (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
                       (x2 => x0 false.false))
                    (x2 => x0 (y (S.S m)))))))
        (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
@@ -1043,7 +1009,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                          l?8
                          l?8
                          cts.I
-                         (Not.Not cts.zero (eq.eq cts.zero nat.nat n m))
+                         (Not.Not (eq.eq cts.zero nat.nat n m))
                          (x1 => x false.false))
                       (x1 => x (eqb.eqb n m)))))
              (x =>
@@ -1083,9 +1049,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                          l?8
                          l?8
                          cts.I
-                         (Not.Not
-                            cts.zero
-                            (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
+                         (Not.Not (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
                          (x2 => x0 false.false))
                       (x2 => x0 (y (S.S m)))))))
           (sym_eq_eqb_body_S.sym_eq_eqb_body_S
@@ -1141,9 +1105,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                             l?8
                             l?8
                             cts.I
-                            (Not.Not
-                               cts.zero
-                               (eq.eq cts.zero nat.nat n m))
+                            (Not.Not (eq.eq cts.zero nat.nat n m))
                             (x1 => x false.false))
                          (x1 => x (eqb.eqb n m)))))
                 (x =>
@@ -1183,9 +1145,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                             l?8
                             l?8
                             cts.I
-                            (Not.Not
-                               cts.zero
-                               (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
+                            (Not.Not (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
                             (x2 => x0 false.false))
                          (x2 => x0 (y (S.S m)))))))
              (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
@@ -1237,9 +1197,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                                l?8
                                l?8
                                cts.I
-                               (Not.Not
-                                  cts.zero
-                                  (eq.eq cts.zero nat.nat n m))
+                               (Not.Not (eq.eq cts.zero nat.nat n m))
                                (x1 => x false.false))
                             (x1 => x (eqb.eqb n m)))))
                    (x =>
@@ -1279,9 +1237,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                                l?8
                                l?8
                                cts.I
-                               (Not.Not
-                                  cts.zero
-                                  (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
+                               (Not.Not (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
                                (x2 => x0 false.false))
                             (x2 => x0 y)))))
                 (auto:(cts.Term
@@ -1322,9 +1278,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                                      l?8
                                      l?8
                                      cts.I
-                                     (Not.Not
-                                        cts.zero
-                                        (eq.eq cts.zero nat.nat n m))
+                                     (Not.Not (eq.eq cts.zero nat.nat n m))
                                      (x1 => x false.false))
                                   (x1 => x (eqb.eqb n m)))))) =>
                  P:(cts.Term
@@ -1352,9 +1306,7 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                               l?8
                               l?8
                               cts.I
-                              (Not.Not
-                                 cts.zero
-                                 (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
+                              (Not.Not (eq.eq cts.zero nat.nat (S.S n) (S.S m)))
                               (x => P false.false))) =>
                  auto
                    P
@@ -1374,8 +1326,6 @@ def eqb_elim :  (l?8 : cts.Sort) ->
                          auto'''))
                    (auto''':(cts.Term
                                cts.zero
-                               (Not.Not
-                                  cts.zero
-                                  (eq.eq cts.zero nat.nat n m))) =>
+                               (Not.Not (eq.eq cts.zero nat.nat n m))) =>
                     auto'' (not_eq_S.not_eq_S n m auto'''))))))).
 

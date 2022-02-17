@@ -38,14 +38,8 @@ def lt_mod_m_m :
     (abs:(cts.Term cts.zero (lt.lt O.O O.O)) =>
      falsity.falsity
        cts.zero
-       cts.zero
        (lt.lt (mod.mod n O.O) O.O)
-       (absurd.absurd
-          cts.zero
-          cts.zero
-          (le.le (S.S O.O) O.O)
-          abs
-          (not_le_Sn_O.not_le_Sn_O O.O)))
+       (absurd.absurd (le.le (S.S O.O) O.O) abs (not_le_Sn_O.not_le_Sn_O O.O)))
     (p:(cts.Term cts.zero nat.nat) =>
      sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
        cts.zero

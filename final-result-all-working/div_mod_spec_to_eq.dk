@@ -1,54 +1,54 @@
-def div_mod_spec_to_eq :  (l?311 : cts.Sort) -> (l?20 : cts.Sort) ->
+def div_mod_spec_to_eq :  (l?299 : cts.Sort) -> (l?20 : cts.Sort) ->
   cts.Term
-    (cts.max l?311 l?20)
+    (cts.max l?299 l?20)
     (cts.prod
        cts.zero
-       (cts.max l?311 l?20)
-       (cts.max l?311 l?20)
+       (cts.max l?299 l?20)
+       (cts.max l?299 l?20)
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          (cts.max l?311 l?20)
-          (cts.max l?311 l?20)
+          (cts.max l?299 l?20)
+          (cts.max l?299 l?20)
           cts.I
           nat.nat
           (x0 =>
            cts.prod
              cts.zero
-             (cts.max l?311 l?20)
-             (cts.max l?311 l?20)
+             (cts.max l?299 l?20)
+             (cts.max l?299 l?20)
              cts.I
              nat.nat
              (x1 =>
               cts.prod
                 cts.zero
-                (cts.max l?311 l?20)
-                (cts.max l?311 l?20)
+                (cts.max l?299 l?20)
+                (cts.max l?299 l?20)
                 cts.I
                 nat.nat
                 (x2 =>
                  cts.prod
                    cts.zero
-                   (cts.max l?311 l?20)
-                   (cts.max l?311 l?20)
+                   (cts.max l?299 l?20)
+                   (cts.max l?299 l?20)
                    cts.I
                    nat.nat
                    (x3 =>
                     cts.prod
                       cts.zero
-                      (cts.max l?311 l?20)
-                      (cts.max l?311 l?20)
+                      (cts.max l?299 l?20)
+                      (cts.max l?299 l?20)
                       cts.I
                       nat.nat
                       (x4 =>
                        cts.prod
-                         l?311
+                         l?299
                          l?20
-                         (cts.max l?311 l?20)
+                         (cts.max l?299 l?20)
                          cts.I
-                         (div_mod_spec.div_mod_spec l?311 x x0 x1 x2)
+                         (div_mod_spec.div_mod_spec l?299 x x0 x1 x2)
                          (x5 =>
                           cts.prod
                             l?20
@@ -57,7 +57,7 @@ def div_mod_spec_to_eq :  (l?311 : cts.Sort) -> (l?20 : cts.Sort) ->
                             cts.I
                             (div_mod_spec.div_mod_spec l?20 x x0 x3 x4)
                             (x6 => eq.eq cts.zero nat.nat x1 x3)))))))))
-  := l?311 => l?20 =>
+  := l?299 => l?20 =>
   a:(cts.Term cts.zero nat.nat) =>
   b:(cts.Term cts.zero nat.nat) =>
   q:(cts.Term cts.zero nat.nat) =>
@@ -65,11 +65,11 @@ def div_mod_spec_to_eq :  (l?311 : cts.Sort) -> (l?20 : cts.Sort) ->
   q1:(cts.Term cts.zero nat.nat) =>
   r1:(cts.Term cts.zero nat.nat) =>
   _clearme:(cts.Term
-              l?311
-              (div_mod_spec.div_mod_spec l?311 a b q r)) =>
+              l?299
+              (div_mod_spec.div_mod_spec l?299 a b q r)) =>
   match_div_mod_spec_prop.match_div_mod_spec_prop
     l?20
-    l?311
+    l?299
     a
     b
     q
@@ -108,21 +108,14 @@ def div_mod_spec_to_eq :  (l?311 : cts.Sort) -> (l?20 : cts.Sort) ->
            eq.eq cts.zero nat.nat q q1)
           (leqq1:(cts.Term cts.zero (le.le q q1)) =>
            match_Or_prop.match_Or_prop
-             cts.zero
-             cts.zero
-             cts.zero
-             cts.zero
              (lt.lt q q1)
              (eq.eq cts.zero nat.nat q q1)
              (eq.eq cts.zero nat.nat q q1)
              (ltqq1:(cts.Term cts.zero (lt.lt q q1)) =>
               falsity.falsity
                 cts.zero
-                cts.zero
                 (eq.eq cts.zero nat.nat q q1)
                 (absurd.absurd
-                   cts.zero
-                   cts.zero
                    (le.le (S.S a) a)
                    (lt_to_le_to_lt.lt_to_le_to_lt
                       a
@@ -309,7 +302,7 @@ def div_mod_spec_to_eq :  (l?311 : cts.Sort) -> (l?20 : cts.Sort) ->
                                                        b))
                                                  (plus.plus r (times.times b q))
                                                  (let_clause_1078.let_clause_1078
-                                                    l?311
+                                                    l?299
                                                     l?20
                                                     a
                                                     b
@@ -335,7 +328,7 @@ def div_mod_spec_to_eq :  (l?311 : cts.Sort) -> (l?20 : cts.Sort) ->
                                         (commutative_times.commutative_times (S.S q) b))
                                      (plus.plus r (times.times b q))
                                      (let_clause_1078.let_clause_1078
-                                        l?311
+                                        l?299
                                         l?20
                                         a
                                         b
@@ -545,17 +538,12 @@ def div_mod_spec_to_eq :  (l?311 : cts.Sort) -> (l?20 : cts.Sort) ->
                 (refl.refl cts.zero nat.nat q)
                 q1
                 _x_172)
-             (le_to_or_lt_eq.le_to_or_lt_eq cts.zero q q1 leqq1))
-          (leqq1:(cts.Term
-                    cts.zero
-                    (Not.Not cts.zero (le.le q q1))) =>
+             (le_to_or_lt_eq.le_to_or_lt_eq q q1 leqq1))
+          (leqq1:(cts.Term cts.zero (Not.Not (le.le q q1))) =>
            falsity.falsity
-             cts.zero
              cts.zero
              (eq.eq cts.zero nat.nat q q1)
              (absurd.absurd
-                cts.zero
-                cts.zero
                 (le.le (S.S a) a)
                 (lt_to_le_to_lt.lt_to_le_to_lt
                    a
@@ -734,7 +722,7 @@ def div_mod_spec_to_eq :  (l?311 : cts.Sort) -> (l?20 : cts.Sort) ->
                                                     b))
                                               (plus.plus r1 (times.times b q1))
                                               (let_clause_1062.let_clause_1062
-                                                 l?311
+                                                 l?299
                                                  l?20
                                                  a
                                                  b
@@ -759,7 +747,7 @@ def div_mod_spec_to_eq :  (l?311 : cts.Sort) -> (l?20 : cts.Sort) ->
                                      (commutative_times.commutative_times (S.S q1) b))
                                   (plus.plus r1 (times.times b q1))
                                   (let_clause_1062.let_clause_1062
-                                     l?311
+                                     l?299
                                      l?20
                                      a
                                      b

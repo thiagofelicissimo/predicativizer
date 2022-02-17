@@ -1,63 +1,58 @@
-match_Or_prop :  (l?20 : cts.Sort) -> (l?19 : cts.Sort) -> (l?25 : cts.Sort) -> (l?28 : cts.Sort) ->
+match_Or_prop : 
   cts.Term
-    (cts.max (cts.succ l?19) (cts.max (cts.succ l?25) (cts.max (cts.succ l?20) (cts.max (cts.max l?19 l?20) (cts.max (cts.max l?25 l?20) (cts.max l?28 l?20))))))
+    (cts.succ cts.zero)
     (cts.prod
-       (cts.succ l?19)
-       (cts.max (cts.succ l?25) (cts.max (cts.succ l?20) (cts.max (cts.max l?19 l?20) (cts.max (cts.max l?25 l?20) (cts.max l?28 l?20)))))
-       (cts.max (cts.succ l?19) (cts.max (cts.succ l?25) (cts.max (cts.succ l?20) (cts.max (cts.max l?19 l?20) (cts.max (cts.max l?25 l?20) (cts.max l?28 l?20))))))
+       (cts.succ cts.zero)
+       (cts.succ cts.zero)
+       (cts.succ cts.zero)
        cts.I
-       (cts.univ l?19 (cts.succ l?19) cts.I)
+       (cts.univ cts.zero (cts.succ cts.zero) cts.I)
        (x =>
         cts.prod
-          (cts.succ l?25)
-          (cts.max (cts.succ l?20) (cts.max (cts.max l?19 l?20) (cts.max (cts.max l?25 l?20) (cts.max l?28 l?20))))
-          (cts.max (cts.succ l?25) (cts.max (cts.succ l?20) (cts.max (cts.max l?19 l?20) (cts.max (cts.max l?25 l?20) (cts.max l?28 l?20)))))
+          (cts.succ cts.zero)
+          (cts.succ cts.zero)
+          (cts.succ cts.zero)
           cts.I
-          (cts.univ l?25 (cts.succ l?25) cts.I)
+          (cts.univ cts.zero (cts.succ cts.zero) cts.I)
           (x0 =>
            cts.prod
-             (cts.succ l?20)
-             (cts.max (cts.max l?19 l?20) (cts.max (cts.max l?25 l?20) (cts.max l?28 l?20)))
-             (cts.max (cts.succ l?20) (cts.max (cts.max l?19 l?20) (cts.max (cts.max l?25 l?20) (cts.max l?28 l?20))))
+             (cts.succ cts.zero)
+             cts.zero
+             (cts.succ cts.zero)
              cts.I
-             (cts.univ l?20 (cts.succ l?20) cts.I)
+             (cts.univ cts.zero (cts.succ cts.zero) cts.I)
              (x1 =>
               cts.prod
-                (cts.max l?19 l?20)
-                (cts.max (cts.max l?25 l?20) (cts.max l?28 l?20))
-                (cts.max (cts.max l?19 l?20) (cts.max (cts.max l?25 l?20) (cts.max l?28 l?20)))
+                cts.zero
+                cts.zero
+                cts.zero
                 cts.I
                 (cts.prod
-                   l?19
-                   l?20
-                   (cts.max l?19 l?20)
+                   cts.zero
+                   cts.zero
+                   cts.zero
                    cts.I
                    x
                    (x2 => x1))
                 (x2 =>
                  cts.prod
-                   (cts.max l?25 l?20)
-                   (cts.max l?28 l?20)
-                   (cts.max (cts.max l?25 l?20) (cts.max l?28 l?20))
+                   cts.zero
+                   cts.zero
+                   cts.zero
                    cts.I
                    (cts.prod
-                      l?25
-                      l?20
-                      (cts.max l?25 l?20)
+                      cts.zero
+                      cts.zero
+                      cts.zero
                       cts.I
                       x0
                       (x3 => x1))
                    (x3 =>
                     cts.prod
-                      l?28
-                      l?20
-                      (cts.max l?28 l?20)
+                      cts.zero
+                      cts.zero
+                      cts.zero
                       cts.I
-                      (Or.Or
-                         l?19
-                         l?25
-                         l?28
-                         x
-                         x0)
+                      (Or.Or x x0)
                       (x4 => x1))))))).
 

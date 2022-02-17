@@ -1,54 +1,44 @@
-def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
+def dividesb_false_to_not_divides : 
   cts.Term
-    l?0
+    cts.zero
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            cts.prod
              cts.zero
-             l?0
-             l?0
+             cts.zero
+             cts.zero
              cts.I
              (eq.eq
                 cts.zero
                 bool.bool
                 (dividesb.dividesb x x0)
                 false.false)
-             (x1 =>
-              Not.Not
-                l?0
-                (divides.divides l?0 x x0)))))
-  := l?0 =>
+             (x1 => Not.Not (divides.divides cts.zero x x0)))))
+  :=
   n:(cts.Term cts.zero nat.nat) =>
   m:(cts.Term cts.zero nat.nat) =>
   match_Or_prop.match_Or_prop
-    l?0
-    cts.zero
-    cts.zero
-    cts.zero
     (lt.lt O.O n)
     (eq.eq cts.zero nat.nat O.O n)
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        (eq.eq cts.zero bool.bool (dividesb.dividesb n m) false.false)
-       (x =>
-        Not.Not
-          l?0
-          (divides.divides l?0 n m)))
+       (x => Not.Not (divides.divides cts.zero n m)))
     (posn:(cts.Term cts.zero (lt.lt O.O n)) =>
      ndivbnm:(cts.Term
                 cts.zero
@@ -58,37 +48,32 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
                    (dividesb.dividesb n m)
                    false.false)) =>
      not_to_not.not_to_not
-       cts.zero
-       l?0
-       (divides.divides l?0 n m)
+       (divides.divides cts.zero n m)
        (eq.eq cts.zero nat.nat (mod.mod m n) O.O)
-       (divides_to_mod_O.divides_to_mod_O l?0 n m posn)
+       (divides_to_mod_O.divides_to_mod_O cts.zero n m posn)
        (eqb_false_to_not_eq.eqb_false_to_not_eq (mod.mod m n) O.O ndivbnm))
     (eqnO:(cts.Term
              cts.zero
              (eq.eq cts.zero nat.nat O.O n)) =>
      eq_ind.eq_ind
-       l?0
+       cts.zero
        cts.zero
        nat.nat
        O.O
        (x_1:(cts.Term cts.zero nat.nat) =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           (eq.eq
              cts.zero
              bool.bool
              (dividesb.dividesb x_1 m)
              false.false)
-          (x =>
-           Not.Not
-             l?0
-             (divides.divides l?0 x_1 m)))
+          (x => Not.Not (divides.divides cts.zero x_1 m)))
        (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
-          l?0
+          cts.zero
           cts.zero
           nat.nat
           m
@@ -96,34 +81,28 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
           (y:(cts.Term cts.zero nat.nat) =>
            cts.prod
              cts.zero
-             l?0
-             l?0
+             cts.zero
+             cts.zero
              cts.I
              (eq.eq cts.zero bool.bool (eqb.eqb y O.O) false.false)
-             (x =>
-              Not.Not
-                l?0
-                (divides.divides l?0 O.O m)))
+             (x => Not.Not (divides.divides cts.zero O.O m)))
           (nat_case.nat_case
-             l?0
+             cts.zero
              m
              (__:(cts.Term cts.zero nat.nat) =>
               cts.prod
                 cts.zero
-                l?0
-                l?0
+                cts.zero
+                cts.zero
                 cts.I
                 (eq.eq
                    cts.zero
                    bool.bool
                    (eqb.eqb __ O.O)
                    false.false)
-                (x =>
-                 Not.Not
-                   l?0
-                   (divides.divides l?0 O.O __)))
+                (x => Not.Not (divides.divides cts.zero O.O __)))
              (sym_eq_eqb.sym_eq_eqb
-                l?0
+                cts.zero
                 O.O
                 (y:(cts.Term
                       cts.zero
@@ -136,15 +115,15 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
                          (x => bool.bool))) =>
                  cts.prod
                    cts.zero
-                   l?0
-                   l?0
+                   cts.zero
+                   cts.zero
                    cts.I
                    (eq.eq cts.zero nat.nat m O.O)
                    (x =>
                     cts.prod
                       cts.zero
-                      l?0
-                      l?0
+                      cts.zero
+                      cts.zero
                       cts.I
                       (eq.eq
                          cts.zero
@@ -152,11 +131,9 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
                          (y O.O)
                          false.false)
                       (x0 =>
-                       Not.Not
-                         l?0
-                         (divides.divides l?0 O.O O.O))))
+                       Not.Not (divides.divides cts.zero O.O O.O))))
                 (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
-                   l?0
+                   cts.zero
                    cts.zero
                    (cts.prod
                       cts.zero
@@ -177,15 +154,15 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
                             (x => bool.bool))) =>
                     cts.prod
                       cts.zero
-                      l?0
-                      l?0
+                      cts.zero
+                      cts.zero
                       cts.I
                       (eq.eq cts.zero nat.nat m O.O)
                       (x =>
                        cts.prod
                          cts.zero
-                         l?0
-                         l?0
+                         cts.zero
+                         cts.zero
                          cts.I
                          (eq.eq
                             cts.zero
@@ -194,10 +171,9 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
                             false.false)
                          (x0 =>
                           Not.Not
-                            l?0
-                            (divides.divides l?0 O.O O.O))))
+                            (divides.divides cts.zero O.O O.O))))
                    (sym_eq_eqb_body_O.sym_eq_eqb_body_O
-                      l?0
+                      cts.zero
                       (y:(cts.Term
                             cts.zero
                             (cts.prod
@@ -209,15 +185,15 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
                                (x => bool.bool))) =>
                        cts.prod
                          cts.zero
-                         l?0
-                         l?0
+                         cts.zero
+                         cts.zero
                          cts.I
                          (eq.eq cts.zero nat.nat m O.O)
                          (x =>
                           cts.prod
                             cts.zero
-                            l?0
-                            l?0
+                            cts.zero
+                            cts.zero
                             cts.I
                             (eq.eq
                                cts.zero
@@ -226,13 +202,12 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
                                false.false)
                             (x0 =>
                              Not.Not
-                               l?0
                                (divides.divides
-                                  l?0
+                                  cts.zero
                                   O.O
                                   O.O))))
                       (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
-                         l?0
+                         cts.zero
                          cts.zero
                          bool.bool
                          true.true
@@ -241,15 +216,15 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
                          (y:(cts.Term cts.zero bool.bool) =>
                           cts.prod
                             cts.zero
-                            l?0
-                            l?0
+                            cts.zero
+                            cts.zero
                             cts.I
                             (eq.eq cts.zero nat.nat m O.O)
                             (x =>
                              cts.prod
                                cts.zero
-                               l?0
-                               l?0
+                               cts.zero
+                               cts.zero
                                cts.I
                                (eq.eq
                                   cts.zero
@@ -258,9 +233,8 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
                                   false.false)
                                (x0 =>
                                 Not.Not
-                                  l?0
                                   (divides.divides
-                                     l?0
+                                     cts.zero
                                      O.O
                                      O.O))))
                          (auto:(cts.Term
@@ -278,18 +252,16 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
                                       true.true
                                       false.false)) =>
                           not_to_not.not_to_not
-                            cts.zero
-                            l?0
-                            (divides.divides l?0 O.O O.O)
+                            (divides.divides cts.zero O.O O.O)
                             (eq.eq
                                cts.zero
                                bool.bool
                                true.true
                                false.false)
                             (auto'':(cts.Term
-                                       l?0
+                                       cts.zero
                                        (divides.divides
-                                          l?0
+                                          cts.zero
                                           O.O
                                           O.O)) =>
                              rewrite_l.rewrite_l
@@ -324,21 +296,19 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
                        (eqb.eqb (S.S a) O.O)
                        false.false)) =>
               nmk.nmk
-                cts.zero
-                l?0
-                (divides.divides l?0 O.O (S.S a))
+                (divides.divides cts.zero O.O (S.S a))
                 (_clearme:(cts.Term
-                             l?0
+                             cts.zero
                              (divides.divides
-                                l?0
+                                cts.zero
                                 O.O
                                 (S.S a))) =>
                  match_divides_prop.match_divides_prop
                    cts.zero
-                   l?0
+                   cts.zero
                    O.O
                    (S.S a)
-                   (False.False cts.zero)
+                   False.False
                    (q:(cts.Term cts.zero nat.nat) =>
                     auto:(cts.Term
                             cts.zero
@@ -348,8 +318,6 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
                                (S.S a)
                                (times.times O.O q))) =>
                     absurd.absurd
-                      cts.zero
-                      cts.zero
                       (eq.eq cts.zero nat.nat O.O (S.S a))
                       (rewrite_r.rewrite_r
                          cts.zero
@@ -426,5 +394,5 @@ def dividesb_false_to_not_divides :  (l?0 : cts.Sort) ->
                    _clearme))))
        n
        eqnO)
-    (le_to_or_lt_eq.le_to_or_lt_eq cts.zero O.O n (le_O_n.le_O_n n)).
+    (le_to_or_lt_eq.le_to_or_lt_eq O.O n (le_O_n.le_O_n n)).
 

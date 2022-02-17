@@ -1,68 +1,48 @@
-def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
+def divides_gcd_nm : 
   cts.Term
-    l?0
+    cts.zero
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            And.And
-             l?110
-             l?110
-             l?0
-             (divides.divides l?110 (gcd.gcd x x0) x0)
-             (divides.divides l?110 (gcd.gcd x x0) x))))
-  := l?0 => l?110 =>
+             (divides.divides cts.zero (gcd.gcd x x0) x0)
+             (divides.divides cts.zero (gcd.gcd x x0) x))))
+  :=
   n:(cts.Term cts.zero nat.nat) =>
   m:(cts.Term cts.zero nat.nat) =>
   match_Or_prop.match_Or_prop
-    l?0
-    cts.zero
-    cts.zero
-    cts.zero
     (lt.lt O.O n)
     (eq.eq cts.zero nat.nat O.O n)
     (And.And
-       l?110
-       l?110
-       l?0
-       (divides.divides l?110 (gcd.gcd n m) m)
-       (divides.divides l?110 (gcd.gcd n m) n))
+       (divides.divides cts.zero (gcd.gcd n m) m)
+       (divides.divides cts.zero (gcd.gcd n m) n))
     (posn:(cts.Term cts.zero (lt.lt O.O n)) =>
      match_Or_prop.match_Or_prop
-       l?0
-       cts.zero
-       cts.zero
-       cts.zero
        (lt.lt O.O m)
        (eq.eq cts.zero nat.nat O.O m)
        (And.And
-          l?110
-          l?110
-          l?0
-          (divides.divides l?110 (gcd.gcd n m) m)
-          (divides.divides l?110 (gcd.gcd n m) n))
+          (divides.divides cts.zero (gcd.gcd n m) m)
+          (divides.divides cts.zero (gcd.gcd n m) n))
        (posm:(cts.Term cts.zero (lt.lt O.O m)) =>
         leb_elim.leb_elim
-          l?0
+          cts.zero
           n
           m
           (__:(cts.Term cts.zero bool.bool) =>
            And.And
-             l?110
-             l?110
-             l?0
              (divides.divides
-                l?110
+                cts.zero
                 (match_bool_type.match_bool_type
                    cts.zero
                    nat.nat
@@ -71,7 +51,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                    __)
                 m)
              (divides.divides
-                l?110
+                cts.zero
                 (match_bool_type.match_bool_type
                    cts.zero
                    nat.nat
@@ -80,7 +60,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                    __)
                 n))
           (sym_eq_match_bool_type_true.sym_eq_match_bool_type_true
-             l?0
+             cts.zero
              cts.zero
              nat.nat
              (gcd_aux.gcd_aux n m n)
@@ -88,17 +68,14 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
              (y:(cts.Term cts.zero nat.nat) =>
               cts.prod
                 cts.zero
-                l?0
-                l?0
+                cts.zero
+                cts.zero
                 cts.I
                 (le.le n m)
                 (x =>
                  And.And
-                   l?110
-                   l?110
-                   l?0
                    (divides.divides
-                      l?110
+                      cts.zero
                       (match_bool_type.match_bool_type
                          cts.zero
                          nat.nat
@@ -106,9 +83,9 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                          (gcd_aux.gcd_aux m n m)
                          true.true)
                       m)
-                   (divides.divides l?110 y n)))
+                   (divides.divides cts.zero y n)))
              (sym_eq_match_bool_type_true.sym_eq_match_bool_type_true
-                l?0
+                cts.zero
                 cts.zero
                 nat.nat
                 (gcd_aux.gcd_aux n m n)
@@ -116,29 +93,18 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                 (y:(cts.Term cts.zero nat.nat) =>
                  cts.prod
                    cts.zero
-                   l?0
-                   l?0
+                   cts.zero
+                   cts.zero
                    cts.I
                    (le.le n m)
                    (x =>
                     And.And
-                      l?110
-                      l?110
-                      l?0
-                      (divides.divides l?110 y m)
-                      (divides.divides l?110 (gcd_aux.gcd_aux n m n) n)))
+                      (divides.divides cts.zero y m)
+                      (divides.divides cts.zero (gcd_aux.gcd_aux n m n) n)))
                 (lenm:(cts.Term cts.zero (le.le n m)) =>
-                 divides_gcd_aux_mn.divides_gcd_aux_mn
-                   l?0
-                   l?110
-                   n
-                   m
-                   n
-                   posn
-                   lenm
-                   (le_n.le_n n))))
+                 divides_gcd_aux_mn.divides_gcd_aux_mn n m n posn lenm (le_n.le_n n))))
           (sym_eq_match_bool_type_false.sym_eq_match_bool_type_false
-             l?0
+             cts.zero
              cts.zero
              nat.nat
              (gcd_aux.gcd_aux n m n)
@@ -146,17 +112,14 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
              (y:(cts.Term cts.zero nat.nat) =>
               cts.prod
                 cts.zero
-                l?0
-                l?0
+                cts.zero
+                cts.zero
                 cts.I
-                (Not.Not cts.zero (le.le n m))
+                (Not.Not (le.le n m))
                 (x =>
                  And.And
-                   l?110
-                   l?110
-                   l?0
                    (divides.divides
-                      l?110
+                      cts.zero
                       (match_bool_type.match_bool_type
                          cts.zero
                          nat.nat
@@ -164,9 +127,9 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                          (gcd_aux.gcd_aux m n m)
                          false.false)
                       m)
-                   (divides.divides l?110 y n)))
+                   (divides.divides cts.zero y n)))
              (sym_eq_match_bool_type_false.sym_eq_match_bool_type_false
-                l?0
+                cts.zero
                 cts.zero
                 nat.nat
                 (gcd_aux.gcd_aux n m n)
@@ -174,56 +137,39 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                 (y:(cts.Term cts.zero nat.nat) =>
                  cts.prod
                    cts.zero
-                   l?0
-                   l?0
+                   cts.zero
+                   cts.zero
                    cts.I
-                   (Not.Not cts.zero (le.le n m))
+                   (Not.Not (le.le n m))
                    (x =>
                     And.And
-                      l?110
-                      l?110
-                      l?0
-                      (divides.divides l?110 y m)
-                      (divides.divides l?110 (gcd_aux.gcd_aux m n m) n)))
-                (notlt:(cts.Term
-                          cts.zero
-                          (Not.Not cts.zero (le.le n m))) =>
+                      (divides.divides cts.zero y m)
+                      (divides.divides cts.zero (gcd_aux.gcd_aux m n m) n)))
+                (notlt:(cts.Term cts.zero (Not.Not (le.le n m))) =>
                  match_And_prop.match_And_prop
-                   l?0
-                   l?110
-                   l?110
-                   cts.zero
-                   (divides.divides l?110 (gcd_aux.gcd_aux m n m) n)
-                   (divides.divides l?110 (gcd_aux.gcd_aux m n m) m)
+                   (divides.divides cts.zero (gcd_aux.gcd_aux m n m) n)
+                   (divides.divides cts.zero (gcd_aux.gcd_aux m n m) m)
                    (And.And
-                      l?110
-                      l?110
-                      l?0
-                      (divides.divides l?110 (gcd_aux.gcd_aux m n m) m)
-                      (divides.divides l?110 (gcd_aux.gcd_aux m n m) n))
+                      (divides.divides cts.zero (gcd_aux.gcd_aux m n m) m)
+                      (divides.divides cts.zero (gcd_aux.gcd_aux m n m) n))
                    (auto:(cts.Term
-                            l?110
+                            cts.zero
                             (divides.divides
-                               l?110
+                               cts.zero
                                (gcd_aux.gcd_aux m n m)
                                n)) =>
                     auto':(cts.Term
-                             l?110
+                             cts.zero
                              (divides.divides
-                                l?110
+                                cts.zero
                                 (gcd_aux.gcd_aux m n m)
                                 m)) =>
                     conj.conj
-                      l?110
-                      l?110
-                      l?0
-                      (divides.divides l?110 (gcd_aux.gcd_aux m n m) m)
-                      (divides.divides l?110 (gcd_aux.gcd_aux m n m) n)
+                      (divides.divides cts.zero (gcd_aux.gcd_aux m n m) m)
+                      (divides.divides cts.zero (gcd_aux.gcd_aux m n m) n)
                       auto'
                       auto)
                    (divides_gcd_aux_mn.divides_gcd_aux_mn
-                      cts.zero
-                      l?110
                       m
                       n
                       m
@@ -237,44 +183,38 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                       (le_n.le_n m))))))
        (eqmO:(cts.Term cts.zero (eq.eq cts.zero nat.nat O.O m)) =>
         eq_ind.eq_ind
-          l?0
+          cts.zero
           cts.zero
           nat.nat
           O.O
           (x_1:(cts.Term cts.zero nat.nat) =>
            And.And
-             l?110
-             l?110
-             l?0
-             (divides.divides l?110 (gcd.gcd n x_1) x_1)
-             (divides.divides l?110 (gcd.gcd n x_1) n))
+             (divides.divides cts.zero (gcd.gcd n x_1) x_1)
+             (divides.divides cts.zero (gcd.gcd n x_1) n))
           (conj.conj
-             l?110
-             l?110
-             l?0
-             (divides.divides l?110 (gcd.gcd n O.O) O.O)
-             (divides.divides l?110 (gcd.gcd n O.O) n)
-             (divides_n_O.divides_n_O l?110 (gcd.gcd n O.O))
+             (divides.divides cts.zero (gcd.gcd n O.O) O.O)
+             (divides.divides cts.zero (gcd.gcd n O.O) n)
+             (divides_n_O.divides_n_O cts.zero (gcd.gcd n O.O))
              (eq_coerc.eq_coerc
-                l?110
-                (divides.divides l?110 (gcd.gcd n O.O) (gcd.gcd n O.O))
-                (divides.divides l?110 (gcd.gcd n O.O) n)
-                (divides_n_n.divides_n_n l?110 (gcd.gcd n O.O))
+                cts.zero
+                (divides.divides cts.zero (gcd.gcd n O.O) (gcd.gcd n O.O))
+                (divides.divides cts.zero (gcd.gcd n O.O) n)
+                (divides_n_n.divides_n_n cts.zero (gcd.gcd n O.O))
                 (rewrite_r.rewrite_r
-                   (cts.succ l?110)
+                   (cts.succ cts.zero)
                    cts.zero
                    nat.nat
                    n
                    (__:(cts.Term cts.zero nat.nat) =>
                     eq.eq
-                      (cts.succ l?110)
-                      (cts.univ l?110 (cts.succ l?110) cts.I)
-                      (divides.divides l?110 (gcd.gcd n O.O) __)
-                      (divides.divides l?110 (gcd.gcd n O.O) n))
+                      (cts.succ cts.zero)
+                      (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                      (divides.divides cts.zero (gcd.gcd n O.O) __)
+                      (divides.divides cts.zero (gcd.gcd n O.O) n))
                    (refl.refl
-                      (cts.succ l?110)
-                      (cts.univ l?110 (cts.succ l?110) cts.I)
-                      (divides.divides l?110 (gcd.gcd n O.O) n))
+                      (cts.succ cts.zero)
+                      (cts.univ cts.zero (cts.succ cts.zero) cts.I)
+                      (divides.divides cts.zero (gcd.gcd n O.O) n))
                    (gcd.gcd n O.O)
                    (rewrite_l.rewrite_l
                       cts.zero
@@ -288,35 +228,29 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                       (gcd_O_l.gcd_O_l n)))))
           m
           eqmO)
-       (le_to_or_lt_eq.le_to_or_lt_eq cts.zero O.O m (le_O_n.le_O_n m)))
+       (le_to_or_lt_eq.le_to_or_lt_eq O.O m (le_O_n.le_O_n m)))
     (eqnO:(cts.Term cts.zero (eq.eq cts.zero nat.nat O.O n)) =>
      eq_ind.eq_ind
-       l?0
+       cts.zero
        cts.zero
        nat.nat
        O.O
        (x_1:(cts.Term cts.zero nat.nat) =>
         And.And
-          l?110
-          l?110
-          l?0
-          (divides.divides l?110 (gcd.gcd x_1 m) m)
-          (divides.divides l?110 (gcd.gcd x_1 m) x_1))
+          (divides.divides cts.zero (gcd.gcd x_1 m) m)
+          (divides.divides cts.zero (gcd.gcd x_1 m) x_1))
        (conj.conj
-          l?110
-          l?110
-          l?0
-          (divides.divides l?110 (gcd.gcd O.O m) m)
-          (divides.divides l?110 (gcd.gcd O.O m) O.O)
+          (divides.divides cts.zero (gcd.gcd O.O m) m)
+          (divides.divides cts.zero (gcd.gcd O.O m) O.O)
           (eq_match_bool_type_true.eq_match_bool_type_true
-             l?110
+             cts.zero
              cts.zero
              nat.nat
              m
              (gcd_aux.gcd_aux m O.O m)
              (y:(cts.Term cts.zero nat.nat) =>
               divides.divides
-                l?110
+                cts.zero
                 (match_bool_type.match_bool_type
                    cts.zero
                    nat.nat
@@ -325,7 +259,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                    (leb.leb O.O m))
                 y)
              (eq_leb_body_O.eq_leb_body_O
-                l?110
+                cts.zero
                 (y:(cts.Term
                       cts.zero
                       (cts.prod
@@ -336,7 +270,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                          nat.nat
                          (x => bool.bool))) =>
                  divides.divides
-                   l?110
+                   cts.zero
                    (match_bool_type.match_bool_type
                       cts.zero
                       nat.nat
@@ -350,7 +284,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                       (gcd_aux.gcd_aux m O.O m)
                       (y m)))
                 (eq_filter_nat_type_O.eq_filter_nat_type_O
-                   l?110
+                   cts.zero
                    cts.zero
                    (cts.prod
                       cts.zero
@@ -370,7 +304,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                             nat.nat
                             (x => bool.bool))) =>
                     divides.divides
-                      l?110
+                      cts.zero
                       (match_bool_type.match_bool_type
                          cts.zero
                          nat.nat
@@ -384,7 +318,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                          (gcd_aux.gcd_aux m O.O m)
                          (y m)))
                    (eq_leb.eq_leb
-                      l?110
+                      cts.zero
                       O.O
                       (y:(cts.Term
                             cts.zero
@@ -396,7 +330,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                                nat.nat
                                (x => bool.bool))) =>
                        divides.divides
-                         l?110
+                         cts.zero
                          (match_bool_type.match_bool_type
                             cts.zero
                             nat.nat
@@ -410,7 +344,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                             (gcd_aux.gcd_aux m O.O m)
                             (y m)))
                       (eq_gcd_aux_body_O.eq_gcd_aux_body_O
-                         l?110
+                         cts.zero
                          (y:(cts.Term
                                cts.zero
                                (cts.prod
@@ -428,7 +362,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                                      nat.nat
                                      (x0 => nat.nat)))) =>
                           divides.divides
-                            l?110
+                            cts.zero
                             (gcd.gcd O.O m)
                             (match_bool_type.match_bool_type
                                cts.zero
@@ -437,7 +371,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                                (gcd_aux.gcd_aux m O.O m)
                                (leb.leb O.O m)))
                          (eq_filter_nat_type_O.eq_filter_nat_type_O
-                            l?110
+                            cts.zero
                             cts.zero
                             (cts.prod
                                cts.zero
@@ -471,7 +405,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                                         nat.nat
                                         (x0 => nat.nat)))) =>
                              divides.divides
-                               l?110
+                               cts.zero
                                (gcd.gcd O.O m)
                                (match_bool_type.match_bool_type
                                   cts.zero
@@ -480,7 +414,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                                   (gcd_aux.gcd_aux m O.O m)
                                   (leb.leb O.O m)))
                             (eq_gcd_aux.eq_gcd_aux
-                               l?110
+                               cts.zero
                                O.O
                                (y:(cts.Term
                                      cts.zero
@@ -499,7 +433,7 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                                            nat.nat
                                            (x0 => nat.nat)))) =>
                                 divides.divides
-                                  l?110
+                                  cts.zero
                                   (gcd.gcd O.O m)
                                   (match_bool_type.match_bool_type
                                      cts.zero
@@ -508,10 +442,10 @@ def divides_gcd_nm :  (l?0 : cts.Sort) -> (l?110 : cts.Sort) ->
                                      (gcd_aux.gcd_aux m O.O m)
                                      (leb.leb O.O m)))
                                (divides_n_n.divides_n_n
-                                  l?110
+                                  cts.zero
                                   (gcd.gcd O.O m)))))))))
-          (divides_n_O.divides_n_O l?110 (gcd.gcd O.O m)))
+          (divides_n_O.divides_n_O cts.zero (gcd.gcd O.O m)))
        n
        eqnO)
-    (le_to_or_lt_eq.le_to_or_lt_eq cts.zero O.O n (le_O_n.le_O_n n)).
+    (le_to_or_lt_eq.le_to_or_lt_eq O.O n (le_O_n.le_O_n n)).
 

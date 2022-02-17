@@ -20,7 +20,10 @@ cd ..
 to_dependencies=$(cat todep)
 cd ctslib
 
-# look at ltn_to_ltO
+# some occurences of $name.$name occur in strings such as
+# blabla_$name.$name_bla
+# look for instance at ltn_to_ltO
+# therefore, we add the @ to protect them from the sed
 sed -i "s/_$name\.$name/@_$name_@_$name/g" *.dk
 sed -i "s/$name\.$name/$to_dependencies/g" *.dk
 sed -i "s/@_$name_@_$name/_$name\.$name/g" *.dk

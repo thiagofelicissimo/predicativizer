@@ -40,11 +40,10 @@ def le_to_leb_true :
     (auto:(cts.Term cts.zero (le.le n m)) =>
      auto':(cts.Term cts.zero (le.le n m)) =>
      refl.refl cts.zero bool.bool true.true)
-    (H:(cts.Term cts.zero (Not.Not cts.zero (le.le n m))) =>
+    (H:(cts.Term cts.zero (Not.Not (le.le n m))) =>
      H1:(cts.Term cts.zero (le.le n m)) =>
      falsity.falsity
        cts.zero
-       cts.zero
        (eq.eq cts.zero bool.bool false.false true.true)
-       (absurd.absurd cts.zero cts.zero (le.le n m) H1 H)).
+       (absurd.absurd (le.le n m) H1 H)).
 

@@ -21,10 +21,7 @@ def eqb_false_to_not_eq :
              cts.zero
              cts.I
              (eq.eq cts.zero bool.bool (eqb.eqb x x0) false.false)
-             (x1 =>
-              Not.Not
-                cts.zero
-                (eq.eq cts.zero nat.nat x x0)))))
+             (x1 => Not.Not (eq.eq cts.zero nat.nat x x0)))))
   :=
   n:(cts.Term cts.zero nat.nat) =>
   m:(cts.Term cts.zero nat.nat) =>
@@ -39,14 +36,12 @@ def eqb_false_to_not_eq :
        cts.zero
        cts.I
        (eq.eq cts.zero bool.bool __ false.false)
-       (x => Not.Not cts.zero (eq.eq cts.zero nat.nat n m)))
+       (x => Not.Not (eq.eq cts.zero nat.nat n m)))
     (auto:(cts.Term cts.zero (eq.eq cts.zero nat.nat n m)) =>
      auto':(cts.Term
               cts.zero
               (eq.eq cts.zero bool.bool true.true false.false)) =>
      not_to_not.not_to_not
-       cts.zero
-       cts.zero
        (eq.eq cts.zero nat.nat n m)
        (eq.eq cts.zero bool.bool true.true false.false)
        (auto'':(cts.Term
@@ -65,9 +60,7 @@ def eqb_false_to_not_eq :
        not_eq_true_false.not_eq_true_false)
     (auto:(cts.Term
              cts.zero
-             (Not.Not
-                cts.zero
-                (eq.eq cts.zero nat.nat n m))) =>
+             (Not.Not (eq.eq cts.zero nat.nat n m))) =>
      auto':(cts.Term
               cts.zero
               (eq.eq cts.zero bool.bool false.false false.false)) =>

@@ -1,57 +1,51 @@
-def sym_not_eq :  (l?2 : cts.Sort) ->
+def sym_not_eq : 
   cts.Term
-    (cts.succ l?2)
+    (cts.succ cts.zero)
     (cts.prod
-       (cts.succ l?2)
-       l?2
-       (cts.succ l?2)
+       (cts.succ cts.zero)
+       cts.zero
+       (cts.succ cts.zero)
        cts.I
-       (cts.univ l?2 (cts.succ l?2) cts.I)
+       (cts.univ cts.zero (cts.succ cts.zero) cts.I)
        (x =>
         cts.prod
-          l?2
-          l?2
-          l?2
+          cts.zero
+          cts.zero
+          cts.zero
           cts.I
           x
           (x0 =>
            cts.prod
-             l?2
-             l?2
-             l?2
+             cts.zero
+             cts.zero
+             cts.zero
              cts.I
              x
              (x1 =>
               cts.prod
-                l?2
-                l?2
-                l?2
+                cts.zero
+                cts.zero
+                cts.zero
                 cts.I
-                (Not.Not l?2 (eq.eq l?2 x x0 x1))
-                (x2 => Not.Not l?2 (eq.eq l?2 x x1 x0))))))
-  := l?2 =>
-  A:(cts.Term (cts.succ l?2) (cts.univ l?2 (cts.succ l?2) cts.I)) =>
-  x:(cts.Term l?2 A) =>
-  y:(cts.Term l?2 A) =>
-  auto:(cts.Term
-          l?2
-          (Not.Not l?2 (eq.eq l?2 A x y))) =>
+                (Not.Not (eq.eq cts.zero x x0 x1))
+                (x2 => Not.Not (eq.eq cts.zero x x1 x0))))))
+  :=
+  A:(cts.Term (cts.succ cts.zero) (cts.univ cts.zero (cts.succ cts.zero) cts.I)) =>
+  x:(cts.Term cts.zero A) =>
+  y:(cts.Term cts.zero A) =>
+  auto:(cts.Term cts.zero (Not.Not (eq.eq cts.zero A x y))) =>
   nmk.nmk
-    cts.zero
-    l?2
-    (eq.eq l?2 A y x)
-    (auto':(cts.Term l?2 (eq.eq l?2 A y x)) =>
+    (eq.eq cts.zero A y x)
+    (auto':(cts.Term cts.zero (eq.eq cts.zero A y x)) =>
      absurd.absurd
-       l?2
-       cts.zero
-       (eq.eq l?2 A x y)
+       (eq.eq cts.zero A x y)
        (rewrite_r.rewrite_r
-          l?2
-          l?2
+          cts.zero
+          cts.zero
           A
           x
-          (__:(cts.Term l?2 A) => eq.eq l?2 A x __)
-          (refl.refl l?2 A x)
+          (__:(cts.Term cts.zero A) => eq.eq cts.zero A x __)
+          (refl.refl cts.zero A x)
           y
           auto')
        auto).

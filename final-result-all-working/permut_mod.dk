@@ -1,49 +1,43 @@
-def permut_mod :  (l?193 : cts.Sort) -> (l?190 : cts.Sort) -> (l?12 : cts.Sort) ->
+def permut_mod : 
   cts.Term
-    (cts.max l?193 (cts.max l?190 l?12))
+    cts.zero
     (cts.prod
        cts.zero
-       (cts.max l?193 (cts.max l?190 l?12))
-       (cts.max l?193 (cts.max l?190 l?12))
+       cts.zero
+       cts.zero
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          (cts.max l?193 (cts.max l?190 l?12))
-          (cts.max l?193 (cts.max l?190 l?12))
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            cts.prod
-             l?193
-             (cts.max l?190 l?12)
-             (cts.max l?193 (cts.max l?190 l?12))
+             cts.zero
+             cts.zero
+             cts.zero
              cts.I
-             (prime.prime l?193 x)
+             (prime.prime x)
              (x1 =>
               cts.prod
-                l?190
-                l?12
-                (cts.max l?190 l?12)
+                cts.zero
+                cts.zero
+                cts.zero
                 cts.I
-                (Not.Not l?190 (divides.divides l?190 x x0))
+                (Not.Not (divides.divides cts.zero x x0))
                 (x2 =>
                  permut.permut
-                   l?12
                    (n:(cts.Term cts.zero nat.nat) => mod.mod (times.times x0 n) x)
                    (pred.pred x))))))
-  := l?193 => l?190 => l?12 =>
+  :=
   p:(cts.Term cts.zero nat.nat) =>
   a:(cts.Term cts.zero nat.nat) =>
-  primep:(cts.Term l?193 (prime.prime l?193 p)) =>
-  ndiv:(cts.Term
-          l?190
-          (Not.Not l?190 (divides.divides l?190 p a))) =>
+  primep:(cts.Term cts.zero (prime.prime p)) =>
+  ndiv:(cts.Term cts.zero (Not.Not (divides.divides cts.zero p a))) =>
   conj.conj
-    cts.zero
-    cts.zero
-    l?12
     (cts.prod
        cts.zero
        cts.zero
@@ -70,10 +64,7 @@ def permut_mod :  (l?193 : cts.Sort) -> (l?190 : cts.Sort) -> (l?12 : cts.Sort) 
           (S.S (mod.mod (times.times a i) p))
           p
           (S.S (pred.pred p))
-          (lt_mod_m_m.lt_mod_m_m
-             (times.times a i)
-             p
-             (prime_to_lt_O.prime_to_lt_O l?193 p primep))
+          (lt_mod_m_m.lt_mod_m_m (times.times a i) p (prime_to_lt_O.prime_to_lt_O p primep))
           (eq_ind_r.eq_ind_r
              cts.zero
              cts.zero
@@ -82,7 +73,7 @@ def permut_mod :  (l?193 : cts.Sort) -> (l?190 : cts.Sort) -> (l?12 : cts.Sort) 
              (x:(cts.Term cts.zero nat.nat) => le.le p x)
              (le_n.le_n p)
              (S.S (pred.pred p))
-             (S_pred.S_pred p (prime_to_lt_O.prime_to_lt_O l?193 p primep)))))
+             (S_pred.S_pred p (prime_to_lt_O.prime_to_lt_O p primep)))))
     (i:(cts.Term cts.zero nat.nat) =>
      j:(cts.Term cts.zero nat.nat) =>
      lei:(cts.Term cts.zero (le.le i (pred.pred p))) =>
@@ -95,21 +86,14 @@ def permut_mod :  (l?193 : cts.Sort) -> (l?190 : cts.Sort) -> (l?12 : cts.Sort) 
              (mod.mod (times.times a i) p)
              (mod.mod (times.times a j) p))) =>
      match_Or_prop.match_Or_prop
-       cts.zero
-       cts.zero
-       cts.zero
-       cts.zero
        (lt.lt i j)
-       (Not.Not cts.zero (lt.lt i j))
+       (Not.Not (lt.lt i j))
        (eq.eq cts.zero nat.nat i j)
        (ltij:(cts.Term cts.zero (lt.lt i j)) =>
         falsity.falsity
           cts.zero
-          cts.zero
           (eq.eq cts.zero nat.nat i j)
           (absurd.absurd
-             cts.zero
-             cts.zero
              (lt.lt (minus.minus j i) p)
              (eq_ind.eq_ind
                 cts.zero
@@ -131,7 +115,7 @@ def permut_mod :  (l?193 : cts.Sort) -> (l?190 : cts.Sort) -> (l?12 : cts.Sort) 
                          lej
                          (le_plus_n_r.le_plus_n_r i (pred.pred p)))))
                 p
-                (S_pred.S_pred p (prime_to_lt_O.prime_to_lt_O l?193 p primep)))
+                (S_pred.S_pred p (prime_to_lt_O.prime_to_lt_O p primep)))
              (le_to_not_lt.le_to_not_lt
                 p
                 (minus.minus j i)
@@ -191,35 +175,21 @@ def permut_mod :  (l?193 : cts.Sort) -> (l?190 : cts.Sort) -> (l?12 : cts.Sort) 
                                 le.le (S.S (y i)) j)
                                ltij))))
                    (match_Or_prop.match_Or_prop
-                      cts.zero
-                      l?190
-                      cts.zero
-                      cts.zero
-                      (divides.divides l?190 p a)
+                      (divides.divides cts.zero p a)
                       (divides.divides cts.zero p (minus.minus j i))
                       (divides.divides cts.zero p (minus.minus j i))
                       (Hdiv:(cts.Term
-                               l?190
-                               (divides.divides l?190 p a)) =>
+                               cts.zero
+                               (divides.divides cts.zero p a)) =>
                        falsity.falsity
                          cts.zero
-                         cts.zero
                          (divides.divides cts.zero p (minus.minus j i))
-                         (absurd.absurd
-                            l?190
-                            cts.zero
-                            (divides.divides l?190 p a)
-                            Hdiv
-                            ndiv))
+                         (absurd.absurd (divides.divides cts.zero p a) Hdiv ndiv))
                       (auto:(cts.Term
                                cts.zero
                                (divides.divides cts.zero p (minus.minus j i))) =>
                        auto)
                       (divides_times_to_divides.divides_times_to_divides
-                         l?193
-                         cts.zero
-                         cts.zero
-                         l?190
                          cts.zero
                          p
                          a
@@ -237,7 +207,7 @@ def permut_mod :  (l?193 : cts.Sort) -> (l?190 : cts.Sort) -> (l?12 : cts.Sort) 
                                (times.times a j)
                                (times.times a i)
                                p
-                               (prime_to_lt_O.prime_to_lt_O l?193 p primep)
+                               (prime_to_lt_O.prime_to_lt_O p primep)
                                (rewrite_l.rewrite_l
                                   cts.zero
                                   cts.zero
@@ -257,23 +227,16 @@ def permut_mod :  (l?193 : cts.Sort) -> (l?190 : cts.Sort) -> (l?12 : cts.Sort) 
                                   H))
                             (times.times a (minus.minus j i))
                             (distributive_times_minus.distributive_times_minus a j i))))))))
-       (Hij:(cts.Term cts.zero (Not.Not cts.zero (lt.lt i j))) =>
+       (Hij:(cts.Term cts.zero (Not.Not (lt.lt i j))) =>
         match_Or_prop.match_Or_prop
-          cts.zero
-          cts.zero
-          cts.zero
-          cts.zero
           (lt.lt j i)
           (eq.eq cts.zero nat.nat j i)
           (eq.eq cts.zero nat.nat i j)
           (Hij0:(cts.Term cts.zero (lt.lt j i)) =>
            falsity.falsity
              cts.zero
-             cts.zero
              (eq.eq cts.zero nat.nat i j)
              (absurd.absurd
-                cts.zero
-                cts.zero
                 (lt.lt (minus.minus i j) p)
                 (eq_ind.eq_ind
                    cts.zero
@@ -295,7 +258,7 @@ def permut_mod :  (l?193 : cts.Sort) -> (l?190 : cts.Sort) -> (l?12 : cts.Sort) 
                             lei
                             (le_plus_n_r.le_plus_n_r j (pred.pred p)))))
                    p
-                   (S_pred.S_pred p (prime_to_lt_O.prime_to_lt_O l?193 p primep)))
+                   (S_pred.S_pred p (prime_to_lt_O.prime_to_lt_O p primep)))
                 (le_to_not_lt.le_to_not_lt
                    p
                    (minus.minus i j)
@@ -355,24 +318,17 @@ def permut_mod :  (l?193 : cts.Sort) -> (l?190 : cts.Sort) -> (l?12 : cts.Sort) 
                                    le.le (S.S (y j)) i)
                                   Hij0))))
                       (match_Or_prop.match_Or_prop
-                         cts.zero
-                         l?190
-                         cts.zero
-                         cts.zero
-                         (divides.divides l?190 p a)
+                         (divides.divides cts.zero p a)
                          (divides.divides cts.zero p (minus.minus i j))
                          (divides.divides cts.zero p (minus.minus i j))
                          (Hdiv:(cts.Term
-                                  l?190
-                                  (divides.divides l?190 p a)) =>
+                                  cts.zero
+                                  (divides.divides cts.zero p a)) =>
                           falsity.falsity
-                            cts.zero
                             cts.zero
                             (divides.divides cts.zero p (minus.minus i j))
                             (absurd.absurd
-                               l?190
-                               cts.zero
-                               (divides.divides l?190 p a)
+                               (divides.divides cts.zero p a)
                                Hdiv
                                ndiv))
                          (auto:(cts.Term
@@ -383,10 +339,6 @@ def permut_mod :  (l?193 : cts.Sort) -> (l?190 : cts.Sort) -> (l?12 : cts.Sort) 
                                      (minus.minus i j))) =>
                           auto)
                          (divides_times_to_divides.divides_times_to_divides
-                            l?193
-                            cts.zero
-                            cts.zero
-                            l?190
                             cts.zero
                             p
                             a
@@ -404,10 +356,7 @@ def permut_mod :  (l?193 : cts.Sort) -> (l?190 : cts.Sort) -> (l?12 : cts.Sort) 
                                   (times.times a i)
                                   (times.times a j)
                                   p
-                                  (prime_to_lt_O.prime_to_lt_O
-                                     l?193
-                                     p
-                                     primep)
+                                  (prime_to_lt_O.prime_to_lt_O p primep)
                                   (rewrite_l.rewrite_l
                                      cts.zero
                                      cts.zero
@@ -438,10 +387,6 @@ def permut_mod :  (l?193 : cts.Sort) -> (l?190 : cts.Sort) -> (l?12 : cts.Sort) 
              (refl.refl cts.zero nat.nat i)
              j
              Hij0)
-          (le_to_or_lt_eq.le_to_or_lt_eq
-             cts.zero
-             j
-             i
-             (not_lt_to_le.not_lt_to_le i j Hij)))
-       (decidable_lt.decidable_lt cts.zero i j)).
+          (le_to_or_lt_eq.le_to_or_lt_eq j i (not_lt_to_le.not_lt_to_le i j Hij)))
+       (decidable_lt.decidable_lt i j)).
 

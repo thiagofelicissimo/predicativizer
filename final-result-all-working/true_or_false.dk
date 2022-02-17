@@ -1,41 +1,29 @@
-def true_or_false :  (l?0 : cts.Sort) ->
+def true_or_false : 
   cts.Term
-    l?0
+    cts.zero
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        bool.bool
        (x =>
         Or.Or
-          cts.zero
-          cts.zero
-          l?0
           (eq.eq cts.zero bool.bool x true.true)
           (eq.eq cts.zero bool.bool x false.false)))
-  := l?0 =>
+  :=
   b:(cts.Term cts.zero bool.bool) =>
   match_bool_prop.match_bool_prop
-    l?0
+    cts.zero
     (__:(cts.Term cts.zero bool.bool) =>
      Or.Or
-       cts.zero
-       cts.zero
-       l?0
        (eq.eq cts.zero bool.bool __ true.true)
        (eq.eq cts.zero bool.bool __ false.false))
     (or_introl.or_introl
-       cts.zero
-       cts.zero
-       l?0
        (eq.eq cts.zero bool.bool true.true true.true)
        (eq.eq cts.zero bool.bool true.true false.false)
        (refl.refl cts.zero bool.bool true.true))
     (RC_reflexive.RC_reflexive
-       cts.zero
-       cts.zero
-       l?0
        bool.bool
        (__:(cts.Term cts.zero bool.bool) =>
         _0:(cts.Term cts.zero bool.bool) =>

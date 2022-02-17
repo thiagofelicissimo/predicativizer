@@ -82,7 +82,6 @@ def lt_O_n_elim :  (l?8 : cts.Sort) ->
     (abs:(cts.Term cts.zero (lt.lt O.O O.O)) =>
      falsity.falsity
        (cts.succ l?8)
-       cts.zero
        (cts.prod
           (cts.succ l?8)
           l?8
@@ -109,12 +108,7 @@ def lt_O_n_elim :  (l?8 : cts.Sort) ->
                 nat.nat
                 (x0 => x (S.S x0)))
              (x0 => x O.O)))
-       (absurd.absurd
-          cts.zero
-          cts.zero
-          (le.le (S.S O.O) O.O)
-          abs
-          (not_le_Sn_O.not_le_Sn_O O.O)))
+       (absurd.absurd (le.le (S.S O.O) O.O) abs (not_le_Sn_O.not_le_Sn_O O.O)))
     (x_366:(cts.Term cts.zero nat.nat) =>
      _x_368:(cts.Term
                (cts.succ l?8)

@@ -32,12 +32,8 @@ def minus_plus :
   m:(cts.Term cts.zero nat.nat) =>
   p:(cts.Term cts.zero nat.nat) =>
   match_Or_prop.match_Or_prop
-    cts.zero
-    cts.zero
-    cts.zero
-    cts.zero
     (le.le (plus.plus m p) n)
-    (Not.Not cts.zero (le.le (plus.plus m p) n))
+    (Not.Not (le.le (plus.plus m p) n))
     (eq.eq
        cts.zero
        nat.nat
@@ -67,7 +63,7 @@ def minus_plus :
                 (refl.refl cts.zero nat.nat (minus.minus n (plus.plus m p))))
              (plus.plus m (plus.plus p (minus.minus n (plus.plus m p))))
              (associative_plus.associative_plus m p (minus.minus n (plus.plus m p))))))
-    (Hlt:(cts.Term cts.zero (Not.Not cts.zero (le.le (plus.plus m p) n))) =>
+    (Hlt:(cts.Term cts.zero (Not.Not (le.le (plus.plus m p) n))) =>
      eq_ind_r.eq_ind_r
        cts.zero
        cts.zero
@@ -153,5 +149,5 @@ def minus_plus :
                    (le.le (minus.minus n m) p))
                 (minus.minus (plus.plus p m) m)
                 (minus_plus_m_m.minus_plus_m_m p m)))))
-    (decidable_le.decidable_le cts.zero (plus.plus m p) n).
+    (decidable_le.decidable_le (plus.plus m p) n).
 

@@ -32,10 +32,6 @@ def transpose_i_j_j_i :
   j:(cts.Term cts.zero nat.nat) =>
   n:(cts.Term cts.zero nat.nat) =>
   match_Or_prop.match_Or_prop
-    cts.zero
-    cts.zero
-    cts.zero
-    cts.zero
     (eq.eq cts.zero bool.bool (eqb.eqb n i) true.true)
     (eq.eq cts.zero bool.bool (eqb.eqb n i) false.false)
     (eq.eq
@@ -78,10 +74,6 @@ def transpose_i_j_j_i :
              (match_bool_type.match_bool_type cts.zero nat.nat j n x)
              (eqb.eqb n j)))
        (match_Or_prop.match_Or_prop
-          cts.zero
-          cts.zero
-          cts.zero
-          cts.zero
           (eq.eq cts.zero bool.bool (eqb.eqb n j) true.true)
           (eq.eq cts.zero bool.bool (eqb.eqb n j) false.false)
           (eq.eq
@@ -295,7 +287,7 @@ def transpose_i_j_j_i :
                          (refl.refl cts.zero nat.nat j)))))
              (eqb.eqb n j)
              Hnj)
-          (true_or_false.true_or_false cts.zero (eqb.eqb n j)))
+          (true_or_false.true_or_false (eqb.eqb n j)))
        (eqb.eqb n i)
        Hni)
     (Hni:(cts.Term
@@ -328,10 +320,6 @@ def transpose_i_j_j_i :
              (match_bool_type.match_bool_type cts.zero nat.nat j n x)
              (eqb.eqb n j)))
        (match_Or_prop.match_Or_prop
-          cts.zero
-          cts.zero
-          cts.zero
-          cts.zero
           (eq.eq cts.zero bool.bool (eqb.eqb n j) true.true)
           (eq.eq cts.zero bool.bool (eqb.eqb n j) false.false)
           (eq.eq
@@ -571,8 +559,8 @@ def transpose_i_j_j_i :
                          (refl.refl cts.zero nat.nat n)))))
              (eqb.eqb n j)
              Hnj)
-          (true_or_false.true_or_false cts.zero (eqb.eqb n j)))
+          (true_or_false.true_or_false (eqb.eqb n j)))
        (eqb.eqb n i)
        Hni)
-    (true_or_false.true_or_false cts.zero (eqb.eqb n i)).
+    (true_or_false.true_or_false (eqb.eqb n i)).
 

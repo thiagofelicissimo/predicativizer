@@ -87,13 +87,7 @@ def iso :  (l?31 : cts.Sort) ->
              cts.zero
              (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
         And.And
-          cts.zero
-          cts.zero
-          cts.zero
           (And.And
-             cts.zero
-             cts.zero
-             cts.zero
              (cts.prod
                 cts.zero
                 cts.zero
@@ -115,6 +109,6 @@ def iso :  (l?31 : cts.Sort) ->
                       cts.I
                       (eq.eq cts.zero bool.bool (p1 x) true.true)
                       (x1 => eq.eq cts.zero nat.nat (f1 x) (f2 (h x))))))
-             (sub_hk.sub_hk cts.zero h k n1 n2 p1 p2 f1 f2))
-          (sub_hk.sub_hk cts.zero k h n2 n1 p2 p1 f2 f1))).
+             (sub_hk.sub_hk h k n1 n2 p1 p2 f1 f2))
+          (sub_hk.sub_hk k h n2 n1 p2 p1 f2 f1))).
 

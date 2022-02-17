@@ -51,7 +51,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                       l?8
                       l?8
                       cts.I
-                      (Not.Not cts.zero (le.le x x0))
+                      (Not.Not (le.le x x0))
                       (x3 => x1 false.false))
                    (x3 => x1 (leb.leb x x0)))))))
   := l?8 =>
@@ -95,7 +95,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                 l?8
                 l?8
                 cts.I
-                (Not.Not cts.zero (le.le __ _0))
+                (Not.Not (le.le __ _0))
                 (x1 => x false.false))
              (x1 => x (leb.leb __ _0)))))
     (n:(cts.Term cts.zero nat.nat) =>
@@ -147,7 +147,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                    l?8
                    l?8
                    cts.I
-                   (Not.Not cts.zero (le.le O.O n))
+                   (Not.Not (le.le O.O n))
                    (x1 => x false.false))
                 (x1 => x (y n)))))
        (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
@@ -206,7 +206,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                       l?8
                       l?8
                       cts.I
-                      (Not.Not cts.zero (le.le O.O n))
+                      (Not.Not (le.le O.O n))
                       (x1 => x false.false))
                    (x1 => x (y n)))))
           (sym_eq_leb_body_O.sym_eq_leb_body_O
@@ -256,7 +256,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                          l?8
                          l?8
                          cts.I
-                         (Not.Not cts.zero (le.le O.O n))
+                         (Not.Not (le.le O.O n))
                          (x1 => x false.false))
                       (x1 => x (y n)))))
              (P:(cts.Term
@@ -284,7 +284,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                           l?8
                           l?8
                           cts.I
-                          (Not.Not cts.zero (le.le O.O n))
+                          (Not.Not (le.le O.O n))
                           (x => P false.false))) =>
               auto (le_O_n.le_O_n n)))))
     (n:(cts.Term cts.zero nat.nat) =>
@@ -336,7 +336,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                    l?8
                    l?8
                    cts.I
-                   (Not.Not cts.zero (le.le (S.S n) O.O))
+                   (Not.Not (le.le (S.S n) O.O))
                    (x1 => x false.false))
                 (x1 => x (y O.O)))))
        (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
@@ -396,7 +396,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                       l?8
                       l?8
                       cts.I
-                      (Not.Not cts.zero (le.le (S.S n) O.O))
+                      (Not.Not (le.le (S.S n) O.O))
                       (x1 => x false.false))
                    (x1 => x (y O.O)))))
           (sym_eq_leb_body_S.sym_eq_leb_body_S
@@ -447,7 +447,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                          l?8
                          l?8
                          cts.I
-                         (Not.Not cts.zero (le.le (S.S n) O.O))
+                         (Not.Not (le.le (S.S n) O.O))
                          (x1 => x false.false))
                       (x1 => x (y O.O)))))
              (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
@@ -493,7 +493,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                             l?8
                             l?8
                             cts.I
-                            (Not.Not cts.zero (le.le (S.S n) O.O))
+                            (Not.Not (le.le (S.S n) O.O))
                             (x1 => x false.false))
                          (x1 => x y))))
                 (P:(cts.Term
@@ -521,7 +521,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                              l?8
                              l?8
                              cts.I
-                             (Not.Not cts.zero (le.le (S.S n) O.O))
+                             (Not.Not (le.le (S.S n) O.O))
                              (x => P false.false))) =>
                  auto' (not_le_Sn_O.not_le_Sn_O n))))))
     (n:(cts.Term cts.zero nat.nat) =>
@@ -579,7 +579,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                       l?8
                       l?8
                       cts.I
-                      (Not.Not cts.zero (le.le n m))
+                      (Not.Not (le.le n m))
                       (x1 => x false.false))
                    (x1 => x (leb.leb n m)))))
           (x =>
@@ -619,7 +619,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                       l?8
                       l?8
                       cts.I
-                      (Not.Not cts.zero (le.le (S.S n) (S.S m)))
+                      (Not.Not (le.le (S.S n) (S.S m)))
                       (x2 => x0 false.false))
                    (x2 => x0 (y (S.S m)))))))
        (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
@@ -684,7 +684,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                          l?8
                          l?8
                          cts.I
-                         (Not.Not cts.zero (le.le n m))
+                         (Not.Not (le.le n m))
                          (x1 => x false.false))
                       (x1 => x (leb.leb n m)))))
              (x =>
@@ -724,7 +724,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                          l?8
                          l?8
                          cts.I
-                         (Not.Not cts.zero (le.le (S.S n) (S.S m)))
+                         (Not.Not (le.le (S.S n) (S.S m)))
                          (x2 => x0 false.false))
                       (x2 => x0 (y (S.S m)))))))
           (sym_eq_leb_body_S.sym_eq_leb_body_S
@@ -780,7 +780,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                             l?8
                             l?8
                             cts.I
-                            (Not.Not cts.zero (le.le n m))
+                            (Not.Not (le.le n m))
                             (x1 => x false.false))
                          (x1 => x (leb.leb n m)))))
                 (x =>
@@ -820,7 +820,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                             l?8
                             l?8
                             cts.I
-                            (Not.Not cts.zero (le.le (S.S n) (S.S m)))
+                            (Not.Not (le.le (S.S n) (S.S m)))
                             (x2 => x0 false.false))
                          (x2 => x0 (y (S.S m)))))))
              (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
@@ -872,7 +872,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                                l?8
                                l?8
                                cts.I
-                               (Not.Not cts.zero (le.le n m))
+                               (Not.Not (le.le n m))
                                (x1 => x false.false))
                             (x1 => x (leb.leb n m)))))
                    (x =>
@@ -912,7 +912,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                                l?8
                                l?8
                                cts.I
-                               (Not.Not cts.zero (le.le (S.S n) (S.S m)))
+                               (Not.Not (le.le (S.S n) (S.S m)))
                                (x2 => x0 false.false))
                             (x2 => x0 y)))))
                 (Hind:(cts.Term
@@ -953,7 +953,7 @@ def leb_elim :  (l?8 : cts.Sort) ->
                                      l?8
                                      l?8
                                      cts.I
-                                     (Not.Not cts.zero (le.le n m))
+                                     (Not.Not (le.le n m))
                                      (x1 => x false.false))
                                   (x1 => x (leb.leb n m)))))) =>
                  P:(cts.Term
@@ -981,14 +981,12 @@ def leb_elim :  (l?8 : cts.Sort) ->
                           l?8
                           l?8
                           cts.I
-                          (Not.Not cts.zero (le.le (S.S n) (S.S m)))
+                          (Not.Not (le.le (S.S n) (S.S m)))
                           (x => P false.false))) =>
                  Hind
                    P
                    (lenm:(cts.Term cts.zero (le.le n m)) =>
                     Pt (le_S_S.le_S_S n m lenm))
-                   (nlenm:(cts.Term
-                             cts.zero
-                             (Not.Not cts.zero (le.le n m))) =>
+                   (nlenm:(cts.Term cts.zero (Not.Not (le.le n m))) =>
                     Pf (not_le_to_not_le_S_S.not_le_to_not_le_S_S n m nlenm))))))).
 

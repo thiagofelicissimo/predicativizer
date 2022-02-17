@@ -20,17 +20,13 @@ def not_eq_S :
              cts.zero
              cts.zero
              cts.I
-             (Not.Not cts.zero (eq.eq cts.zero nat.nat x x0))
-             (x1 => Not.Not cts.zero (eq.eq cts.zero nat.nat (S.S x) (S.S x0))))))
+             (Not.Not (eq.eq cts.zero nat.nat x x0))
+             (x1 => Not.Not (eq.eq cts.zero nat.nat (S.S x) (S.S x0))))))
   :=
   n:(cts.Term cts.zero nat.nat) =>
   m:(cts.Term cts.zero nat.nat) =>
-  auto:(cts.Term
-          cts.zero
-          (Not.Not cts.zero (eq.eq cts.zero nat.nat n m))) =>
+  auto:(cts.Term cts.zero (Not.Not (eq.eq cts.zero nat.nat n m))) =>
   not_to_not.not_to_not
-    cts.zero
-    cts.zero
     (eq.eq cts.zero nat.nat (S.S n) (S.S m))
     (eq.eq cts.zero nat.nat n m)
     (auto':(cts.Term cts.zero (eq.eq cts.zero nat.nat (S.S n) (S.S m))) =>

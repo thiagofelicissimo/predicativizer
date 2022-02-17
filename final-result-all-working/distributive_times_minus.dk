@@ -7,12 +7,8 @@ def distributive_times_minus :
   b:(cts.Term cts.zero nat.nat) =>
   c:(cts.Term cts.zero nat.nat) =>
   match_Or_prop.match_Or_prop
-    cts.zero
-    cts.zero
-    cts.zero
-    cts.zero
     (lt.lt b c)
-    (Not.Not cts.zero (lt.lt b c))
+    (Not.Not (lt.lt b c))
     (eq.eq
        cts.zero
        nat.nat
@@ -54,9 +50,7 @@ def distributive_times_minus :
              (monotonic_le_times_r.monotonic_le_times_r a b c (lt_to_le.lt_to_le b c Hbc))))
        (minus.minus b c)
        (eq_minus_O.eq_minus_O b c (lt_to_le.lt_to_le b c Hbc)))
-    (Hbc:(cts.Term
-            cts.zero
-            (Not.Not cts.zero (lt.lt b c))) =>
+    (Hbc:(cts.Term cts.zero (Not.Not (lt.lt b c))) =>
      sym_eq.sym_eq
        cts.zero
        nat.nat
@@ -147,5 +141,5 @@ def distributive_times_minus :
                 nat.nat
                 (minus.minus (times.times a b) (times.times a c))
                 (times.times a (minus.minus b c))))))
-    (decidable_lt.decidable_lt cts.zero b c).
+    (decidable_lt.decidable_lt b c).
 

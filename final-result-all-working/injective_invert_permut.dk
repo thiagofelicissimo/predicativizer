@@ -1,10 +1,10 @@
-def injective_invert_permut :  (l?0 : cts.Sort) ->
+def injective_invert_permut : 
   cts.Term
-    l?0
+    cts.zero
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        (cts.prod
           cts.zero
@@ -16,19 +16,19 @@ def injective_invert_permut :  (l?0 : cts.Sort) ->
        (x =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            cts.prod
-             l?0
              cts.zero
-             l?0
+             cts.zero
+             cts.zero
              cts.I
-             (permut.permut l?0 x x0)
+             (permut.permut x x0)
              (x1 => injn.injn (invert_permut.invert_permut x0 x) x0))))
-  := l?0 =>
+  :=
   f:(cts.Term
        cts.zero
        (cts.prod
@@ -39,9 +39,7 @@ def injective_invert_permut :  (l?0 : cts.Sort) ->
           nat.nat
           (x => nat.nat))) =>
   n:(cts.Term cts.zero nat.nat) =>
-  permf:(cts.Term
-           l?0
-           (permut.permut l?0 f n)) =>
+  permf:(cts.Term cts.zero (permut.permut f n)) =>
   i:(cts.Term cts.zero nat.nat) =>
   j:(cts.Term cts.zero nat.nat) =>
   lein:(cts.Term cts.zero (le.le i n)) =>
@@ -53,12 +51,7 @@ def injective_invert_permut :  (l?0 : cts.Sort) ->
     cts.zero
     nat.nat
     (p:(cts.Term cts.zero nat.nat) =>
-     And.And
-       cts.zero
-       cts.zero
-       cts.zero
-       (le.le p n)
-       (eq.eq cts.zero nat.nat (f p) i))
+     And.And (le.le p n) (eq.eq cts.zero nat.nat (f p) i))
     (cts.prod
        cts.zero
        cts.zero
@@ -73,17 +66,8 @@ def injective_invert_permut :  (l?0 : cts.Sort) ->
     (a:(cts.Term cts.zero nat.nat) =>
      _clearme:(cts.Term
                  cts.zero
-                 (And.And
-                    cts.zero
-                    cts.zero
-                    cts.zero
-                    (le.le a n)
-                    (eq.eq cts.zero nat.nat (f a) i))) =>
+                 (And.And (le.le a n) (eq.eq cts.zero nat.nat (f a) i))) =>
      match_And_prop.match_And_prop
-       cts.zero
-       cts.zero
-       cts.zero
-       cts.zero
        (le.le a n)
        (eq.eq cts.zero nat.nat (f a) i)
        (cts.prod
@@ -108,12 +92,7 @@ def injective_invert_permut :  (l?0 : cts.Sort) ->
           cts.zero
           nat.nat
           (p:(cts.Term cts.zero nat.nat) =>
-           And.And
-             cts.zero
-             cts.zero
-             cts.zero
-             (le.le p n)
-             (eq.eq cts.zero nat.nat (f p) j))
+           And.And (le.le p n) (eq.eq cts.zero nat.nat (f p) j))
           (cts.prod
              cts.zero
              cts.zero
@@ -129,16 +108,9 @@ def injective_invert_permut :  (l?0 : cts.Sort) ->
            _clearme0:(cts.Term
                         cts.zero
                         (And.And
-                           cts.zero
-                           cts.zero
-                           cts.zero
                            (le.le b n)
                            (eq.eq cts.zero nat.nat (f b) j))) =>
            match_And_prop.match_And_prop
-             cts.zero
-             cts.zero
-             cts.zero
-             cts.zero
              (le.le b n)
              (eq.eq cts.zero nat.nat (f b) j)
              (cts.prod
@@ -157,10 +129,6 @@ def injective_invert_permut :  (l?0 : cts.Sort) ->
                     cts.zero
                     (eq.eq cts.zero nat.nat (f b) j)) =>
               match_And_prop.match_And_prop
-                cts.zero
-                cts.zero
-                cts.zero
-                l?0
                 (cts.prod
                    cts.zero
                    cts.zero
@@ -287,11 +255,7 @@ def injective_invert_permut :  (l?0 : cts.Sort) ->
                                   (__1:(cts.Term
                                           cts.zero
                                           nat.nat) =>
-                                   eq.eq
-                                     cts.zero
-                                     nat.nat
-                                     i
-                                     (f __1))
+                                   eq.eq cts.zero nat.nat i (f __1))
                                   (rewrite_r.rewrite_r
                                      cts.zero
                                      cts.zero
@@ -311,9 +275,6 @@ def injective_invert_permut :  (l?0 : cts.Sort) ->
                                         i)
                                      (f a)
                                      (let_clause_1068.let_clause_1068
-                                        l?0
-                                        cts.zero
-                                        cts.zero
                                         f
                                         n
                                         permf
@@ -336,9 +297,6 @@ def injective_invert_permut :  (l?0 : cts.Sort) ->
                                   auto)
                                (f a)
                                (let_clause_1068.let_clause_1068
-                                  l?0
-                                  cts.zero
-                                  cts.zero
                                   f
                                   n
                                   permf
@@ -367,21 +325,7 @@ def injective_invert_permut :  (l?0 : cts.Sort) ->
                    fa)
                 permf)
              _clearme0)
-          (permut_to_bijn.permut_to_bijn
-             l?0
-             cts.zero
-             n
-             f
-             permf
-             j
-             lejn))
+          (permut_to_bijn.permut_to_bijn n f permf j lejn))
        _clearme)
-    (permut_to_bijn.permut_to_bijn
-       l?0
-       cts.zero
-       n
-       f
-       permf
-       i
-       lein).
+    (permut_to_bijn.permut_to_bijn n f permf i lein).
 

@@ -1,10 +1,10 @@
-def permut_invert_permut :  (l?150 : cts.Sort) -> (l?11 : cts.Sort) ->
+def permut_invert_permut : 
   cts.Term
-    (cts.max l?150 l?11)
+    cts.zero
     (cts.prod
        cts.zero
-       (cts.max l?150 l?11)
-       (cts.max l?150 l?11)
+       cts.zero
+       cts.zero
        cts.I
        (cts.prod
           cts.zero
@@ -16,20 +16,19 @@ def permut_invert_permut :  (l?150 : cts.Sort) -> (l?11 : cts.Sort) ->
        (x =>
         cts.prod
           cts.zero
-          (cts.max l?150 l?11)
-          (cts.max l?150 l?11)
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            cts.prod
-             l?150
-             l?11
-             (cts.max l?150 l?11)
+             cts.zero
+             cts.zero
+             cts.zero
              cts.I
-             (permut.permut l?150 x x0)
-             (x1 =>
-              permut.permut l?11 (invert_permut.invert_permut x0 x) x0))))
-  := l?150 => l?11 =>
+             (permut.permut x x0)
+             (x1 => permut.permut (invert_permut.invert_permut x0 x) x0))))
+  :=
   f:(cts.Term
        cts.zero
        (cts.prod
@@ -40,11 +39,8 @@ def permut_invert_permut :  (l?150 : cts.Sort) -> (l?11 : cts.Sort) ->
           nat.nat
           (x => nat.nat))) =>
   n:(cts.Term cts.zero nat.nat) =>
-  permf:(cts.Term l?150 (permut.permut l?150 f n)) =>
+  permf:(cts.Term cts.zero (permut.permut f n)) =>
   conj.conj
-    cts.zero
-    cts.zero
-    l?11
     (cts.prod
        cts.zero
        cts.zero
@@ -385,5 +381,5 @@ def permut_invert_permut :  (l?150 : cts.Sort) -> (l?11 : cts.Sort) ->
                       (le_S.le_S (invert_permut.invert_permut n1 f i) n1 Hind))
                    (eqb.eqb i (f (S.S n1)))))))
        n)
-    (injective_invert_permut.injective_invert_permut l?150 f n permf).
+    (injective_invert_permut.injective_invert_permut f n permf).
 

@@ -50,19 +50,14 @@ def eqb_true_to_eq :
        (refl.refl cts.zero nat.nat n)
        m
        auto)
-    (__:(cts.Term
-           cts.zero
-           (Not.Not cts.zero (eq.eq cts.zero nat.nat n m))) =>
+    (__:(cts.Term cts.zero (Not.Not (eq.eq cts.zero nat.nat n m))) =>
      abs:(cts.Term
             cts.zero
             (eq.eq cts.zero bool.bool false.false true.true)) =>
      falsity.falsity
        cts.zero
-       cts.zero
        (eq.eq cts.zero nat.nat n m)
        (absurd.absurd
-          cts.zero
-          cts.zero
           (eq.eq cts.zero bool.bool true.true false.false)
           (rewrite_r.rewrite_r
              cts.zero

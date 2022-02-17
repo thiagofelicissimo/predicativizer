@@ -1,43 +1,42 @@
-def sub_lt :  (l?0 : cts.Sort) ->
+def sub_lt : 
   cts.Term
-    l?0
+    cts.zero
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))
        (x =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x0 => bool.bool))
           (x0 =>
            cts.prod
              cts.zero
-             l?0
-             l?0
+             cts.zero
+             cts.zero
              cts.I
              nat.nat
              (x1 =>
               cts.prod
                 cts.zero
-                l?0
-                l?0
+                cts.zero
+                cts.zero
                 cts.I
                 nat.nat
                 (x2 =>
                  cts.prod
                    cts.zero
-                   l?0
-                   l?0
+                   cts.zero
+                   cts.zero
                    cts.I
                    (le.le x1 x2)
                    (x3 =>
                     sub_hk.sub_hk
-                      l?0
                       (x4:(cts.Term cts.zero nat.nat) => x4)
                       (x4:(cts.Term cts.zero nat.nat) => x4)
                       x1
@@ -46,7 +45,7 @@ def sub_lt :  (l?0 : cts.Sort) ->
                       x0
                       x
                       x))))))
-  := l?0 =>
+  :=
   e:(cts.Term
        cts.zero
        (cts.prod cts.zero cts.zero cts.zero cts.I nat.nat (x => nat.nat))) =>
@@ -60,20 +59,9 @@ def sub_lt :  (l?0 : cts.Sort) ->
   lti:(cts.Term cts.zero (lt.lt i n)) =>
   fi:(cts.Term cts.zero (eq.eq cts.zero bool.bool (f i) true.true)) =>
   conj.conj
-    cts.zero
-    cts.zero
-    l?0
-    (And.And
-       cts.zero
-       cts.zero
-       cts.zero
-       (lt.lt i m)
-       (eq.eq cts.zero bool.bool (f i) true.true))
+    (And.And (lt.lt i m) (eq.eq cts.zero bool.bool (f i) true.true))
     (eq.eq cts.zero nat.nat i i)
     (conj.conj
-       cts.zero
-       cts.zero
-       cts.zero
        (lt.lt i m)
        (eq.eq cts.zero bool.bool (f i) true.true)
        (lt_to_le_to_lt.lt_to_le_to_lt i n m lti lenm)

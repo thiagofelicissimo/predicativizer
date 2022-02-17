@@ -85,18 +85,12 @@ def plus_minus :
      abs:(cts.Term cts.zero (le.le (S.S n) O.O)) =>
      falsity.falsity
        cts.zero
-       cts.zero
        (eq.eq
           cts.zero
           nat.nat
           (plus.plus (minus.minus O.O (S.S n)) p)
           (minus.minus (plus.plus O.O p) (S.S n)))
-       (absurd.absurd
-          cts.zero
-          cts.zero
-          (le.le (S.S n) O.O)
-          abs
-          (not_le_Sn_O.not_le_Sn_O n)))
+       (absurd.absurd (le.le (S.S n) O.O) abs (not_le_Sn_O.not_le_Sn_O n)))
     (n:(cts.Term cts.zero nat.nat) =>
      m:(cts.Term cts.zero nat.nat) =>
      sym_eq_minus.sym_eq_minus

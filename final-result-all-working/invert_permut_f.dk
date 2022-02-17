@@ -827,15 +827,11 @@ def invert_permut_f :
                    (f m)
                    (f (S.S m0))
                    (nmk.nmk
-                      cts.zero
-                      cts.zero
                       (eq.eq cts.zero nat.nat (f m) (f (S.S m0)))
                       (eqf:(cts.Term
                               cts.zero
                               (eq.eq cts.zero nat.nat (f m) (f (S.S m0)))) =>
                        absurd.absurd
-                         cts.zero
-                         cts.zero
                          (eq.eq cts.zero nat.nat m (S.S m0))
                          (H1
                             m

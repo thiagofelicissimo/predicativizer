@@ -20,16 +20,14 @@ def not_eq_to_eqb_false :
              cts.zero
              cts.zero
              cts.I
-             (Not.Not
-                cts.zero
-                (eq.eq cts.zero nat.nat x x0))
+             (Not.Not (eq.eq cts.zero nat.nat x x0))
              (x1 => eq.eq cts.zero bool.bool (eqb.eqb x x0) false.false))))
   :=
   n:(cts.Term cts.zero nat.nat) =>
   m:(cts.Term cts.zero nat.nat) =>
   noteq:(cts.Term
            cts.zero
-           (Not.Not cts.zero (eq.eq cts.zero nat.nat n m))) =>
+           (Not.Not (eq.eq cts.zero nat.nat n m))) =>
   eqb_elim.eqb_elim
     cts.zero
     n
@@ -39,11 +37,8 @@ def not_eq_to_eqb_false :
     (Heq:(cts.Term cts.zero (eq.eq cts.zero nat.nat n m)) =>
      falsity.falsity
        cts.zero
-       cts.zero
        (eq.eq cts.zero bool.bool true.true false.false)
        (absurd.absurd
-          cts.zero
-          cts.zero
           (eq.eq cts.zero nat.nat n m)
           (rewrite_l.rewrite_l
              cts.zero
@@ -58,8 +53,6 @@ def not_eq_to_eqb_false :
           noteq))
     (auto:(cts.Term
              cts.zero
-             (Not.Not
-                cts.zero
-                (eq.eq cts.zero nat.nat n m))) =>
+             (Not.Not (eq.eq cts.zero nat.nat n m))) =>
      refl.refl cts.zero bool.bool false.false).
 

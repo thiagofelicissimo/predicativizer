@@ -40,10 +40,6 @@ def commutative_gcd :
           (leb.leb m n)))
     (lenm:(cts.Term cts.zero (le.le n m)) =>
      match_Or_prop.match_Or_prop
-       cts.zero
-       cts.zero
-       cts.zero
-       cts.zero
        (lt.lt n m)
        (eq.eq cts.zero nat.nat n m)
        (eq.eq
@@ -223,8 +219,8 @@ def commutative_gcd :
              (leb.leb m m))
           n
           eqnm)
-       (le_to_or_lt_eq.le_to_or_lt_eq cts.zero n m lenm))
-    (notlenm:(cts.Term cts.zero (Not.Not cts.zero (le.le n m))) =>
+       (le_to_or_lt_eq.le_to_or_lt_eq n m lenm))
+    (notlenm:(cts.Term cts.zero (Not.Not (le.le n m))) =>
      eq_ind_r.eq_ind_r
        cts.zero
        cts.zero

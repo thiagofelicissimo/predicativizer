@@ -1,42 +1,42 @@
-def bijn_transpose :  (l?0 : cts.Sort) ->
+def bijn_transpose : 
   cts.Term
-    l?0
+    cts.zero
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            cts.prod
              cts.zero
-             l?0
-             l?0
+             cts.zero
+             cts.zero
              cts.I
              nat.nat
              (x1 =>
               cts.prod
                 cts.zero
-                l?0
-                l?0
+                cts.zero
+                cts.zero
                 cts.I
                 (le.le x0 x)
                 (x2 =>
                  cts.prod
                    cts.zero
-                   l?0
-                   l?0
+                   cts.zero
+                   cts.zero
                    cts.I
                    (le.le x1 x)
-                   (x3 => bijn.bijn l?0 (transpose.transpose x0 x1) x))))))
-  := l?0 =>
+                   (x3 => bijn.bijn cts.zero (transpose.transpose x0 x1) x))))))
+  :=
   n:(cts.Term cts.zero nat.nat) =>
   i:(cts.Term cts.zero nat.nat) =>
   j:(cts.Term cts.zero nat.nat) =>
@@ -45,44 +45,27 @@ def bijn_transpose :  (l?0 : cts.Sort) ->
   a:(cts.Term cts.zero nat.nat) =>
   lean:(cts.Term cts.zero (le.le a n)) =>
   match_Or_prop.match_Or_prop
-    l?0
-    cts.zero
-    cts.zero
-    cts.zero
     (eq.eq cts.zero bool.bool (eqb.eqb a i) true.true)
     (eq.eq cts.zero bool.bool (eqb.eqb a i) false.false)
     (ex.ex
        cts.zero
        cts.zero
-       l?0
+       cts.zero
        nat.nat
        (p:(cts.Term cts.zero nat.nat) =>
-        And.And
-          cts.zero
-          cts.zero
-          cts.zero
-          (le.le p n)
-          (eq.eq cts.zero nat.nat (transpose.transpose i j p) a)))
+        And.And (le.le p n) (eq.eq cts.zero nat.nat (transpose.transpose i j p) a)))
     (Hi:(cts.Term
            cts.zero
            (eq.eq cts.zero bool.bool (eqb.eqb a i) true.true)) =>
      ex_intro.ex_intro
        cts.zero
        cts.zero
-       l?0
+       cts.zero
        nat.nat
        (x:(cts.Term cts.zero nat.nat) =>
-        And.And
-          cts.zero
-          cts.zero
-          cts.zero
-          (le.le x n)
-          (eq.eq cts.zero nat.nat (transpose.transpose i j x) a))
+        And.And (le.le x n) (eq.eq cts.zero nat.nat (transpose.transpose i j x) a))
        j
        (conj.conj
-          cts.zero
-          cts.zero
-          cts.zero
           (le.le j n)
           (eq.eq cts.zero nat.nat (transpose.transpose i j j) a)
           lejn
@@ -105,22 +88,15 @@ def bijn_transpose :  (l?0 : cts.Sort) ->
            cts.zero
            (eq.eq cts.zero bool.bool (eqb.eqb a i) false.false)) =>
      match_Or_prop.match_Or_prop
-       l?0
-       cts.zero
-       cts.zero
-       cts.zero
        (eq.eq cts.zero bool.bool (eqb.eqb a j) true.true)
        (eq.eq cts.zero bool.bool (eqb.eqb a j) false.false)
        (ex.ex
           cts.zero
           cts.zero
-          l?0
+          cts.zero
           nat.nat
           (p:(cts.Term cts.zero nat.nat) =>
            And.And
-             cts.zero
-             cts.zero
-             cts.zero
              (le.le p n)
              (eq.eq cts.zero nat.nat (transpose.transpose i j p) a)))
        (Hj:(cts.Term
@@ -129,20 +105,14 @@ def bijn_transpose :  (l?0 : cts.Sort) ->
         ex_intro.ex_intro
           cts.zero
           cts.zero
-          l?0
+          cts.zero
           nat.nat
           (x:(cts.Term cts.zero nat.nat) =>
            And.And
-             cts.zero
-             cts.zero
-             cts.zero
              (le.le x n)
              (eq.eq cts.zero nat.nat (transpose.transpose i j x) a))
           i
           (conj.conj
-             cts.zero
-             cts.zero
-             cts.zero
              (le.le i n)
              (eq.eq cts.zero nat.nat (transpose.transpose i j i) a)
              lein
@@ -167,20 +137,14 @@ def bijn_transpose :  (l?0 : cts.Sort) ->
         ex_intro.ex_intro
           cts.zero
           cts.zero
-          l?0
+          cts.zero
           nat.nat
           (x:(cts.Term cts.zero nat.nat) =>
            And.And
-             cts.zero
-             cts.zero
-             cts.zero
              (le.le x n)
              (eq.eq cts.zero nat.nat (transpose.transpose i j x) a))
           a
           (conj.conj
-             cts.zero
-             cts.zero
-             cts.zero
              (le.le a n)
              (eq.eq cts.zero nat.nat (transpose.transpose i j a) a)
              lean
@@ -293,6 +257,6 @@ def bijn_transpose :  (l?0 : cts.Sort) ->
                    Hj)
                 (eqb.eqb a i)
                 Hi)))
-       (true_or_false.true_or_false cts.zero (eqb.eqb a j)))
-    (true_or_false.true_or_false cts.zero (eqb.eqb a i)).
+       (true_or_false.true_or_false (eqb.eqb a j)))
+    (true_or_false.true_or_false (eqb.eqb a i)).
 

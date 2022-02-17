@@ -1,93 +1,82 @@
-def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
+def congruent_exp_pred_SO : 
   cts.Term
-    (cts.max l?733 l?8)
+    cts.zero
     (cts.prod
        cts.zero
-       (cts.max l?733 l?8)
-       (cts.max l?733 l?8)
+       cts.zero
+       cts.zero
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          (cts.max l?733 l?8)
-          (cts.max l?733 l?8)
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            cts.prod
-             l?733
-             l?8
-             (cts.max l?733 l?8)
+             cts.zero
+             cts.zero
+             cts.zero
              cts.I
-             (prime.prime l?733 x)
+             (prime.prime x)
              (x1 =>
               cts.prod
-                l?8
                 cts.zero
-                l?8
+                cts.zero
+                cts.zero
                 cts.I
-                (Not.Not
-                   l?8
-                   (divides.divides l?8 x x0))
+                (Not.Not (divides.divides cts.zero x x0))
                 (x2 => congruent.congruent (exp.exp x0 (pred.pred x)) (S.S O.O) x)))))
-  := l?733 => l?8 =>
+  :=
   p:(cts.Term cts.zero nat.nat) =>
   a:(cts.Term cts.zero nat.nat) =>
-  primep:(cts.Term l?733 (prime.prime l?733 p)) =>
+  primep:(cts.Term cts.zero (prime.prime p)) =>
   ndiv:(cts.Term
-          l?8
-          (Not.Not
-             l?8
-             (divides.divides l?8 p a))) =>
+          cts.zero
+          (Not.Not (divides.divides cts.zero p a))) =>
   divides_to_congruent.divides_to_congruent
     cts.zero
     (exp.exp a (pred.pred p))
     (S.S O.O)
     p
-    (prime_to_lt_O.prime_to_lt_O l?733 p primep)
+    (prime_to_lt_O.prime_to_lt_O p primep)
     (lt_O_exp.lt_O_exp
        a
        (pred.pred p)
        (match_nat_prop.match_nat_prop
-          l?8
+          cts.zero
           (__:(cts.Term cts.zero nat.nat) =>
            cts.prod
-             l?8
              cts.zero
-             l?8
+             cts.zero
+             cts.zero
              cts.I
-             (Not.Not
-                l?8
-                (divides.divides l?8 p __))
+             (Not.Not (divides.divides cts.zero p __))
              (x => lt.lt O.O __))
           (_clearme:(cts.Term
-                       l?8
-                       (Not.Not
-                          l?8
-                          (divides.divides l?8 p O.O))) =>
+                       cts.zero
+                       (Not.Not (divides.divides cts.zero p O.O))) =>
            Not_ind.Not_ind
              cts.zero
-             cts.zero
-             l?8
-             (divides.divides l?8 p O.O)
+             (divides.divides cts.zero p O.O)
              (lt.lt O.O O.O)
              (div0:(cts.Term
-                      (cts.max l?8 cts.zero)
+                      cts.zero
                       (cts.prod
-                         l?8
                          cts.zero
-                         (cts.max l?8 cts.zero)
+                         cts.zero
+                         cts.zero
                          cts.I
-                         (divides.divides l?8 p O.O)
-                         (x => False.False cts.zero))) =>
+                         (divides.divides cts.zero p O.O)
+                         (x => False.False))) =>
               falsity.falsity
-                cts.zero
                 cts.zero
                 (lt.lt O.O O.O)
                 (div0
                    (quotient.quotient
-                      l?8
+                      cts.zero
                       p
                       O.O
                       O.O
@@ -104,18 +93,12 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
              _clearme)
           (auto:(cts.Term cts.zero nat.nat) =>
            auto':(cts.Term
-                    l?8
-                    (Not.Not
-                       l?8
-                       (divides.divides l?8 p (S.S auto)))) =>
+                    cts.zero
+                    (Not.Not (divides.divides cts.zero p (S.S auto)))) =>
            lt_O_S.lt_O_S auto)
           a
           ndiv))
     (match_Or_prop.match_Or_prop
-       cts.zero
-       cts.zero
-       cts.zero
-       cts.zero
        (divides.divides
           cts.zero
           p
@@ -137,19 +120,14 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                 (divides.divides cts.zero p (fact.fact (pred.pred p)))) =>
         falsity.falsity
           cts.zero
-          cts.zero
           (divides.divides
              cts.zero
              p
              (minus.minus (exp.exp a (pred.pred p)) (S.S O.O)))
           (absurd.absurd
-             cts.zero
-             cts.zero
              (divides.divides cts.zero p (fact.fact (pred.pred p)))
              Hdiv
              (prime_to_not_divides_fact.prime_to_not_divides_fact
-                l?733
-                cts.zero
                 p
                 primep
                 (pred.pred p)
@@ -165,14 +143,8 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                        le.le (S.S x) (S.S p))
                       (le_n.le_n (S.S p))
                       (S.S (pred.pred p))
-                      (S_pred.S_pred
-                         p
-                         (prime_to_lt_O.prime_to_lt_O l?733 p primep)))))))
+                      (S_pred.S_pred p (prime_to_lt_O.prime_to_lt_O p primep)))))))
        (divides_times_to_divides.divides_times_to_divides
-          l?733
-          cts.zero
-          cts.zero
-          cts.zero
           cts.zero
           p
           (minus.minus (exp.exp a (pred.pred p)) (S.S O.O))
@@ -363,10 +335,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                            nat.nat) =>
                                       plus.plus i (S.S O.O)))
                                   p
-                                  (prime_to_lt_O.prime_to_lt_O
-                                     l?733
-                                     p
-                                     primep)
+                                  (prime_to_lt_O.prime_to_lt_O p primep)
                                   (transitive_congruent.transitive_congruent
                                      p
                                      (bigop.bigop
@@ -420,10 +389,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                          times.times a (plus.plus m (S.S O.O)))
                                         (minus.minus (S.S (pred.pred p)) (S.S O.O))
                                         p
-                                        (prime_to_lt_O.prime_to_lt_O
-                                           l?733
-                                           p
-                                           primep))
+                                        (prime_to_lt_O.prime_to_lt_O p primep))
                                      (eq_ind.eq_ind
                                         cts.zero
                                         cts.zero
@@ -689,13 +655,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                    (x0 =>
                                                                     nat.nat))) =>
                                                            And.And
-                                                             cts.zero
-                                                             cts.zero
-                                                             cts.zero
                                                              (And.And
-                                                                cts.zero
-                                                                cts.zero
-                                                                cts.zero
                                                                 (cts.prod
                                                                    cts.zero
                                                                    cts.zero
@@ -741,7 +701,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     (x
                                                                     x0)))))
                                                                 (sub_hk.sub_hk
-                                                                   cts.zero
                                                                    x
                                                                    k
                                                                    (S.S
@@ -785,7 +744,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     nat.nat) =>
                                                                     _0)))
                                                              (sub_hk.sub_hk
-                                                                cts.zero
                                                                 k
                                                                 x
                                                                 (S.S
@@ -850,13 +808,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                    (x =>
                                                                     nat.nat))) =>
                                                            And.And
-                                                             cts.zero
-                                                             cts.zero
-                                                             cts.zero
                                                              (And.And
-                                                                cts.zero
-                                                                cts.zero
-                                                                cts.zero
                                                                 (cts.prod
                                                                    cts.zero
                                                                    cts.zero
@@ -905,7 +857,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     x)
                                                                     p)))))
                                                                 (sub_hk.sub_hk
-                                                                   cts.zero
                                                                    (i:(
                                                                     cts.Term
                                                                     cts.zero
@@ -957,7 +908,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     nat.nat) =>
                                                                     _0)))
                                                              (sub_hk.sub_hk
-                                                                cts.zero
                                                                 y
                                                                 (i:(cts.Term
                                                                     cts.zero
@@ -1012,13 +962,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                 (times.times a i)
                                                                 p))
                                                           (conj.conj
-                                                             cts.zero
-                                                             cts.zero
-                                                             cts.zero
                                                              (And.And
-                                                                cts.zero
-                                                                cts.zero
-                                                                cts.zero
                                                                 (cts.prod
                                                                    cts.zero
                                                                    cts.zero
@@ -1067,7 +1011,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     x)
                                                                     p)))))
                                                                 (sub_hk.sub_hk
-                                                                   cts.zero
                                                                    (i:(
                                                                     cts.Term
                                                                     cts.zero
@@ -1130,7 +1073,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     nat.nat) =>
                                                                     _0)))
                                                              (sub_hk.sub_hk
-                                                                cts.zero
                                                                 (invert_permut.invert_permut
                                                                    (pred.pred p)
                                                                    (i:(
@@ -1187,9 +1129,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     _0)
                                                                    p))
                                                              (conj.conj
-                                                                cts.zero
-                                                                cts.zero
-                                                                cts.zero
                                                                 (cts.prod
                                                                    cts.zero
                                                                    cts.zero
@@ -1238,7 +1177,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     x)
                                                                     p)))))
                                                                 (sub_hk.sub_hk
-                                                                   cts.zero
                                                                    (i:(
                                                                     cts.Term
                                                                     cts.zero
@@ -1357,13 +1295,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     true.true)
                                                                     true.true)) =>
                                                                  conj.conj
-                                                                   cts.zero
-                                                                   cts.zero
-                                                                   cts.zero
                                                                    (And.And
-                                                                    cts.zero
-                                                                    cts.zero
-                                                                    cts.zero
                                                                     (lt.lt
                                                                     (mod.mod
                                                                     (times.times
@@ -1409,9 +1341,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p))
                                                                     i)
                                                                    (conj.conj
-                                                                    cts.zero
-                                                                    cts.zero
-                                                                    cts.zero
                                                                     (lt.lt
                                                                     (mod.mod
                                                                     (times.times
@@ -1457,7 +1386,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     i)
                                                                     p
                                                                     (prime_to_lt_O.prime_to_lt_O
-                                                                    l?733
                                                                     p
                                                                     primep))
                                                                     (S.S
@@ -1466,7 +1394,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     (S_pred.S_pred
                                                                     p
                                                                     (prime_to_lt_O.prime_to_lt_O
-                                                                    l?733
                                                                     p
                                                                     primep)))
                                                                     (eq_ind_r.eq_ind_r
@@ -1525,10 +1452,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     i)
                                                                     p)
                                                                     (match_Or_prop.match_Or_prop
-                                                                    cts.zero
-                                                                    cts.zero
-                                                                    cts.zero
-                                                                    cts.zero
                                                                     (lt.lt
                                                                     O.O
                                                                     (mod.mod
@@ -1578,7 +1501,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p))) =>
                                                                     falsity.falsity
                                                                     cts.zero
-                                                                    cts.zero
                                                                     (le.le
                                                                     (S.S
                                                                     O.O)
@@ -1588,8 +1510,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     i)
                                                                     p))
                                                                     (absurd.absurd
-                                                                    cts.zero
-                                                                    cts.zero
                                                                     (divides.divides
                                                                     cts.zero
                                                                     p
@@ -1603,7 +1523,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     a
                                                                     i)
                                                                     (prime_to_lt_O.prime_to_lt_O
-                                                                    l?733
                                                                     p
                                                                     primep)
                                                                     (sym_eq.sym_eq
@@ -1617,8 +1536,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p)
                                                                     H))
                                                                     (not_to_not.not_to_not
-                                                                    l?8
-                                                                    cts.zero
                                                                     (divides.divides
                                                                     cts.zero
                                                                     p
@@ -1626,7 +1543,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     a
                                                                     i))
                                                                     (divides.divides
-                                                                    l?8
+                                                                    cts.zero
                                                                     p
                                                                     a)
                                                                     (Hdiv:(
@@ -1639,12 +1556,8 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     a
                                                                     i))) =>
                                                                     match_Or_prop.match_Or_prop
-                                                                    l?8
-                                                                    l?8
-                                                                    cts.zero
-                                                                    cts.zero
                                                                     (divides.divides
-                                                                    l?8
+                                                                    cts.zero
                                                                     p
                                                                     a)
                                                                     (divides.divides
@@ -1652,14 +1565,14 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p
                                                                     i)
                                                                     (divides.divides
-                                                                    l?8
+                                                                    cts.zero
                                                                     p
                                                                     a)
                                                                     (auto:(
                                                                     cts.Term
-                                                                    l?8
+                                                                    cts.zero
                                                                     (divides.divides
-                                                                    l?8
+                                                                    cts.zero
                                                                     p
                                                                     a)) =>
                                                                     auto)
@@ -1671,15 +1584,12 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p
                                                                     i)) =>
                                                                     falsity.falsity
-                                                                    l?8
                                                                     cts.zero
                                                                     (divides.divides
-                                                                    l?8
+                                                                    cts.zero
                                                                     p
                                                                     a)
                                                                     (absurd.absurd
-                                                                    cts.zero
-                                                                    cts.zero
                                                                     (lt.lt
                                                                     i
                                                                     (S.S
@@ -1725,14 +1635,9 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     (S_pred.S_pred
                                                                     p
                                                                     (prime_to_lt_O.prime_to_lt_O
-                                                                    l?733
                                                                     p
                                                                     primep))))))
                                                                     (divides_times_to_divides.divides_times_to_divides
-                                                                    l?733
-                                                                    cts.zero
-                                                                    cts.zero
-                                                                    l?8
                                                                     cts.zero
                                                                     p
                                                                     a
@@ -1741,7 +1646,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     Hdiv))
                                                                     ndiv)))
                                                                     (le_to_or_lt_eq.le_to_or_lt_eq
-                                                                    cts.zero
                                                                     O.O
                                                                     (mod.mod
                                                                     (times.times
@@ -1773,10 +1677,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p)
                                                                     lti)
                                                                     (match_And_prop.match_And_prop
-                                                                    cts.zero
-                                                                    cts.zero
-                                                                    cts.zero
-                                                                    cts.zero
                                                                     (cts.prod
                                                                     cts.zero
                                                                     cts.zero
@@ -1871,18 +1771,11 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p))) =>
                                                                     auto')
                                                                     (permut_mod.permut_mod
-                                                                    l?733
-                                                                    l?8
-                                                                    cts.zero
                                                                     p
                                                                     a
                                                                     primep
                                                                     ndiv)))))
                                                              (match_And_prop.match_And_prop
-                                                                cts.zero
-                                                                cts.zero
-                                                                cts.zero
-                                                                cts.zero
                                                                 (cts.prod
                                                                    cts.zero
                                                                    cts.zero
@@ -1931,7 +1824,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p))
                                                                    (pred.pred p))
                                                                 (sub_hk.sub_hk
-                                                                   cts.zero
                                                                    (invert_permut.invert_permut
                                                                     (pred.pred
                                                                     p)
@@ -2072,13 +1964,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     true.true)
                                                                     true.true)) =>
                                                                  conj.conj
-                                                                   cts.zero
-                                                                   cts.zero
-                                                                   cts.zero
                                                                    (And.And
-                                                                    cts.zero
-                                                                    cts.zero
-                                                                    cts.zero
                                                                     (lt.lt
                                                                     (invert_permut.invert_permut
                                                                     (pred.pred
@@ -2140,9 +2026,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p)
                                                                     i)
                                                                    (conj.conj
-                                                                    cts.zero
-                                                                    cts.zero
-                                                                    cts.zero
                                                                     (lt.lt
                                                                     (invert_permut.invert_permut
                                                                     (pred.pred
@@ -2277,10 +2160,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p)
                                                                     i)
                                                                     (match_Or_prop.match_Or_prop
-                                                                    cts.zero
-                                                                    cts.zero
-                                                                    cts.zero
-                                                                    cts.zero
                                                                     (lt.lt
                                                                     O.O
                                                                     (invert_permut.invert_permut
@@ -2370,7 +2249,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     i))) =>
                                                                     falsity.falsity
                                                                     cts.zero
-                                                                    cts.zero
                                                                     (le.le
                                                                     (S.S
                                                                     O.O)
@@ -2423,8 +2301,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     i))
                                                                     p))
                                                                     (x0 =>
-                                                                    False.False
-                                                                    cts.zero))
+                                                                    False.False))
                                                                     (eq_ind_r.eq_ind_r
                                                                     cts.zero
                                                                     cts.zero
@@ -2445,8 +2322,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     O.O
                                                                     x)
                                                                     (x0 =>
-                                                                    False.False
-                                                                    cts.zero))
+                                                                    False.False))
                                                                     (eq0i:(
                                                                     cts.Term
                                                                     cts.zero
@@ -2480,8 +2356,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     true.true)
                                                                     true.true)
                                                                     (x =>
-                                                                    False.False
-                                                                    cts.zero))
+                                                                    False.False))
                                                                     (sym_eq_leb.sym_eq_leb
                                                                     cts.zero
                                                                     (S.S
@@ -2511,8 +2386,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     true.true)
                                                                     true.true)
                                                                     (x =>
-                                                                    False.False
-                                                                    cts.zero))
+                                                                    False.False))
                                                                     (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
                                                                     cts.zero
                                                                     cts.zero
@@ -2551,8 +2425,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     true.true)
                                                                     true.true)
                                                                     (x =>
-                                                                    False.False
-                                                                    cts.zero))
+                                                                    False.False))
                                                                     (sym_eq_leb_body_S.sym_eq_leb_body_S
                                                                     cts.zero
                                                                     O.O
@@ -2581,8 +2454,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     true.true)
                                                                     true.true)
                                                                     (x =>
-                                                                    False.False
-                                                                    cts.zero))
+                                                                    False.False))
                                                                     (sym_eq_match_nat_type_O.sym_eq_match_nat_type_O
                                                                     cts.zero
                                                                     cts.zero
@@ -2612,8 +2484,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     true.true)
                                                                     true.true)
                                                                     (x =>
-                                                                    False.False
-                                                                    cts.zero))
+                                                                    False.False))
                                                                     (sym_eq_match_bool_type_false.sym_eq_match_bool_type_false
                                                                     cts.zero
                                                                     cts.zero
@@ -2635,8 +2506,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     y
                                                                     true.true)
                                                                     (x =>
-                                                                    False.False
-                                                                    cts.zero))
+                                                                    False.False))
                                                                     (H0:(
                                                                     cts.Term
                                                                     cts.zero
@@ -2775,8 +2645,7 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     false.false
                                                                     true.true
                                                                     H0))
-                                                                    (False.False
-                                                                    cts.zero)))))))
+                                                                    False.False))))))
                                                                     i
                                                                     eq0i
                                                                     posi)
@@ -2798,7 +2667,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     i))
                                                                     p)
                                                                     (f_invert_permut.f_invert_permut
-                                                                    cts.zero
                                                                     (i0:(
                                                                     cts.Term
                                                                     cts.zero
@@ -2817,9 +2685,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p)
                                                                     lti)
                                                                     (permut_mod.permut_mod
-                                                                    l?733
-                                                                    l?8
-                                                                    cts.zero
                                                                     p
                                                                     a
                                                                     primep
@@ -2934,7 +2799,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     i)
                                                                     H))))
                                                                     (le_to_or_lt_eq.le_to_or_lt_eq
-                                                                    cts.zero
                                                                     O.O
                                                                     (invert_permut.invert_permut
                                                                     (pred.pred
@@ -2964,7 +2828,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p)
                                                                     i)))))))
                                                                    (f_invert_permut.f_invert_permut
-                                                                    cts.zero
                                                                     (__:(
                                                                     cts.Term
                                                                     cts.zero
@@ -2983,16 +2846,11 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p)
                                                                     lti)
                                                                     (permut_mod.permut_mod
-                                                                    l?733
-                                                                    l?8
-                                                                    cts.zero
                                                                     p
                                                                     a
                                                                     primep
                                                                     ndiv)))
                                                                 (permut_invert_permut.permut_invert_permut
-                                                                   cts.zero
-                                                                   cts.zero
                                                                    (n:(
                                                                     cts.Term
                                                                     cts.zero
@@ -3004,9 +2862,6 @@ def congruent_exp_pred_SO :  (l?733 : cts.Sort) -> (l?8 : cts.Sort) ->
                                                                     p)
                                                                    (pred.pred p)
                                                                    (permut_mod.permut_mod
-                                                                    l?733
-                                                                    l?8
-                                                                    cts.zero
                                                                     p
                                                                     a
                                                                     primep

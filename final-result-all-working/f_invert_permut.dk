@@ -1,10 +1,10 @@
-def f_invert_permut :  (l?0 : cts.Sort) ->
+def f_invert_permut : 
   cts.Term
-    l?0
+    cts.zero
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        (cts.prod
           cts.zero
@@ -16,38 +16,38 @@ def f_invert_permut :  (l?0 : cts.Sort) ->
        (x =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            cts.prod
              cts.zero
-             l?0
-             l?0
+             cts.zero
+             cts.zero
              cts.I
              nat.nat
              (x1 =>
               cts.prod
                 cts.zero
-                l?0
-                l?0
+                cts.zero
+                cts.zero
                 cts.I
                 (le.le x1 x0)
                 (x2 =>
                  cts.prod
-                   l?0
                    cts.zero
-                   l?0
+                   cts.zero
+                   cts.zero
                    cts.I
-                   (permut.permut l?0 x x0)
+                   (permut.permut x x0)
                    (x3 =>
                     eq.eq
                       cts.zero
                       nat.nat
                       (x (invert_permut.invert_permut x0 x x1))
                       x1))))))
-  := l?0 =>
+  :=
   f:(cts.Term
        cts.zero
        (cts.prod
@@ -60,12 +60,8 @@ def f_invert_permut :  (l?0 : cts.Sort) ->
   n:(cts.Term cts.zero nat.nat) =>
   m:(cts.Term cts.zero nat.nat) =>
   lemn:(cts.Term cts.zero (le.le m n)) =>
-  permf:(cts.Term l?0 (permut.permut l?0 f n)) =>
+  permf:(cts.Term cts.zero (permut.permut f n)) =>
   match_And_prop.match_And_prop
-    cts.zero
-    cts.zero
-    cts.zero
-    cts.zero
     (cts.prod
        cts.zero
        cts.zero
@@ -100,10 +96,6 @@ def f_invert_permut :  (l?0 : cts.Sort) ->
                   (x0 => le.le (invert_permut.invert_permut n f x) n)))) =>
      Hinj:(cts.Term cts.zero (injn.injn (invert_permut.invert_permut n f) n)) =>
      match_And_prop.match_And_prop
-       cts.zero
-       cts.zero
-       cts.zero
-       l?0
        (cts.prod
           cts.zero
           cts.zero
@@ -138,7 +130,6 @@ def f_invert_permut :  (l?0 : cts.Sort) ->
                      (x0 => le.le (f x) n)))) =>
         injf:(cts.Term cts.zero (injn.injn f n)) =>
         injective_invert_permut.injective_invert_permut
-          l?0
           f
           n
           permf
@@ -153,10 +144,5 @@ def f_invert_permut :  (l?0 : cts.Sort) ->
              (Hle m lemn)
              injf))
        permf)
-    (permut_invert_permut.permut_invert_permut
-       l?0
-       cts.zero
-       f
-       n
-       permf).
+    (permut_invert_permut.permut_invert_permut f n permf).
 

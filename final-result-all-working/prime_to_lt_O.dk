@@ -1,28 +1,24 @@
-def prime_to_lt_O :  (l?0 : cts.Sort) ->
+def prime_to_lt_O : 
   cts.Term
-    l?0
+    cts.zero
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        nat.nat
        (x =>
         cts.prod
-          l?0
           cts.zero
-          l?0
+          cts.zero
+          cts.zero
           cts.I
-          (prime.prime l?0 x)
+          (prime.prime x)
           (x0 => lt.lt O.O x)))
-  := l?0 =>
+  :=
   p:(cts.Term cts.zero nat.nat) =>
-  _clearme:(cts.Term l?0 (prime.prime l?0 p)) =>
+  _clearme:(cts.Term cts.zero (prime.prime p)) =>
   match_And_prop.match_And_prop
-    cts.zero
-    cts.zero
-    cts.zero
-    l?0
     (lt.lt (S.S O.O) p)
     (cts.prod
        cts.zero

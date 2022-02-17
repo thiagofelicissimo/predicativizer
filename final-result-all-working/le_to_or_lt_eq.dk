@@ -1,68 +1,43 @@
-def le_to_or_lt_eq :  (l?0 : cts.Sort) ->
+def le_to_or_lt_eq : 
   cts.Term
-    l?0
+    cts.zero
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            cts.prod
              cts.zero
-             l?0
-             l?0
+             cts.zero
+             cts.zero
              cts.I
              (le.le x x0)
-             (x1 =>
-              Or.Or
-                cts.zero
-                cts.zero
-                l?0
-                (lt.lt x x0)
-                (eq.eq cts.zero nat.nat x x0)))))
-  := l?0 =>
+             (x1 => Or.Or (lt.lt x x0) (eq.eq cts.zero nat.nat x x0)))))
+  :=
   n:(cts.Term cts.zero nat.nat) =>
   m:(cts.Term cts.zero nat.nat) =>
   lenm:(cts.Term cts.zero (le.le n m)) =>
   le_ind.le_ind
-    l?0
+    cts.zero
     n
     (x_417:(cts.Term cts.zero nat.nat) =>
-     Or.Or
-       cts.zero
-       cts.zero
-       l?0
-       (lt.lt n x_417)
-       (eq.eq cts.zero nat.nat n x_417))
-    (RC_reflexive.RC_reflexive
-       cts.zero
-       cts.zero
-       l?0
-       nat.nat
-       lt.lt
-       n)
+     Or.Or (lt.lt n x_417) (eq.eq cts.zero nat.nat n x_417))
+    (RC_reflexive.RC_reflexive nat.nat lt.lt n)
     (m0:(cts.Term cts.zero nat.nat) =>
      _x_419:(cts.Term cts.zero (le.le n m0)) =>
      _x_421:(cts.Term
-               l?0
-               (Or.Or
-                  cts.zero
-                  cts.zero
-                  l?0
-                  (lt.lt n m0)
-                  (eq.eq cts.zero nat.nat n m0))) =>
+               cts.zero
+               (Or.Or (lt.lt n m0) (eq.eq cts.zero nat.nat n m0))) =>
      or_introl.or_introl
-       cts.zero
-       cts.zero
-       l?0
        (lt.lt n (S.S m0))
        (eq.eq cts.zero nat.nat n (S.S m0))
        (le_to_lt_to_lt.le_to_lt_to_lt

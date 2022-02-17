@@ -440,11 +440,9 @@ def le_mod_aux_m_m :
                       cts.zero
                       cts.zero
                       cts.I
-                      (Not.Not cts.zero (le.le n m))
+                      (Not.Not (le.le n m))
                       (x => le.le y m))
-                   (notlenm:(cts.Term
-                               cts.zero
-                               (Not.Not cts.zero (le.le n m))) =>
+                   (notlenm:(cts.Term cts.zero (Not.Not (le.le n m))) =>
                     Hind
                       (minus.minus n (S.S m))
                       m

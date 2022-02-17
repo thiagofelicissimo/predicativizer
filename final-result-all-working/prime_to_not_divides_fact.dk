@@ -1,113 +1,93 @@
-def prime_to_not_divides_fact :  (l?137 : cts.Sort) -> (l?5 : cts.Sort) ->
+def prime_to_not_divides_fact : 
   cts.Term
-    (cts.max l?137 l?5)
+    cts.zero
     (cts.prod
        cts.zero
-       (cts.max l?137 l?5)
-       (cts.max l?137 l?5)
+       cts.zero
+       cts.zero
        cts.I
        nat.nat
        (x =>
         cts.prod
-          l?137
-          l?5
-          (cts.max l?137 l?5)
+          cts.zero
+          cts.zero
+          cts.zero
           cts.I
-          (prime.prime l?137 x)
+          (prime.prime x)
           (x0 =>
            cts.prod
              cts.zero
-             l?5
-             l?5
+             cts.zero
+             cts.zero
              cts.I
              nat.nat
              (x1 =>
               cts.prod
                 cts.zero
-                l?5
-                l?5
+                cts.zero
+                cts.zero
                 cts.I
                 (lt.lt x1 x)
                 (x2 =>
-                 Not.Not
-                   l?5
-                   (divides.divides l?5 x (fact.fact x1)))))))
-  := l?137 => l?5 =>
+                 Not.Not (divides.divides cts.zero x (fact.fact x1)))))))
+  :=
   p:(cts.Term cts.zero nat.nat) =>
-  primep:(cts.Term
-            l?137
-            (prime.prime l?137 p)) =>
+  primep:(cts.Term cts.zero (prime.prime p)) =>
   n:(cts.Term cts.zero nat.nat) =>
   nat_ind.nat_ind
-    l?5
+    cts.zero
     (_x_365:(cts.Term cts.zero nat.nat) =>
      cts.prod
        cts.zero
-       l?5
-       l?5
+       cts.zero
+       cts.zero
        cts.I
        (lt.lt _x_365 p)
-       (x =>
-        Not.Not
-          l?5
-          (divides.divides l?5 p (fact.fact _x_365))))
+       (x => Not.Not (divides.divides cts.zero p (fact.fact _x_365))))
     (sym_eq_fact.sym_eq_fact
-       l?5
+       cts.zero
        O.O
        (y:(cts.Term cts.zero nat.nat) =>
         cts.prod
           cts.zero
-          l?5
-          l?5
+          cts.zero
+          cts.zero
           cts.I
           (lt.lt O.O p)
-          (x =>
-           Not.Not
-             l?5
-             (divides.divides l?5 p y)))
+          (x => Not.Not (divides.divides cts.zero p y)))
        (sym_eq_filter_nat_type_O.sym_eq_filter_nat_type_O
-          l?5
+          cts.zero
           cts.zero
           nat.nat
           fact_body.fact_body
           (y:(cts.Term cts.zero nat.nat) =>
            cts.prod
              cts.zero
-             l?5
-             l?5
+             cts.zero
+             cts.zero
              cts.I
              (lt.lt O.O p)
-             (x =>
-              Not.Not
-                l?5
-                (divides.divides l?5 p y)))
+             (x => Not.Not (divides.divides cts.zero p y)))
           (sym_eq_fact_body_O.sym_eq_fact_body_O
-             l?5
+             cts.zero
              (y:(cts.Term cts.zero nat.nat) =>
               cts.prod
                 cts.zero
-                l?5
-                l?5
+                cts.zero
+                cts.zero
                 cts.I
                 (lt.lt O.O p)
-                (x =>
-                 Not.Not
-                   l?5
-                   (divides.divides l?5 p y)))
+                (x => Not.Not (divides.divides cts.zero p y)))
              (__:(cts.Term cts.zero (le.le (S.S O.O) p)) =>
               nmk.nmk
-                cts.zero
-                l?5
-                (divides.divides l?5 p (S.S O.O))
+                (divides.divides cts.zero p (S.S O.O))
                 (divp:(cts.Term
-                         l?5
-                         (divides.divides l?5 p (S.S O.O))) =>
+                         cts.zero
+                         (divides.divides cts.zero p (S.S O.O))) =>
                  absurd.absurd
-                   cts.zero
-                   cts.zero
                    (le.le p (S.S O.O))
                    (divides_to_le.divides_to_le
-                      l?5
+                      cts.zero
                       p
                       (S.S O.O)
                       (lt_O_S.lt_O_S O.O)
@@ -115,159 +95,130 @@ def prime_to_not_divides_fact :  (l?137 : cts.Sort) -> (l?5 : cts.Sort) ->
                    (lt_to_not_le.lt_to_not_le
                       (S.S O.O)
                       p
-                      (prime_to_lt_SO.prime_to_lt_SO
-                         l?137
-                         p
-                         primep)))))))
+                      (prime_to_lt_SO.prime_to_lt_SO p primep)))))))
     (n1:(cts.Term cts.zero nat.nat) =>
      sym_eq_fact.sym_eq_fact
-       l?5
+       cts.zero
        (S.S n1)
        (y:(cts.Term cts.zero nat.nat) =>
         cts.prod
-          l?5
-          l?5
-          l?5
+          cts.zero
+          cts.zero
+          cts.zero
           cts.I
           (cts.prod
              cts.zero
-             l?5
-             l?5
+             cts.zero
+             cts.zero
              cts.I
              (lt.lt n1 p)
-             (x =>
-              Not.Not
-                l?5
-                (divides.divides l?5 p (fact.fact n1))))
+             (x => Not.Not (divides.divides cts.zero p (fact.fact n1))))
           (x =>
            cts.prod
              cts.zero
-             l?5
-             l?5
+             cts.zero
+             cts.zero
              cts.I
              (lt.lt (S.S n1) p)
-             (x0 =>
-              Not.Not
-                l?5
-                (divides.divides l?5 p y))))
+             (x0 => Not.Not (divides.divides cts.zero p y))))
        (sym_eq_filter_nat_type_S.sym_eq_filter_nat_type_S
-          l?5
+          cts.zero
           cts.zero
           nat.nat
           fact_body.fact_body
           n1
           (y:(cts.Term cts.zero nat.nat) =>
            cts.prod
-             l?5
-             l?5
-             l?5
+             cts.zero
+             cts.zero
+             cts.zero
              cts.I
              (cts.prod
                 cts.zero
-                l?5
-                l?5
+                cts.zero
+                cts.zero
                 cts.I
                 (lt.lt n1 p)
                 (x =>
-                 Not.Not
-                   l?5
-                   (divides.divides l?5 p (fact.fact n1))))
+                 Not.Not (divides.divides cts.zero p (fact.fact n1))))
              (x =>
               cts.prod
                 cts.zero
-                l?5
-                l?5
+                cts.zero
+                cts.zero
                 cts.I
                 (lt.lt (S.S n1) p)
-                (x0 =>
-                 Not.Not
-                   l?5
-                   (divides.divides l?5 p y))))
+                (x0 => Not.Not (divides.divides cts.zero p y))))
           (sym_eq_fact_body_S.sym_eq_fact_body_S
-             l?5
+             cts.zero
              n1
              (y:(cts.Term cts.zero nat.nat) =>
               cts.prod
-                l?5
-                l?5
-                l?5
+                cts.zero
+                cts.zero
+                cts.zero
                 cts.I
                 (cts.prod
                    cts.zero
-                   l?5
-                   l?5
+                   cts.zero
+                   cts.zero
                    cts.I
                    (lt.lt n1 p)
                    (x =>
                     Not.Not
-                      l?5
-                      (divides.divides l?5 p (fact.fact n1))))
+                      (divides.divides cts.zero p (fact.fact n1))))
                 (x =>
                  cts.prod
                    cts.zero
-                   l?5
-                   l?5
+                   cts.zero
+                   cts.zero
                    cts.I
                    (lt.lt (S.S n1) p)
-                   (x0 =>
-                    Not.Not
-                      l?5
-                      (divides.divides l?5 p y))))
+                   (x0 => Not.Not (divides.divides cts.zero p y))))
              (Hind:(cts.Term
-                      l?5
+                      cts.zero
                       (cts.prod
                          cts.zero
-                         l?5
-                         l?5
+                         cts.zero
+                         cts.zero
                          cts.I
                          (lt.lt n1 p)
                          (x =>
                           Not.Not
-                            l?5
                             (divides.divides
-                               l?5
+                               cts.zero
                                p
                                (fact.fact n1))))) =>
               ltn1:(cts.Term cts.zero (lt.lt (S.S n1) p)) =>
               nmk.nmk
-                cts.zero
-                l?5
                 (divides.divides
-                   l?5
+                   cts.zero
                    p
                    (times.times (fact.fact n1) (S.S n1)))
                 (Hdiv:(cts.Term
-                         l?5
+                         cts.zero
                          (divides.divides
-                            l?5
+                            cts.zero
                             p
                             (times.times (fact.fact n1) (S.S n1)))) =>
                  match_Or_prop.match_Or_prop
-                   cts.zero
-                   l?5
-                   cts.zero
-                   cts.zero
-                   (divides.divides l?5 p (fact.fact n1))
+                   (divides.divides cts.zero p (fact.fact n1))
                    (divides.divides cts.zero p (S.S n1))
-                   (False.False cts.zero)
+                   False.False
                    (Hdiv0:(cts.Term
-                             l?5
+                             cts.zero
                              (divides.divides
-                                l?5
+                                cts.zero
                                 p
                                 (fact.fact n1))) =>
                     absurd.absurd
-                      l?5
-                      cts.zero
-                      (divides.divides l?5 p (fact.fact n1))
+                      (divides.divides cts.zero p (fact.fact n1))
                       Hdiv0
                       (Hind (lt_to_le.lt_to_le (S.S n1) p ltn1)))
                    (Hdiv0:(cts.Term
                              cts.zero
                              (divides.divides cts.zero p (S.S n1))) =>
                     absurd.absurd
-                      cts.zero
-                      cts.zero
                       (le.le p (S.S n1))
                       (divides_to_le.divides_to_le
                          cts.zero
@@ -277,10 +228,6 @@ def prime_to_not_divides_fact :  (l?137 : cts.Sort) -> (l?5 : cts.Sort) ->
                          Hdiv0)
                       (lt_to_not_le.lt_to_not_le (S.S n1) p ltn1))
                    (divides_times_to_divides.divides_times_to_divides
-                      l?137
-                      l?5
-                      cts.zero
-                      l?5
                       cts.zero
                       p
                       (fact.fact n1)

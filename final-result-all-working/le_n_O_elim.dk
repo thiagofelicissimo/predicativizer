@@ -82,7 +82,6 @@ def le_n_O_elim :  (l?8 : cts.Sort) ->
      abs:(cts.Term cts.zero (le.le (S.S a) O.O)) =>
      falsity.falsity
        (cts.succ l?8)
-       cts.zero
        (cts.prod
           (cts.succ l?8)
           l?8
@@ -103,11 +102,6 @@ def le_n_O_elim :  (l?8 : cts.Sort) ->
              cts.I
              (x O.O)
              (x0 => x (S.S a))))
-       (absurd.absurd
-          cts.zero
-          cts.zero
-          (le.le (S.S a) O.O)
-          abs
-          (not_le_Sn_O.not_le_Sn_O a)))
+       (absurd.absurd (le.le (S.S a) O.O) abs (not_le_Sn_O.not_le_Sn_O a)))
     n.
 

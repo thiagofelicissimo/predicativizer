@@ -1,64 +1,61 @@
-def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.Sort) ->
+def eq_minus_gcd_aux :  (l?485 : cts.Sort) ->
   cts.Term
-    l?0
+    cts.zero
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            cts.prod
              cts.zero
-             l?0
-             l?0
+             cts.zero
+             cts.zero
              cts.I
              nat.nat
              (x1 =>
               cts.prod
                 cts.zero
-                l?0
-                l?0
+                cts.zero
+                cts.zero
                 cts.I
                 (lt.lt O.O x1)
                 (x2 =>
                  cts.prod
                    cts.zero
-                   l?0
-                   l?0
+                   cts.zero
+                   cts.zero
                    cts.I
                    (le.le x1 x0)
                    (x3 =>
                     cts.prod
                       cts.zero
-                      l?0
-                      l?0
+                      cts.zero
+                      cts.zero
                       cts.I
                       (le.le x1 x)
                       (x4 =>
                        ex.ex
                          cts.zero
-                         l?598
-                         l?0
+                         l?485
+                         cts.zero
                          nat.nat
                          (a:(cts.Term cts.zero nat.nat) =>
                           ex.ex
                             cts.zero
-                            l?601
-                            l?598
+                            cts.zero
+                            l?485
                             nat.nat
                             (b:(cts.Term cts.zero nat.nat) =>
                              Or.Or
-                               cts.zero
-                               cts.zero
-                               l?601
                                (eq.eq
                                   cts.zero
                                   nat.nat
@@ -69,62 +66,59 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                                   nat.nat
                                   (minus.minus (times.times b x0) (times.times a x1))
                                   (gcd_aux.gcd_aux x x0 x1)))))))))))
-  := l?0 => l?598 => l?601 =>
+  := l?485 =>
   p:(cts.Term cts.zero nat.nat) =>
   nat_ind.nat_ind
-    l?0
+    cts.zero
     (_x_365:(cts.Term cts.zero nat.nat) =>
      cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            cts.prod
              cts.zero
-             l?0
-             l?0
+             cts.zero
+             cts.zero
              cts.I
              (lt.lt O.O x0)
              (x1 =>
               cts.prod
                 cts.zero
-                l?0
-                l?0
+                cts.zero
+                cts.zero
                 cts.I
                 (le.le x0 x)
                 (x2 =>
                  cts.prod
                    cts.zero
-                   l?0
-                   l?0
+                   cts.zero
+                   cts.zero
                    cts.I
                    (le.le x0 _x_365)
                    (x3 =>
                     ex.ex
                       cts.zero
-                      l?598
-                      l?0
+                      l?485
+                      cts.zero
                       nat.nat
                       (a:(cts.Term cts.zero nat.nat) =>
                        ex.ex
                          cts.zero
-                         l?601
-                         l?598
+                         cts.zero
+                         l?485
                          nat.nat
                          (b:(cts.Term cts.zero nat.nat) =>
                           Or.Or
-                            cts.zero
-                            cts.zero
-                            l?601
                             (eq.eq
                                cts.zero
                                nat.nat
@@ -141,24 +135,20 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
      lenm:(cts.Term cts.zero (le.le n m)) =>
      lenO:(cts.Term cts.zero (le.le n O.O)) =>
      falsity.falsity
-       l?0
        cts.zero
        (ex.ex
           cts.zero
-          l?598
-          l?0
+          l?485
+          cts.zero
           nat.nat
           (a:(cts.Term cts.zero nat.nat) =>
            ex.ex
              cts.zero
-             l?601
-             l?598
+             cts.zero
+             l?485
              nat.nat
              (b:(cts.Term cts.zero nat.nat) =>
               Or.Or
-                cts.zero
-                cts.zero
-                l?601
                 (eq.eq
                    cts.zero
                    nat.nat
@@ -169,66 +159,58 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                    nat.nat
                    (minus.minus (times.times b m) (times.times a n))
                    (gcd_aux.gcd_aux O.O m n)))))
-       (absurd.absurd
-          cts.zero
-          cts.zero
-          (lt.lt O.O n)
-          posn
-          (le_to_not_lt.le_to_not_lt n O.O lenO)))
+       (absurd.absurd (lt.lt O.O n) posn (le_to_not_lt.le_to_not_lt n O.O lenO)))
     (q:(cts.Term cts.zero nat.nat) =>
      Hind:(cts.Term
-             l?0
+             cts.zero
              (cts.prod
                 cts.zero
-                l?0
-                l?0
+                cts.zero
+                cts.zero
                 cts.I
                 nat.nat
                 (x =>
                  cts.prod
                    cts.zero
-                   l?0
-                   l?0
+                   cts.zero
+                   cts.zero
                    cts.I
                    nat.nat
                    (x0 =>
                     cts.prod
                       cts.zero
-                      l?0
-                      l?0
+                      cts.zero
+                      cts.zero
                       cts.I
                       (lt.lt O.O x0)
                       (x1 =>
                        cts.prod
                          cts.zero
-                         l?0
-                         l?0
+                         cts.zero
+                         cts.zero
                          cts.I
                          (le.le x0 x)
                          (x2 =>
                           cts.prod
                             cts.zero
-                            l?0
-                            l?0
+                            cts.zero
+                            cts.zero
                             cts.I
                             (le.le x0 q)
                             (x3 =>
                              ex.ex
                                cts.zero
-                               l?598
-                               l?0
+                               l?485
+                               cts.zero
                                nat.nat
                                (a:(cts.Term cts.zero nat.nat) =>
                                 ex.ex
                                   cts.zero
-                                  l?601
-                                  l?598
+                                  cts.zero
+                                  l?485
                                   nat.nat
                                   (b:(cts.Term cts.zero nat.nat) =>
                                    Or.Or
-                                     cts.zero
-                                     cts.zero
-                                     l?601
                                      (eq.eq
                                         cts.zero
                                         nat.nat
@@ -249,28 +231,21 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
      lenm:(cts.Term cts.zero (le.le n m)) =>
      lenS:(cts.Term cts.zero (le.le n (S.S q))) =>
      match_Or_prop.match_Or_prop
-       l?0
-       cts.zero
-       cts.zero
-       cts.zero
        (divides.divides cts.zero n m)
-       (Not.Not cts.zero (divides.divides cts.zero n m))
+       (Not.Not (divides.divides cts.zero n m))
        (ex.ex
           cts.zero
-          l?598
-          l?0
+          l?485
+          cts.zero
           nat.nat
           (a:(cts.Term cts.zero nat.nat) =>
            ex.ex
              cts.zero
-             l?601
-             l?598
+             cts.zero
+             l?485
              nat.nat
              (b:(cts.Term cts.zero nat.nat) =>
               Or.Or
-                cts.zero
-                cts.zero
-                l?601
                 (eq.eq
                    cts.zero
                    nat.nat
@@ -285,27 +260,24 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                  cts.zero
                  (divides.divides cts.zero n m)) =>
         eq_ind_r.eq_ind_r
-          l?0
+          cts.zero
           cts.zero
           nat.nat
           n
           (x:(cts.Term cts.zero nat.nat) =>
            ex.ex
              cts.zero
-             l?598
-             l?0
+             l?485
+             cts.zero
              nat.nat
              (a:(cts.Term cts.zero nat.nat) =>
               ex.ex
                 cts.zero
-                l?601
-                l?598
+                cts.zero
+                l?485
                 nat.nat
                 (b:(cts.Term cts.zero nat.nat) =>
                  Or.Or
-                   cts.zero
-                   cts.zero
-                   l?601
                    (eq.eq
                       cts.zero
                       nat.nat
@@ -318,20 +290,17 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                       x))))
           (ex_intro.ex_intro
              cts.zero
-             l?598
-             l?0
+             l?485
+             cts.zero
              nat.nat
              (x:(cts.Term cts.zero nat.nat) =>
               ex.ex
                 cts.zero
-                l?601
-                l?598
+                cts.zero
+                l?485
                 nat.nat
                 (b:(cts.Term cts.zero nat.nat) =>
                  Or.Or
-                   cts.zero
-                   cts.zero
-                   l?601
                    (eq.eq
                       cts.zero
                       nat.nat
@@ -345,14 +314,11 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
              (S.S O.O)
              (ex_intro.ex_intro
                 cts.zero
-                l?601
-                l?598
+                cts.zero
+                l?485
                 nat.nat
                 (x:(cts.Term cts.zero nat.nat) =>
                  Or.Or
-                   cts.zero
-                   cts.zero
-                   l?601
                    (eq.eq
                       cts.zero
                       nat.nat
@@ -365,9 +331,6 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                       n))
                 O.O
                 (or_introl.or_introl
-                   cts.zero
-                   cts.zero
-                   l?601
                    (eq.eq
                       cts.zero
                       nat.nat
@@ -469,41 +432,29 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                       (times.times (S.S O.O) n)
                       (commutative_times.commutative_times (S.S O.O) n)))))
           (gcd_aux.gcd_aux (S.S q) m n)
-          (divides_to_gcd_aux.divides_to_gcd_aux
-             cts.zero
-             (S.S q)
-             m
-             n
-             (lt_O_S.lt_O_S q)
-             posn
-             divnm))
+          (divides_to_gcd_aux.divides_to_gcd_aux (S.S q) m n (lt_O_S.lt_O_S q) posn divnm))
        (ndivnm:(cts.Term
                   cts.zero
-                  (Not.Not
-                     cts.zero
-                     (divides.divides cts.zero n m))) =>
+                  (Not.Not (divides.divides cts.zero n m))) =>
         eq_ind_r.eq_ind_r
-          l?0
+          cts.zero
           cts.zero
           nat.nat
           (gcd_aux.gcd_aux q n (mod.mod m n))
           (x:(cts.Term cts.zero nat.nat) =>
            ex.ex
              cts.zero
-             l?598
-             l?0
+             l?485
+             cts.zero
              nat.nat
              (a:(cts.Term cts.zero nat.nat) =>
               ex.ex
                 cts.zero
-                l?601
-                l?598
+                cts.zero
+                l?485
                 nat.nat
                 (b:(cts.Term cts.zero nat.nat) =>
                  Or.Or
-                   cts.zero
-                   cts.zero
-                   l?601
                    (eq.eq
                       cts.zero
                       nat.nat
@@ -515,22 +466,19 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                       (minus.minus (times.times b m) (times.times a n))
                       x))))
           (match_ex_prop.match_ex_prop
-             l?0
              cts.zero
-             l?598
-             l?0
+             cts.zero
+             l?485
+             cts.zero
              nat.nat
              (a:(cts.Term cts.zero nat.nat) =>
               ex.ex
                 cts.zero
-                l?601
-                l?598
+                cts.zero
+                l?485
                 nat.nat
                 (b:(cts.Term cts.zero nat.nat) =>
                  Or.Or
-                   cts.zero
-                   cts.zero
-                   l?601
                    (eq.eq
                       cts.zero
                       nat.nat
@@ -543,20 +491,17 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                       (gcd_aux.gcd_aux q n (mod.mod m n)))))
              (ex.ex
                 cts.zero
-                l?598
-                l?0
+                l?485
+                cts.zero
                 nat.nat
                 (a:(cts.Term cts.zero nat.nat) =>
                  ex.ex
                    cts.zero
-                   l?601
-                   l?598
+                   cts.zero
+                   l?485
                    nat.nat
                    (b:(cts.Term cts.zero nat.nat) =>
                     Or.Or
-                      cts.zero
-                      cts.zero
-                      l?601
                       (eq.eq
                          cts.zero
                          nat.nat
@@ -569,17 +514,14 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                          (gcd_aux.gcd_aux q n (mod.mod m n))))))
              (a:(cts.Term cts.zero nat.nat) =>
               _clearme:(cts.Term
-                          l?598
+                          l?485
                           (ex.ex
                              cts.zero
-                             l?601
-                             l?598
+                             cts.zero
+                             l?485
                              nat.nat
                              (b:(cts.Term cts.zero nat.nat) =>
                               Or.Or
-                                cts.zero
-                                cts.zero
-                                l?601
                                 (eq.eq
                                    cts.zero
                                    nat.nat
@@ -595,16 +537,13 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                                       (times.times a (mod.mod m n)))
                                    (gcd_aux.gcd_aux q n (mod.mod m n)))))) =>
               match_ex_prop.match_ex_prop
-                l?0
                 cts.zero
-                l?601
-                l?598
+                cts.zero
+                cts.zero
+                l?485
                 nat.nat
                 (b:(cts.Term cts.zero nat.nat) =>
                  Or.Or
-                   cts.zero
-                   cts.zero
-                   l?601
                    (eq.eq
                       cts.zero
                       nat.nat
@@ -617,20 +556,17 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                       (gcd_aux.gcd_aux q n (mod.mod m n))))
                 (ex.ex
                    cts.zero
-                   l?598
-                   l?0
+                   l?485
+                   cts.zero
                    nat.nat
                    (a0:(cts.Term cts.zero nat.nat) =>
                     ex.ex
                       cts.zero
-                      l?601
-                      l?598
+                      cts.zero
+                      l?485
                       nat.nat
                       (b:(cts.Term cts.zero nat.nat) =>
                        Or.Or
-                         cts.zero
-                         cts.zero
-                         l?601
                          (eq.eq
                             cts.zero
                             nat.nat
@@ -643,11 +579,8 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                             (gcd_aux.gcd_aux q n (mod.mod m n))))))
                 (b:(cts.Term cts.zero nat.nat) =>
                  _clearme0:(cts.Term
-                              l?601
+                              cts.zero
                               (Or.Or
-                                 cts.zero
-                                 cts.zero
-                                 l?601
                                  (eq.eq
                                     cts.zero
                                     nat.nat
@@ -663,10 +596,6 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                                        (times.times a (mod.mod m n)))
                                     (gcd_aux.gcd_aux q n (mod.mod m n))))) =>
                  match_Or_prop.match_Or_prop
-                   l?0
-                   cts.zero
-                   cts.zero
-                   l?601
                    (eq.eq
                       cts.zero
                       nat.nat
@@ -679,20 +608,17 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                       (gcd_aux.gcd_aux q n (mod.mod m n)))
                    (ex.ex
                       cts.zero
-                      l?598
-                      l?0
+                      l?485
+                      cts.zero
                       nat.nat
                       (a0:(cts.Term cts.zero nat.nat) =>
                        ex.ex
                          cts.zero
-                         l?601
-                         l?598
+                         cts.zero
+                         l?485
                          nat.nat
                          (b0:(cts.Term cts.zero nat.nat) =>
                           Or.Or
-                            cts.zero
-                            cts.zero
-                            l?601
                             (eq.eq
                                cts.zero
                                nat.nat
@@ -711,27 +637,24 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                             (minus.minus (times.times a (mod.mod m n)) (times.times b n))
                             (gcd_aux.gcd_aux q n (mod.mod m n)))) =>
                     eq_ind.eq_ind
-                      l?0
+                      cts.zero
                       cts.zero
                       nat.nat
                       (minus.minus (times.times a (mod.mod m n)) (times.times b n))
                       (x_1:(cts.Term cts.zero nat.nat) =>
                        ex.ex
                          cts.zero
-                         l?598
-                         l?0
+                         l?485
+                         cts.zero
                          nat.nat
                          (a0:(cts.Term cts.zero nat.nat) =>
                           ex.ex
                             cts.zero
-                            l?601
-                            l?598
+                            cts.zero
+                            l?485
                             nat.nat
                             (b0:(cts.Term cts.zero nat.nat) =>
                              Or.Or
-                               cts.zero
-                               cts.zero
-                               l?601
                                (eq.eq
                                   cts.zero
                                   nat.nat
@@ -744,20 +667,17 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                                   x_1))))
                       (ex_intro.ex_intro
                          cts.zero
-                         l?598
-                         l?0
+                         l?485
+                         cts.zero
                          nat.nat
                          (x:(cts.Term cts.zero nat.nat) =>
                           ex.ex
                             cts.zero
-                            l?601
-                            l?598
+                            cts.zero
+                            l?485
                             nat.nat
                             (b0:(cts.Term cts.zero nat.nat) =>
                              Or.Or
-                               cts.zero
-                               cts.zero
-                               l?601
                                (eq.eq
                                   cts.zero
                                   nat.nat
@@ -775,14 +695,11 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                          (plus.plus b (times.times a (div.div m n)))
                          (ex_intro.ex_intro
                             cts.zero
-                            l?601
-                            l?598
+                            cts.zero
+                            l?485
                             nat.nat
                             (x:(cts.Term cts.zero nat.nat) =>
                              Or.Or
-                               cts.zero
-                               cts.zero
-                               l?601
                                (eq.eq
                                   cts.zero
                                   nat.nat
@@ -807,9 +724,6 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                                      (times.times b n))))
                             a
                             (or_intror.or_intror
-                               cts.zero
-                               cts.zero
-                               l?601
                                (eq.eq
                                   cts.zero
                                   nat.nat
@@ -1431,13 +1345,9 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                                                                     n
                                                                     b))
                                                                     (let_clause_1544.let_clause_1544
-                                                                    l?0
-                                                                    l?598
-                                                                    l?601
                                                                     cts.zero
-                                                                    l?598
-                                                                    l?601
-                                                                    l?601
+                                                                    l?485
+                                                                    l?485
                                                                     p
                                                                     q
                                                                     Hind
@@ -1468,13 +1378,9 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                                                                     n
                                                                     b))
                                                                     (let_clause_1544.let_clause_1544
-                                                                    l?0
-                                                                    l?598
-                                                                    l?601
                                                                     cts.zero
-                                                                    l?598
-                                                                    l?601
-                                                                    l?601
+                                                                    l?485
+                                                                    l?485
                                                                     p
                                                                     q
                                                                     Hind
@@ -1704,27 +1610,24 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                             (minus.minus (times.times b n) (times.times a (mod.mod m n)))
                             (gcd_aux.gcd_aux q n (mod.mod m n)))) =>
                     eq_ind.eq_ind
-                      l?0
+                      cts.zero
                       cts.zero
                       nat.nat
                       (minus.minus (times.times b n) (times.times a (mod.mod m n)))
                       (x_1:(cts.Term cts.zero nat.nat) =>
                        ex.ex
                          cts.zero
-                         l?598
-                         l?0
+                         l?485
+                         cts.zero
                          nat.nat
                          (a0:(cts.Term cts.zero nat.nat) =>
                           ex.ex
                             cts.zero
-                            l?601
-                            l?598
+                            cts.zero
+                            l?485
                             nat.nat
                             (b0:(cts.Term cts.zero nat.nat) =>
                              Or.Or
-                               cts.zero
-                               cts.zero
-                               l?601
                                (eq.eq
                                   cts.zero
                                   nat.nat
@@ -1737,20 +1640,17 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                                   x_1))))
                       (ex_intro.ex_intro
                          cts.zero
-                         l?598
-                         l?0
+                         l?485
+                         cts.zero
                          nat.nat
                          (x:(cts.Term cts.zero nat.nat) =>
                           ex.ex
                             cts.zero
-                            l?601
-                            l?598
+                            cts.zero
+                            l?485
                             nat.nat
                             (b0:(cts.Term cts.zero nat.nat) =>
                              Or.Or
-                               cts.zero
-                               cts.zero
-                               l?601
                                (eq.eq
                                   cts.zero
                                   nat.nat
@@ -1768,14 +1668,11 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                          (plus.plus b (times.times a (div.div m n)))
                          (ex_intro.ex_intro
                             cts.zero
-                            l?601
-                            l?598
+                            cts.zero
+                            l?485
                             nat.nat
                             (x:(cts.Term cts.zero nat.nat) =>
                              Or.Or
-                               cts.zero
-                               cts.zero
-                               l?601
                                (eq.eq
                                   cts.zero
                                   nat.nat
@@ -1800,9 +1697,6 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                                      (times.times a (mod.mod m n)))))
                             a
                             (or_introl.or_introl
-                               cts.zero
-                               cts.zero
-                               l?601
                                (eq.eq
                                   cts.zero
                                   nat.nat
@@ -2342,13 +2236,9 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                                                                     m
                                                                     n)))
                                                                     (let_clause_15441.let_clause_15441
-                                                                    l?0
-                                                                    l?598
-                                                                    l?601
                                                                     cts.zero
-                                                                    l?598
-                                                                    l?601
-                                                                    l?601
+                                                                    l?485
+                                                                    l?485
                                                                     p
                                                                     q
                                                                     Hind
@@ -2379,13 +2269,9 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                                                                     m
                                                                     n)))
                                                                     (let_clause_15441.let_clause_15441
-                                                                    l?0
-                                                                    l?598
-                                                                    l?601
                                                                     cts.zero
-                                                                    l?598
-                                                                    l?601
-                                                                    l?601
+                                                                    l?485
+                                                                    l?485
                                                                     p
                                                                     q
                                                                     Hind
@@ -2561,10 +2447,6 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                 n
                 (mod.mod m n)
                 (match_Or_prop.match_Or_prop
-                   cts.zero
-                   cts.zero
-                   cts.zero
-                   cts.zero
                    (lt.lt O.O (mod.mod m n))
                    (eq.eq cts.zero nat.nat O.O (mod.mod m n))
                    (lt.lt O.O (mod.mod m n))
@@ -2574,11 +2456,8 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                             (eq.eq cts.zero nat.nat O.O (mod.mod m n))) =>
                     falsity.falsity
                       cts.zero
-                      cts.zero
                       (lt.lt O.O (mod.mod m n))
                       (absurd.absurd
-                         cts.zero
-                         cts.zero
                          (divides.divides cts.zero n m)
                          (mod_O_to_divides.mod_O_to_divides
                             cts.zero
@@ -2597,7 +2476,6 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                                modO))
                          ndivnm))
                    (le_to_or_lt_eq.le_to_or_lt_eq
-                      cts.zero
                       O.O
                       (mod.mod m n)
                       (le_O_n.le_O_n (mod.mod m n))))
@@ -2612,17 +2490,7 @@ def eq_minus_gcd_aux :  (l?0 : cts.Sort) -> (l?598 : cts.Sort) -> (l?601 : cts.S
                       (lt_mod_m_m.lt_mod_m_m m n posn)
                       lenS))))
           (gcd_aux.gcd_aux (S.S q) m n)
-          (not_divides_to_gcd_aux.not_divides_to_gcd_aux
-             cts.zero
-             q
-             m
-             n
-             posn
-             ndivnm))
-       (decidable_divides.decidable_divides
-          cts.zero
-          cts.zero
-          n
-          m))
+          (not_divides_to_gcd_aux.not_divides_to_gcd_aux q m n posn ndivnm))
+       (decidable_divides.decidable_divides n m))
     p.
 

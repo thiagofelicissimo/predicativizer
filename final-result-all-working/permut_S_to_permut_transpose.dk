@@ -1,10 +1,10 @@
-def permut_S_to_permut_transpose :  (l?141 : cts.Sort) -> (l?11 : cts.Sort) ->
+def permut_S_to_permut_transpose : 
   cts.Term
-    (cts.max l?141 l?11)
+    cts.zero
     (cts.prod
        cts.zero
-       (cts.max l?141 l?11)
-       (cts.max l?141 l?11)
+       cts.zero
+       cts.zero
        cts.I
        (cts.prod
           cts.zero
@@ -16,24 +16,23 @@ def permut_S_to_permut_transpose :  (l?141 : cts.Sort) -> (l?11 : cts.Sort) ->
        (x =>
         cts.prod
           cts.zero
-          (cts.max l?141 l?11)
-          (cts.max l?141 l?11)
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            cts.prod
-             l?141
-             l?11
-             (cts.max l?141 l?11)
+             cts.zero
+             cts.zero
+             cts.zero
              cts.I
-             (permut.permut l?141 x (S.S x0))
+             (permut.permut x (S.S x0))
              (x1 =>
               permut.permut
-                l?11
                 (n:(cts.Term cts.zero nat.nat) =>
                  transpose.transpose (x (S.S x0)) (S.S x0) (x n))
                 x0))))
-  := l?141 => l?11 =>
+  :=
   f:(cts.Term
        cts.zero
        (cts.prod
@@ -44,14 +43,8 @@ def permut_S_to_permut_transpose :  (l?141 : cts.Sort) -> (l?11 : cts.Sort) ->
           nat.nat
           (x => nat.nat))) =>
   m:(cts.Term cts.zero nat.nat) =>
-  _clearme:(cts.Term
-              l?141
-              (permut.permut l?141 f (S.S m))) =>
+  _clearme:(cts.Term cts.zero (permut.permut f (S.S m))) =>
   match_And_prop.match_And_prop
-    l?11
-    cts.zero
-    cts.zero
-    l?141
     (cts.prod
        cts.zero
        cts.zero
@@ -68,7 +61,6 @@ def permut_S_to_permut_transpose :  (l?141 : cts.Sort) -> (l?11 : cts.Sort) ->
           (x0 => le.le (f x) (S.S m))))
     (injn.injn f (S.S m))
     (permut.permut
-       l?11
        (n:(cts.Term cts.zero nat.nat) =>
         transpose.transpose (f (S.S m)) (S.S m) (f n))
        m)
@@ -90,9 +82,6 @@ def permut_S_to_permut_transpose :  (l?141 : cts.Sort) -> (l?11 : cts.Sort) ->
                      (x0 => le.le (f x) (S.S m))))) =>
      permf2:(cts.Term cts.zero (injn.injn f (S.S m))) =>
      conj.conj
-       cts.zero
-       cts.zero
-       l?11
        (cts.prod
           cts.zero
           cts.zero
@@ -145,10 +134,6 @@ def permut_S_to_permut_transpose :  (l?141 : cts.Sort) -> (l?11 : cts.Sort) ->
                 (eqb.eqb (f i) (S.S m)))
              (y:(cts.Term cts.zero nat.nat) => le.le y m)
              (match_Or_prop.match_Or_prop
-                cts.zero
-                cts.zero
-                cts.zero
-                cts.zero
                 (lt.lt (f i) (S.S m))
                 (eq.eq cts.zero nat.nat (f i) (S.S m))
                 (le.le
@@ -212,10 +197,6 @@ def permut_S_to_permut_transpose :  (l?141 : cts.Sort) -> (l?11 : cts.Sort) ->
                       (f i)
                       (y:(cts.Term cts.zero nat.nat) => le.le y m)
                       (match_Or_prop.match_Or_prop
-                         cts.zero
-                         cts.zero
-                         cts.zero
-                         cts.zero
                          (lt.lt (f (S.S m)) (S.S m))
                          (eq.eq
                             cts.zero
@@ -236,11 +217,8 @@ def permut_S_to_permut_transpose :  (l?141 : cts.Sort) -> (l?11 : cts.Sort) ->
                                   (S.S m))) =>
                           falsity.falsity
                             cts.zero
-                            cts.zero
                             (le.le (f (S.S m)) m)
                             (absurd.absurd
-                               cts.zero
-                               cts.zero
                                (eq.eq
                                   cts.zero
                                   nat.nat
@@ -316,8 +294,6 @@ def permut_S_to_permut_transpose :  (l?141 : cts.Sort) -> (l?11 : cts.Sort) ->
                                      (S.S m)
                                      Hfi))
                                (not_to_not.not_to_not
-                                  cts.zero
-                                  cts.zero
                                   (eq.eq
                                      cts.zero
                                      nat.nat
@@ -363,31 +339,22 @@ def permut_S_to_permut_transpose :  (l?141 : cts.Sort) -> (l?11 : cts.Sort) ->
                                         auto))
                                   (lt_to_not_le.lt_to_not_le m (S.S m) (le_n.le_n (S.S m))))))
                          (le_to_or_lt_eq.le_to_or_lt_eq
-                            cts.zero
                             (f (S.S m))
                             (S.S m)
                             (permf1 (S.S m) (le_n.le_n (S.S m))))))
                    (eqb.eqb (f i) (S.S m))
                    (eq_to_eqb_true.eq_to_eqb_true (f i) (S.S m) Hfi))
-                (le_to_or_lt_eq.le_to_or_lt_eq
-                   cts.zero
-                   (f i)
-                   (S.S m)
-                   (permf1 i (le_S.le_S i m leim)))))
+                (le_to_or_lt_eq.le_to_or_lt_eq (f i) (S.S m) (permf1 i (le_S.le_S i m leim)))))
           (eqb.eqb (f i) (f (S.S m)))
           (not_eq_to_eqb_false.not_eq_to_eqb_false
              (f i)
              (f (S.S m))
              (nmk.nmk
-                cts.zero
-                cts.zero
                 (eq.eq cts.zero nat.nat (f i) (f (S.S m)))
                 (H:(cts.Term
                       cts.zero
                       (eq.eq cts.zero nat.nat (f i) (f (S.S m)))) =>
                  absurd.absurd
-                   cts.zero
-                   cts.zero
                    (eq.eq cts.zero nat.nat i (S.S m))
                    (permf2 i (S.S m) (le_S.le_S i m leim) (le_n.le_n (S.S m)) H)
                    (lt_to_not_eq.lt_to_not_eq i (S.S m) (le_S_S.le_S_S i m leim))))))

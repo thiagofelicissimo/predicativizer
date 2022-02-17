@@ -1,85 +1,67 @@
-def gcd_O_to_eq_O :  (l?0 : cts.Sort) ->
+def gcd_O_to_eq_O : 
   cts.Term
-    l?0
+    cts.zero
     (cts.prod
        cts.zero
-       l?0
-       l?0
+       cts.zero
+       cts.zero
        cts.I
        nat.nat
        (x =>
         cts.prod
           cts.zero
-          l?0
-          l?0
+          cts.zero
+          cts.zero
           cts.I
           nat.nat
           (x0 =>
            cts.prod
              cts.zero
-             l?0
-             l?0
+             cts.zero
+             cts.zero
              cts.I
              (eq.eq cts.zero nat.nat (gcd.gcd x x0) O.O)
              (x1 =>
               And.And
-                cts.zero
-                cts.zero
-                l?0
                 (eq.eq cts.zero nat.nat x O.O)
                 (eq.eq cts.zero nat.nat x0 O.O)))))
-  := l?0 =>
+  :=
   m:(cts.Term cts.zero nat.nat) =>
   n:(cts.Term cts.zero nat.nat) =>
   H:(cts.Term cts.zero (eq.eq cts.zero nat.nat (gcd.gcd m n) O.O)) =>
   match_And_prop.match_And_prop
-    l?0
-    cts.zero
-    cts.zero
-    cts.zero
     (divides.divides cts.zero O.O n)
     (divides.divides cts.zero O.O m)
     (And.And
-       cts.zero
-       cts.zero
-       l?0
        (eq.eq cts.zero nat.nat m O.O)
        (eq.eq cts.zero nat.nat n O.O))
     (_clearme:(cts.Term cts.zero (divides.divides cts.zero O.O n)) =>
      match_divides_prop.match_divides_prop
-       (cts.max cts.zero l?0)
+       cts.zero
        cts.zero
        O.O
        n
        (cts.prod
           cts.zero
-          l?0
-          (cts.max cts.zero l?0)
+          cts.zero
+          cts.zero
           cts.I
           (divides.divides cts.zero O.O m)
           (x =>
            And.And
-             cts.zero
-             cts.zero
-             l?0
              (eq.eq cts.zero nat.nat m O.O)
              (eq.eq cts.zero nat.nat n O.O)))
        (q1:(cts.Term cts.zero nat.nat) =>
         H1:(cts.Term
               cts.zero
               (eq.eq cts.zero nat.nat n (times.times O.O q1))) =>
-        _clearme0:(cts.Term
-                     cts.zero
-                     (divides.divides cts.zero O.O m)) =>
+        _clearme0:(cts.Term cts.zero (divides.divides cts.zero O.O m)) =>
         match_divides_prop.match_divides_prop
-          l?0
+          cts.zero
           cts.zero
           O.O
           m
           (And.And
-             cts.zero
-             cts.zero
-             l?0
              (eq.eq cts.zero nat.nat m O.O)
              (eq.eq cts.zero nat.nat n O.O))
           (q2:(cts.Term cts.zero nat.nat) =>
@@ -87,9 +69,6 @@ def gcd_O_to_eq_O :  (l?0 : cts.Sort) ->
                  cts.zero
                  (eq.eq cts.zero nat.nat m (times.times O.O q2))) =>
            conj.conj
-             cts.zero
-             cts.zero
-             l?0
              (eq.eq cts.zero nat.nat m O.O)
              (eq.eq cts.zero nat.nat n O.O)
              (rewrite_l.rewrite_l
@@ -228,12 +207,9 @@ def gcd_O_to_eq_O :  (l?0 : cts.Sort) ->
        (gcd.gcd m n)
        (x_1:(cts.Term cts.zero nat.nat) =>
         And.And
-          cts.zero
-          cts.zero
-          cts.zero
           (divides.divides cts.zero x_1 n)
           (divides.divides cts.zero x_1 m))
-       (divides_gcd_nm.divides_gcd_nm cts.zero cts.zero m n)
+       (divides_gcd_nm.divides_gcd_nm m n)
        O.O
        H).
 

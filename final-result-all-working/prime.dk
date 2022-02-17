@@ -1,19 +1,16 @@
-def prime :  (l?4 : cts.Sort) ->
+def prime : 
   cts.Term
-    (cts.succ l?4)
+    (cts.succ cts.zero)
     (cts.prod
        cts.zero
-       (cts.succ l?4)
-       (cts.succ l?4)
+       (cts.succ cts.zero)
+       (cts.succ cts.zero)
        cts.I
        nat.nat
-       (x => cts.univ l?4 (cts.succ l?4) cts.I))
-  := l?4 =>
+       (x => cts.univ cts.zero (cts.succ cts.zero) cts.I))
+  :=
   n:(cts.Term cts.zero nat.nat) =>
   And.And
-    cts.zero
-    cts.zero
-    l?4
     (lt.lt (S.S O.O) n)
     (cts.prod
        cts.zero

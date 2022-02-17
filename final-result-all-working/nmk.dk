@@ -1,18 +1,18 @@
-nmk :  (l?10 : cts.Sort) -> (l?9 : cts.Sort) ->
+nmk : 
   cts.Term
-    (cts.max (cts.succ l?9) (cts.max (cts.max l?9 l?10) l?9))
+    (cts.succ cts.zero)
     (cts.prod
-       (cts.succ l?9)
-       (cts.max (cts.max l?9 l?10) l?9)
-       (cts.max (cts.succ l?9) (cts.max (cts.max l?9 l?10) l?9))
+       (cts.succ cts.zero)
+       cts.zero
+       (cts.succ cts.zero)
        cts.I
-       (cts.univ l?9 (cts.succ l?9) cts.I)
+       (cts.univ cts.zero (cts.succ cts.zero) cts.I)
        (x =>
         cts.prod
-          (cts.max l?9 l?10)
-          l?9
-          (cts.max (cts.max l?9 l?10) l?9)
+          cts.zero
+          cts.zero
+          cts.zero
           cts.I
-          (cts.prod l?9 l?10 (cts.max l?9 l?10) cts.I x (x0 => False.False l?10))
-          (x0 => Not.Not l?9 x))).
+          (cts.prod cts.zero cts.zero cts.zero cts.I x (x0 => False.False))
+          (x0 => Not.Not x))).
 

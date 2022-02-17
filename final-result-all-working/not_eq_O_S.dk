@@ -7,20 +7,18 @@ def not_eq_O_S :
        cts.zero
        cts.I
        nat.nat
-       (x => Not.Not cts.zero (eq.eq cts.zero nat.nat O.O (S.S x))))
+       (x => Not.Not (eq.eq cts.zero nat.nat O.O (S.S x))))
   :=
   n:(cts.Term cts.zero nat.nat) =>
   nmk.nmk
-    cts.zero
-    cts.zero
     (eq.eq cts.zero nat.nat O.O (S.S n))
     (eqOS:(cts.Term cts.zero (eq.eq cts.zero nat.nat O.O (S.S n))) =>
      eq_match_nat_type_O.eq_match_nat_type_O
        cts.zero
        (cts.succ cts.zero)
        (cts.univ cts.zero (cts.succ cts.zero) cts.I)
-       (False.False cts.zero)
-       (p:(cts.Term cts.zero nat.nat) => True.True cts.zero)
+       False.False
+       (p:(cts.Term cts.zero nat.nat) => True.True)
        (y:(cts.Term (cts.succ cts.zero) (cts.univ cts.zero (cts.succ cts.zero) cts.I)) =>
         y)
        (eq_ind_r.eq_ind_r
@@ -28,19 +26,19 @@ def not_eq_O_S :
           cts.zero
           nat.nat
           (S.S n)
-          (x:(cts.Term cts.zero nat.nat) => not_zero.not_zero cts.zero x)
+          (x:(cts.Term cts.zero nat.nat) => not_zero.not_zero x)
           (sym_eq_match_nat_type_S.sym_eq_match_nat_type_S
              cts.zero
              (cts.succ cts.zero)
              (cts.univ cts.zero (cts.succ cts.zero) cts.I)
-             (False.False cts.zero)
-             (p:(cts.Term cts.zero nat.nat) => True.True cts.zero)
+             False.False
+             (p:(cts.Term cts.zero nat.nat) => True.True)
              n
              (y:(cts.Term
                    (cts.succ cts.zero)
                    (cts.univ cts.zero (cts.succ cts.zero) cts.I)) =>
               y)
-             (I.I cts.zero))
+             I.I)
           O.O
           eqOS)).
 
